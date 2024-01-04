@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git на Windows основы его использования</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Git на Windows основы его использования</h1>
+<h3 class="subtitle">
+	<span class="tag">#3</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;пятница, 30 июня 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;10 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;912 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/git/">#Git</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
+</div><p><em>Важно: Для работы с Git необходимо запустить командную строку (cmd) от имени администратора в Windows.</em></p>
+<h2>Кратко основы работы с Git</h2>
+<p>Git - это система контроля версий, которая позволяет отслеживать изменения в файлах. Вот несколько базовых команд:</p>
+<p><strong>git init</strong>: Эта команда инициализирует новый репозиторий Git в текущем каталоге. Это создает новый подкаталог .git, который содержит все необходимые метаданные для нового репозитория.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git init
+</code></pre></div></div>
+<p><strong>git clone</strong>: Если вы хотите скопировать существующий репозиторий, используйте команду git clone. Например: </p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git clone https://github.com/user/repo.git
+</code></pre></div></div>
+<p><strong>git add</strong>: Чтобы добавить файлы в репозиторий, используйте команду git add. Например, чтобы добавить файл с именем example.txt, используйте </p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git add example.txt
+</code></pre></div></div>
+<p><strong>git add .</strong> используется для добавления всех новых и изменённых файлов в текущем каталоге и всех его подкаталогах в область подготовленных к коммиту (staging area) Git. Это означает, что все эти файлы будут учтены в следующем коммите. Команда <strong>git add .</strong> не включает новые файлы, которые указаны в файле <strong>.gitignore.</strong></p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git add .
+</code></pre></div></div>
+<p>Важно отметить, что команда <strong>git add .</strong> не включает в себя удалённые файлы. Если вы удалили файл и хотите, чтобы Git заметил это, вам потребуется использовать команду <strong>git rm</strong>.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git rm
+</code></pre></div></div>
+<p>Команда <strong>git rm</strong> используется для удаления файлов из рабочего каталога и индекса Git. По сути, она делает две вещи:</p>
+<ul>
+<li>
+<p>Удаляет файлы из рабочего каталога (то есть физически удаляет их с диска).</p>
+</li>
+<li>
+<p>Удаляет файлы из индекса Git (также называемого областью подготовленных изменений). Это означает, что они больше не будут отслеживаться Git.</p>
+</li>
+</ul>
+<p>Пример использования:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git rm myfile.txt
+</code></pre></div></div>
+<p>Эта команда удалит myfile.txt из рабочего каталога и из индекса Git. После выполнения этой команды, вам потребуется выполнить коммит, чтобы зафиксировать эти изменения в истории Git.</p>
+<p>Если вы хотите удалить файл только из индекса Git (то есть прекратить отслеживание файла, но оставить его на диске), вы можете использовать команду <strong>git rm --cached</strong>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git rm --cached myfile.txt
+</code></pre></div></div>
+<p><strong>git commit</strong>: Эта команда создает новый "снимок" вашего репозитория с любыми изменениями, которые вы добавили с помощью команды <strong>git add</strong>. 
+Используйте </p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git commit -m "Ваше сообщение о коммите"
+</code></pre></div></div>
+<p><strong>git push</strong>: Чтобы отправить ваши коммиты на удаленный сервер, используйте <strong>git push</strong>. Если вы клонировали репозиторий, Git автоматически устанавливает ссылку на оригинальный репозиторий. Вы можете просто использовать, чтобы отправить ваши изменения на сервер.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git push origin master
+</code></pre></div></div>
+<p><strong>git pull</strong>: Эта команда загружает любые изменения с удаленного сервера и объединяет их с вашей текущей версией. Используйте <strong>git pull</strong> чтобы быть в курсе последних обновлений.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git pull
+</code></pre></div></div>
+<p><strong>git status</strong>: Чтобы увидеть, какие изменения вы сделали, но еще не закоммитили, используйте </p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git status
+</code></pre></div></div>
+<p><strong>git diff</strong>: Эта команда показывает различия между вашими файлами и последним коммитом.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git diff
+</code></pre></div></div>
+<h2>Описание дополнительных опций</h2>
+<p><strong>git config --global core.autocrlf false</strong></p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git config --global core.autocrlf false 
+</code></pre></div></div>
+<p>Команда используется для настройки Git на то, чтобы не изменять символы конца строки при коммитах и при извлечении (чекауте) файлов.</p>
+<p><strong>core.autocrlf</strong> — это настройка Git, которая определяет, как Git будет обрабатывать символы конца строки при записи файлов в репозиторий и при извлечении их обратно в рабочий каталог.</p>
+<p>Если <strong>core.autocrlf</strong> установлен в <strong>true</strong>, Git будет автоматически заменять символы конца строки CRLF (используемые в Windows) на LF (используемые в Unix) при записи файлов в репозиторий, и заменять LF обратно на CRLF при извлечении файлов в рабочий каталог.</p>
+<p>Если <strong>core.autocrlf</strong> установлен в <strong>false</strong>, Git не будет делать никаких автоматических замен. Это может быть полезно, если вы работаете в среде, где смешиваются разные типы операционных систем, или если вы просто хотите оставить символы конца строки "как есть".</p>
+<p>Также есть третий вариант <strong>core.autocrlf input</strong>, который при записи в репозиторий заменяет CRLF на LF, но при извлечении не делает обратной замены.</p>
+<p>Опция <strong>--global</strong> означает, что эта настройка будет применена глобально, то есть для всех репозиториев на вашем компьютере. Если вы хотите применить эту настройку только для одного конкретного репозитория, вы можете использовать опцию <strong>--local</strong> вместо <strong>--global</strong>.</p>
+<p>Команды <strong>git config --global user.name</strong> и <strong>git config --global user.email</strong> используются для установки глобальных настроек имени пользователя и адреса электронной почты для Git. Это имя пользователя и адрес электронной почты будут использоваться в качестве информации о вас при каждом коммите.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="k">global</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="ss">"d00m4ace"</span>
+<span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="c1">--global user.email "d00m4ace79@gmail.com"</span>
+</code></pre></div></div>
+<p>Эти команды устанавливают глобальные настройки Git для вашего имени пользователя как <strong>"d00m4ace"</strong> и для вашего адреса электронной почты как <strong>"d00m4ace79@gmail.com"</strong>. Это значит, что при каждом коммите, Git будет использовать эти данные в качестве информации о коммитере.</p>
+<p>Если вы хотите установить эти настройки только для одного конкретного репозитория, вы можете использовать команды без флага <strong>--global</strong>.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="ss">"d00m4ace"</span>
+<span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">email</span><span class="w"> </span><span class="ss">"d00m4ace79@gmail.com"</span>
+</code></pre></div></div>
+<p>В этом случае, эти настройки будут применены только для репозитория, в котором вы находитесь в данный момент.</p>
+<h2>Кратко резюме комманд</h2>
+<p>Для работы с Git необходимо запустить командную строку (cmd) от имени администратора в Windows.
+Для начала определим пользователья глобально и перенос новых строк отключим авто замену CRLF обратно на LF.
+И также <strong>core.symlinks true</strong> позволяет Git создавать и обрабатывать символические ссылки.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="k">global</span><span class="w"> </span><span class="n">core</span><span class="p">.</span><span class="n">autocrlf</span><span class="w"> </span><span class="k">false</span>
+<span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="k">global</span><span class="w"> </span><span class="n">core</span><span class="p">.</span><span class="n">symlinks</span><span class="w"> </span><span class="k">true</span>
+<span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="k">global</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="ss">"d00m4ace"</span>
+<span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="c1">--global user.email "d00m4ace79@gmail.com"</span>
+</code></pre></div></div>
+<p>Для создания нового репозитория и отправки всего его содержимого в новый уже созданый репозиторий на github:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git init
+git config --local core.symlinks true
+git add .
+git status
+
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/d00m4ace/hex.play.git
+git push -u origin main
+
+git status
+git push
+git pull
+</code></pre></div></div>
+<p>Если вы хотите скопировать существующий репозиторий, используйте команду <strong>git clone</strong>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git clone --config core.symlinks=true https://github.com/d00m4ace/HEXPLAY.git
+</code></pre></div></div>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/ustanovka-git-na-windows/"> <strong>Установка Git на Windows</strong></a>
+<br/><br/>
+
+
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="/posts/osnovy-git-kotorye-ispolzuetsja-dlja-raboty-s-vetkami/"> <strong>Основы Git, которые используется для работы с ветками</strong></a>
+
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git игнорирование определенных файлов и директорий</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Git игнорирование определенных файлов и директорий</h1>
+<h3 class="subtitle">
+	<span class="tag">#9</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;суббота, 1 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;4 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;305 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/git/">#Git</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/dotgitignore/">#.gitignore</a>
+</div><p><strong>.gitignore</strong> это специальный файл, который используется Git'ом для игнорирования определенных файлов и директорий, которые не должны быть включены в репозиторий. В <strong>.gitignore</strong> файле вы указываете шаблоны для файлов и директорий, которые должны быть проигнорированы.</p>
+<p>Вот пример простого <strong>.gitignore</strong> файла:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>#<span class="w"> </span><span class="nv">Ignore</span><span class="w"> </span><span class="nv">all</span><span class="w"> </span>.<span class="nv">txt</span><span class="w"> </span><span class="nv">files</span>
+<span class="o">*</span>.<span class="nv">txt</span>
+
+#<span class="w"> </span><span class="nv">Ignore</span><span class="w"> </span><span class="nv">all</span><span class="w"> </span><span class="nv">files</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">log</span><span class="w"> </span><span class="nv">directory</span>
+<span class="o">/</span><span class="nv">log</span><span class="o">/</span>
+
+#<span class="w"> </span><span class="nv">But</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nv">not</span><span class="w"> </span><span class="nv">ignore</span><span class="w"> </span><span class="nv">log</span>.<span class="nv">txt</span>,<span class="w"> </span><span class="nv">even</span><span class="w"> </span><span class="nv">though</span><span class="w"> </span><span class="nv">you</span><span class="w"> </span><span class="nv">are</span><span class="w"> </span><span class="nv">ignoring</span><span class="w"> </span>.<span class="nv">txt</span><span class="w"> </span><span class="nv">files</span><span class="w"> </span><span class="nv">above</span>
+<span class="o">!/</span><span class="nv">log</span>.<span class="nv">txt</span>
+</code></pre></div></div>
+<p>В этом примере Git будет игнорировать все .txt файлы, все файлы в директории log, но он не будет игнорировать log.txt.</p>
+<p>Это полезно, когда у вас есть файлы или директории, которые создаются в процессе работы вашего проекта (например, временные файлы, логи, кеш, файлы, специфические для среды разработки), которые не должны быть включены в ваш репозиторий.</p>
+<p><strong>.gitignore</strong> файл должен быть размещен в корневой директории вашего репозитория.</p>
+<p>Пример .gitignore</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">Visual</span><span class="w"> </span><span class="n">Studio</span><span class="w"> </span><span class="mi">2015</span><span class="o">/</span><span class="mi">2017</span><span class="w"> </span><span class="n">cache</span><span class="o">/</span><span class="n">options</span><span class="w"> </span><span class="n">directory</span>
+<span class="p">.</span><span class="n">vs</span><span class="o">/</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">Build</span><span class="w"> </span><span class="n">results</span>
+<span class="o">[</span><span class="n">Dd</span><span class="o">]</span><span class="n">ebug</span><span class="o">/</span>
+<span class="o">[</span><span class="n">Rr</span><span class="o">]</span><span class="n">elease</span><span class="o">/</span>
+<span class="o">[</span><span class="n">Xx</span><span class="o">]</span><span class="mi">64</span><span class="o">/</span>
+<span class="o">[</span><span class="n">Xx</span><span class="o">]</span><span class="mi">86</span><span class="o">/</span>
+<span class="o">[</span><span class="n">Bb</span><span class="o">]</span><span class="n">uild</span><span class="o">/</span>
+
+<span class="o">*</span><span class="mf">.7</span><span class="n">z</span>
+
+<span class="o">/</span><span class="k">output</span><span class="o">/</span>
+<span class="err">!</span><span class="n">projects</span><span class="o">/</span><span class="mi">3</span><span class="n">rd</span><span class="o">-</span><span class="n">party</span><span class="o">-</span><span class="n">libs</span><span class="o">/</span><span class="n">raylib</span><span class="o">-</span><span class="mf">4.2.0</span><span class="o">/</span><span class="n">parser</span><span class="o">/</span><span class="k">output</span><span class="o">/</span>
+
+<span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">win32</span><span class="o">-</span><span class="n">client</span><span class="o">/</span><span class="k">output</span><span class="o">/</span>
+<span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">win32</span><span class="o">-</span><span class="n">server</span><span class="o">/</span><span class="k">output</span><span class="o">/</span>
+
+<span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">android</span><span class="o">-</span><span class="n">client</span><span class="o">/</span><span class="n">android</span><span class="p">.</span><span class="n">raylib_game</span><span class="o">/</span>
+<span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">android</span><span class="o">-</span><span class="n">client</span><span class="cm">/*.apk</span>
+</code></pre></div></div>
+<p>В вашем примере:</p>
+<ul>
+<li><strong>.vs/</strong> Git будет игнорировать директорию .vs, которую обычно создает Visual Studio для хранения настроек и файлов кэша.</li>
+<li><strong>[Dd]ebug/, [Rr]elease/, [Xx]64/, [Xx]86/, [Bb]uild/</strong> эти строки игнорируют директории, связанные с процессами сборки и отладки в различных конфигурациях.</li>
+<li><strong>*.7z</strong> эта строка заставляет Git игнорировать все файлы с расширением .7z.</li>
+<li><strong>/output/</strong> эта строка игнорирует директорию output в корневом каталоге репозитория.</li>
+<li><strong>!projects/3rd-party-libs/raylib-4.2.0/parser/output/</strong> оператор <strong>!</strong> в начале строки отменяет игнорирование. Таким образом, даже если директория output игнорируется, директория projects/3rd-party-libs/raylib-4.2.0/parser/output/ будет включена в репозиторий.</li>
+<li><strong>/projects/win32-client/output/, /projects/win32-server/output/</strong> эти строки игнорируют конкретные директории output.</li>
+<li><strong>/projects/android-client/android.raylib_game/</strong> эта строка игнорирует директорию android.raylib_game.</li>
+<li><strong>/projects/android-client/*.apk</strong> эта строка игнорирует все файлы с расширением .apk в директории projects/android-client/.</li>
+</ul>
+<p>Имейте в виду, что Git обрабатывает шаблоны <strong>.gitignore</strong> относительно места, где находится файл <strong>.gitignore.</strong> Если файл <strong>.gitignore</strong> находится в поддиректории вашего репозитория, то все пути будут интерпретироваться относительно этой директории.</p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/kak-perekljuchitsja-na-druguju-vetku-v-git/"> <strong>Как переключиться на другую ветку в Git</strong></a>
+<br/><br/>
+
+
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="/posts/udalenie-direktorii-iz-git/"> <strong>Удаление директории из Git</strong></a>
+
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>

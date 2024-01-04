@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Команда sc create для создания новых служб в Windows</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Команда sc create для создания новых служб в Windows</h1>
+<h3 class="subtitle">
+	<span class="tag">#16</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 3 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;4 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;257 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/windows-service/">#Windows service</a>
+</div><p>Команда <strong>sc create</strong> используется для создания новых служб в Windows. Она имеет множество опций, которые позволяют управлять различными аспектами службы. Вот основные из них:</p>
+<ul>
+<li><strong>binPath= :</strong> Это обязательная опция, указывающая путь к исполняемому файлу службы.</li>
+<li><strong>displayname= :</strong> Это дружественное имя службы, которое отображается в утилитах управления службами Windows.</li>
+<li><strong>start= :</strong> Это определяет, когда служба должна быть запущена. Он может быть установлен в <strong>boot, system, auto, demand</strong> (по умолчанию) или <strong>disabled</strong>.</li>
+<li><strong>obj= :</strong> Это определяет учетную запись, под которой будет работать служба. По умолчанию это <strong>LocalSystem</strong>.</li>
+<li><strong>password= :</strong> Это пароль учетной записи, указанной в параметре <strong>obj</strong>. Этот параметр игнорируется, если служба работает под учетной записью <strong>LocalSystem</strong>.</li>
+<li><strong>type= :</strong> Это определяет тип службы. Он может быть установлен в <strong>own, share, kernel, filesys, rec</strong>.</li>
+<li><strong>error= :</strong> Это определяет действие, которое должно быть выполнено, когда служба не может быть запущена. Он может быть установлен в <strong>normal, severe, critical, ignore</strong>.</li>
+<li><strong>tag= :</strong> Это определяет, будет ли служба использовать тегированный заказ при загрузке драйверов.</li>
+<li><strong>depend= :</strong> Это список имен служб или групп, от которых зависит данная служба.</li>
+<li><strong>group= :</strong> Это имя группы загрузки, в которую входит служба.</li>
+<li><strong>priority= :</strong> Это приоритет загрузки для службы в своей группе.</li>
+<li><strong>prefix= :</strong> Это префикс для имени службы, который используется при сортировке имени в списках служб.</li>
+</ul>
+<p>Пример использования <strong>sc create</strong> с несколькими из этих опций:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sc create MyService binPath= "C:\path\to\my\service.exe" start= auto obj= "NT AUTHORITY\NetworkService"
+</code></pre></div></div>
+<p>Эта команда создаст службу с именем <strong>"MyService"</strong>, которая автоматически запускается при загрузке и работает под учетной записью <strong>"NetworkService"</strong>.</p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/nastrojka-certbot-i-nginx-dlja-raboty-s-https-v-windows/"> <strong>Настройка Certbot и Nginx для работы с HTTPS в Windows</strong></a>
+<br/><br/>
+
+
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="/posts/nastroit-nginx-v-kachestve-https-proksi-dlja-vashego-rest-prilozhenija-python-na-flask-i-waitress-na-windows-server-2019/"> <strong>Настроить Nginx в качестве HTTPS-прокси для вашего REST приложения Python на Flask и Waitress на Windows Server 2019</strong></a>
+
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>

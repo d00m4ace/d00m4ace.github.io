@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://www.d00m4ace.com/sitemap.xml

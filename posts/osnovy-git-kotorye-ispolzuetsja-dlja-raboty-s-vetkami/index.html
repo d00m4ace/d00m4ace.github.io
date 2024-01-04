@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Основы Git, которые используется для работы с ветками</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Основы Git, которые используется для работы с ветками</h1>
+<h3 class="subtitle">
+	<span class="tag">#4</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;пятница, 30 июня 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;3 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;199 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/git/">#Git</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
+</div><p>Команда <strong>git branch -M main</strong> используется для переименования текущей ветки в main.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git branch -M main
+</code></pre></div></div>
+<p>В этой команде, <strong>branch</strong> это команда Git, которая используется для работы с ветками. Опция <strong>-M</strong> означает "переименовать", и <strong>main</strong> — это новое имя для ветки.</p>
+<p>Эта команда полезна, например, при переходе с использования термина master для главной ветки на использование термина main, что стало общепринятой практикой в сообществе разработчиков для избегания негативной коннотации слова "master".</p>
+<p>Важно отметить, что эту команду следует выполнять, находясь в ветке, которую вы хотите переименовать.</p>
+<p>Команда <strong>git branch</strong> используется в системе контроля версий Git для перечисления, создания или удаления ветвей.</p>
+<p>Если вы запустите <strong>git branch</strong> без дополнительных параметров, она просто выведет список всех ветвей в вашем текущем репозитории. Текущая ветка (то есть ветка, на которой вы сейчас находитесь) будет отмечена звездочкой и выделена.</p>
+<p>Пример использования:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git branch
+</code></pre></div></div>
+<p>Результат может выглядеть так:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>  develop
+* main
+  feature/new-feature
+</code></pre></div></div>
+<p>В этом примере у нас есть три ветки: <strong>develop</strong>, <strong>main</strong> и <strong>feature/new-feature</strong>. Текущая ветка — <strong>main</strong>, как указано звездочкой и выделением.</p>
+<p>Вы также можете использовать <strong>git branch</strong> с дополнительными параметрами для создания новых веток:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git branch new-branch-name
+</code></pre></div></div>
+<p>или удаления существующих:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git branch -d branch-name-to-delete
+</code></pre></div></div>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/git-na-windows-osnovy-ego-ispolzovanija/"> <strong>Git на Windows основы его использования</strong></a>
+<br/><br/>
+
+
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="/posts/klonirovanija-repozitorija-git/"> <strong>Клонирования репозитория Git</strong></a>
+
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>

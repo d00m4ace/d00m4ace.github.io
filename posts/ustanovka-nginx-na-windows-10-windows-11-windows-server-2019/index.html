@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Установка Nginx на Windows 10, Windows 11, Windows Server 2019</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Установка Nginx на Windows 10, Windows 11, Windows Server 2019</h1>
+<h3 class="subtitle">
+	<span class="tag">#13</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 3 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;9 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;756 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/windows-service/">#Windows service</a>
+</div><h2>Установка Nginx на Windows</h2>
+<ul>
+<li>
+<p>Перейдите на официальный сайт Nginx <a href="https://nginx.org/">https://nginx.org/</a>  и перейдите на страницу загрузки <a href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a>. Загрузите последнюю стабильную версию Nginx для Windows в формате zip.</p>
+</li>
+<li>
+<p>Распакуйте загруженный архив Nginx в каталог на вашем компьютере, например, <strong>C:\nginx</strong>.</p>
+</li>
+<li>
+<p>Откройте файл <strong>nginx.conf</strong>, который находится в папке <strong>conf</strong> в распакованном каталоге Nginx. Внесите необходимые изменения в конфигурацию, например, настройте прослушиваемый порт и корневую директорию вашего веб-сервера.</p>
+</li>
+</ul>
+<p>Откройте командную строку (Command Prompt) от имени администратора и перейдите в каталог, где расположен Nginx (например, <strong>C:\nginx</strong>). Запустите Nginx, введя следующую команду:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>nginx.exe
+</code></pre></div></div>
+<ul>
+<li>Откройте веб-браузер и введите <a href="http://localhost">http://localhost/</a> в адресной строке. Если Nginx работает должным образом, вы должны увидеть страницу приветствия Nginx.</li>
+</ul>
+<p>Для остановки Nginx можно использовать команду <strong>nginx.exe -s stop</strong> или закрыть командную строку, в которой был запущен сервер.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>nginx.exe -s stop
+</code></pre></div></div>
+<h2>Брандмауэр Windows</h2>
+<p>Если при первом запуске Nginx на Windows появляется запрос на разрешение доступа по сети, это может быть вызвано настройками брандмауэра Windows. Брандмауэр может обнаружить новое приложение и запросить разрешение на доступ к сети.</p>
+<p><img alt="Nginx и Брандмауэр Windows" src="/imgs/posts/nginx-blocked.png" title="Nginx и Брандмауэр Windows"/></p>
+<p>Для разрешения доступа Nginx к сети, следуйте этим шагам:</p>
+<ul>
+<li>
+<p>При появлении запроса на разрешение доступа по сети, нажмите на кнопку "Разрешить доступ" или "Разрешить доступ для общественных сетей" (в зависимости от предлагаемых вариантов).</p>
+</li>
+<li>
+<p>Если запрос на разрешение доступа появляется только для частной сети, но не для общественной, вы можете разрешить доступ только для частной сети. В этом случае, выберите опцию "Разрешить доступ" или "Разрешить доступ для частных сетей".</p>
+</li>
+<li>
+<p>Если запрос на разрешение доступа не появляется автоматически, вы можете открыть настройки брандмауэра Windows вручную. Для этого, откройте Панель управления, найдите "Брандмауэр Windows" и откройте его. Затем выберите "Разрешение приложений через брандмауэр Windows" или "Разрешить приложение через брандмауэр Windows". В списке найдите Nginx и убедитесь, что для него установлено разрешение для доступа по сети.</p>
+</li>
+</ul>
+<p>После разрешения доступа Nginx к сети, брандмауэр Windows больше не будет запрашивать разрешение при каждом запуске сервера.</p>
+<p>Если проблема продолжает возникать или запрос на разрешение доступа не появляется, убедитесь, что у вас есть достаточные права администратора для изменения настроек брандмауэра и выполнения операций сети на вашей Windows-машине.</p>
+<h2>Настройка Nginx под Windows в качестве службы</h2>
+<p>Вы можете создать службу Windows для Nginx вручную, используя встроенную команду sc. Вот как вы можете сделать это:</p>
+<ul>
+<li>
+<p>Скачайте и установите Nginx (если вы еще этого не сделали).</p>
+</li>
+<li>
+<p>Откройте командную строку с правами администратора.</p>
+</li>
+<li>
+<p>Выполните следующую команду, заменив путь до nginx.exe на ваш:</p>
+</li>
+</ul>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sc create nginx binPath= "C:\path\to\nginx.exe"
+</code></pre></div></div>
+<p>Обратите внимание на пробел после binPath=, он обязателен.</p>
+<p>Теперь у вас есть служба Windows для Nginx. Вы можете запустить ее, используя следующую команду:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>net start nginx
+</code></pre></div></div>
+<p>После того как служба создана, вы можете запустить ее также с помощью команды sc start [service name], а остановить - с помощью команды sc stop [service name].</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sc start nginx
+sc stop nginx
+</code></pre></div></div>
+<p>Однако, нужно помнить, что Nginx, запущенный таким образом, не будет иметь всех функций, таких как автоматический перезапуск после сбоев и другие.
+Следует также отметить, что команда sc create создает службу с настройками по умолчанию. В частности, служба будет работать под учетной записью LocalSystem и не будет автоматически запускаться при старте системы. Вы можете изменить эти и другие настройки с помощью дополнительных опций команды sc create или через Менеджер служб Windows.</p>
+<p>Также стоит отметить, что по умолчанию служба будет работать под учетной записью LocalSystem, что может не соответствовать вашим требованиям к безопасности. Вы можете изменить учетную запись, под которой работает служба, в свойствах службы в Менеджере служб Windows.</p>
+<p>Если вы хотите получить больше контроля над службой, рекомендуется использовать инструментом для создания служб Windows. Ниже приведены некоторые альтернативы:</p>
+<ul>
+<li>
+<p><strong>WinSW</strong>: <a href="https://github.com/winsw/winsw">WinSW</a> - это инструмент, написанный на C#, который также позволяет запускать приложения как службы Windows. Он обеспечивает поддержку XML для конфигурации служб и поддерживает различные функции управления службами, такие как перезапуск, зависимости служб и т.д.</p>
+</li>
+<li>
+<p><strong>SRVANY</strong>: Это утилита из набора инструментов Windows Resource Kit от Microsoft, которая позволяет любому Windows приложению работать как служба. Однако утилита довольно старая и не поддерживается на новых версиях Windows.</p>
+</li>
+<li>
+<p><strong>FireDaemon</strong>: Это коммерческий продукт, который позволяет создавать и управлять службами Windows для любого приложения. FireDaemon предлагает множество функций, включая планирование, мониторинг, автоматический перезапуск после сбоев и многое другое.</p>
+</li>
+<li>
+<p><strong>AlwaysUp</strong>: Еще одна коммерческая утилита, которая может превращать любое приложение в службу Windows. Она обеспечивает набор функций, включая автоматический перезапуск приложения после сбоев, поддержку электронной почты и даже "приглушение" приложений, которые нежелательно запускать в фоновом режиме.</p>
+</li>
+</ul>
+<p>Итак, в зависимости от ваших требований и бюджета, вы можете выбрать любой из этих инструментов для запуска Nginx как службы Windows.</p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/otkrytie-portov-i-perenapravlenie-ih-na-opredelennyj-kompjuter-v-vashej-domashnej-seti/"> <strong>Открытие портов и перенаправление их на определенный компьютер в вашей домашней сети</strong></a>
+<br/><br/>
+
+
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="/posts/nastrojka-nginx-dlja-obrabotki-http-https-soedinenij-v-windows/"> <strong>Настройка Nginx для обработки HTTP, HTTPS соединений в Windows</strong></a>
+
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>

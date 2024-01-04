@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Настроить Nginx в качестве HTTPS-прокси для вашего REST приложения Python на Flask и Waitress на Ubuntu</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Настроить Nginx в качестве HTTPS-прокси для вашего REST приложения Python на Flask и Waitress на Ubuntu</h1>
+<h3 class="subtitle">
+	<span class="tag">#24</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;вторник, 18 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;12 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1084 слова</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/python/">#Python</a><a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/https/">#HTTPS</a><a class="button is-outlined" href="/posts/tags/flask/">#Flask</a><a class="button is-outlined" href="/posts/tags/ubuntu/">#Ubuntu</a>
+</div><h2>Настройка Nginx</h2>
+<p>Вам нужно настроить Nginx, чтобы использовать SSL и перенаправлять запросы на ваше приложение Flask. </p>
+<p>Если вы используете файл <strong>/etc/nginx/sites-available/default</strong>, добавьте следующий server для нужного поддомена например <strong>api.pixelrobot.ru</strong>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nx">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Add</span><span class="w"> </span><span class="nx">index</span><span class="p">.</span><span class="nx">php</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">you</span><span class="w"> </span><span class="nx">are</span><span class="w"> </span><span class="nx">using</span><span class="w"> </span><span class="nx">PHP</span>
+<span class="w">    </span><span class="nx">index</span><span class="w"> </span><span class="nx">index</span><span class="p">.</span><span class="nx">html</span><span class="w"> </span><span class="nx">index</span><span class="p">.</span><span class="nx">htm</span><span class="w"> </span><span class="nx">index</span><span class="p">.</span><span class="nx">nginx</span><span class="o">-</span><span class="nx">debian</span><span class="p">.</span><span class="nx">html</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">server_name</span><span class="w"> </span><span class="kn">api</span><span class="p">.</span><span class="nx">pixelrobot</span><span class="p">.</span><span class="nx">ru</span><span class="p">;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="nx">managed</span><span class="w"> </span><span class="nx">by</span><span class="w"> </span><span class="nx">Certbot</span>
+
+
+<span class="w">    </span><span class="nx">location</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">proxy_pass</span><span class="w"> </span><span class="nx">http</span><span class="p">:</span><span class="c1">//localhost:5000;</span>
+<span class="w">            </span><span class="nx">proxy_set_header</span><span class="w"> </span><span class="nx">Host</span><span class="w"> </span><span class="err">$</span><span class="nx">host</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">proxy_set_header</span><span class="w"> </span><span class="nx">X</span><span class="o">-</span><span class="nx">Real</span><span class="o">-</span><span class="nx">IP</span><span class="w"> </span><span class="err">$</span><span class="nx">remote_addr</span><span class="p">;</span><span class="w">            </span>
+<span class="w">            </span><span class="nx">proxy_set_header</span><span class="w"> </span><span class="nx">X</span><span class="o">-</span><span class="nx">Forwarded</span><span class="o">-</span><span class="nx">For</span><span class="w"> </span><span class="err">$</span><span class="nx">proxy_add_x_forwarded_for</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">proxy_set_header</span><span class="w"> </span><span class="nx">X</span><span class="o">-</span><span class="nx">Forwarded</span><span class="o">-</span><span class="nx">Host</span><span class="w"> </span><span class="err">$</span><span class="nx">host</span><span class="p">:</span><span class="err">$</span><span class="nx">server_port</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">proxy_set_header</span><span class="w"> </span><span class="nx">X</span><span class="o">-</span><span class="nx">Forwarded</span><span class="o">-</span><span class="nx">Port</span><span class="w"> </span><span class="err">$</span><span class="nx">server_port</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="nx">ssl</span><span class="p">;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="nx">managed</span><span class="w"> </span><span class="nx">by</span><span class="w"> </span><span class="nx">Certbot</span>
+<span class="w">    </span><span class="nx">ssl_certificate</span><span class="w"> </span><span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">letsencrypt</span><span class="o">/</span><span class="nx">live</span><span class="o">/</span><span class="nx">pixelrobot</span><span class="p">.</span><span class="nx">ru</span><span class="o">/</span><span class="nx">fullchain</span><span class="p">.</span><span class="nx">pem</span><span class="p">;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="nx">managed</span><span class="w"> </span><span class="nx">by</span><span class="w"> </span><span class="nx">Certbot</span>
+<span class="w">    </span><span class="nx">ssl_certificate_key</span><span class="w"> </span><span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">letsencrypt</span><span class="o">/</span><span class="nx">live</span><span class="o">/</span><span class="nx">pixelrobot</span><span class="p">.</span><span class="nx">ru</span><span class="o">/</span><span class="nx">privkey</span><span class="p">.</span><span class="nx">pem</span><span class="p">;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="nx">managed</span><span class="w"> </span><span class="nx">by</span><span class="w"> </span><span class="nx">Certbot</span>
+<span class="w">    </span><span class="nx">include</span><span class="w"> </span><span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">letsencrypt</span><span class="o">/</span><span class="nx">options</span><span class="o">-</span><span class="nx">ssl</span><span class="o">-</span><span class="nx">nginx</span><span class="p">.</span><span class="nx">conf</span><span class="p">;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="nx">managed</span><span class="w"> </span><span class="nx">by</span><span class="w"> </span><span class="nx">Certbot</span>
+<span class="w">    </span><span class="nx">ssl_dhparam</span><span class="w"> </span><span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">letsencrypt</span><span class="o">/</span><span class="nx">ssl</span><span class="o">-</span><span class="nx">dhparams</span><span class="p">.</span><span class="nx">pem</span><span class="p">;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="nx">managed</span><span class="w"> </span><span class="nx">by</span><span class="w"> </span><span class="nx">Certbot</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Давайте разберем каждую директиву внутри блока "location":</p>
+<ul>
+<li>
+<p><strong>proxy_pass http://localhost:5000;</strong> Эта директива указывает адрес бэкэнд-сервера <strong>https://api.pixelrobot.ru/</strong>, на который будут перенаправляться входящие запросы.</p>
+</li>
+<li>
+<p><strong>proxy_set_header Host $host;</strong> Эта директива устанавливает заголовок "Host" в перенаправляемом запросе со значением из исходного заголовка "Host". Она обеспечивает передачу правильного имени хоста на бэкэнд-сервер.</p>
+</li>
+<li>
+<p><strong>proxy_set_header X-Real-IP $remote_addr;</strong> Эта директива устанавливает заголовок <strong>"X-Real-IP"</strong> в перенаправляемом запросе со значением IP-адреса клиента, совершающего запрос. Она может быть полезна для логирования или определения IP-адреса клиента на бэкэнд-сервере.</p>
+</li>
+<li>
+<p><strong>proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</strong> Эта директива устанавливает заголовок <strong>"X-Forwarded-For"</strong> в перенаправляемом запросе. Если заголовок <strong>"X-Forwarded-For"</strong> уже присутствует, то она добавляет IP-адрес клиента к существующему значению. Этот заголовок обычно используется для отслеживания исходного IP-адреса клиента при прохождении через промежуточные прокси.</p>
+</li>
+<li>
+<p><strong>proxy_set_header X-Forwarded-Host $host:$server_port;</strong> Эта директива устанавливает заголовок <strong>"X-Forwarded-Host"</strong> в перенаправляемом запросе со значением из исходного заголовка "Host", за которым следует номер порта сервера.</p>
+</li>
+<li>
+<p><strong>proxy_set_header X-Forwarded-Port $server_port;</strong> Эта директива устанавливает заголовок <strong>"X-Forwarded-Port"</strong> в перенаправляемом запросе со значением номера порта сервера.</p>
+</li>
+</ul>
+<p>Вместе эти директивы настраивают обратный прокси для передачи оригинального запроса на бэкэнд-сервер, указанный как <strong>http://localhost:5000</strong>, с сохранением соответствующих заголовков для правильной работы и идентификации.</p>
+<p>В этой конфигурации все запросы HTTP перенаправляются на HTTPS, а запросы HTTPS передаются на ваше приложение Flask, которое, как предполагается, работает на порту <strong>5000</strong>.</p>
+<h2>Перезапуск Nginx</h2>
+<p>Сначала проверим, все ли изменения в конфигурации Nginx были сделаны правильно:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo nginx -t
+</code></pre></div></div>
+<p>Если все в порядке, перезапустите Nginx:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">sudo</span><span class="w"> </span><span class="n">nginx</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">reload</span>
+</code></pre></div></div>
+<h2>Простое приложение на Python, Flask и Waitress</h2>
+<p>Вот пример простого REST приложения на Flask и Waitress.</p>
+<p>Сначала установим необходимые библиотеки через pip, в среде выполнения python3:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pip install flask waitress
+</code></pre></div></div>
+<p>Далее, создадим простое Flask приложение с одним маршрутом:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="c1">#get.py</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span> <span class="nn">waitress</span> <span class="kn">import</span> <span class="n">serve</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/get'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get</span><span class="p">():</span>
+    <span class="c1"># Access URL parameters with request.args</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'age'</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">age</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Received data: Name - </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, Age - </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">"Data received and processed"</span><span class="p">,</span> <span class="mi">200</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"No data received"</span><span class="p">,</span> <span class="mi">400</span>
+
+<span class="c1">#if __name__ == '__main__':</span>
+<span class="c1">#    app.run(debug=True)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="c1">#app.run(host='0.0.0.0',port=5000)</span>
+    <span class="c1">#We now use this syntax to server our app. </span>
+    <span class="c1">#serve(app, host='0.0.0.0', port=5000)</span>
+    <span class="n">serve</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s1">'0.0.0.0'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">url_scheme</span><span class="o">=</span><span class="s1">'https'</span><span class="p">)</span>
+
+<span class="c1"># C:\curl\curl "https://api.pixelrobot.ru/get?name=John&amp;age=30"</span>
+</code></pre></div></div>
+<p>Это пример приложения слушает на порту <strong>5000</strong> и возвращает приветственное сообщение при обращении к маршруту '<strong>/get</strong>'.</p>
+<p>Вы можете запустить приложение из командной строки:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>python app.py
+</code></pre></div></div>
+<p>Теперь, при переходе на <strong>https://api.pixelrobot.ru/get?name=John&amp;age=30</strong>, вы получите ответ <strong>Data received and processed</strong>.</p>
+<p>А в терминале на сервере будет выведен текст:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="p">(</span><span class="n">env311</span><span class="p">)</span><span class="w"> </span><span class="n">d00m4ace</span><span class="nv">@server</span><span class="err">:</span><span class="o">~/</span><span class="n">projects</span><span class="o">/</span><span class="n">python</span><span class="err">$</span><span class="w"> </span><span class="n">python3</span><span class="w"> </span><span class="k">get</span><span class="p">.</span><span class="n">py</span>
+<span class="n">Received</span><span class="w"> </span><span class="k">data</span><span class="err">:</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">John</span><span class="p">,</span><span class="w"> </span><span class="n">Age</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">30</span>
+</code></pre></div></div>
+<p>Если вы хотите добавить больше маршрутов или функциональности, вы можете сделать это, добавив больше маршрутов и функций в ваше приложение Flask.</p>
+<h2>REST приложение на Python, Flask и Waitress</h2>
+<p>Мы определим несколько базовых REST маршрутов, которые будут возвращать некоторые данные в формате JSON.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="c1"># app.py</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/api/tasks'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_tasks</span><span class="p">():</span>
+    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Buy groceries"</span><span class="p">,</span> <span class="s2">"completed"</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Study for test"</span><span class="p">,</span> <span class="s2">"completed"</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/api/tasks/&lt;int:task_id&gt;'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_task</span><span class="p">(</span><span class="n">task_id</span><span class="p">):</span>
+    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Buy groceries"</span><span class="p">,</span> <span class="s2">"completed"</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Study for test"</span><span class="p">,</span> <span class="s2">"completed"</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+    <span class="p">]</span>
+    <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">task</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">==</span> <span class="n">task_id</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">"error"</span><span class="p">:</span> <span class="s2">"Task not found"</span><span class="p">}),</span> <span class="mi">404</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">waitress</span> <span class="kn">import</span> <span class="n">serve</span>
+    <span class="n">serve</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"0.0.0.0"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+</code></pre></div></div>
+<p>В этом примере мы имеем два маршрута. Один для получения всех задач (GET /api/tasks), и один для получения конкретной задачи по её id (GET /api/tasks/<task_id>).</task_id></p>
+<p>Мы используем waitress для запуска нашего приложения. Это production-ready WSGI сервер, который рекомендован для использования с Flask в production.</p>
+<p>Для запуска приложения используйте команду:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>python app.py
+</code></pre></div></div>
+<p>Теперь приложение будет слушать на порту 5000 и будет доступно по адресу <strong>https://api.pixelrobot.ru/api/tasks</strong> и <strong>https://api.pixelrobot.ru/api/tasks/<task_id></task_id></strong>.</p>
+<h2>POST приложение на Python, Flask и Waitress</h2>
+<p>Сначала установим необходимые библиотеки через pip:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pip install flask waitress
+</code></pre></div></div>
+<p>Flask приложение на Python обрабатывает разные типы входящих данных:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="c1"># app.py</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span> <span class="nn">waitress</span> <span class="kn">import</span> <span class="n">serve</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1">#app.config['SECRET_KEY'] = 'df0331cefc6c2b9a5d0208a726a5d1c0fd37324feba25506'</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/post'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">post</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">is_json</span><span class="p">:</span>
+        <span class="c1"># For JSON data, use request.get_json()</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Received JSON data: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">'Content-Type'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'application/x-www-form-urlencoded'</span><span class="p">:</span>
+        <span class="c1"># For form data, use request.form</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Received form data: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># For plain text, use request.data</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Received plain text data: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="s2">"Data received and processed"</span><span class="p">,</span> <span class="mi">200</span>
+
+<span class="c1">#if __name__ == '__main__':</span>
+<span class="c1">#    app.run(debug=True)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">serve</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s1">'0.0.0.0'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">url_scheme</span><span class="o">=</span><span class="s1">'https'</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Для запуска приложения используйте команду:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>python app.py
+</code></pre></div></div>
+<p>С помощью команды <strong>curl</strong> отправим <strong>POST</strong> запрос с <strong>JSON</strong> данными на конечную точку <strong>/post</strong> по указанному URL.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\curl\curl -X POST -H "Content-Type: application/json" -d "{\"name\":\"John\", \"age\":30}" https://api.pixelrobot.ru/post
+</code></pre></div></div>
+<p>Заголовок <strong>"Content-Type: application/json"</strong> сообщает серверу, что клиент (в данном случае <strong>curl</strong>) отправляет данные в формате <strong>JSON</strong>. Это позволяет серверу правильно интерпретировать и обрабатывать отправленные данные.</p>
+<p>В контексте Flask приложения, когда вы делаете POST запрос и указываете <strong>"Content-Type: application/json"</strong>, Flask знает, что ему следует получить данные из request.get_json().</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\curl\curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "name=John&amp;age=30" https://api.pixelrobot.ru/post
+</code></pre></div></div>
+<p>Эта команда <strong>curl</strong> отправляет <strong>POST</strong> запрос с данными, закодированными как <strong>application/x-www-form-urlencoded</strong>, на конечную точку <strong>/post</strong> по указанному URL.</p>
+<p>Формат <strong>"application/x-www-form-urlencoded"</strong> обычно используется при отправке данных формы HTML. В этом формате, пары имя/значение записываются как name=value, с разделением пар амперсандом (&amp;).</p>
+<p>В контексте Flask приложения, когда вы делаете <strong>POST</strong> запрос и указываете <strong>"Content-Type: application/x-www-form-urlencoded"</strong>, Flask будет искать данные в request.form.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\curl\curl -X POST -H "Content-Type: text/plain" -d "Hello, World!" https://api.pixelrobot.ru/post
+</code></pre></div></div>
+<p>Эта команда <strong>curl</strong> отправляет <strong>POST</strong> запрос с данными в формате <strong>text/plain</strong> на конечную точку <strong>/post</strong> по указанному URL.</p>
+<p>Формат <strong>text/plain</strong> используется для отправки обычного текста. В данном случае, вы отправляете строку "Hello, World!".</p>
+<p>В контексте Flask приложения, когда вы делаете <strong>POST</strong> запрос и указываете <strong>"Content-Type: text/plain"</strong>, Flask будет искать данные в request.data.</p>
+<p>Ваш URL <strong>https://api.pixelrobot.ru/post</strong> в этом примере должен быть заменен на реальный URL вашего сервера.</p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/ustanovka-python-na-ubuntu/"> <strong>Установка Python на Ubuntu</strong></a>
+<br/><br/>
+
+
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="/posts/kak-ustanovit-vscode-na-ubuntu-i-ispolzovat-ego-s-pomoschju-python/"> <strong>Как установить VSCode на Ubuntu и использовать его с помощью Python</strong></a>
+
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>

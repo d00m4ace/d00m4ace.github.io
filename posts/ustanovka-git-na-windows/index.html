@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Установка Git на Windows</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Установка Git на Windows</h1>
+<h3 class="subtitle">
+	<span class="tag">#2</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 5 июня 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;5 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;418 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/git/">#Git</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
+</div><p>Процесс установки Git для Windows прост и понятен. Вот пошаговое руководство, как установить 64-битную версию Git на Windows:</p>
+<ul>
+<li>
+<p>Перейдите на официальный сайт Git по адресу <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a>.</p>
+</li>
+<li>
+<p>Найдите ссылку на исполняемый файл, который будет назван примерно так: "Git-2.xx.x-64-bit.exe", где xx.x - это номер версии. И начните его загруку.</p>
+</li>
+<li>
+<p>Чтобы начать процесс установки после загрузки, запустите загруженный исполняемый файл (обычно он находится в папке Downloads), который будет называться примерно так: "Git-2.xx.x-64-bit.exe". Дважды щелкните на нем, чтобы запустить процесс установки.</p>
+</li>
+<li>
+<p>В установщике нажмите на "Next" (Далее).</p>
+</li>
+<li>
+<p>Выберите каталог для установки и нажмите на "Next" (Далее). Обычно подходит значение (обычно C:\Git).</p>
+</li>
+<li>
+<p>Выберите компоненты для установки и нажмите на "Next" (Далее). Если у вас нет специальной причины, то подойдут опции по умолчанию.</p>
+</li>
+<li>
+<p>Оставьте выбранной опцию "Use the Notepad++ editor by default" (Использовать редактор Notepad++ по умолчанию) и нажмите "Next" (Далее).</p>
+</li>
+<li>
+<p>На следующем экране выберите "Use Git from the Windows Command Prompt" (Использовать Git из командной строки Windows) и нажмите "Next" (Далее). Это позволит вам использовать команды Git из командной строки Windows.</p>
+</li>
+<li>
+<p>На экране "Choosing the SSH executable" оставьте выбранной опцию "Use bundled OpenSSH" (Использовать ssh.exe идующий вместе с Git) и нажмите "Next" (Далее).</p>
+</li>
+<li>
+<p>На экране "Choosing HTTPS transport backend" (Выбор бэкенда для HTTPS-транспорта) оставьте выбранной опцию "Use the OpenSSL library" (Использовать библиотеку OpenSSL) и нажмите "Next" (Далее).</p>
+</li>
+<li>
+<p>На следующем экране оставьте выбранной опцию "Checkout Windows-style, commit Unix-style line endings" (Проверка в стиле Windows, коммит в стиле Unix) и нажмите "Next" (Далее).</p>
+</li>
+<li>
+<p>На экране "Configuring the terminal emulator to use with Git Bash" (Настройка эмулятора терминала для использования с Git Bash) овыберите <strong>"Use Windows' default console window"</strong> и нажмите "Next" (Далее). Git будет использовать окно консоли по умолчанию Windows ("cmd.exe", которое хорошо работает с консольными программами win32, такими как интерактивный Python или node.js, но имеет очень ограниченную прокрутку по умолчанию, нуждается в настройке на использование шрифта Unicode, чтобы корректно отображать символы, не являющиеся символами ASCII.</p>
+</li>
+<li>
+<p>На следующем экране оставьте все опции по умолчанию выбранными и нажмите "Next" (Далее).</p>
+</li>
+<li>
+<p>На следующем экране включите опцию <strong>"Enable symbolic links"</strong>, эта опцию позволит правильно работать с символическими ссылками (симлинк, символьная ссылка, Symbolic link)  и нажмите "Next" (Далее).</p>
+</li>
+<li>
+<p>Нажмите на "Install" (Установить), чтобы начать установку.</p>
+</li>
+<li>
+<p>После завершения установки нажмите на "Finish"</p>
+</li>
+</ul>
+<p>Чтобы проверить установку, вы можете открыть командную строку (нажмите <em>Win + R</em>, введите cmd и нажмите Enter), затем введите </p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git --version
+</code></pre></div></div>
+<p>Вы должны увидеть отображенную установленную версию Git: </p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git version 2.41.0.windows.1
+</code></pre></div></div>
+<p>Это подтверждает, что Git был успешно установлен.</p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/kak-zapustit-komandnuju-stroku-cmd-ot-imeni-administratora-v-windows-7-10-11/"> <strong>Как запустить командную строку (cmd) от имени администратора в Windows 7, 10, 11</strong></a>
+<br/><br/>
+
+
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="/posts/git-na-windows-osnovy-ego-ispolzovanija/"> <strong>Git на Windows основы его использования</strong></a>
+
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>

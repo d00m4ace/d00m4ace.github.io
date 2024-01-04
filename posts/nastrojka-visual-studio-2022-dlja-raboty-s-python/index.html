@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Настройка Visual Studio 2022 для работы с Python</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Настройка Visual Studio 2022 для работы с Python</h1>
+<h3 class="subtitle">
+	<span class="tag">#18</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;вторник, 4 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;8 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;699 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/python/">#Python</a><a class="button is-outlined" href="/posts/tags/visual-studio/">#Visual Studio</a>
+</div><p>Запустите <strong>Visual Studio 2022</strong> и выберите <strong>"Create a new project"</strong>. В поиске шаблонов проектов введите <strong>"Python"</strong>, выберите <strong>"Python Application"</strong> и нажмите <strong>"Next"</strong>. Укажите имя и расположение проекта, а затем нажмите <strong>"Create"</strong>.</p>
+<h2>Настройка виртуальной среды Python в Visual Studio 2022</h2>
+<p>Рекомендуется использовать виртуальную среду для изоляции зависимостей вашего проекта. В окне <strong>"Solution Explorer"</strong> 
+найдите <strong>"Python Environments"</strong>, щелкните правой кнопкой мыши по <strong>"Python Environments"</strong>, выберите <strong>"Add Environments"</strong>.</p>
+<p><img alt="Python Add Environments" src="/imgs/posts/python-add-environments.png"/></p>
+<p>Назовите среду в поле Name как <strong>.env</strong>, которая будет добавлена в корневой каталог вашего проекта. Наличие виртуальной среды <strong>.env</strong> по умолчанию для всех проектов удобно для добавления в <strong>.gitignore</strong></p>
+<p>Также выберите версию Python которую хотите использовать с проектом в поле <strong>"Base Interpreter"</strong>, например <strong>"Python 3.11(64-bit)"</strong>.</p>
+<p><img alt="Python .env Environment" src="/imgs/posts/python-dotenv.png"/></p>
+<p>Чтобы активировать созданную виртуальную среду в окне <strong>"Solution Explorer"</strong>  выберите нужную вам виртуальную среду из списка <strong>"Python Environments"</strong>. Щелкните правой кнопкой мыши на выбранной среде и выберите <strong>"Activate Environment"</strong> из контекстного меню.</p>
+<p>Создайте файл <strong>requirements.txt</strong> в корневой директории вашего проекта. Файл <strong>requirements.txt</strong> используется для указания зависимостей вашего проекта. Каждая зависимость указывается в отдельной строке в формате <strong>&lt;название пакета&gt;</strong>==<strong>&lt;версия&gt;</strong>. Например:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.25.1
+<span class="nv">numpy</span><span class="o">==</span><span class="m">1</span>.19.5
+</code></pre></div></div>
+<p>Это можно также сделать для уже установленных модулей в виртуальную среду <strong>.env</strong>, если выбрвть в <strong>"Python Environments"</strong>, виртуальную среду <strong>".env"</strong>
+и правой кнопкой мыши, выберите <strong>"Generate requirements.txt"</strong>.</p>
+<p><img alt="requirements.txt" src="/imgs/posts/python-env-requirements.png"/></p>
+<p>Установить зависимости из <strong>requirements.txt</strong> в вашу виртуальную среду можно выбрав в <strong>"Python Environments"</strong>, виртуальную среду <strong>".env"</strong>
+и правой кнопкой мыши, выберите <strong>"Install from requirements.txt"</strong></p>
+<p><img alt="requirements.txt" src="/imgs/posts/python-env-install-requirements.png"/></p>
+<p>В Visual Studio 2022, вы можете установить пакеты Python прямо из пользовательского интерфейса.
+В <strong>Solution Explorer</strong> выберите <strong>"Python Environments"</strong> и щелкните правой кнопкой мыши, затем выберите <strong>"Manage Python Packages..."</strong> </p>
+<p><img alt="requirements.txt" src="/imgs/posts/python-package-install.png"/></p>
+<p>В открывшемся окне <strong>"Python Environments"</strong> перейдите на вкладку <strong>"Packages (PyPI)"</strong>.
+В поле <strong>"Search PyPI and installed packages"</strong> (Поиск в PyPI и установленные пакеты) введите имя пакета, который вы хотите установить, и нажмите Enter.
+Если пакет будет найден то ниже нажмите на <strong>"Run command: pip install &lt;имя пакета&gt;"</strong>
+Если нет то в списке результатов найдите нужный пакет и щелкните по нему.
+Нажмите кнопку <strong>"Install"</strong> (Установить).</p>
+<p><img alt="requirements.txt" src="/imgs/posts/python-run-package-install.png"/></p>
+<h2>Терминал в Visual Studio для работы с Python</h2>
+<p>Откройте терминал в Visual Studio (View -&gt; Terminal), или используйте внешний терминал, и перейдите в корневую директорию вашего проекта.</p>
+<p>Тут так же можно создать виртуальную среду Python с помощью инструмента venv. Выполните следующую команду в терминале:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>python -m venv .env
+</code></pre></div></div>
+<p>Тут так же можно установите зависимости из <strong>requirements.txt</strong> в вашу виртуальную среду. Выполните следующую команду:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pip install -r requirements.txt
+</code></pre></div></div>
+<p>Для работы с вашим проектом потребуется активировать виртуальную среду в команндной строек Windows или во внешнем терменале(который вы уже запускали выше) выполните скрипт <strong>activate.bat</strong>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>.\.env\Scripts\activate
+</code></pre></div></div>
+<p>Пример работы с вашим приложением на Python из виртуальной среды <strong>.env</strong></p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>Microsoft Windows [Version 10.0.19045.3086]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32&gt;cd C:\projects\python\microweb\
+
+C:\projects\python\microweb&gt;.\.env\Scripts\activate
+
+(.env) C:\projects\python\microweb&gt;
+
+(.env) C:\projects\python\microweb&gt;python microweb.py
+C:\projects\python\microweb
+DONE!
+Elapsed time:  1.16 seconds
+
+(.env) C:\projects\python\microweb&gt;
+</code></pre></div></div>
+<p>Теперь вы можете работать с вашим проектом, используя активированную виртуальную среду Python в Visual Studio. Зависимости из requirements.txt будут доступны в вашем проекте.</p>
+<p>Обратите внимание, что эти инструкции предполагают, что у вас уже установлен Python на вашей машине. Если Python не установлен, убедитесь, что вы установили его и добавили путь к исполняемому файлу <strong>Python.exe</strong> в переменную среды <strong>PATH</strong>.</p>
+<p>Теперь у вас должна быть настроена виртуальная среда Python с использованием <strong>.env и requirements.txt</strong> в Visual Studio. Вы можете продолжать разрабатывать ваш проект с учетом этих настроек.</p>
+<h2>Установить как точку входа Python-файл в Visual Studio 2022</h2>
+<p>Чтобы выбрать Python-файл, который будет запускаться по умолчанию в Visual Studio 2022, выполните следующие шаги:</p>
+<p>Откройте ваш проект в Visual Studio 2022.</p>
+<p>В обозревателе решений <strong>Solution Explorer</strong> найдите Python-файл, который вы хотите установить как файл, запускающийся по умолчанию.</p>
+<p>Щелкните правой кнопкой мыши на этом Python-файле и выберите <strong>"Установить как точку входа" (Set as Startup File)</strong> из контекстного меню.</p>
+<p><img alt="Python Set as Startup File" src="/imgs/posts/python-set-startup.png"/></p>
+<p>Теперь в <strong>Solution Explorer</strong> этот файл будет выделен жирным шрифтом показывающим что является файлом, запускающимся по умолчанию.</p>
+<p>Теперь, когда вы запускаете ваш проект, Visual Studio будет использовать выбранный Python-файл как точку входа.</p>
+<p>Если вы хотите изменить файл, запускающийся по умолчанию, на другой Python-файл, просто щелкните правой кнопкой мыши на новом файле и выберите <strong>"Установить как точку входа" (Set as Startup File)</strong>. Таким образом, Visual Studio будет использовать новый Python-файл как точку входа при запуске проекта.</p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/nastroit-nginx-v-kachestve-https-proksi-dlja-vashego-rest-prilozhenija-python-na-flask-i-waitress-na-windows-server-2019/"> <strong>Настроить Nginx в качестве HTTPS-прокси для вашего REST приложения Python на Flask и Waitress на Windows Server 2019</strong></a>
+<br/><br/>
+
+
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="/posts/ustanovka-openssh-na-ubuntu-22dot04/"> <strong>Установка OpenSSH на Ubuntu 22.04</strong></a>
+
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>

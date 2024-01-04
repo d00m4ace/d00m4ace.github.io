@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Настройка Nginx для обработки HTTP, HTTPS соединений в Windows</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Настройка Nginx для обработки HTTP, HTTPS соединений в Windows</h1>
+<h3 class="subtitle">
+	<span class="tag">#14</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 3 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;5 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;374 слова</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/http/">#HTTP</a><a class="button is-outlined" href="/posts/tags/https/">#HTTPS</a>
+</div><p>Чтобы настроить Nginx для обработки как <strong>HTTP</strong>, так и <strong>HTTPS</strong> соединений, вам потребуется определить два отдельных серверных блока в конфигурации Nginx. Один будет обрабатывать <strong>HTTP</strong>-соединения (<strong>порт 80</strong>), а другой - <strong>HTTPS</strong>-соединения (<strong>порт 443</strong>).</p>
+<p>Вот пример конфигурации для обработки и перенаправления <strong>HTTP</strong>-запросов на <strong>HTTPS</strong>, а также для обработки <strong>HTTPS</strong>-соединений:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="k">http</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server_name</span><span class="w"> </span><span class="s">ваш_домен</span><span class="p">;</span><span class="w"> </span><span class="c1"># например d00m4ace.com</span>
+
+<span class="w">        </span><span class="c1"># Перенаправление всех HTTP-запросов на HTTPS</span>
+<span class="w">        </span><span class="kn">return</span><span class="w"> </span><span class="mi">301</span><span class="w"> </span><span class="s">https://</span><span class="nv">$host$request_uri</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server_name</span><span class="w"> </span><span class="s">ваш_домен</span><span class="p">;</span><span class="w"> </span><span class="c1"># например d00m4ace.com</span>
+
+<span class="w">        </span><span class="c1"># Настройки SSL сертификата</span>
+<span class="w">        </span><span class="kn">ssl_certificate</span><span class="w"> </span><span class="s">/путь_к_вашему_сертификату.crt</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">/путь_к_приватному_ключу.key</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1"># Другие настройки SSL, если необходимо</span>
+<span class="w">        </span><span class="kn">ssl_session_cache</span><span class="w">    </span><span class="s">shared:SSL:1m</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">ssl_session_timeout</span><span class="w">  </span><span class="mi">5m</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">ssl_ciphers</span><span class="w">  </span><span class="s">HIGH:!aNULL:!MD5</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">ssl_prefer_server_ciphers</span><span class="w">  </span><span class="no">on</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1"># Добавьте здесь ваши настройки для обработки HTTPS-соединений</span>
+<span class="w">        </span><span class="c1"># Например:</span>
+<span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kn">root</span><span class="w"> </span><span class="s">/путь_к_вашему_корневому_каталогу</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">index</span><span class="w"> </span><span class="s">index.html</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1"># Добавьте другие серверные блоки, если необходимо</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>В этой конфигурации первый серверный блок слушает <strong>порт 80 (HTTP)</strong> и перенаправляет все запросы на <strong>HTTPS</strong>-версию сайта с помощью директивы <strong>return 301</strong>. Затем, второй серверный блок слушает <strong>порт 443 (HTTPS)</strong> и настраивает <strong>SSL</strong>-сертификаты с помощью директив <strong>ssl_certificate</strong> и <strong>ssl_certificate_key</strong>. Внутри этого блока вы можете добавить другие настройки для обработки <strong>HTTPS</strong>-соединений, такие как местоположение файлов и настройки маршрутизации.</p>
+<p>Также конфигурационный файл Nginx содержит несколько директив, связанных с SSL/TLS настройками. Давайте разберем каждую директиву по отдельности:</p>
+<ul>
+<li>
+<p><strong>ssl_session_cache shared:SSL:1m;</strong> - Эта директива определяет, как Nginx кэширует информацию о SSL-сеансах. В данном случае, используется общий кэш с размером 1 мегабайт.</p>
+</li>
+<li>
+<p><strong>ssl_session_timeout 5m;</strong> - Эта директива устанавливает время жизни SSL-сеанса в кэше. В данном случае, SSL-сеансы будут храниться в кэше в течение 5 минут.</p>
+</li>
+<li>
+<p><strong>ssl_ciphers HIGH:!aNULL:!MD5;</strong> - Эта директива определяет список шифров, которые будут использоваться для установки SSL-соединения. В данном случае, используется набор шифров с высоким уровнем безопасности, исключая анонимные шифры и шифры, использующие алгоритм хеширования MD5.</p>
+</li>
+<li>
+<p><strong>ssl_prefer_server_ciphers on;</strong> - Эта директива указывает Nginx приоритет использования шифров, предложенных сервером. Если установлено значение on, Nginx будет предпочитать шифры, предлагаемые сервером, перед клиентскими предпочтениями.</p>
+</li>
+</ul>
+<p>Обратите внимание, что настройка SSL/TLS является сложной темой, и рекомендуется обратиться к официальной документации Nginx и руководствам по безопасности для получения подробных инструкций и наилучшей практики настройки SSL/TLS соединений.</p>
+<p>Не забудьте заменить <strong>ваш_домен, /путь_к_вашему_сертификату.crt, /путь_к_приватному_ключу.key и /путь_к_вашему_корневому_каталогу</strong> соответственно на свои реальные значения.</p>
+<p>После внесения необходимых изменений сохраните конфигурационный файл Nginx и перезапустите сервер, чтобы изменения вступили в силу.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">nginx</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">reload</span>
+</code></pre></div></div>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/ustanovka-nginx-na-windows-10-windows-11-windows-server-2019/"> <strong>Установка Nginx на Windows 10, Windows 11, Windows Server 2019</strong></a>
+<br/><br/>
+
+
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="/posts/nastrojka-certbot-i-nginx-dlja-raboty-s-https-v-windows/"> <strong>Настройка Certbot и Nginx для работы с HTTPS в Windows</strong></a>
+
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>

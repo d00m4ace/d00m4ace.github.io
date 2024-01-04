@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git как устранить конфликт в git push и git pull</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Git как устранить конфликт в git push и git pull</h1>
+<h3 class="subtitle">
+	<span class="tag">#7</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;суббота, 1 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;7 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;628 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/git/">#Git</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
+</div><p>Когда вы выполняете <strong>git push</strong> или <strong>git pull</strong>, может возникнуть конфликт, если ваши локальные изменения не совпадают с изменениями в удаленном репозитории. Это часто происходит, когда два человека работают над одним и тем же файлом и затем пытаются объединить свои изменения. Вот как вы можете решить такие конфликты:</p>
+<p>Выполните <strong>git pull</strong> (или <strong>git fetch</strong> и <strong>git merge</strong>), чтобы получить последние изменения из удаленного репозитория.</p>
+<p>Если есть конфликты, Git покажет сообщение, которое указывает на конфликтующие файлы. Откройте эти файлы в редакторе.</p>
+<p>В файлах конфликты будут обозначены следующим образом:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Ваши изменения
+=======
+Изменения из удаленного репозитория
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-name
+</code></pre></div></div>
+<p>Решите конфликты, выбрав нужные изменения и удалив метки Git (&lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt;).</p>
+<p>После разрешения всех конфликтов, сохраните файлы.</p>
+<p>Выполните <strong>git add .</strong> (или <strong>git add <filename></filename></strong>), чтобы подготовить измененные файлы к коммиту.</p>
+<p>Выполните <strong>git commit -m "Решение конфликтов"</strong> для создания нового коммита с решенными конфликтами.</p>
+<p>Наконец, выполните <strong>git push origin <your-branch></your-branch></strong> чтобы отправить ваши изменения в удаленный репозиторий.</p>
+<p>Помните, что если вам трудно решить конфликт, вы всегда можете обратиться за помощью к другим членам вашей команды или использовать графический интерфейс, такой как <strong>GitKraken</strong> или <strong>SourceTree</strong>, который может сделать процесс более наглядным.</p>
+<p>Команда <strong>git reset <file></file></strong> используется для того, чтобы отменить изменения в определенном файле, которые еще не были зафиксированы (коммитнуты). Это может быть полезно, если вы сделали некоторые изменения, которые вы теперь хотите отменить.</p>
+<p>Вот как это работает:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git reset &lt;file&gt;
+</code></pre></div></div>
+<p>Здесь <file> - это путь к файлу, который вы хотите сбросить.</file></p>
+<p>После выполнения этой команды, изменения в указанном файле будут отменены, и файл вернется к состоянию последнего коммита.</p>
+<p>Обратите внимание, что <strong>git reset <file></file></strong> отменяет только изменения, которые еще не были зафиксированы. Если вы уже сделали коммит с изменениями, и теперь хотите их отменить, вам потребуется использовать другую команду, такую как <strong>git revert</strong>.</p>
+<p>Кроме того, будьте осторожны с командой <strong>git reset</strong>, так как отмена изменений необратима. Прежде чем использовать эту команду, убедитесь, что вы действительно хотите отменить свои изменения.</p>
+<p>Команда <strong>git revert</strong> используется для создания нового коммита, который отменяет изменения, сделанные в указанном коммите. Это полезно, если вы зафиксировали изменения (сделали коммит), которые теперь хотите отменить.</p>
+<p>Вот как это работает:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git revert &lt;commit&gt;
+</code></pre></div></div>
+<p>Здесь <strong><commit></commit></strong> - это идентификатор коммита, который вы хотите отменить. Идентификатор коммита - это длинная строка символов (обычно 40 шестнадцатеричных символов), которую можно найти, используя команду <strong>git log</strong>.</p>
+<p>После выполнения этой команды, Git создаст новый коммит, который отменяет все изменения, сделанные в указанном коммите. Это означает, что история коммитов остается неизменной - вместо того, чтобы удалять или изменять существующие коммиты, вы добавляете новый коммит, который отменяет нежелательные изменения.</p>
+<p>В отличие от <strong>git reset</strong>, команда git revert может быть использована для отмены любого коммита, а не только последнего. Кроме того, поскольку <strong>git revert</strong> сохраняет историю коммитов, это безопасный выбор для отмены изменений в общедоступных или командных репозиториях.</p>
+<p>Команда <strong>git log</strong> в Git используется для просмотра истории коммитов. Она показывает список коммитов в обратном хронологическом порядке. Информация, представленная в <strong>git log</strong>, обычно включает автора коммита, дату коммита и сообщение коммита.</p>
+<p>Базовое использование команды <strong>git log</strong> просто:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git log
+</code></pre></div></div>
+<p>Это покажет вам полную историю коммитов для текущей ветки.</p>
+<p>Для каждого коммита вы увидите:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>хэш коммита (идентификатор)
+автор коммита
+дата и время коммита
+сообщение коммита
+</code></pre></div></div>
+<p>Есть множество опций, которые можно использовать с <strong>git log</strong> для настройки вывода. Например, если вы хотите видеть историю коммитов в формате, который показывает только одну строку на коммит, вы можете использовать <strong>--oneline</strong> флаг:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git log --oneline
+</code></pre></div></div>
+<p>Если вы хотите видеть историю коммитов, которые включают только определенного автора, вы можете использовать <strong>--author</strong> флаг:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git log --author="Author Name"
+</code></pre></div></div>
+<p>Еще есть опция <strong>--graph</strong>, которая показывает ветвление и слияние в истории:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git log --graph
+</code></pre></div></div>
+<p>Вместе с этим, есть множество других опций, которые можно использовать для настройки того, как <strong>git log</strong> отображает историю коммитов.</p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/git-slijanija-izmenenij-iz-odnoj-vetki-v-druguju/"> <strong>Git слияния изменений из одной ветки в другую</strong></a>
+<br/><br/>
+
+
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="/posts/kak-perekljuchitsja-na-druguju-vetku-v-git/"> <strong>Как переключиться на другую ветку в Git</strong></a>
+
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>

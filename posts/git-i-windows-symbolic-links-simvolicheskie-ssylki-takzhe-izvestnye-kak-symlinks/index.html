@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git и Windows symbolic links (символические ссылки), также известные как symlinks</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Git и Windows symbolic links (символические ссылки), также известные как symlinks</h1>
+<h3 class="subtitle">
+	<span class="tag">#11</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;суббота, 1 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;10 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;877 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/git/">#Git</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/symbolic-links/">#symbolic links</a><a class="button is-outlined" href="/posts/tags/symlinks/">#symlinks</a>
+</div><p>Symbolic links (символические ссылки), также известные как symlinks, - это особый тип файла, который служит ссылкой на другой файл или директорию в файловой системе.</p>
+<p>В Windows для работы с символическими ссылками используется утилита mklink. Она позволяет создавать символические ссылки и жесткие ссылки. Но для работы с этой утилитой вам потребуются права администратора.</p>
+<p>Символические ссылки (или symlinks) могут быть очень полезны в различных сценариях при работе с проектами. Вот несколько примеров:</p>
+<ul>
+<li>
+<p>Организация проектов: Символические ссылки могут помочь организовать файлы и папки в проекте так, чтобы они были легко доступны. Это особенно полезно, когда одни и те же файлы или папки используются в нескольких проектах. Вместо копирования и вставки файлов между проектами вы можете создать символическую ссылку на нужные файлы/папки.</p>
+</li>
+<li>
+<p>Общий код: Если у вас есть библиотеки или модули, которые используются в нескольких проектах, вы можете поместить их в одно место и создать символические ссылки на них в каждом проекте. Это упрощает обновление и поддержку общего кода.</p>
+</li>
+<li>
+<p>Тестирование и отладка: В некоторых случаях вы можете использовать символические ссылки для тестирования. Например, вы можете заменить файл в проекте символической ссылкой на тестовый файл, не меняя структуру проекта.</p>
+</li>
+<li>
+<p>Работа с системами контроля версий: Символические ссылки могут быть полезны при работе с системами контроля версий, такими как Git. Например, в Git есть возможность создания git-ссылок, которые являются специальным типом символических ссылок.</p>
+</li>
+<li>
+<p>Производительность и экономия места: Символические ссылки могут помочь сэкономить место на диске и улучшить производительность, так как они позволяют избежать дублирования файлов и папок.</p>
+</li>
+</ul>
+<p>Помните, что работа с символическими ссылками требует понимания их особенностей и осторожности, поскольку неправильное их использование может привести к неожиданным последствиям.</p>
+<h2>Вот как вы можете использовать mklink:</h2>
+<p>Откройте командную строку с правами администратора (нажмите правой кнопкой мыши на иконке командной строки и выберите "Запустить от имени администратора").
+Для создания символической ссылки на файл, используйте следующую команду:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>mklink Link Target
+</code></pre></div></div>
+<p>Здесь Link - это имя вашей символической ссылки, а Target - это путь к целевому файлу.</p>
+<p>Для создания символической ссылки на директорию, используйте следующую команду:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>mklink /D Link Target
+</code></pre></div></div>
+<p>Здесь флаг /D указывает на то, что ссылка должна быть создана на директорию.</p>
+<p>Если вам необходимо создать жесткую ссылку, используйте флаг /H:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>mklink /H Link Target
+</code></pre></div></div>
+<p>Помните, что жесткие ссылки могут быть созданы только для файлов, а не для директорий.</p>
+<p>Для создания ссылки, которая может пересекать сетевые пути, используйте флаг /J:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>mklink /J Link Target
+</code></pre></div></div>
+<p>Учтите, что ссылки созданные с флагом /J являются символическими ссылками на директорию, но ведут себя как жесткие ссылки.</p>
+<h2>Как использовать относительный путь к целевой директории</h2>
+<p>Символические ссылки с относительными путями могут быть особенно полезными в нескольких случаях:</p>
+<p>Переносимость: Когда вы перемещаете или копируете структуру каталогов, содержащую символические ссылки с относительными путями, ссылки продолжают работать, поскольку они указывают на путь относительно их текущего местоположения, а не на абсолютный путь в файловой системе.</p>
+<p>Структура проекта: В проектах, где важна структура каталогов, например, в больших кодовых базах или в сложно структурированных проектах, символические ссылки с относительными путями могут помочь организовать и визуализировать связи между различными компонентами.</p>
+<p>Общие ресурсы: Они также полезны, когда несколько проектов или частей проекта используют общие ресурсы. Символическая ссылка с относительным путем может указывать на общий файл или каталог, позволяя его легко обновлять или изменять без необходимости менять все ссылки на него.</p>
+<p>Однако стоит помнить, что не все системы и инструменты одинаково хорошо поддерживают символические ссылки. Например, некоторые системы контроля версий, такие как Git, не отслеживают символические ссылки как ссылки по умолчанию, а отслеживают их как обычные файлы. Это может привести к неожиданным результатам, если не обрабатывается должным образом.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code># c:\some_dir\some_dir2\code\ - наш общий для всех проектов код
+cd c:\some_dir\some_dir2\some_dir3\project_x_dir
+mklink /d code ..\..\code
+</code></pre></div></div>
+<p>Команда <strong>mklink /D code ....\code</strong> в Windows создает символическую ссылку на директорию.</p>
+<p>Здесь:</p>
+<p><strong>/D</strong> — ключ, указывающий, что создается символическая ссылка на директорию, а не на файл.</p>
+<p><strong>code</strong> — имя новой символической ссылки, которую вы создаете.</p>
+<p><strong>..\..\code</strong> — это относительный путь к целевой директории, на которую указывает символическая ссылка. В данном случае, символическая ссылка будет указывать на директорию code, которая находится на два уровня выше текущей директории.</p>
+<p>В результате выполнения этой команды, в текущей директории будет создана символическая ссылка code, которая будет указывать на директорию <strong>..\..\code</strong>.</p>
+<p>Важно отметить, что для создания символической ссылки в Windows вам нужны права администратора. Если у вас нет этих прав, то вам нужно открыть командную строку или PowerShell "от имени администратора".</p>
+<h2>Как символические ссылки использовать в Git</h2>
+<p>В Git, символические ссылки (symlinks) не отслеживаются как ссылки по умолчанию. Однако, вы можете изменить настройки Git, чтобы он мог отслеживать символические ссылки как ссылки.</p>
+<p>Откройте командную строку (терминал) и перейдите в каталог вашего репозитория Git.</p>
+<p>Введите следующую команду для включения отслеживания символических ссылок:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git config core.symlinks true
+</code></pre></div></div>
+<p>Эта команда включает отслеживание символических ссылок в текущем репозитории. Если вы хотите включить эту функцию для всех репозиториев, используйте флаг <strong>--global</strong>, как показано ниже:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git config --global core.symlinks true
+</code></pre></div></div>
+<p>Помните, что поведение символических ссылок может отличаться в разных операционных системах. Например, в Windows для создания символических ссылок требуются административные привилегии. Кроме того, некоторые файловые системы не поддерживают символические ссылки.</p>
+<p>Важно также учесть, что даже с включенным отслеживанием символических ссылок, Git будет отслеживать их как ссылки, а не содержимое целевых файлов или каталогов. Это означает, что если целевой файл изменяется, Git не будет отслеживать эти изменения через символическую ссылку.</p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/udalenie-direktorii-iz-git/"> <strong>Удаление директории из Git</strong></a>
+<br/><br/>
+
+
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="/posts/otkrytie-portov-i-perenapravlenie-ih-na-opredelennyj-kompjuter-v-vashej-domashnej-seti/"> <strong>Открытие портов и перенаправление их на определенный компьютер в вашей домашней сети</strong></a>
+
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>

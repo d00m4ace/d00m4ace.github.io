@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Клонирования репозитория Git</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Клонирования репозитория Git</h1>
+<h3 class="subtitle">
+	<span class="tag">#5</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;суббота, 1 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;5 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;367 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/git/">#Git</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
+</div><p>Команда <strong>git clone --config core.symlinks=true https://github.com/d00m4ace/HEXPLAY.git</strong> используется для клонирования репозитория Git с определенной конфигурацией.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git clone --config core.symlinks=true https://github.com/d00m4ace/HEXPLAY.git
+</code></pre></div></div>
+<p><strong>git clone</strong> это команда, которая клонирует репозиторий в новую директорию. Это означает, что она создает копию репозитория на вашем локальном компьютере.</p>
+<p>Опция <strong>--config core.symlinks=true</strong> задает конфигурацию для этого конкретного клонированного репозитория. В данном случае <strong>core.symlinks=true</strong> позволяет Git создавать и обрабатывать символические ссылки.</p>
+<p>Адрес https://github.com/d00m4ace/HEXPLAY.git это URL репозитория, который вы хотите клонировать.</p>
+<p>В итоге, эта команда клонирует репозиторий по указанному URL в новую папку на вашем компьютере с именем HEXPLAY и устанавливает настройку <strong>core.symlinks=true</strong> для этого клонированного репозитория.</p>
+<p>Команда <strong>git remote add origin https://github.com/d00m4ace/hex.play.git</strong> используется для добавления удаленного репозитория Git, который назначается как <strong>"origin"</strong>.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git remote add origin https://github.com/d00m4ace/hex.play.git
+</code></pre></div></div>
+<p>В этой команде:</p>
+<p><strong>git remote add</strong> — это команда для добавления нового удаленного репозитория.
+<strong>origin</strong> — это общепринятое название для главного удаленного репозитория. Это не обязательное название, и вы можете выбрать любое другое имя, но <strong>"origin"</strong> часто используется по умолчанию.
+<strong>https://github.com/d00m4ace/hex.play.git</strong> — это URL удаленного репозитория, который вы хотите добавить.
+После выполнения этой команды, вы можете использовать <strong>origin</strong> для ссылки на этот удаленный репозиторий при выполнении других команд Git, таких как <strong>git push origin</strong> или <strong>git pull origin</strong>.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git push origin
+git pull origin
+</code></pre></div></div>
+<p>Обратите внимание, что эта команда должна быть выполнена внутри вашего локального репозитория Git.</p>
+<p>Команда <strong>git push -u origin main</strong> используется для отправки изменений из вашей локальной ветки <strong>main</strong> в удаленный репозиторий, который вы назвали <strong>origin</strong>.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git push -u origin main
+</code></pre></div></div>
+<p>В этой команде:</p>
+<p><strong>git push</strong> — это команда, которая отправляет ваши локальные изменения на удаленный репозиторий.</p>
+<p><strong>-u</strong> — это короткая форма для <strong>--set-upstream</strong>. При использовании этой опции, ваша локальная ветка <strong>main</strong> будет связана с удаленной веткой <strong>main</strong> в репозитории <strong>origin</strong>. Это означает, что в будущем, для этой ветки вы сможете просто использовать <strong>git push</strong> или <strong>git pull</strong> без указания имени ветки.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git push
+git pull
+</code></pre></div></div>
+<p><strong>origin</strong> — это имя удаленного репозитория, который вы добавили ранее.</p>
+<p><strong>main</strong> — это имя вашей локальной ветки, которую вы хотите отправить на <strong>origin</strong>.</p>
+<p>В итоге, эта команда отправляет все коммиты из вашей локальной ветки <strong>main</strong> на удаленный репозиторий <strong>origin</strong> и связывает эти две ветки для упрощения будущих операций <strong>push</strong> и <strong>pull</strong>.</p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/osnovy-git-kotorye-ispolzuetsja-dlja-raboty-s-vetkami/"> <strong>Основы Git, которые используется для работы с ветками</strong></a>
+<br/><br/>
+
+
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="/posts/git-slijanija-izmenenij-iz-odnoj-vetki-v-druguju/"> <strong>Git слияния изменений из одной ветки в другую</strong></a>
+
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>

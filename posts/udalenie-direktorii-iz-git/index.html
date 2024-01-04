@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Удаление директории из Git</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Удаление директории из Git</h1>
+<h3 class="subtitle">
+	<span class="tag">#10</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;суббота, 1 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;5 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;382 слова</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/git/">#Git</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/dotgitignore/">#.gitignore</a>
+</div><p>Для удаления директории из Git, вы можете использовать команду <strong>git rm</strong>, затем зафиксировать эти изменения и отправить их в удалённый репозиторий.</p>
+<p>Вот последовательность действий:</p>
+<p>Удалите директорию и файлы внутри неё:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git rm -r name_of_the_directory
+</code></pre></div></div>
+<p>Здесь <strong>-r</strong> означает рекурсивное удаление, то есть удаление директории и всего содержимого внутри неё.</p>
+<p>Если вы получите ошибку <em>error: the following files have local modifications:</em> указывает на то, что есть некоторые файлы в вашем репозитории Git, которые были изменены, но эти изменения не были зафиксированы (commit).</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">error</span><span class="o">:</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">modifications</span><span class="o">:</span>
+<span class="w">    </span><span class="n">microweb</span><span class="sr">/env/Lib/site-packages/Markdown-3.4.3.dist-info/</span><span class="n">RECORD</span>
+<span class="w">    </span><span class="o">...</span>
+<span class="w">    </span><span class="n">microweb</span><span class="sr">/env/Lib/site-packages/soupsieve-2.4.1.dist-info/</span><span class="n">RECORD</span>
+<span class="o">(</span><span class="n">use</span><span class="w"> </span><span class="o">--</span><span class="n">cached</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">keep</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="o">,</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="n">removal</span><span class="o">)</span><span class="w"> </span>
+</code></pre></div></div>
+<p>Используйте тогда команду <strong>git rm -r -f name_of_the_directory</strong> удаляет директорию name_of_the_directory и все её содержимое из вашего Git репозитория.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git rm -r -f name_of_the_directory
+</code></pre></div></div>
+<p><strong>rm</strong> это команда Git для удаления файлов или директорий из вашего репозитория.</p>
+<p>Флаг <strong>-r</strong> указывает Git удалить содержимое директории рекурсивно, включая саму директорию и все поддиректории.</p>
+<p>Флаг <strong>-f</strong> или <strong>--force</strong> говорит Git принудительно удалить файлы, даже если они имеют изменения, которые не были зафиксированы.</p>
+<p>Обратите внимание, что это удалит только файлы из Git репозитория. Если вы хотите удалить директорию и из вашей файловой системы, вы должны использовать команду <strong>rm</strong> вашей операционной системы.</p>
+<p>Также, не забудьте зафиксировать эти изменения с помощью <strong>git commit</strong>, и затем отправить их в удаленный репозиторий с помощью <strong>git push</strong>, если это необходимо.</p>
+<p>Зафиксируйте изменения:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git commit -m "Removed the directory"
+</code></pre></div></div>
+<p>Отправьте изменения в удалённый репозиторий:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git push origin name_of_the_branch
+</code></pre></div></div>
+<p>Обратите внимание, что это действие необратимо и удалит директорию из истории Git. Если вы хотите сохранить директорию в истории Git, но не отслеживать дальнейшие изменения, вы можете добавить эту директорию в файл <strong>.gitignore</strong>.</p>
+<p>Если вы попытались удалить файлы или переключить ветки, Git не позволит вам это сделать, чтобы предотвратить потерю незафиксированных изменений.</p>
+<p>Если вы хотите сохранить свои изменения, вы должны добавить измененные файлы в <strong>staging area</strong> с помощью <strong>git add</strong>, а затем зафиксировать их с помощью <strong>git commit</strong>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git add modified_file
+git commit -m "Commit message"
+</code></pre></div></div>
+<p>Если же вы не хотите сохранять свои изменения, вы можете откатить их с помощью <strong>git checkout</strong>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git checkout -- modified_file
+</code></pre></div></div>
+<p>Или если вы хотите откатить все изменения:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git checkout -- .
+</code></pre></div></div>
+<p>Это откатит все незафиксированные изменения в вашем репозитории к последнему commit'у.</p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/git-ignorirovanie-opredelennyh-fajlov-i-direktorij/"> <strong>Git игнорирование определенных файлов и директорий</strong></a>
+<br/><br/>
+
+
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="/posts/git-i-windows-symbolic-links-simvolicheskie-ssylki-takzhe-izvestnye-kak-symlinks/"> <strong>Git и Windows symbolic links (символические ссылки), также известные как symlinks</strong></a>
+
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>

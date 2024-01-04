@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Настройка Certbot и Nginx для работы с HTTPS в Windows</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Настройка Certbot и Nginx для работы с HTTPS в Windows</h1>
+<h3 class="subtitle">
+	<span class="tag">#15</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 3 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;9 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;761 слово</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/certbot/">#Certbot</a><a class="button is-outlined" href="/posts/tags/ssl/">#SSL</a><a class="button is-outlined" href="/posts/tags/tls/">#TLS</a><a class="button is-outlined" href="/posts/tags/https/">#HTTPS</a>
+</div><h2>Установка Certbot на Windows</h2>
+<ul>
+<li>
+<p>Проверьте официальный сайт Certbot для получения полных инструкций <a href="https://certbot.eff.org/instructions">https://certbot.eff.org/instructions</a></p>
+</li>
+<li>
+<p>Загрузите последнюю версию программы установки Certbot для Windows по адресу <a href="https://github.com/certbot/certbot/releases/latest/download/certbot-beta-installer-win_amd64_signed.exe">https://github.com/certbot/certbot/releases/latest/download/certbot-beta-installer-win_amd64_signed.exe</a>.</p>
+</li>
+<li>
+<p>Запустите программу установки и следуйте указаниям мастера. Программа установки предложит каталог установки по умолчанию, <strong>C:\Program Files(x86)</strong>, замените его на <strong>C:\Certbot</strong>).</p>
+</li>
+<li>
+<p>Чтобы запустить оболочку для Certbot, выберите меню "Пуск", введите cmd (для запуска CMD.EXE) или powershell (для запуска PowerShell) и нажмите "Запуск от имени администратора" в появившемся контекстном меню.</p>
+</li>
+<li>
+<p>Перейдите в каталог Certbot</p>
+</li>
+</ul>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>cd C:\Certbot
+</code></pre></div></div>
+<p>Чтобы выполнить команду на Certbot, введите в оболочке имя certbot, затем команду и ее параметры. Например, чтобы отобразить встроенную справку, выполните:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\Certbot&gt;certbot --help
+</code></pre></div></div>
+<h2>Выберите, как вы хотите запустить Certbot</h2>
+<h3><strong>Вы не против временной остановки вашего сайта?</strong></h3>
+<h3><strong>Да</strong>, мой веб-сервер в настоящее время не запущен на этой машине.</h3>
+<p>Остановите свой веб-сервер, затем выполните эту команду, чтобы получить сертификат. Certbot временно запустит веб-сервер который уже использует <strong>порт 80</strong> на вашей машине.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\Certbot&gt;certbot certonly --standalone
+</code></pre></div></div>
+<h3><strong>Нет</strong>, мне нужно, чтобы мой веб-сервер работал.</h3>
+<p>Если у вас есть веб-сервер, который уже использует <strong>порт 80</strong> и вы не хотите останавливать его на время работы Certbot, запустите эту команду и следуйте инструкциям в терминале.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\Certbot&gt;certbot certonly --webroot
+</code></pre></div></div>
+<p><strong>Важное замечание:</strong>
+Чтобы использовать плагин <strong>webroot</strong>, ваш сервер должен быть настроен на обслуживание файлов из скрытых каталогов. Если <strong>/.well-known</strong> обрабатывается особым образом в конфигурации вашего веб-сервера, вам может потребоваться изменить конфигурацию, чтобы файлы внутри <strong>/.well-known/acme-challenge</strong> обслуживались веб-сервером</p>
+<h2>Проверка автоматического обновления</h2>
+<p>Установка Certbot в вашей системе поставляется с предустановленной запланированной задачей, которая будет автоматически обновлять ваши сертификаты до истечения срока их действия. Вам не нужно будет запускать Certbot снова, если вы не измените свою конфигурацию. Вы можете проверить автоматическое обновление ваших сертификатов, выполнив команду</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\Certbot&gt;certbot renew --dry-run
+</code></pre></div></div>
+<p>Если вам нужно остановить ваш веб-сервер для запуска Certbot (например, если вы использовали автономный аутентификатор на машине, где обычно используется порт 80), вам нужно отредактировать встроенную команду и добавить флаги <strong>--pre-hook</strong> и <strong>--post-hook</strong> для автоматической остановки и запуска вашего веб-сервера. </p>
+<p>Флаги <strong>--pre-hook</strong> и <strong>--post-hook</strong> позволяют запускать команды до и после основной операции Certbot соответственно. Это особенно полезно, когда нужно остановить веб-сервер перед обновлением сертификата и затем снова его запустить. Вот как вы можете использовать эти флаги с Nginx на Windows через WSL:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>certbot certonly --standalone --pre-hook "net.exe nginx stop" --post-hook "net.exe nginx start" -d yourdomain.com
+</code></pre></div></div>
+<p>В этой команде:</p>
+<ul>
+<li><strong>certbot certonly --standalone</strong> говорит Certbot запрашивать сертификат, работая в автономном режиме. Это означает, что Certbot самостоятельно запускает временный веб-сервер для проверки вашего домена.</li>
+<li><strong>--pre-hook "net.exe nginx stop"</strong> говорит Certbot остановить Nginx перед запросом сертификата.</li>
+<li><strong>--post-hook "net.exe nginx start"</strong> говорит Certbot запустить Nginx снова после запроса сертификата.</li>
+<li><strong>-d yourdomain.com</strong> указывает домен, для которого вы запрашиваете сертификат.</li>
+</ul>
+<p>Замените yourdomain.com на ваш настоящий домен.</p>
+<p>Эти флаги также можно использовать с командой certbot renew для автоматического обновления сертификатов:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>certbot renew --pre-hook "net.exe nginx stop" --post-hook "net.exe nginx start"
+</code></pre></div></div>
+<p>В этой команде <strong>certbot renew</strong> говорит Certbot проверить все установленные сертификаты и обновить те, которые скоро истекут.</p>
+<p>Если ваш веб-сервер - Apache 2.4, добавьте следующее к команде <strong>certbot renew</strong>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>--pre-hook "net.exe stop Apache2.4" --post-hook "net.exe start Apache2.4".
+</code></pre></div></div>
+<h2>Процесс настройки Nginx для использования SSL-сертификата Let's Encrypt:</h2>
+<ul>
+<li>
+<p>Получите сертификат, используя win-acme, Certify The Web или Certbot. Убедитесь, что вы знаете, где хранятся файлы сертификата и ключа.</p>
+</li>
+<li>
+<p>Откройте файл конфигурации Nginx для вашего сайта. Он обычно находится в каталоге <strong>C:\nginx\conf\nginx.conf</strong>.</p>
+</li>
+<li>
+<p>Добавьте следующие строки в блок server для вашего сайта, заменив <em>/etc/letsencrypt/live/your-domain-name/fullchain.pem</em> и <em>/etc/letsencrypt/live/your-domain-name/privkey.pem</em> на путь к вашему сертификату и ключу:</p>
+</li>
+</ul>
+<p>Пример для сайта d00m4ace.com</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="k">http</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server_name</span><span class="w"> </span><span class="s">d00m4ace.com</span><span class="p">;</span><span class="w"> </span><span class="c1"># например d00m4ace.com</span>
+
+<span class="w">        </span><span class="c1"># Перенаправление всех HTTP-запросов на HTTPS</span>
+<span class="w">        </span><span class="kn">return</span><span class="w"> </span><span class="mi">301</span><span class="w"> </span><span class="s">https://</span><span class="nv">$host$request_uri</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server_name</span><span class="w"> </span><span class="s">d00m4ace.com</span><span class="p">;</span><span class="w"> </span><span class="c1"># например d00m4ace.com</span>
+
+<span class="w">        </span><span class="c1"># Настройки SSL сертификата</span>
+<span class="w">        </span><span class="kn">ssl_certificate</span><span class="w"> </span><span class="s">C:\Certbot\live\hexplay.com\fullchain.pem</span><span class="p">;</span><span class="w"> </span><span class="c1"># managed by Certbot</span>
+<span class="w">        </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">C:\Certbot\live\hexplay.com\privkey.pem</span><span class="p">;</span><span class="w"> </span><span class="c1"># managed by Certbot</span>
+
+<span class="w">        </span><span class="c1"># Другие настройки SSL, если необходимо</span>
+<span class="w">        </span><span class="kn">ssl_session_cache</span><span class="w"> </span><span class="s">shared:SSL:1m</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">ssl_session_timeout</span><span class="w"> </span><span class="mi">5m</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kn">ssl_ciphers</span><span class="w"> </span><span class="s">HIGH:!aNULL:!MD5</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">ssl_prefer_server_ciphers</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1"># Добавьте здесь ваши настройки для обработки HTTPS-соединений</span>
+<span class="w">        </span><span class="c1"># Например:</span>
+<span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kn">root</span><span class="w">   </span><span class="s">C:/microweb/webroot</span><span class="w"> </span><span class="c1"># путь_к_вашему_корневому_каталогу;</span>
+<span class="w">            </span><span class="s">index</span><span class="w"> </span><span class="s">index.html</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1"># Добавьте другие серверные блоки, если необходимо</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<ul>
+<li>Проверьте, что ваша конфигурация Nginx корректна, используя команду nginx -t.</li>
+</ul>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>nginx -t
+</code></pre></div></div>
+<ul>
+<li>Если все в порядке, перезапустите Nginx, чтобы применить новую конфигурацию. Это обычно делается с помощью команды <strong>nginx -s reload</strong>.</li>
+</ul>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">nginx</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">reload</span>
+</code></pre></div></div>
+<p>Пожалуйста, имейте в виду, что Let's Encrypt выдает сертификаты только на 90 дней, поэтому вам нужно будет настроить автоматическое обновление сертификатов. Это обычно делается с помощью cron задания на Unix-подобных системах или с помощью планировщика заданий Windows.</p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/nastrojka-nginx-dlja-obrabotki-http-https-soedinenij-v-windows/"> <strong>Настройка Nginx для обработки HTTP, HTTPS соединений в Windows</strong></a>
+<br/><br/>
+
+
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="/posts/komanda-sc-create-dlja-sozdanija-novyh-sluzhb-v-windows/"> <strong>Команда sc create для создания новых служб в Windows</strong></a>
+
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>

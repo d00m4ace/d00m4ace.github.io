@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D00M4ACE блог ИИ и геймдев - Заметки</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1>Заметки</h1>
+<h2>Git</h2>
+<p>Для начала определим пользователья глобально и перенос новых строк отключим авто замену CRLF обратно на LF.
+И также <strong>core.symlinks true</strong> позволяет Git создавать и обрабатывать символические ссылки. Для работы с символическими ссылками необходимо запускать Git из командной строки Windows (CMD) с правами администратора.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="k">global</span><span class="w"> </span><span class="n">core</span><span class="p">.</span><span class="n">autocrlf</span><span class="w"> </span><span class="k">false</span>
+<span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="k">global</span><span class="w"> </span><span class="n">core</span><span class="p">.</span><span class="n">symlinks</span><span class="w"> </span><span class="k">true</span>
+<span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="k">global</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="ss">"username"</span>
+<span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="c1">--global user.email "username@mail.com"</span>
+</code></pre></div></div>
+<p>Для создания нового репозитория и отправки всего его содержимого в новый уже созданый репозиторий на github:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git init
+git config --local core.symlinks true
+git add .
+git status
+
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/d00m4ace/hex.play.git
+git push -u origin main
+</code></pre></div></div>
+<p>Если вы хотите скопировать существующий репозиторий, используйте команду <strong>git clone</strong>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git clone --config core.symlinks=true https://github.com/d00m4ace/HEXPLAY.git
+</code></pre></div></div>
+<p>Проверьте обновления с сервера</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git pull
+git status
+git merge
+</code></pre></div></div>
+<p>Добавьте свои изменения</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git add .
+git commit -m "Your descriptive commit message here"
+git push
+</code></pre></div></div>
+<p>Чтобы отменить последний <strong>git add</strong>, вы можете использовать команду <strong>git reset</strong> 
+Эта команда снимет индексацию с изменений, но сохранит сами изменения в файлах. </p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git reset
+</code></pre></div></div>
+<h1>Nginx</h1>
+<p>Запуск Nginx</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>start nginx
+</code></pre></div></div>
+<p>Остановка Nginx</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>nginx -s stop
+</code></pre></div></div>
+<p><strong>Эта команда останавливает Nginx немедленно. Это может привести к потере данных, которые еще не были записаны на диск.</strong></p>
+<p>Безопасная остановка Nginx</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>nginx -s quit
+</code></pre></div></div>
+<p>Перезапуск Nginx</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">nginx</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">reload</span>
+</code></pre></div></div>
+<p><em>Эта команда перезапускает Nginx, что полезно при изменении конфигурационных файлов.</em></p>
+<p>Проверка конфигурации Nginx</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>nginx -t
+</code></pre></div></div>
+<h2>Создать новую службу в Windows</h2>
+<p><a href="/posts/komanda-sc-create-dlja-sozdanija-novyh-sluzhb-v-windows/">Команда sc create для создания новых служб в Windows</a>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">sc</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="p">[</span><span class="n">service</span><span class="w"> </span><span class="n">name</span><span class="p">]</span><span class="w"> </span><span class="n">binPath</span><span class="o">=</span><span class="w"> </span><span class="s">"[path to the .exe]"</span>
+
+<span class="n">sc</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">nginx</span><span class="w"> </span><span class="n">binPath</span><span class="o">=</span><span class="w"> </span><span class="s">"C:</span><span class="se">\n</span><span class="s">ginx</span><span class="se">\n</span><span class="s">ginx.exe"</span>
+</code></pre></div></div>
+<p>Следует также отметить, что команда <strong>sc create</strong> создает службу с настройками по умолчанию. В частности, служба будет работать под учетной записью <strong>LocalSystem</strong> и не будет автоматически запускаться при старте системы. Вы можете изменить эти и другие настройки с помощью дополнительных опций команды <strong>sc create</strong> или через Менеджер служб Windows.</p>
+<p>После того как служба создана, вы можете запустить ее с помощью команды <strong>sc start [service name]</strong>, а остановить - с помощью команды <strong>sc stop [service name]</strong>.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sc start nginx
+sc stop nginx
+</code></pre></div></div>
+<p>Так же команды <strong>net start</strong> и <strong>net stop</strong> используются в командной строке Windows для управления службами Windows.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>net start nginx
+net stop nginx
+</code></pre></div></div>
+<p>Если вы часто перезапускаете службу, может быть удобно создать скрипт для этого. Например, вы можете создать файл <strong>!.bat</strong> со следующим содержимым:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nv">@echo</span><span class="w"> </span><span class="k">off</span>
+<span class="n">net</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="n">nginx</span>
+<span class="n">net</span><span class="w"> </span><span class="k">start</span><span class="w"> </span><span class="n">nginx</span>
+</code></pre></div></div>
+<h2>Curl</h2>
+<p>Отправляет POST-запрос с JSON-телом. Здесь -H "Content-Type: application/json" указывает, что тело запроса будет в формате JSON. -d "{\"name\":\"John\", \"age\":30}" это данные, которые вы отправляете в теле запроса.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\curl\curl -X POST -H "Content-Type: application/json" -d "{\"name\":\"John\", \"age\":30}" https://test.hexplay.com/post
+</code></pre></div></div>
+<p>Отправляет POST-запрос с данными в формате x-www-form-urlencoded. Здесь -H "Content-Type: application/x-www-form-urlencoded" указывает, что тело запроса будет в формате x-www-form-urlencoded, а -d "name=John&amp;age=30" это данные, которые вы отправляете.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\curl\curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "name=John&amp;age=30" https://test.hexplay.com/post
+</code></pre></div></div>
+<p>Отправляет POST-запрос с текстовыми данными. Здесь -H "Content-Type: text/plain" указывает, что тело запроса будет текстовым, а -d "Hello, World!" это данные, которые вы отправляете.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\curl\curl -X POST -H "Content-Type: text/plain" -d "Hello, World!" https://test.hexplay.com/post
+</code></pre></div></div>
+<p>Отправит GET-запрос на указанный URL с параметрами name=John и age=30, и вы увидите ответ в командной строке.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\curl\curl "https://test.hexplay.com/get?name=John&amp;age=30"
+</code></pre></div></div>
+<p><strong>-O</strong> (заглавная "O", а не ноль) говорит curl сохранить файл с оригинальным именем файла из URL.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>curl -O https://example.com/path/to/file
+</code></pre></div></div>
+<p>Эта команда загрузит файл, как и прежде, но сохранит его под именем newfile.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>curl -o newfile https://example.com/path/to/file
+</code></pre></div></div>
+<p>Опция -z позволяет указать время и дату файла. Если файл на сервере новее указанного времени, curl загрузит его.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>curl -z localfile -O https://example.com/path/to/file
+</code></pre></div></div>
+<p>В этом случае curl сначала проверяет время последнего изменения локального файла (localfile). Если файл на сервере новее, curl загрузит его и перезапишет локальный файл.</p>
+<h2>mklink</h2>
+<p>Помните, что для выполнения команды <strong>mklink</strong> вам нужны административные права в Windows. </p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>mklink /d code ..\..\code
+</code></pre></div></div>
+<p>Создает символическую ссылку с именем "<strong>code</strong>" на каталог "<strong>..\..\code</strong>" относительно текущего местоположения в файловой системе.
+Используется флаг <strong>/d</strong>, который указывает, что вы создаете символическую ссылку на каталог, а не на файл.</p>
+<h2>7z</h2>
+<p>Скрипт Windows Batch создает архив <strong>7z</strong> директории <strong>HEXPLAY</strong>\ с помощью 7-Zip и именуют его в зависимости от текущей даты и времени, исключая директории <strong>.vs, x64, Debug, Release, output,</strong> и <strong>.git</strong>.
+<strong>!BACKUP.bat</strong></p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>set target="%DATE:~-4%.%DATE:~4,2%.%DATE:~7,2%-%TIME:~0,2%.%TIME:~3,2%.%TIME:~-5%-HEXPLAY-BACKUP-mx5".7z
+"C:\Program Files\7-Zip\7z.exe" a -t7z %target% HEXPLAY\ -mx5 -xr!.vs -xr!x64 -xr!Debug -xr!Release -xr!output -xr!.git
+copy %target% "G:\My Drive\BACKUP"
+copy %target% "E:\BACKUP\"
+</code></pre></div></div>
+<ul>
+<li>Первая команда: устанавливает переменную target с именем файла, включающим текущую дату и время, а также суффикс <strong>-HEXPLAY-BACKUP-mx5</strong> и расширением <strong>.7z</strong>. Использование <strong>%DATE%</strong> и <strong>%TIME%</strong> с подстроками создает дату и время в нужном формате.</li>
+<li>Вторая команда: использует 7-Zip для создания архива <strong>7z</strong>. Опция a добавляет файлы в архив, <strong>-t7z</strong> указывает тип архива (7z), <strong>%target%</strong> является именем создаваемого архива, <strong>HEXPLAY</strong>\ это директория, которую нужно архивировать, <strong>-mx5</strong> задает уровень сжатия, а <strong>-xr!</strong> используется для исключения определенных директорий или файлов из процесса архивации.</li>
+<li>Третья и четвертая команды: копирует файл в директорию <strong>BACKUP</strong> на диске G, и копирует файл в директорию <strong>BACKUP</strong> на диске E.</li>
+</ul>
+<p>Убедитесь, что путь к 7z.exe верный и что директория <strong>HEXPLAY</strong>\ существует. Если они не существуют или неправильно указаны, вы получите ошибку.</p>
+<h2>PostgreSQL</h2>
+<p>pg_env.bat скрипт настраивает среду для PostgreSQL. </p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\PostgreSQL\15\pg_env.bat
+</code></pre></div></div>
+<p>Cоздаем резервную копию базы данных PostgreSQL с именем "mydb". </p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pg_dump -U postgres -W -F t mydb &gt; dbbackup.tar
+</code></pre></div></div>
+<ul>
+<li>"pg_dump": Это утилита, предоставляемая PostgreSQL для создания резервных копий баз данных.</li>
+<li>"-U postgres": Это указывает, что вы хотите использовать пользователя PostgreSQL с именем "postgres" для создания резервной копии.</li>
+<li>"-W": Это заставит команду запросить пароль для пользователя.</li>
+<li>"-F t": Это указывает, что резервная копия должна быть создана в формате tar.</li>
+<li>"mydb": Это имя базы данных, которую вы хотите сохранить.</li>
+<li>"&gt; dbbackup.tar": Это перенаправляет вывод команды pg_dump (то есть резервную копию) в файл с именем "dbbackup.tar". Если файл с этим именем уже существует, он будет перезаписан.</li>
+</ul>
+<p>Команда восстанавливает базу данных PostgreSQL с именем "mydb" из резервной копии, находящейся в файле "dbbackup.tar". </p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pg_restore -U postgres -W -d mydb -1 dbbackup.tar
+</code></pre></div></div>
+<ul>
+<li>"pg_restore": Это утилита, предоставляемая PostgreSQL для восстановления баз данных из резервных копий.</li>
+<li>"-U postgres": Это указывает, что вы хотите использовать пользователя PostgreSQL с именем "postgres" для восстановления.</li>
+<li>"-W": Это заставит команду запросить пароль для пользователя.</li>
+<li>"-d mydb": Это имя базы данных, которую вы хотите восстановить. Обратите внимание, что эта база данных должна уже существовать перед восстановлением. Если она не существует, вы можете создать ее с помощью утилиты createdb.</li>
+<li>"-1": Эта опция указывает, что восстановление должно быть выполнено в одной транзакции. Таким образом, если во время восстановления произойдет какая-либо ошибка, все изменения, сделанные во время восстановления, будут откачены, оставив базу данных в ее исходном состоянии.</li>
+<li>"dbbackup.tar": Это имя файла резервной копии, которую вы хотите восстановить.</li>
+</ul>
+<hr/>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>
