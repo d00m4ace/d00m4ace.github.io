@@ -94,6 +94,33 @@
 
 <article class="content">
 <h2 class="title">
+<a class="l-a-section" href="/posts/kak-ustanovit-pgadmin-na-ubuntu-22dot04/">
+Как установить PgAdmin на Ubuntu 22.04</a>
+</h2>
+<h3 class="subtitle">
+	<span class="tag">#27</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;среда, 19 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;2 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;67 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/pgadmin/">#PgAdmin</a><a class="button is-outlined" href="/posts/tags/curl/">#curl</a><a class="button is-outlined" href="/posts/tags/ubuntu/">#Ubuntu</a>
+</div><p>Обновите список пакетов:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo apt update
+</code></pre></div></div>
+<p>Установите curl:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo apt install curl
+</code></pre></div></div>
+<p>Добавьте репозиторий ключей:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nx">curl</span><span class="w"> </span><span class="nx">https</span><span class="p">:</span><span class="c1">//www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add</span>
+</code></pre></div></div>
+<p>Создайте файл репозитория:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" &gt; /etc/apt/sources.list.d/pgadmin4.list &amp;&amp; apt update'
+</code></pre></div></div>
+<p>Установите PgAdmin:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo apt install pgadmin4-desktop
+</code></pre></div></div>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/kak-ustanovit-pgadmin-na-ubuntu-22dot04/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
 <a class="l-a-section" href="/posts/kak-ustanovit-postgresql-na-ubuntu-22dot04/">
 Как установить PostgreSQL на Ubuntu 22.04</a>
 </h2>
@@ -314,22 +341,7 @@ sudo apt install openssh-server
 </div><p>Запустите <strong>Visual Studio 2022</strong> и выберите <strong>"Create a new project"</strong>. В поиске шаблонов проектов введите <strong>"Python"</strong>, выберите <strong>"Python Application"</strong> и нажмите <strong>"Next"</strong>. Укажите имя и расположение проекта, а затем нажмите <strong>"Create"</strong>.</p>
 <h2>Настройка виртуальной среды Python в Visual Studio 2022</h2>
 <p>Рекомендуется использовать виртуальную среду для изоляции зависимостей вашего проекта. В окне <strong>"Solution Explorer"</strong> </p>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/nastrojka-visual-studio-2022-dlja-raboty-s-python/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
-<a class="l-a-section" href="/posts/nastroit-nginx-v-kachestve-https-proksi-dlja-vashego-rest-prilozhenija-python-na-flask-i-waitress-na-windows-server-2019/">
-Настроить Nginx в качестве HTTPS-прокси для вашего REST приложения Python на Flask и Waitress на Windows Server 2019</a>
-</h2>
-<h3 class="subtitle">
-	<span class="tag">#17</span>
-	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 3 июля 2023 г.</span>
-	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;13 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1165 слов</span>
-</h3><div class="buttons">
-      <a class="button is-outlined" href="/posts/tags/windows-server/">#Windows Server</a><a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/rest/">#REST</a><a class="button is-outlined" href="/posts/tags/python/">#Python</a><a class="button is-outlined" href="/posts/tags/flask/">#Flask</a><a class="button is-outlined" href="/posts/tags/waitress/">#Waitress</a>
-</div><p>Настройка Nginx в качестве HTTPS прокси на Windows Server включает в себя установку и конфигурацию Nginx, настройку SSL для HTTPS и настройку обратного прокси. Это очень похоже на процесс для Linux, но есть некоторые различия в установке и настройке.</p>
-<h2>Установка Nginx</h2>
-<p>Загрузите Nginx для Windows с официального сайта. Затем извлеките архив в нужное место, например C:\nginx.</p>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/nastroit-nginx-v-kachestve-https-proksi-dlja-vashego-rest-prilozhenija-python-na-flask-i-waitress-na-windows-server-2019/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/nastrojka-visual-studio-2022-dlja-raboty-s-python/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span>
 </article>
 <nav class="pagination" role="navigation" aria-label="pagination">
 <ul class="pagination-list">
