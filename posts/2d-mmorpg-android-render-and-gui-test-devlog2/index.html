@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2D MMORPG ANDROID RENDER AND GUI TEST DevLog2</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">2D MMORPG ANDROID RENDER AND GUI TEST DevLog2</h1>
+<h3 class="subtitle">
+	<span class="tag">#40</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 22 января 2024 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;8 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;652 слова</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/mmorpg/">#MMORPG</a><a class="button is-outlined" href="/posts/tags/android/">#ANDROID</a><a class="button is-outlined" href="/posts/tags/render/">#RENDER</a><a class="button is-outlined" href="/posts/tags/gui/">#GUI</a><a class="button is-outlined" href="/posts/tags/devlog/">#DevLog</a>
+</div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/jFYRiAjnWiY"></iframe></div>
+<p>Привет, ребята, это я - Думфэйс. И это мой очередной небольшой dev log для разработчиков игр. Я хочу показать вам, над чем я работал последние 30 дней. Это была сборка и отладка моей 2D MMORPG для ANDROID. Я потратил время на доработку пользовательского интерфейса, а также на тестирование вывода всей 2D графики через движок на ANDROID. Фаза 1 разработки в полном разгаре, следующий этап - добавление регистрации пользователей игры через электронную почту. Я не хочу напрягать пользователей придумыванием паролей, поэтому хочу сделать простую регистрацию и вход по электронной почте. Игроку будет выслан код для подтверждения регистрации нового пользователя или нового входа на устройство.</p>
+<p>Hey guys, it's me - d00m4ace. And this is my next little dev log for game developers. I want to show you what I've been working on for the last 30 days. It was building and debugging my 2D MMORPG for ANDROID. I spent time tweaking the UI, as well as testing the output of all 2D graphics through the engine on ANDROID. Phase 1 of development is in full swing, the next phase is adding game user registration via email. I don't want to stress the users by making up passwords, so I want to make a simple registration and login via email. The player will be sent a code to confirm new user registration or new login to the device.</p>
+<p>Ehi ragazzi, sono io - d00m4ace. E questo è il mio prossimo piccolo dev log per sviluppatori di giochi. Voglio mostrarvi a cosa ho lavorato negli ultimi 30 giorni. Si tratta della costruzione e del debug del mio MMORPG 2D per ANDROID. Ho trascorso del tempo a modificare l'interfaccia utente e a testare l'output di tutta la grafica 2D attraverso il motore su ANDROID. La fase 1 dello sviluppo è in pieno svolgimento, la prossima fase è l'aggiunta della registrazione degli utenti del gioco tramite e-mail. Non voglio stressare gli utenti inventando password, quindi voglio creare una semplice registrazione e login via e-mail. Al giocatore verrà inviato un codice per confermare la registrazione di un nuovo utente o il nuovo accesso al dispositivo.</p>
+<p>Hola chicos, soy yo - d00m4ace. Y este es mi próximo pequeño dev log para desarrolladores de juegos. Quiero mostrar lo que he estado trabajando en los últimos 30 días. Fue la construcción y depuración de mi MMORPG 2D para Android. Pasé tiempo ajustando la interfaz de usuario, así como las pruebas de la salida de todos los gráficos 2D a través del motor en ANDROID. Fase 1 de desarrollo está en pleno apogeo, la siguiente fase es la adición de registro de usuario del juego a través de correo electrónico. No quiero estresar a los usuarios inventando contraseñas, así que quiero hacer un simple registro e inicio de sesión a través de correo electrónico. El jugador recibirá un código para confirmar el registro de un nuevo usuario o un nuevo inicio de sesión en el dispositivo.</p>
+<p>大家好，我是 d00m4ace。这是我为游戏开发者写的下一篇小开发日志。 我想向你们展示我在过去 30 天里所做的工作。这是我为 ANDROID 制作和调试的 2D MMORPG。 我花了很多时间调整用户界面，以及测试所有 2D 图形通过 ANDROID 引擎的输出。 第一阶段的开发工作正在紧锣密鼓地进行，下一阶段将通过电子邮件添加游戏用户注册功能。 我不想通过设置密码给用户造成压力，所以我想通过电子邮件进行简单的注册和登录。 玩家将收到确认新用户注册或新设备登录的代码。</p>
+<p>ドゥームフェイスだ。これはゲーム開発者のための次の小さな開発記録だ。 この30日間、僕が取り組んできたことを紹介したい。アンドロイド向け2D MMORPGのビルドとデバッグだ。 UIを調整したり、ANDROIDのエンジンで2Dグラフィックの出力をテストしたりした。 開発の第一段階は完了し、次の段階は電子メールによるユーザー登録です。 パスワードを作ってユーザーにストレスを与えたくないので、Eメールによる簡単な登録とログインを作りたい。 プレイヤーには、新規ユーザー登録やデバイスへの新規ログインを確認するためのコードが送られる。</p>
+<p>Hey Leute, ich bin's - d00m4ace. Und dies ist mein nächstes kleines Entwicklungsprotokoll für Spieleentwickler. Ich möchte euch zeigen, woran ich in den letzten 30 Tagen gearbeitet habe. Ich habe mein 2D MMORPG für ANDROID entwickelt und debuggt. Ich habe Zeit damit verbracht, die Benutzeroberfläche zu optimieren und die Ausgabe aller 2D-Grafiken durch die Engine auf ANDROID zu testen. Phase 1 der Entwicklung ist in vollem Gange, die nächste Phase ist das Hinzufügen der Spielbenutzerregistrierung per E-Mail. Ich möchte die Benutzer nicht mit dem Ausdenken von Passwörtern belasten, also möchte ich eine einfache Registrierung und Anmeldung per E-Mail ermöglichen. Der Spieler erhält einen Code, mit dem er die Registrierung eines neuen Benutzers oder die neue Anmeldung am Gerät bestätigen kann.</p>
+<p><strong>Web:</strong> <a href="https://d00m4ace.com/">https://d00m4ace.com/</a></p>
+<p><strong>GitHub:</strong> <a href="https://github.com/d00m4ace/">https://github.com/d00m4ace/</a></p>
+<p><strong>YouTube:</strong> <a href="https://www.youtube.com/c/@d00m4ace">https://www.youtube.com/c/@d00m4ace</a></p>
+<p><strong>D00M4ACE подкаст на нейронках 🤖 без людей про искусственный интеллект, геймдев и все остальное.</strong>
+<strong>Telegram:</strong> <a href="https://t.me/d00m4ace_blog">https://t.me/d00m4ace_blog</a></p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/9-meta-samovozobnovljajuschijsja-ii-i-sem-altman-na-forume-v-davose---zamenit-li-agi-chelovecheskij-trud/"> <strong>#9 Meta самовозобновляющийся ИИ и Сэм Альтман на форуме в Давосе - заменит ли AGI человеческий труд?</strong></a>
+<br/><br/>
+
+<!--next_url
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
+next_url-->
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>
