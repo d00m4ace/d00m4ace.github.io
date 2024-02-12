@@ -19,6 +19,22 @@
 <link rel="stylesheet" type="text/css" href="/css/modding.css"/>
 <script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 
@@ -129,6 +145,13 @@ git push
 <p>Чтобы отменить последний <strong>git add</strong>, вы можете использовать команду <strong>git reset</strong> 
 Эта команда снимет индексацию с изменений, но сохранит сами изменения в файлах. </p>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git reset
+</code></pre></div></div>
+<p>Чтобы отменить изменения в рабочей копии, которые не добавлены в индекс (не подготовлены к коммиту), вы можете использовать команду git checkout или git restore, в зависимости от версии Git, которую вы используете. Для Git версии 2.23 и новее рекомендуется использовать git restore.</p>
+<p>Чтобы отменить изменения в конкретном файле</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git restore path/to/file/to/revert
+</code></pre></div></div>
+<p>Чтобы отменить изменения во всей рабочей директории</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git restore .
 </code></pre></div></div>
 <h1>Nginx</h1>
 <p>Запуск Nginx</p>
