@@ -110,6 +110,29 @@
 
 <article class="content">
 <h2 class="title">
+<a class="l-a-section" href="/posts/nastroit-nginx-v-kachestve-https-proksi-dlja-vashego-rest-prilozhenija-python-na-flask-i-waitress-na-ubuntu/">
+Настроить Nginx в качестве HTTPS-прокси для вашего REST приложения Python на Flask и Waitress на Ubuntu</a>
+</h2>
+<h3 class="subtitle">
+	<span class="tag">#24</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;вторник, 18 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;12 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1084 слова</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/python/">#Python</a><a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/https/">#HTTPS</a><a class="button is-outlined" href="/posts/tags/flask/">#Flask</a><a class="button is-outlined" href="/posts/tags/ubuntu/">#Ubuntu</a>
+</div><h2>Настройка Nginx</h2>
+<p>Вам нужно настроить Nginx, чтобы использовать SSL и перенаправлять запросы на ваше приложение Flask. </p>
+<p>Если вы используете файл <strong>/etc/nginx/sites-available/default</strong>, добавьте следующий server для нужного поддомена например <strong>api.pixelrobot.ru</strong>:</p>
+<p>```
+server {
+    # Add index.php to the list if you are using PHP
+    index index.html index.htm index.nginx-debian.html;
+    server_name api.pixelrobot.ru; # managed by Certbot</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nt">location</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">proxy_pass</span><span class="w"> </span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">:</span><span class="mi">5000</span><span class="p">;</span>
+</code></pre></div></div>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/nastroit-nginx-v-kachestve-https-proksi-dlja-vashego-rest-prilozhenija-python-na-flask-i-waitress-na-ubuntu/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
 <a class="l-a-section" href="/posts/ustanovka-python-na-ubuntu/">
 Установка Python на Ubuntu</a>
 </h2>
@@ -307,26 +330,7 @@ sudo apt install openssh-server
 <p>Загрузите последнюю версию программы установки Certbot для Windows по адресу <a href="https://github.com/certbot/certbot/releases/latest/download/certbot-beta-installer-win_amd64_signed.exe">https://github.com/certbot/certbot/releases/latest/download/certbot-beta-installer-win_amd64_signed.exe</a>.</p>
 </li>
 </ul>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/nastrojka-certbot-i-nginx-dlja-raboty-s-https-v-windows/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
-<a class="l-a-section" href="/posts/nastrojka-nginx-dlja-obrabotki-http-https-soedinenij-v-windows/">
-Настройка Nginx для обработки HTTP, HTTPS соединений в Windows</a>
-</h2>
-<h3 class="subtitle">
-	<span class="tag">#14</span>
-	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 3 июля 2023 г.</span>
-	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;5 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;374 слова</span>
-</h3><div class="buttons">
-      <a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/http/">#HTTP</a><a class="button is-outlined" href="/posts/tags/https/">#HTTPS</a>
-</div><p>Чтобы настроить Nginx для обработки как <strong>HTTP</strong>, так и <strong>HTTPS</strong> соединений, вам потребуется определить два отдельных серверных блока в конфигурации Nginx. Один будет обрабатывать <strong>HTTP</strong>-соединения (<strong>порт 80</strong>), а другой - <strong>HTTPS</strong>-соединения (<strong>порт 443</strong>).</p>
-<p>Вот пример конфигурации для обработки и перенаправления <strong>HTTP</strong>-запросов на <strong>HTTPS</strong>, а также для обработки <strong>HTTPS</strong>-соединений:</p>
-<p>```nginx
-http {
-    server {
-        listen 80;
-        server_name ваш_домен; # например d00m4ace.com</p>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/nastrojka-nginx-dlja-obrabotki-http-https-soedinenij-v-windows/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/nastrojka-certbot-i-nginx-dlja-raboty-s-https-v-windows/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span>
 </article>
 <nav class="pagination" role="navigation" aria-label="pagination">
 <ul class="pagination-list">
