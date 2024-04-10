@@ -236,30 +236,54 @@ copy %target% "E:\BACKUP\"
 <p>Убедитесь, что путь к 7z.exe верный и что директория <strong>HEXPLAY</strong>\ существует. Если они не существуют или неправильно указаны, вы получите ошибку.</p>
 <h2>PostgreSQL</h2>
 <p>pg_env.bat скрипт настраивает среду для PostgreSQL. </p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\PostgreSQL\15\pg_env.bat
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\PostgreSQL\16\pg_env.bat
 </code></pre></div></div>
 <p>Cоздаем резервную копию базы данных PostgreSQL с именем "mydb". </p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pg_dump -U postgres -W -F t mydb &gt; dbbackup.tar
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pg_dump -U postgres -W -F t -b -v mydb &gt; dbbackup.tar
 </code></pre></div></div>
 <ul>
-<li>"pg_dump": Это утилита, предоставляемая PostgreSQL для создания резервных копий баз данных.</li>
-<li>"-U postgres": Это указывает, что вы хотите использовать пользователя PostgreSQL с именем "postgres" для создания резервной копии.</li>
-<li>"-W": Это заставит команду запросить пароль для пользователя.</li>
-<li>"-F t": Это указывает, что резервная копия должна быть создана в формате tar.</li>
-<li>"mydb": Это имя базы данных, которую вы хотите сохранить.</li>
-<li>"&gt; dbbackup.tar": Это перенаправляет вывод команды pg_dump (то есть резервную копию) в файл с именем "dbbackup.tar". Если файл с этим именем уже существует, он будет перезаписан.</li>
+<li>"pg_dump": утилита, предоставляемая PostgreSQL для создания резервных копий баз данных.</li>
+<li>"-U postgres": указывает, что вы хотите использовать пользователя PostgreSQL с именем "postgres" для создания резервной копии.</li>
+<li>"-W": заставит команду запросить пароль для пользователя.</li>
+<li>"-F t": указывает, что резервная копия должна быть создана в формате tar.</li>
+<li>"-b": включает в дамп большие объекты.</li>
+<li>"-v": включает режим verbose для отображения подробной информации в процессе резервного копирования.</li>
+<li>"mydb": имя базы данных, которую вы хотите сохранить.</li>
+<li>"&gt; dbbackup.tar": перенаправляет вывод команды pg_dump (то есть резервную копию) в файл с именем "dbbackup.tar". Если файл с этим именем уже существует, он будет перезаписан.</li>
 </ul>
 <p>Команда восстанавливает базу данных PostgreSQL с именем "mydb" из резервной копии, находящейся в файле "dbbackup.tar". </p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pg_restore -U postgres -W -d mydb -1 dbbackup.tar
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pg_restore -U postgres -W -d mydb -1 --clean dbbackup.tar
 </code></pre></div></div>
 <ul>
-<li>"pg_restore": Это утилита, предоставляемая PostgreSQL для восстановления баз данных из резервных копий.</li>
-<li>"-U postgres": Это указывает, что вы хотите использовать пользователя PostgreSQL с именем "postgres" для восстановления.</li>
-<li>"-W": Это заставит команду запросить пароль для пользователя.</li>
-<li>"-d mydb": Это имя базы данных, которую вы хотите восстановить. Обратите внимание, что эта база данных должна уже существовать перед восстановлением. Если она не существует, вы можете создать ее с помощью утилиты createdb.</li>
-<li>"-1": Эта опция указывает, что восстановление должно быть выполнено в одной транзакции. Таким образом, если во время восстановления произойдет какая-либо ошибка, все изменения, сделанные во время восстановления, будут откачены, оставив базу данных в ее исходном состоянии.</li>
-<li>"dbbackup.tar": Это имя файла резервной копии, которую вы хотите восстановить.</li>
+<li>"pg_restore": утилита, предоставляемая PostgreSQL для восстановления баз данных из резервных копий.</li>
+<li>"-U postgres": указывает, что вы хотите использовать пользователя PostgreSQL с именем "postgres" для восстановления.</li>
+<li>"-W": заставит команду запросить пароль для пользователя.</li>
+<li>"-d mydb": имя базы данных, которую вы хотите восстановить. Обратите внимание, что эта база данных должна уже существовать перед восстановлением. Если она не существует, вы можете создать ее с помощью утилиты createdb.</li>
+<li>"-1": опция указывает, что восстановление должно быть выполнено в одной транзакции. Таким образом, если во время восстановления произойдет какая-либо ошибка, все изменения, сделанные во время восстановления, будут откачены, оставив базу данных в ее исходном состоянии.</li>
+<li>"--clean": Это приведет к удалению существующих объектов в целевой базы данных перед их восстановлением из файла резервной копии. </li>
+<li>"dbbackup.tar": имя файла резервной копии, которую вы хотите восстановить.</li>
 </ul>
+<p>Если вы сталкиваетесь с ошибкой, указывающей на отсутствие базы данных mydb, и хотите создать её, команда createdb является правильным способом её создания. </p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>createdb -U postgres mydb
+</code></pre></div></div>
+<p>Файл pgpass.conf используется командной строкой PostgreSQL для хранения паролей для подключений к базам данных. Он обычно находится в папке %APPDATA%\postgresql\pgpass.conf для пользователя, запускающего PostgreSQL.</p>
+<p>Формат содержимого файла:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">localhost</span><span class="o">:</span><span class="mi">5433</span><span class="o">:</span><span class="n">mydb</span><span class="o">:</span><span class="n">my_user_postgres</span><span class="o">:</span><span class="n">my_user_postgres_password</span>
+</code></pre></div></div>
+<p>Это означает, что при использовании утилит pg_dump и pg_restore для базы данных mydb подключение будет происходить без запроса пароля для пользователя my_user_postgres, используя пароль my_user_postgres_password для подключения к базе данных на localhost через порт 5433.</p>
+<p>Рекомендуется хранить пароль в pgpass.conf с ограниченным доступом и указать его расположение в строке подключения с помощью passfile, чтобы обеспечить успешную аутентификацию.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>set PGPASSFILE=C:\projects\pgpass.conf
+pg_dump -U postgres -F t mydb &gt; dbbackup.tar
+</code></pre></div></div>
+<p>Эта команда устанавливает переменную окружения PGPASSFILE путь к файлу pgpass.conf, а затем запускает команду pg_dump для создания резервной копии базы данных mydb в формате tar, сохраняя ее в файле dbbackup.tar.</p>
+<p>Вы можете временно установить переменную среды PGPASSWORD перед выполнением команды для избежания запроса пароля:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>set PGPASSWORD=yourpassword
+createdb -U postgres mydb
+</code></pre></div></div>
+<p>Учтите, что использование PGPASSWORD может представлять риски безопасности, особенно на машинах с несколькими пользователями или в скриптах.</p>
+<p>Проверка существующих баз данных: Чтобы проверить, какие базы данных уже существуют на вашем сервере PostgreSQL, вы можете использовать команду psql:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>psql -U postgres -l
+</code></pre></div></div>
 <h2>Мои домены</h2>
 <h3>d00m4ace.com</h3>
 <p><strong>d00m4ace.com</strong> - <a href="https://d00m4ace.com">https://d00m4ace.com</a></p>
