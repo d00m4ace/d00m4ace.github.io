@@ -110,6 +110,37 @@
 
 <article class="content">
 <h2 class="title">
+<a class="l-a-section" href="/posts/ustanovka-nginx-na-ubuntu/">
+Установка Nginx на Ubuntu</a>
+</h2>
+<h3 class="subtitle">
+	<span class="tag">#21</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 17 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;2 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;90 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/ubuntu/">#Ubuntu</a>
+</div><p>Обновите список пакетов:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo apt update
+</code></pre></div></div>
+<p>Установите Nginx:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo apt install nginx
+</code></pre></div></div>
+<p>Запустите Nginx:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo systemctl start nginx
+</code></pre></div></div>
+<p>Убедитесь, что Nginx запускается при загрузке:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo systemctl enable nginx
+</code></pre></div></div>
+<p>Добавьте правила для Nginx в ufw:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo ufw allow 'Nginx Full'
+</code></pre></div></div>
+<p>Эта команда позволит входящие соединения на портах 80 и 443, которые используются Nginx для HTTP и HTTPS соответственно.
+Проверить статус ufw:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo ufw status
+</code></pre></div></div>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/ustanovka-nginx-na-ubuntu/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
 <a class="l-a-section" href="/posts/nastrojka-remote-desktop-connection-rdc-dlja-podkljuchenija-k-ubuntu-s-drugoj-mashiny/">
 Настройка Remote Desktop Connection (RDC) для подключения к Ubuntu с другой машины</a>
 </h2>
@@ -280,22 +311,7 @@ http {
 </h3><div class="buttons">
       <a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/nat/">#NAT</a><a class="button is-outlined" href="/posts/tags/port-forwarding/">#Port Forwarding</a>
 </div><p>Открытие портов и перенаправление их на определенный компьютер в вашей домашней сети, обычно называемое "пробросом портов", это процесс, который обычно выполняется через веб-интерфейс вашего маршрутизатора. Важно отметить, что процедура может немного отличаться в зависимости от бренда и модели вашего маршрутизатора. Ниже приведены общие шаги:</p>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/otkrytie-portov-i-perenapravlenie-ih-na-opredelennyj-kompjuter-v-vashej-domashnej-seti/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
-<a class="l-a-section" href="/posts/git-i-windows-symbolic-links-simvolicheskie-ssylki-takzhe-izvestnye-kak-symlinks/">
-Git и Windows symbolic links (символические ссылки), также известные как symlinks</a>
-</h2>
-<h3 class="subtitle">
-	<span class="tag">#11</span>
-	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;суббота, 1 июля 2023 г.</span>
-	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;10 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;877 слов</span>
-</h3><div class="buttons">
-      <a class="button is-outlined" href="/posts/tags/git/">#Git</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/symbolic-links/">#symbolic links</a><a class="button is-outlined" href="/posts/tags/symlinks/">#symlinks</a>
-</div><p>Symbolic links (символические ссылки), также известные как symlinks, - это особый тип файла, который служит ссылкой на другой файл или директорию в файловой системе.</p>
-<p>В Windows для работы с символическими ссылками используется утилита mklink. Она позволяет создавать символические ссылки и жесткие ссылки. Но для работы с этой утилитой вам потребуются права администратора.</p>
-<p>Символические ссылки (или symlinks) могут быть очень полезны в различных сценариях при работе с проектами. Вот несколько примеров:</p>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/git-i-windows-symbolic-links-simvolicheskie-ssylki-takzhe-izvestnye-kak-symlinks/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/otkrytie-portov-i-perenapravlenie-ih-na-opredelennyj-kompjuter-v-vashej-domashnej-seti/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span>
 </article>
 <nav class="pagination" role="navigation" aria-label="pagination">
 <ul class="pagination-list">
@@ -315,6 +331,8 @@ Git и Windows symbolic links (символические ссылки), так�
 <a class="pagination-link is-current " href="/posts/page7">7</a>
 </li><li>
 <a class="pagination-link is-white" href="/posts/page8">8</a>
+</li><li>
+<a class="pagination-link is-white" href="/posts/page9">9</a>
 </li>
 </ul>
 </nav>
