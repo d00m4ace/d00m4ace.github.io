@@ -114,8 +114,8 @@
 	<span class="tag">#18</span>
 	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;вторник, 4 июля 2023 г.</span>
 	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;8 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;699 слов</span>
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;10 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;936 слов</span>
 </h3><div class="buttons">
       <a class="button is-outlined" href="/posts/tags/python/">#Python</a><a class="button is-outlined" href="/posts/tags/visual-studio/">#Visual Studio</a>
 </div><p>Запустите <strong>Visual Studio 2022</strong> и выберите <strong>"Create a new project"</strong>. В поиске шаблонов проектов введите <strong>"Python"</strong>, выберите <strong>"Python Application"</strong> и нажмите <strong>"Next"</strong>. Укажите имя и расположение проекта, а затем нажмите <strong>"Create"</strong>.</p>
@@ -174,6 +174,48 @@ Elapsed time:  1.16 seconds
 
 (.env) C:\projects\python\microweb&gt;
 </code></pre></div></div>
+<p>Сообщение об ошибке, с которым вы можете столкнуться:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="o">.</span>\<span class="o">.</span><span class="n">env</span>\<span class="n">Scripts</span>\<span class="n">activate</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">File</span><span class="w"> </span><span class="o">.</span>\<span class="o">.</span><span class="n">env</span>\<span class="n">Scripts</span>\<span class="n">Activate</span><span class="o">.</span><span class="n">ps1</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">loaded</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">scripts</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">disabled</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w"> </span><span class="n">For</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">about_Execution_Policies</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">/</span><span class="n">go</span><span class="o">.</span><span class="n">microsoft</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">fwlink</span><span class="o">/</span><span class="err">?</span><span class="n">LinkID</span><span class="o">=</span><span class="mf">135170.</span>
+<span class="n">At</span><span class="w"> </span><span class="n">line</span><span class="p">:</span><span class="mi">1</span><span class="w"> </span><span class="nb">char</span><span class="p">:</span><span class="mi">1</span>
+<span class="o">+</span><span class="w"> </span><span class="o">.</span>\<span class="o">.</span><span class="n">env</span>\<span class="n">Scripts</span>\<span class="n">activate</span>
+<span class="o">+</span><span class="w"> </span><span class="o">~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="n">CategoryInfo</span><span class="w">          </span><span class="p">:</span><span class="w"> </span><span class="n">SecurityError</span><span class="p">:</span><span class="w"> </span><span class="p">(:)</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="n">PSSecurityException</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="n">FullyQualifiedErrorId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">UnauthorizedAccess</span>
+</code></pre></div></div>
+<p>Указывает на то, что сценарий <code>.env\Scripts\activate</code> не может быть выполнен, поскольку сценарии PowerShell отключены в вашей системе. Чтобы решить эту проблему, вам нужно изменить политику выполнения с помощью команд PowerShell. Вот подробное объяснение того, как это сделать:</p>
+<ol>
+<li><strong>Откройте PowerShell с административными правами:</strong></li>
+<li>Нажмите клавишу <code>Windows</code> или кликните на иконку <code>Windows</code> на панели задач.</li>
+<li>Введите <code>PowerShell</code> в строку поиска.</li>
+<li>
+<p>Щелкните правой кнопкой мыши по <code>Windows PowerShell</code> и выберите <code>Запуск от имени администратора</code>.</p>
+</li>
+<li>
+<p><strong>Проверьте текущую политику выполнения:</strong></p>
+</li>
+<li>В окне PowerShell введите следующую команду и нажмите <code>Enter</code>:
+     <code>powershell
+     Get-ExecutionPolicy -List</code></li>
+<li>
+<p>Эта команда отобразит список политик выполнения для разных областей (MachinePolicy, UserPolicy, Process, CurrentUser, LocalMachine).</p>
+</li>
+<li>
+<p><strong>Измените политику выполнения на "Unrestricted":</strong></p>
+</li>
+<li>Введите следующую команду и нажмите <code>Enter</code>:
+     <code>powershell
+     Set-ExecutionPolicy Unrestricted -Force</code></li>
+<li>
+<p>Команда изменит политику выполнения на "Unrestricted" и принудительно применит её, используя параметр <code>-Force</code>, поскольку для этой операции требуются права администратора.</p>
+</li>
+<li>
+<p><strong>Запустите скрипт активации:</strong></p>
+</li>
+<li>Теперь вы можете выполнить скрипт активации, например:
+     <code>powershell
+     .\env\Scripts\activate</code></li>
+</ol>
+<p><strong>Примечание:</strong> Изменение политики выполнения на "Unrestricted" может представлять потенциальную угрозу безопасности, поэтому используйте эту настройку с осторожностью и только если вы доверяете исполняемым скриптам.</p>
 <p>Теперь вы можете работать с вашим проектом, используя активированную виртуальную среду Python в Visual Studio. Зависимости из requirements.txt будут доступны в вашем проекте.</p>
 <p>Обратите внимание, что эти инструкции предполагают, что у вас уже установлен Python на вашей машине. Если Python не установлен, убедитесь, что вы установили его и добавили путь к исполняемому файлу <strong>Python.exe</strong> в переменную среды <strong>PATH</strong>.</p>
 <p>Теперь у вас должна быть настроена виртуальная среда Python с использованием <strong>.env и requirements.txt</strong> в Visual Studio. Вы можете продолжать разрабатывать ваш проект с учетом этих настроек.</p>
