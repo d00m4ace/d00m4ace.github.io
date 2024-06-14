@@ -112,10 +112,10 @@
 <h1 class="title">Настройка Visual Studio 2022 для работы с Python</h1>
 <h3 class="subtitle">
 	<span class="tag">#18</span>
-	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;вторник, 4 июля 2023 г.</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;пятница, 14 июня 2024 г.</span>
 	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
 	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;10 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;936 слов</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;944 слова</span>
 </h3><div class="buttons">
       <a class="button is-outlined" href="/posts/tags/python/">#Python</a><a class="button is-outlined" href="/posts/tags/visual-studio/">#Visual Studio</a>
 </div><p>Запустите <strong>Visual Studio 2022</strong> и выберите <strong>"Create a new project"</strong>. В поиске шаблонов проектов введите <strong>"Python"</strong>, выберите <strong>"Python Application"</strong> и нажмите <strong>"Next"</strong>. Укажите имя и расположение проекта, а затем нажмите <strong>"Create"</strong>.</p>
@@ -183,6 +183,7 @@ Elapsed time:  1.16 seconds
 <span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="n">FullyQualifiedErrorId</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">UnauthorizedAccess</span>
 </code></pre></div></div>
 <p>Указывает на то, что сценарий <code>.env\Scripts\activate</code> не может быть выполнен, поскольку сценарии PowerShell отключены в вашей системе. Чтобы решить эту проблему, вам нужно изменить политику выполнения с помощью команд PowerShell. Вот подробное объяснение того, как это сделать:</p>
+<h1>Как изменить политику выполнения скриптов в PowerShell</h1>
 <ol>
 <li><strong>Откройте PowerShell с административными правами:</strong></li>
 <li>Нажмите клавишу <code>Windows</code> или кликните на иконку <code>Windows</code> на панели задач.</li>
@@ -193,28 +194,32 @@ Elapsed time:  1.16 seconds
 <li>
 <p><strong>Проверьте текущую политику выполнения:</strong></p>
 </li>
-<li>В окне PowerShell введите следующую команду и нажмите <code>Enter</code>:
-     <code>powershell
-     Get-ExecutionPolicy -List</code></li>
+<li>В окне PowerShell введите следующую команду и нажмите <code>Enter</code>:</li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nb">Get-ExecutionPolicy</span> <span class="n">-List</span>
+</code></pre></div></div>
+<ul>
 <li>
 <p>Эта команда отобразит список политик выполнения для разных областей (MachinePolicy, UserPolicy, Process, CurrentUser, LocalMachine).</p>
 </li>
 <li>
 <p><strong>Измените политику выполнения на "Unrestricted":</strong></p>
 </li>
-<li>Введите следующую команду и нажмите <code>Enter</code>:
-     <code>powershell
-     Set-ExecutionPolicy Unrestricted -Force</code></li>
+<li>Введите следующую команду и нажмите <code>Enter</code>:</li>
+</ul>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nb">Set-ExecutionPolicy</span> <span class="n">Unrestricted</span> <span class="n">-Force</span>
+</code></pre></div></div>
+<ul>
 <li>
 <p>Команда изменит политику выполнения на "Unrestricted" и принудительно применит её, используя параметр <code>-Force</code>, поскольку для этой операции требуются права администратора.</p>
 </li>
 <li>
 <p><strong>Запустите скрипт активации:</strong></p>
 </li>
-<li>Теперь вы можете выполнить скрипт активации, например:
-     <code>powershell
-     .\env\Scripts\activate</code></li>
-</ol>
+<li>Теперь вы можете выполнить скрипт активации, например:</li>
+</ul>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="p">.\</span><span class="n">env</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">activate</span>
+</code></pre></div></div>
 <p><strong>Примечание:</strong> Изменение политики выполнения на "Unrestricted" может представлять потенциальную угрозу безопасности, поэтому используйте эту настройку с осторожностью и только если вы доверяете исполняемым скриптам.</p>
 <p>Теперь вы можете работать с вашим проектом, используя активированную виртуальную среду Python в Visual Studio. Зависимости из requirements.txt будут доступны в вашем проекте.</p>
 <p>Обратите внимание, что эти инструкции предполагают, что у вас уже установлен Python на вашей машине. Если Python не установлен, убедитесь, что вы установили его и добавили путь к исполняемому файлу <strong>Python.exe</strong> в переменную среды <strong>PATH</strong>.</p>
