@@ -110,6 +110,36 @@
 
 <article class="content">
 <h2 class="title">
+<a class="l-a-section" href="/posts/kak-ustanovit-postgresql-na-ubuntu-22dot04/">
+Как установить PostgreSQL на Ubuntu 22.04</a>
+</h2>
+<h3 class="subtitle">
+	<span class="tag">#26</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;среда, 19 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;2 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;75 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/postgresql/">#PostgreSQL</a><a class="button is-outlined" href="/posts/tags/ubuntu/">#Ubuntu</a>
+</div><p>Обновите список пакетов:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo apt update
+</code></pre></div></div>
+<p>Установите PostgreSQL:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo apt install postgresql postgresql-contrib
+</code></pre></div></div>
+<p>Убедитесь, что PostgreSQL запущен:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo systemctl start postgresql
+</code></pre></div></div>
+<p>Установите PostgreSQL для автоматического запуска при загрузке:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo systemctl enable postgresql
+</code></pre></div></div>
+<p>Войдите в PostgreSQL с аккаунтом <code>postgres</code>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo -u postgres psql
+</code></pre></div></div>
+<p>Теперь установите пароль для пользователя <code>postgres</code>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>\password postgres
+</code></pre></div></div>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/kak-ustanovit-postgresql-na-ubuntu-22dot04/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
 <a class="l-a-section" href="/posts/kak-ustanovit-vscode-na-ubuntu-i-ispolzovat-ego-s-pomoschju-python/">
 Как установить VSCode на Ubuntu и использовать его с помощью Python</a>
 </h2>
@@ -317,28 +347,7 @@ sudo apt install openssh-server
 <li><strong>binPath= :</strong> Это обязательная опция, указывающая путь к исполняемому файлу службы.</li>
 <li><strong>displayname= :</strong> Это дружественное имя службы, которое отображается в утилитах управления службами Windows.</li>
 </ul>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/komanda-sc-create-dlja-sozdanija-novyh-sluzhb-v-windows/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
-<a class="l-a-section" href="/posts/nastrojka-certbot-i-nginx-dlja-raboty-s-https-v-windows/">
-Настройка Certbot и Nginx для работы с HTTPS в Windows</a>
-</h2>
-<h3 class="subtitle">
-	<span class="tag">#15</span>
-	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 3 июля 2023 г.</span>
-	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;9 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;761 слово</span>
-</h3><div class="buttons">
-      <a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/certbot/">#Certbot</a><a class="button is-outlined" href="/posts/tags/ssl/">#SSL</a><a class="button is-outlined" href="/posts/tags/tls/">#TLS</a><a class="button is-outlined" href="/posts/tags/https/">#HTTPS</a>
-</div><h2>Установка Certbot на Windows</h2>
-<ul>
-<li>
-<p>Проверьте официальный сайт Certbot для получения полных инструкций <a href="https://certbot.eff.org/instructions">https://certbot.eff.org/instructions</a></p>
-</li>
-<li>
-<p>Загрузите последнюю версию программы установки Certbot для Windows по адресу <a href="https://github.com/certbot/certbot/releases/latest/download/certbot-beta-installer-win_amd64_signed.exe">https://github.com/certbot/certbot/releases/latest/download/certbot-beta-installer-win_amd64_signed.exe</a>.</p>
-</li>
-</ul>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/nastrojka-certbot-i-nginx-dlja-raboty-s-https-v-windows/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/komanda-sc-create-dlja-sozdanija-novyh-sluzhb-v-windows/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span>
 </article>
 <nav class="pagination" role="navigation" aria-label="pagination">
 <ul class="pagination-list">
