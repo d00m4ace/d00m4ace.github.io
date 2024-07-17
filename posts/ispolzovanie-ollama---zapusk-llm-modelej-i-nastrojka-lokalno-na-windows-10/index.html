@@ -114,10 +114,10 @@
 	<span class="tag">#92</span>
 	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;среда, 17 июля 2024 г.</span>
 	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;8 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;659 слов</span>
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;9 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;763 слова</span>
 </h3><div class="buttons">
-      <a class="button is-outlined" href="/posts/tags/github/">#GitHub</a><a class="button is-outlined" href="/posts/tags/ollama/">#Ollama</a><a class="button is-outlined" href="/posts/tags/llm/">#LLM</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a>
+      <a class="button is-outlined" href="/posts/tags/ollama/">#Ollama</a><a class="button is-outlined" href="/posts/tags/llm/">#LLM</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
 </div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/QpSMlqXBRdo"></iframe></div>
 <h1>Инструкции по установке и запуску Ollama на Windows 10</h1>
 <p>Следуя этим инструкциям, вы сможете установить и запустить Ollama на Windows 10, а также настроить его основные параметры.</p>
@@ -132,12 +132,17 @@
 <p>Вы можете легко загружать модели из библиотеки Ollama, используя интерфейс командной строки Ollama:</p>
 <ol>
 <li>
-<p><strong>Откройте командную строку.</strong></p>
+<p><strong>Откройте командную строку (Command Prompt).</strong></p>
 </li>
 <li>
-<p><strong>Используйте команду <code>ollama pull &lt;имя_модели&gt;</code>, чтобы загрузить модель.</strong> 
-   Замените <code>&lt;имя_модели&gt;</code> на имя модели, которую вы хотите загрузить. Например, чтобы загрузить модель <code>llama2</code>, выполните:</p>
+<p>Перейдите в каталог, где установлен Ollama:</p>
 </li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>cd c:\users\%username%\AppData\Local\Programs\Ollama\
+</code></pre></div></div>
+<ol>
+<li><strong>Используйте команду <code>ollama pull &lt;имя_модели&gt;</code>, чтобы загрузить модель.</strong> 
+   Замените <code>&lt;имя_модели&gt;</code> на имя модели, которую вы хотите загрузить. Например, чтобы загрузить модель <code>llama2</code>, выполните:</li>
 </ol>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>ollama pull llama2
 </code></pre></div></div>
@@ -205,11 +210,9 @@
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>set OLLAMA_HOST = 0.0.0.0:9117
 </code></pre></div></div>
 <h3>OLLAMA_KEEP_ALIVE</h3>
-<p>Устанавливает время ожидания (в секундах если без 'm или 'h) для keep-alive соединений:</p>
+<p>По умолчанию модели хранятся в памяти в течение 5 минут перед выгрузкой. Это позволяет ускорить время отклика, если вы делаете много запросов к LLM. Однако вы можете захотеть освободить память до истечения 5 минут или держать модель загруженной неограниченное время. Используйте OLLAMA_KEEP_ALIVE или параметр keep_alive с конечными точками API /api/generate и /api/chat, чтобы контролировать, как долго модель будет оставаться в памяти.</p>
+<p>Устанавливает, как долго модели хранятся в памяти перед выгрузкой в секундах, если без 'm или 'h:</p>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>set OLLAMA_KEEP_ALIVE = 50m
-</code></pre></div></div>
-<p>Или для определённых API:</p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>/api/generate or /api/chat keep_alive=50m
 </code></pre></div></div>
 <h3>OLLAMA_MAX_LOADED_MODELS</h3>
 <p>Максимальное количество моделей, которые могут быть загружены одновременно. По умолчанию это 3 * количество GPU или 3 для вычислений на CPU.</p>
@@ -254,11 +257,12 @@ ollama serve
 <p><strong>Объяснение:</strong></p>
 <ol>
 <li><code>@echo off</code>: Отключает вывод команд в консоль.</li>
-<li><code>set OLLAMA_HOST=127.0.0.1:8080</code>: Устанавливает переменную окружения <code>OLLAMA_HOST</code> на адрес <code>127.0.0.1</code> и порт <code>8080</code>. Это означает, что Ollama будет доступна по адресу <code>http://127.0.0.1:8080/</code>.</li>
+<li><code>set OLLAMA_HOST=0.0.0.0:9117</code>: Устанавливает переменную окружения <code>OLLAMA_HOST</code> на адрес <code>0.0.0.0</code> и порт <code>9117</code>. Это означает, что Ollama будет доступна по адресу <code>http://localhost:9117/</code>.</li>
 <li><code>set OLLAMA_NUM_PARALLEL=2</code>: Устанавливает переменную окружения <code>OLLAMA_NUM_PARALLEL</code> на значение <code>2</code>. Это ограничивает количество одновременных запросов, обрабатываемых каждой моделью, до 2.</li>
 <li><code>ollama serve</code>: Запускает сервер Ollama.</li>
 <li><code>pause</code>:  Приостанавливает выполнение bat-файла, чтобы окно консоли не закрылось сразу после запуска Ollama. </li>
 </ol>
+<p>Обратите внимание, что адрес <code>0.0.0.0</code> также означает, что Ollama будет принимать запросы с любого другого IP-адреса вашей сети, поэтому вы можете получить доступ к Ollama на этой машине с любого из ваших компьютеров из той же сети. </p>
 <p><strong>Важно:</strong></p>
 <ul>
 <li>Перед запуском bat-файла убедитесь, что Ollama установлен на вашем компьютере. </li>
