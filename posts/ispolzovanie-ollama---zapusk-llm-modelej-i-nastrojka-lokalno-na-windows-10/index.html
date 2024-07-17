@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Использование Ollama - запуск LLM моделей и настройка локально на Windows 10</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Использование Ollama - запуск LLM моделей и настройка локально на Windows 10</h1>
+<h3 class="subtitle">
+	<span class="tag">#92</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;среда, 17 июля 2024 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;8 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;659 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/github/">#GitHub</a><a class="button is-outlined" href="/posts/tags/ollama/">#Ollama</a><a class="button is-outlined" href="/posts/tags/llm/">#LLM</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a>
+</div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/QpSMlqXBRdo"></iframe></div>
+<h1>Инструкции по установке и запуску Ollama на Windows 10</h1>
+<p>Следуя этим инструкциям, вы сможете установить и запустить Ollama на Windows 10, а также настроить его основные параметры.</p>
+<h2>Установка Ollama</h2>
+<ol>
+<li>Скачайте установочный файл Ollama для Windows с официального сайта. <a href="https://ollama.com/download/windows">https://ollama.com/download/windows</a></li>
+<li>Запустите установочный файл и следуйте инструкциям мастера установки.</li>
+<li>По умолчанию Ollama будет установлен в каталог:
+   <code>c:\users\%username%\AppData\Local\Programs\Ollama\</code></li>
+</ol>
+<h2>Загрузка моделей Ollama из библиотеки ollama.com/library</h2>
+<p>Вы можете легко загружать модели из библиотеки Ollama, используя интерфейс командной строки Ollama:</p>
+<ol>
+<li>
+<p><strong>Откройте командную строку.</strong></p>
+</li>
+<li>
+<p><strong>Используйте команду <code>ollama pull &lt;имя_модели&gt;</code>, чтобы загрузить модель.</strong> 
+   Замените <code>&lt;имя_модели&gt;</code> на имя модели, которую вы хотите загрузить. Например, чтобы загрузить модель <code>llama2</code>, выполните:</p>
+</li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>ollama pull llama2
+</code></pre></div></div>
+<p>Вы можете найти список доступных моделей на странице <a href="https://ollama.com/library">https://ollama.com/library</a>.</p>
+<ol>
+<li>
+<p><strong>Дождитесь завершения загрузки.</strong> Ollama отобразит ход загрузки. 
+   Размер моделей может варьироваться, поэтому загрузка может занять некоторое время.</p>
+</li>
+<li>
+<p><strong>После завершения загрузки модель будет доступна для использования.</strong> Вы можете запустить ее с помощью команды <code>ollama run &lt;имя_модели&gt;</code>:</p>
+</li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>ollama run llama2
+</code></pre></div></div>
+<h2>Дополнительные опции</h2>
+<ul>
+<li><strong>Загрузка определенной версии модели:</strong><br/>
+  Чтобы загрузить определенную версию модели, укажите ее после имени модели, разделенных двоеточием. Например:</li>
+</ul>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>ollama pull llama2:13b-chat
+</code></pre></div></div>
+<ul>
+<li><strong>Просмотр списка загруженных моделей:</strong>
+  Чтобы просмотреть список всех загруженных моделей, используйте команду:</li>
+</ul>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>ollama list
+</code></pre></div></div>
+<ul>
+<li><strong>Удаление модели:</strong>
+  Чтобы удалить модель, используйте команду <code>ollama delete</code>, указав имя модели:</li>
+</ul>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>ollama delete llama2
+</code></pre></div></div>
+<h2>Важно</h2>
+<ul>
+<li>Убедитесь, что у вас достаточно свободного места на диске перед загрузкой больших моделей.</li>
+<li>Загрузка моделей может занять некоторое время в зависимости от скорости вашего интернет-соединения.</li>
+</ul>
+<h2>Запуск Ollama</h2>
+<ol>
+<li>Откройте командную строку (Command Prompt).</li>
+<li>Перейдите в каталог, где установлен Ollama:</li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>cd c:\users\%username%\AppData\Local\Programs\Ollama\
+</code></pre></div></div>
+<ol>
+<li>Запустите Ollama командой:</li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>ollama serve
+</code></pre></div></div>
+<h2>Расположение моделей</h2>
+<ul>
+<li><strong>macOS</strong>: <code>~/.ollama/models</code></li>
+<li><strong>Linux</strong>: <code>/usr/share/ollama/.ollama/models</code></li>
+<li><strong>Windows</strong>: <code>C:\Users\%username%\.ollama\models</code></li>
+</ul>
+<h2>Переменные окружения</h2>
+<h3>OLLAMA_MODELS</h3>
+<p>Указывает путь к каталогу с моделями:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>set OLLAMA_MODELS = D:\MY_OLLAMAS
+</code></pre></div></div>
+<h3>OLLAMA_HOST</h3>
+<p>Указывает хост и порт для Ollama:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>set OLLAMA_HOST = 0.0.0.0:9117
+</code></pre></div></div>
+<h3>OLLAMA_KEEP_ALIVE</h3>
+<p>Устанавливает время ожидания (в секундах если без 'm или 'h) для keep-alive соединений:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>set OLLAMA_KEEP_ALIVE = 50m
+</code></pre></div></div>
+<p>Или для определённых API:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>/api/generate or /api/chat keep_alive=50m
+</code></pre></div></div>
+<h3>OLLAMA_MAX_LOADED_MODELS</h3>
+<p>Максимальное количество моделей, которые могут быть загружены одновременно. По умолчанию это 3 * количество GPU или 3 для вычислений на CPU.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>set OLLAMA_MAX_LOADED_MODELS = &lt;значение&gt;
+</code></pre></div></div>
+<h3>OLLAMA_NUM_PARALLEL</h3>
+<p>Максимальное количество параллельных запросов, которые каждая модель будет обрабатывать одновременно. По умолчанию автоматически выбирается 4 или 1 в зависимости от доступной памяти.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>set OLLAMA_NUM_PARALLEL = &lt;значение&gt;
+</code></pre></div></div>
+<h3>OLLAMA_MAX_QUEUE</h3>
+<p>Максимальное количество запросов, которые Ollama будет ставить в очередь при загрузке перед отклонением дополнительных запросов. По умолчанию это 512.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>set OLLAMA_MAX_QUEUE = &lt;значение&gt;
+</code></pre></div></div>
+<h3>Использование Ollama</h3>
+<p>После запуска Ollama будет доступна по адресу, указанному в OLLAMA_HOST. Вы можете отправлять запросы к API Ollama, используя любой HTTP-клиент.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>curl http://localhost:9117/api/generate -d '{
+  "model": "phi3:medium-128k",
+  "prompt": "Why is the sky blue?",
+  "options": {
+    "num_ctx": 4096
+  }
+}'
+</code></pre></div></div>
+<h3>Пример .bat файла под Windows 10 запуска ollama с установкой OLLAMA_HOST и OLLAMA_NUM_PARALLEL</h3>
+<p>start_ollama.bat:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="p">@</span><span class="k">echo</span> off
+
+<span class="p">:</span><span class="c1">: Добавляем папку с Ollama в переменную PATH</span>
+<span class="k">set</span> <span class="s2">"PATH=</span><span class="nv">%PATH%</span><span class="s2">;C:\Users\</span><span class="nv">%username%</span><span class="s2">\AppData\Local\Programs\Ollama"</span>
+
+<span class="p">:</span><span class="c1">: Устанавливаем OLLAMA_HOST</span>
+<span class="k">set</span> <span class="nv">OLLAMA_HOST</span><span class="p">=</span>0.0.0.0:9117
+
+<span class="p">:</span><span class="c1">: Устанавливаем OLLAMA_NUM_PARALLEL</span>
+<span class="k">set</span> <span class="nv">OLLAMA_NUM_PARALLEL</span><span class="p">=</span>2
+
+<span class="p">:</span><span class="c1">: Запускаем Ollama</span>
+ollama serve
+
+<span class="k">pause</span>
+</code></pre></div></div>
+<p><strong>Объяснение:</strong></p>
+<ol>
+<li><code>@echo off</code>: Отключает вывод команд в консоль.</li>
+<li><code>set OLLAMA_HOST=127.0.0.1:8080</code>: Устанавливает переменную окружения <code>OLLAMA_HOST</code> на адрес <code>127.0.0.1</code> и порт <code>8080</code>. Это означает, что Ollama будет доступна по адресу <code>http://127.0.0.1:8080/</code>.</li>
+<li><code>set OLLAMA_NUM_PARALLEL=2</code>: Устанавливает переменную окружения <code>OLLAMA_NUM_PARALLEL</code> на значение <code>2</code>. Это ограничивает количество одновременных запросов, обрабатываемых каждой моделью, до 2.</li>
+<li><code>ollama serve</code>: Запускает сервер Ollama.</li>
+<li><code>pause</code>:  Приостанавливает выполнение bat-файла, чтобы окно консоли не закрылось сразу после запуска Ollama. </li>
+</ol>
+<p><strong>Важно:</strong></p>
+<ul>
+<li>Перед запуском bat-файла убедитесь, что Ollama установлен на вашем компьютере. </li>
+<li>Вы можете изменить значения <code>OLLAMA_HOST</code> и <code>OLLAMA_NUM_PARALLEL</code> в соответствии с вашими потребностями.</li>
+<li>Чтобы остановить Ollama, закройте окно консоли.</li>
+</ul>
+<p><strong>Сохраните этот код в файл с расширением <code>.bat</code> (например, <code>start_ollama.bat</code>) и запускайте его двойным щелчком.</strong></p>
+<p>Web: <a href="https://d00m4ace.com/">https://d00m4ace.com/</a></p>
+<p>GitHub: <a href="https://github.com/d00m4ace/">https://github.com/d00m4ace/</a></p>
+<p>YouTube: <a href="https://www.youtube.com/c/@d00m4ace">https://www.youtube.com/c/@d00m4ace</a></p>
+<p>Telegram: <a href="https://t.me/d00m4ace_blog">https://t.me/d00m4ace_blog</a></p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/59-kriptovaljuta-okazalas-somnitelnoj-irs-dokazyvaetdot-apple-i-microsoft-pokidajut-openaidot-novosti-aidot/"> <strong>#59 Криптовалюта оказалась сомнительной IRS доказывает. Apple и Microsoft покидают OpenAI. Новости AI.</strong></a>
+<br/><br/>
+
+<!--next_url
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
+next_url-->
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>
