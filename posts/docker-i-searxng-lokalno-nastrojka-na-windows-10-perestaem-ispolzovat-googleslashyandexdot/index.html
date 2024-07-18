@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOCKER и SearXNG локально настройка на Windows 10, перестаем использовать GOOGLE/YANDEX.</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">DOCKER и SearXNG локально настройка на Windows 10, перестаем использовать GOOGLE/YANDEX.</h1>
+<h3 class="subtitle">
+	<span class="tag">#93</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;четверг, 18 июля 2024 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;5 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;405 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/docker/">#DOCKER</a><a class="button is-outlined" href="/posts/tags/searxng/">#SearXNG</a><a class="button is-outlined" href="/posts/tags/google/">#GOOGLE</a><a class="button is-outlined" href="/posts/tags/yandex/">#YANDEX</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
+</div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/ICcIo22wz9Q"></iframe></div>
+<h2>Установка SearXNG под Windows с помощью Docker:</h2>
+<ol>
+<li><strong>Установка Docker Desktop:</strong><ul>
+<li>Откройте браузер и перейдите на сайт Docker: <a href="https://www.docker.com/">https://www.docker.com/</a></li>
+<li>Найдите <strong>Docker Desktop</strong> и нажмите кнопку <strong>Download for Windows</strong>.</li>
+<li>Запустите загруженный файл.</li>
+<li>В окне <strong>Configuration</strong>, выберите <strong>Use WSL 2 instead of Hyper-V (recommended)</strong> и <strong>Add shortcut to desktop</strong>.</li>
+<li>Нажмите <strong>Ok</strong> и дождитесь завершения установки.</li>
+<li>Перезагрузите компьютер.</li>
+</ul>
+</li>
+<li><strong>Установка WSL (Windows Subsystem for Linux):</strong><ul>
+<li>Нажмите <strong>Пуск</strong> и введите <strong>PowerShell</strong>.</li>
+<li>Кликните правой кнопкой мыши по <strong>Windows PowerShell</strong> и выберите <strong>Run as administrator</strong>.</li>
+<li>В окне PowerShell введите команду <code>wsl --install</code> и нажмите <strong>Enter</strong>.</li>
+<li>Дождитесь завершения установки и перезагрузите компьютер.</li>
+</ul>
+</li>
+</ol>
+<h2>Установка SearXNG как готового образа для Docker</h2>
+<p>SearXNG можно установить как готовый образ Docker, что упрощает процесс настройки и запуска. </p>
+<p><strong>Предварительные условия:</strong></p>
+<ul>
+<li>Установленный Docker Desktop на вашем компьютере (инструкции по установке Docker Desktop можно найти в предыдущем ответе).</li>
+</ul>
+<p><strong>Инструкции:</strong></p>
+<ol>
+<li>
+<p><strong>Загрузите образ SearXNG:</strong></p>
+<ul>
+<li>Откройте окно <strong>PowerShell</strong> или <strong>CMD</strong>.</li>
+<li>Введите команду <code>docker pull searxng/searxng</code> и нажмите <strong>Enter</strong>.</li>
+<li>Дождитесь загрузки образа.</li>
+</ul>
+</li>
+<li>
+<p><strong>Запустите контейнер SearXNG:</strong></p>
+<ul>
+<li>Введите команду <code>docker run -d -p 8888:8888 searxng/searxng</code> и нажмите <strong>Enter</strong>.<ul>
+<li><code>-d</code>: запустить контейнер в фоновом режиме (detached mode).</li>
+<li><code>-p 8888:8888</code>: пробросить порт 8888 контейнера на порт 8888 хоста.</li>
+</ul>
+</li>
+<li>Дождитесь запуска контейнера.</li>
+</ul>
+</li>
+<li>
+<p><strong>Доступ к SearXNG:</strong></p>
+<ul>
+<li>Откройте браузер и введите адрес <code>http://localhost:8888</code>.</li>
+<li>Вы увидите главную страницу SearXNG.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Настройки SearXNG:</strong></p>
+<ul>
+<li>Доступ к настройкам SearXNG осуществляется по адресу <code>http://localhost:8888/preferences</code>.</li>
+<li>В настройках можно изменить язык поиска, поисковые системы, используемые по умолчанию, и другие параметры.</li>
+</ul>
+<p><strong>Дополнительная информация:</strong></p>
+<ul>
+<li>Вы можете изменить порт, проброшенный на хост, указав другой порт в команде <code>docker run</code>.</li>
+<li>Дополнительные опции запуска контейнера SearXNG можно найти в документации на GitHub: <a href="https://github.com/searxng/searxng-docker">https://github.com/searxng/searxng-docker</a></li>
+</ul>
+<p><strong>Использование SearXNG:</strong></p>
+<ul>
+<li>Введите поисковый запрос в строку поиска SearXNG и нажмите <strong>Enter</strong>.</li>
+<li>SearXNG выполнит метапоиск, используя выбранные вами поисковые системы.</li>
+<li>Результаты поиска будут отображены на странице.</li>
+</ul>
+<p><strong>Дополнительные возможности:</strong></p>
+<ul>
+<li>SearXNG поддерживает различные категории поиска, такие как <strong>General</strong>, <strong>Files</strong>, <strong>Images</strong>, <strong>IT</strong>, <strong>Maps</strong>, <strong>Music</strong>, <strong>News</strong>, <strong>Science</strong>, <strong>Social Media</strong> и <strong>Videos</strong>.</li>
+<li>Вы можете использовать эти категории для уточнения поискового запроса.</li>
+</ul>
+<p><strong>Преимущества SearXNG:</strong></p>
+<ul>
+<li>SearXNG – это метапоисковая система с открытым исходным кодом.</li>
+<li>Он не отслеживает ваши поисковые запросы и не показывает рекламу.</li>
+<li>SearXNG позволяет использовать различные поисковые системы, что дает вам более широкий выбор результатов.</li>
+<li>SearXNG можно легко установить и настроить с помощью Docker.</li>
+</ul>
+<p><strong>Enjoy private and unbiased search!</strong> </p>
+<p>Web: <a href="https://d00m4ace.com/">https://d00m4ace.com/</a></p>
+<p>GitHub: <a href="https://github.com/d00m4ace/">https://github.com/d00m4ace/</a></p>
+<p>YouTube: <a href="https://www.youtube.com/c/@d00m4ace">https://www.youtube.com/c/@d00m4ace</a></p>
+<p>Telegram: <a href="https://t.me/d00m4ace_blog">https://t.me/d00m4ace_blog</a></p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/ispolzovanie-ollama---zapusk-llm-modelej-i-nastrojka-lokalno-na-windows-10/"> <strong>Использование Ollama - запуск LLM моделей и настройка локально на Windows 10</strong></a>
+<br/><br/>
+
+
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="/posts/60-insajdy-openai-q-star--klubnika-i-gpt-5dot-zolotaja-era-prostyh-igr--uspeh-igrovyh-klonovdot/"> <strong>#60 Инсайды OpenAI Q-Star 🍓 "Клубника" и GPT-5. Золотая эра простых игр 🕹️ Успех игровых клонов.</strong></a>
+
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>
