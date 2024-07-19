@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Установка поддержки CUDA под Windows 10 для Python и C++</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Установка поддержки CUDA под Windows 10 для Python и C++</h1>
+<h3 class="subtitle">
+	<span class="tag">#96</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;пятница, 19 июля 2024 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;5 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;438 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/docker/">#DOCKER</a><a class="button is-outlined" href="/posts/tags/cuda/">#CUDA</a><a class="button is-outlined" href="/posts/tags/python/">#Python</a><a class="button is-outlined" href="/posts/tags/cplusplus/">#C++</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
+</div><p>Для установки поддержки CUDA под Windows 10 для Python и C++, выполните следующие шаги:</p>
+<h3>Шаг 1: Установите драйверы NVIDIA</h3>
+<ol>
+<li>Перейдите на официальный сайт <a href="https://www.nvidia.com/Download/index.aspx?lang=en-us">NVIDIA Drivers</a>.</li>
+<li>Введите данные вашей видеокарты и скачайте последнюю версию драйверов.</li>
+<li>Установите драйверы, следуя инструкциям установщика.</li>
+</ol>
+<h3>Шаг 2: Установите CUDA Toolkit</h3>
+<ol>
+<li>Перейдите на страницу <a href="https://developer.nvidia.com/cuda-downloads">CUDA Toolkit Downloads</a>.</li>
+<li>Выберите вашу операционную систему (Windows), архитектуру, версию Windows (10), и тип установщика (exe (local)).</li>
+<li>Скачайте и запустите установочный файл.</li>
+<li>Следуйте инструкциям установщика. Рекомендуется оставить все параметры по умолчанию.</li>
+</ol>
+<h3>Шаг 3: Установите cuDNN (для глубинного обучения)</h3>
+<ol>
+<li>Перейдите на страницу <a href="https://developer.nvidia.com/rdp/cudnn-download">cuDNN Download</a>.</li>
+<li>Войдите в систему или создайте учетную запись NVIDIA.</li>
+<li>Выберите версию cuDNN, совместимую с установленной версией CUDA Toolkit.</li>
+<li>Скачайте файл и запустите его.</li>
+<li>Содержимое будет распакованно в директорию установки CUDA (например, <code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vX.X</code>), заменяя существующие файлы.</li>
+</ol>
+<h3>Шаг 4: Настройте переменные окружения</h3>
+<ol>
+<li>Откройте "Свойства системы" (System Properties) через меню "Пуск" или панели управления.</li>
+<li>Перейдите на вкладку "Дополнительно" (Advanced) и нажмите "Переменные среды" (Environment Variables).</li>
+<li>В разделе "Системные переменные" (System Variables) найдите переменную <code>CUDA_PATH</code> и нажмите "Изменить" (Edit).</li>
+<li>Добавьте следующие пути (замените <code>vX.X</code> на вашу версию CUDA):<ul>
+<li><code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vX.X\bin</code></li>
+<li><code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vX.X\libnvvp</code></li>
+</ul>
+</li>
+<li>Нажмите "OK" для сохранения изменений.</li>
+</ol>
+<h3>Шаг 5: Установка поддержки CUDA для Python</h3>
+<ul>
+<li>
+<p><strong>Установка PyTorch:</strong> В зависимости от твоей операционной системы и наличия видеокарты (NVIDIA или AMD), тебе может потребоваться установить PyTorch с CUDA поддержкой. RVC-Project использует PyTorch для глубокого обучения,  и наличие CUDA значительно ускорит процесс тренировки моделей. Подробные инструкции по установке PyTorch  можно найти на сайте <a href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a>. </p>
+</li>
+<li>
+<p>Откройте командную строку или терминал. Активируйте ваш Python проект: </p>
+</li>
+</ul>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>.<span class="se">\.</span>env<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</code></pre></div></div>
+<ol>
+<li>Установите пакет <code>PyTorch</code>, который предоставляет поддержку CUDA для Python:</li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>torchaudio<span class="w"> </span>--index-url<span class="w"> </span>https://download.pytorch.org/whl/cu121
+</code></pre></div></div>
+<ol>
+<li>При необходимости установите пакет <code>cupy</code>, который предоставляет поддержку CUDA для Python:</li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>cupy-cuda11x<span class="w">  </span><span class="c1"># Замените 11x на вашу версию CUDA (например, cupy-cuda112 для CUDA 11.2)</span>
+</code></pre></div></div>
+<h3>Шаг 6: Проверка установки для C++ и Python</h3>
+<h4>C++</h4>
+<p>Создайте тестовый файл <code>test_cuda.cu</code> с содержимым:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cuda_runtime.h&gt;</span>
+
+<span class="n">__global__</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">helloCUDA</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hello from CUDA!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">helloCUDA</span><span class="o">&lt;&lt;&lt;</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="n">cudaDeviceSynchronize</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Скомпилируйте и выполните его:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>nvcc<span class="w"> </span>-o<span class="w"> </span>test_cuda<span class="w"> </span>test_cuda.cu
+test_cuda.exe
+</code></pre></div></div>
+<h4>Python</h4>
+<p>Создайте тестовый скрипт <code>test_cuda.py</code>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="kn">import</span> <span class="nn">cupy</span> <span class="k">as</span> <span class="nn">cp</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Запустите скрипт:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>python<span class="w"> </span>test_cuda.py
+</code></pre></div></div>
+<p>Если вы увидите массив, выводимый на экран, установка выполнена успешно.</p>
+<p>Теперь вы настроили поддержку CUDA под Windows 10 для Python и C++.</p>
+<p>Web: <a href="https://d00m4ace.com/">https://d00m4ace.com/</a></p>
+<p>GitHub: <a href="https://github.com/d00m4ace/">https://github.com/d00m4ace/</a></p>
+<p>YouTube: <a href="https://www.youtube.com/c/@d00m4ace">https://www.youtube.com/c/@d00m4ace</a></p>
+<p>Telegram: <a href="https://t.me/d00m4ace_blog">https://t.me/d00m4ace_blog</a></p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/besplatnoe-lokalnoe-klonirovanie-ljubyh-golosov-ii-s-rvc-projectdot/"> <strong>Бесплатное локальное клонирование любых голосов ИИ с RVC-Project.</strong></a>
+<br/><br/>
+
+<!--next_url
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
+next_url-->
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>
