@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Установка Stable Diffusion XL в AUTOMATIC1111 (Windows) с ADetailer, Ultimate Upscale и ControlNet.</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Установка Stable Diffusion XL в AUTOMATIC1111 (Windows) с ADetailer, Ultimate Upscale и ControlNet.</h1>
+<h3 class="subtitle">
+	<span class="tag">#97</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;суббота, 20 июля 2024 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;8 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;682 слова</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/stable-diffusion/">#Stable Diffusion</a><a class="button is-outlined" href="/posts/tags/sdxl/">#SDXL</a><a class="button is-outlined" href="/posts/tags/automatic1111/">#AUTOMATIC1111</a><a class="button is-outlined" href="/posts/tags/controlnet/">#ControlNet</a><a class="button is-outlined" href="/posts/tags/adetailer/">#ADetailer</a><a class="button is-outlined" href="/posts/tags/ultimate-upscale/">#Ultimate Upscale</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
+</div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/TrWOa_BtQQM"></iframe></div>
+<h2>Установка Stable Diffusion XL в AUTOMATIC1111 (Windows) с Detailer, Ultimate Upscale и ControlNet</h2>
+<p>Этот гайд поможет вам установить Stable Diffusion XL в AUTOMATIC1111 на Windows, а также подключить расширения Detailer, Ultimate Upscale и ControlNet.</p>
+<p><strong>Важно:</strong> Этот гайд предполагает, что у вас уже установлен Git и Python 3.10.6. Если нет, установите их перед тем, как продолжить.</p>
+<p><a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a>
+<a href="https://github.com/git-for-windows/git/releases/download/v2.45.2.windows.1/Git-2.45.2-64-bit.exe">Git-2.45.2-64-bit.exe</a></p>
+<p><a href="https://www.python.org/ftp/python/3.10.6/">https://www.python.org/ftp/python/3.10.6/</a>
+<a href="https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe">python-3.10.6-amd64.exe</a></p>
+<p><strong>Шаг 1: Скачивание репозитория AUTOMATIC1111</strong></p>
+<ol>
+<li>Откройте командную строку (cmd.exe).</li>
+<li>Создайте папку, где будет установлен Stable Diffusion, например, <code>C:\SD1111</code>:</li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>mkdir<span class="w"> </span>C:<span class="se">\S</span>D1111
+<span class="nb">cd</span><span class="w"> </span>C:<span class="se">\S</span>D1111
+</code></pre></div></div>
+<ol>
+<li>Клонируйте репозиторий AUTOMATIC1111 с помощью Git:</li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+</code></pre></div></div>
+<p><strong>Шаг 2: Установка</strong></p>
+<ol>
+<li>Перейдите в папку <code>stable-diffusion-webui</code>:</li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>stable-diffusion-webui
+</code></pre></div></div>
+<p>Хорошо, вот как создать <code>.bat</code> файл и что делает каждая строчка:</p>
+<ol>
+<li><strong>Создайте текстовый файл:</strong> Откройте стандартный текстовый редактор, например "Блокнот" в Windows.</li>
+<li><strong>Вставьте следующий код:</strong> Скопируйте код ниже и вставьте его в текстовый редактор:</li>
+</ol>
+<p>run_sd.bat:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="p">@</span><span class="k">echo</span> off
+
+<span class="k">set</span> <span class="nv">PYTHON</span><span class="p">=</span>
+<span class="k">set</span> <span class="nv">GIT</span><span class="p">=</span>
+<span class="k">set</span> <span class="nv">VENV_DIR</span><span class="p">=</span>
+
+<span class="c1">rem set COMMANDLINE_ARGS=--api --listen --xformers --no-half-vae --theme dark --gradio-img2img-tool color-sketch</span>
+
+<span class="k">set</span> <span class="nv">COMMANDLINE_ARGS</span><span class="p">=</span>--api --xformers --no-half-vae --theme dark --gradio-img2img-tool color-sketch
+
+<span class="c1">rem call webui.bat --medvram-sdxl --xformers</span>
+
+git pull
+
+<span class="k">call</span> webui.bat
+
+<span class="k">pause</span>
+</code></pre></div></div>
+<p><strong>Объяснение кода:</strong></p>
+<ul>
+<li><strong><code>@echo off</code></strong>: Отключает отображение выполняемых команд в консоли.</li>
+<li><strong><code>set PYTHON=</code></strong>:  Сюда нужно вписать путь к исполняемому файлу Python, если он не прописан в переменной среды PATH. Например: <code>set PYTHON=C:\Python310\python.exe</code>.</li>
+<li><strong><code>set GIT=</code></strong>:  Аналогично Python, указываем путь к Git, если нужно.</li>
+<li><strong><code>set VENV_DIR=</code></strong>:  Сюда можно вписать путь к виртуальному окружению, если вы его используете. </li>
+<li><strong><code>set COMMANDLINE_ARGS=</code></strong>:  Здесь задаются аргументы командной строки для запуска <code>webui.bat</code>. Подробнее о каждом аргументе:<ul>
+<li><strong><code>--api</code></strong>: Включает API для взаимодействия со Stable Diffusion программно.</li>
+<li><strong><code>--xformers</code></strong>: Включает использование библиотеки xformers, которая может значительно ускорить генерацию изображений на совместимом оборудовании.</li>
+<li><strong><code>--no-half-vae</code></strong>: Отключает использование половинной точности для VAE (вариационного автокодировщика). Это может увеличить потребление видеопамяти, но и улучшить качество сгенерированных изображений.</li>
+<li><strong><code>--theme dark</code></strong>:  Включает темную тему интерфейса.</li>
+<li><strong><code>--gradio-img2img-tool color-sketch</code></strong>:  Устанавливает инструмент "color sketch" по умолчанию для режима img2img.</li>
+</ul>
+</li>
+<li><strong><code>rem ...</code></strong>:  Эти строки закомментированы и не будут выполняться.  Раскомментируйте строку с <code>--medvram-sdxl</code>, если хотите использовать настройки, оптимизированные для Stable Diffusion XL и экономии видеопамяти.</li>
+<li><strong><code>git pull</code></strong>:  Обновляет репозиторий Stable Diffusion web UI до последней версии.</li>
+<li><strong><code>call webui.bat</code></strong>: Запускает веб-интерфейс Stable Diffusion с указанными аргументами.</li>
+<li>
+<p><strong><code>pause</code></strong>:  Останавливает выполнение скрипта до нажатия клавиши, чтобы вы могли увидеть сообщения об ошибках.</p>
+</li>
+<li>
+<p><strong>(При необходимости) Укажите пути:</strong> </p>
+</li>
+<li>Если Python или Git не прописаны в переменной среды PATH,  раскомментируйте соответствующие строки и укажите полные пути к исполняемым файлам.</li>
+<li><strong>(Опционально) Укажите путь к виртуальному окружению:</strong> Если используете виртуальное окружение, раскомментируйте строку <code>set VENV_DIR=</code> и укажите путь к нему.</li>
+<li><strong>Сохраните файл:</strong></li>
+<li>Нажмите "Файл" &gt; "Сохранить как".</li>
+<li>В поле "Тип файла" выберите "Все файлы (<em>.</em>)".</li>
+<li>Дайте файлу имя <code>run_sd.bat</code> (или любое другое).</li>
+<li>Выберите место для сохранения файла (например, рабочий стол или папку с Stable Diffusion web UI).</li>
+<li>Нажмите "Сохранить".</li>
+</ul>
+<p>Теперь у вас есть файл <code>run_sd.bat</code>. Чтобы запустить Stable Diffusion web UI, просто дважды щелкните по этому файлу.</p>
+<p><strong>Шаг 3: Скачивание модели Stable Diffusion XL</strong></p>
+<ol>
+<li>Скачайте модель <strong>stable-diffusion-xl-base-1.0</strong> с <a href="https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/blob/main/sd_xl_base_1.0.safetensors">Hugging Face</a>.</li>
+<li>
+<p>Переместите скачанный файл <code>.safetensors</code> в папку <code>stable-diffusion-webui/models/Stable-diffusion</code>.</p>
+</li>
+<li>
+<p>Скачайте модель <strong>stable-diffusion-xl-refiner-1.0</strong> с <a href="https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/blob/main/sd_xl_refiner_1.0.safetensors">Hugging Face</a>.</p>
+</li>
+<li>
+<p>Переместите скачанный файл <code>.safetensors</code> в папку <code>stable-diffusion-webui/models/Stable-diffusion</code>.</p>
+</li>
+<li>
+<p>Скачайте модель <strong>sdxl-vae</strong> с <a href="https://huggingface.co/stabilityai/sdxl-vae/blob/main/sdxl_vae.safetensors">Hugging Face</a>.</p>
+</li>
+<li>Переместите скачанный файл <code>.safetensors</code> в папку <code>stable-diffusion-webui/models/VAE</code>.</li>
+</ol>
+<p><strong>Шаг 4: Запуск AUTOMATIC1111</strong></p>
+<ol>
+<li>Запустите веб-интерфейс:
+   <code>bash
+   run_sd.bat</code></li>
+<li>Откройте веб-браузер и перейдите по адресу <code>http://127.0.0.1:7861/?__theme=dark</code>.</li>
+</ol>
+<p><strong>Шаг 5: Установка расширений</strong></p>
+<ol>
+<li><strong>Detailer:</strong><ul>
+<li>Откройте вкладку "Extensions" в веб-интерфейсе AUTOMATIC1111.</li>
+<li>Перейдите на вкладку "Install from URL".</li>
+<li>Вставьте ссылку на репозиторий Detailer: <code>https://github.com/Bing-su/adetailer</code>.</li>
+<li>Нажмите "Install".</li>
+</ul>
+</li>
+<li><strong>Ultimate Upscale:</strong><ul>
+<li>Повторите шаги для Detailer, но вставьте ссылку на репозиторий Ultimate Upscale: <code>https://github.com/Coyote-A/ultimate-upscale-for-automatic1111</code>.</li>
+</ul>
+</li>
+<li><strong>ControlNet:</strong><ul>
+<li>Повторите шаги для Detailer, но вставьте ссылку на репозиторий ControlNet: <code>https://github.com/Mikubill/sd-webui-controlnet</code>.</li>
+<li>После установки ControlNet вам нужно будет скачать модели ControlNet. Инструкции по их загрузке можно найти на странице репозитория ControlNet.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Готово!</strong> Теперь у вас установлен Stable Diffusion XL в AUTOMATIC1111 с Detailer, Ultimate Upscale и ControlNet.</p>
+<p><strong>Дополнительные ссылки:</strong></p>
+<p><a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">https://github.com/AUTOMATIC1111/stable-diffusion-webui</a></p>
+<p><a href="https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/">https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/</a></p>
+<p><a href="https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0">https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0</a></p>
+<p><a href="https://huggingface.co/stabilityai/sdxl-vae">https://huggingface.co/stabilityai/sdxl-vae</a></p>
+<p><a href="https://github.com/Mikubill/sd-webui-controlnet">https://github.com/Mikubill/sd-webui-controlnet</a></p>
+<p><a href="https://stable-diffusion-art.com/sdxl-prompts/">https://stable-diffusion-art.com/sdxl-prompts/</a></p>
+<p><a href="https://openmodeldb.info/models/4x-UltraSharp">https://openmodeldb.info/models/4x-UltraSharp</a></p>
+<p><a href="https://civitai.com/models/120096/pixel-art-xl">https://civitai.com/models/120096/pixel-art-xl</a></p>
+<p><a href="https://huggingface.co/xinsir/controlnet-union-sdxl-1.0">https://huggingface.co/xinsir/controlnet-union-sdxl-1.0</a></p>
+<p><a href="https://huggingface.co/xinsir/controlnet-tile-sdxl-1.0">https://huggingface.co/xinsir/controlnet-tile-sdxl-1.0</a></p>
+<p>Web: <a href="https://d00m4ace.com/">https://d00m4ace.com/</a></p>
+<p>GitHub: <a href="https://github.com/d00m4ace/">https://github.com/d00m4ace/</a></p>
+<p>YouTube: <a href="https://www.youtube.com/c/@d00m4ace">https://www.youtube.com/c/@d00m4ace</a></p>
+<p>Telegram: <a href="https://t.me/d00m4ace_blog">https://t.me/d00m4ace_blog</a></p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/ustanovka-podderzhki-cuda-pod-windows-10-dlja-python-i-cplusplus/"> <strong>Установка поддержки CUDA под Windows 10 для Python и C++</strong></a>
+<br/><br/>
+
+<!--next_url
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
+next_url-->
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>
