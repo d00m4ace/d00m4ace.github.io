@@ -115,12 +115,11 @@
 	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;суббота, 20 июля 2024 г.</span>
 	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
 	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;8 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;682 слова</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;661 слово</span>
 </h3><div class="buttons">
       <a class="button is-outlined" href="/posts/tags/stable-diffusion/">#Stable Diffusion</a><a class="button is-outlined" href="/posts/tags/sdxl/">#SDXL</a><a class="button is-outlined" href="/posts/tags/automatic1111/">#AUTOMATIC1111</a><a class="button is-outlined" href="/posts/tags/controlnet/">#ControlNet</a><a class="button is-outlined" href="/posts/tags/adetailer/">#ADetailer</a><a class="button is-outlined" href="/posts/tags/ultimate-upscale/">#Ultimate Upscale</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
 </div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/TrWOa_BtQQM"></iframe></div>
-<h2>Установка Stable Diffusion XL в AUTOMATIC1111 (Windows) с Detailer, Ultimate Upscale и ControlNet</h2>
-<p>Этот гайд поможет вам установить Stable Diffusion XL в AUTOMATIC1111 на Windows, а также подключить расширения Detailer, Ultimate Upscale и ControlNet.</p>
+<p>Этот гайд поможет вам установить Stable Diffusion XL в AUTOMATIC1111 на Windows, а также подключить расширения ADetailer, Ultimate Upscale и ControlNet.</p>
 <p><strong>Важно:</strong> Этот гайд предполагает, что у вас уже установлен Git и Python 3.10.6. Если нет, установите их перед тем, как продолжить.</p>
 <p><a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a>
 <a href="https://github.com/git-for-windows/git/releases/download/v2.45.2.windows.1/Git-2.45.2-64-bit.exe">Git-2.45.2-64-bit.exe</a></p>
@@ -145,7 +144,7 @@
 </ol>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>stable-diffusion-webui
 </code></pre></div></div>
-<p>Хорошо, вот как создать <code>.bat</code> файл и что делает каждая строчка:</p>
+<p>Создать <code>run_sd.bat</code> файл и что делает каждая строчка:</p>
 <ol>
 <li><strong>Создайте текстовый файл:</strong> Откройте стандартный текстовый редактор, например "Блокнот" в Windows.</li>
 <li><strong>Вставьте следующий код:</strong> Скопируйте код ниже и вставьте его в текстовый редактор:</li>
@@ -161,9 +160,9 @@
 
 <span class="k">set</span> <span class="nv">COMMANDLINE_ARGS</span><span class="p">=</span>--api --xformers --no-half-vae --theme dark --gradio-img2img-tool color-sketch
 
-<span class="c1">rem call webui.bat --medvram-sdxl --xformers</span>
-
 git pull
+
+<span class="c1">rem call webui.bat --medvram-sdxl</span>
 
 <span class="k">call</span> webui.bat
 
@@ -183,8 +182,8 @@ git pull
 <li><strong><code>--gradio-img2img-tool color-sketch</code></strong>:  Устанавливает инструмент "color sketch" по умолчанию для режима img2img.</li>
 </ul>
 </li>
-<li><strong><code>rem ...</code></strong>:  Эти строки закомментированы и не будут выполняться.  Раскомментируйте строку с <code>--medvram-sdxl</code>, если хотите использовать настройки, оптимизированные для Stable Diffusion XL и экономии видеопамяти.</li>
 <li><strong><code>git pull</code></strong>:  Обновляет репозиторий Stable Diffusion web UI до последней версии.</li>
+<li><strong><code>rem ...</code></strong>:  Эти строки закомментированы и не будут выполняться.  Раскомментируйте строку с <code>--medvram-sdxl</code>, если хотите использовать настройки, оптимизированные для Stable Diffusion XL и экономии видеопамяти.   </li>
 <li><strong><code>call webui.bat</code></strong>: Запускает веб-интерфейс Stable Diffusion с указанными аргументами.</li>
 <li>
 <p><strong><code>pause</code></strong>:  Останавливает выполнение скрипта до нажатия клавиши, чтобы вы могли увидеть сообщения об ошибках.</p>
@@ -198,7 +197,7 @@ git pull
 <li>Нажмите "Файл" &gt; "Сохранить как".</li>
 <li>В поле "Тип файла" выберите "Все файлы (<em>.</em>)".</li>
 <li>Дайте файлу имя <code>run_sd.bat</code> (или любое другое).</li>
-<li>Выберите место для сохранения файла (например, рабочий стол или папку с Stable Diffusion web UI).</li>
+<li>Выберите место для сохранения файла (папку с Stable Diffusion web UI <code>C:\SD1111\stable-diffusion-webui\run_sd.bat</code>).</li>
 <li>Нажмите "Сохранить".</li>
 </ul>
 <p>Теперь у вас есть файл <code>run_sd.bat</code>. Чтобы запустить Stable Diffusion web UI, просто дважды щелкните по этому файлу.</p>
@@ -228,24 +227,24 @@ git pull
 </ol>
 <p><strong>Шаг 5: Установка расширений</strong></p>
 <ol>
-<li><strong>Detailer:</strong><ul>
+<li><strong>ADetailer:</strong><ul>
 <li>Откройте вкладку "Extensions" в веб-интерфейсе AUTOMATIC1111.</li>
 <li>Перейдите на вкладку "Install from URL".</li>
-<li>Вставьте ссылку на репозиторий Detailer: <code>https://github.com/Bing-su/adetailer</code>.</li>
+<li>Вставьте ссылку на репозиторий ADetailer: <code>https://github.com/Bing-su/adetailer</code>.</li>
 <li>Нажмите "Install".</li>
 </ul>
 </li>
 <li><strong>Ultimate Upscale:</strong><ul>
-<li>Повторите шаги для Detailer, но вставьте ссылку на репозиторий Ultimate Upscale: <code>https://github.com/Coyote-A/ultimate-upscale-for-automatic1111</code>.</li>
+<li>Повторите шаги для ADetailer, но вставьте ссылку на репозиторий Ultimate Upscale: <code>https://github.com/Coyote-A/ultimate-upscale-for-automatic1111</code>.</li>
 </ul>
 </li>
 <li><strong>ControlNet:</strong><ul>
-<li>Повторите шаги для Detailer, но вставьте ссылку на репозиторий ControlNet: <code>https://github.com/Mikubill/sd-webui-controlnet</code>.</li>
+<li>Повторите шаги для ADetailer, но вставьте ссылку на репозиторий ControlNet: <code>https://github.com/Mikubill/sd-webui-controlnet</code>.</li>
 <li>После установки ControlNet вам нужно будет скачать модели ControlNet. Инструкции по их загрузке можно найти на странице репозитория ControlNet.</li>
 </ul>
 </li>
 </ol>
-<p><strong>Готово!</strong> Теперь у вас установлен Stable Diffusion XL в AUTOMATIC1111 с Detailer, Ultimate Upscale и ControlNet.</p>
+<p><strong>Готово!</strong> Теперь у вас установлен Stable Diffusion XL в AUTOMATIC1111 с ADetailer, Ultimate Upscale и ControlNet.</p>
 <p><strong>Дополнительные ссылки:</strong></p>
 <p><a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">https://github.com/AUTOMATIC1111/stable-diffusion-webui</a></p>
 <p><a href="https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/">https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/</a></p>
