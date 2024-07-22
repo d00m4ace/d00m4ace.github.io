@@ -114,8 +114,8 @@
 	<span class="tag">#97</span>
 	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;суббота, 20 июля 2024 г.</span>
 	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;воскресенье, 21 июля 2024 г.</span> 
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;8 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;676 слов</span>
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;10 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;914 слов</span>
 </h3><div class="buttons">
       <a class="button is-outlined" href="/posts/tags/stable-diffusion/">#Stable Diffusion</a><a class="button is-outlined" href="/posts/tags/sdxl/">#SDXL</a><a class="button is-outlined" href="/posts/tags/automatic1111/">#AUTOMATIC1111</a><a class="button is-outlined" href="/posts/tags/controlnet/">#ControlNet</a><a class="button is-outlined" href="/posts/tags/adetailer/">#ADetailer</a><a class="button is-outlined" href="/posts/tags/ultimate-upscale/">#Ultimate Upscale</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
 </div><p><strong>Видео короткая версия 30 минут:</strong></p>
@@ -221,11 +221,22 @@ git pull
 </li>
 <li>Переместите скачанный файл <code>sdxl_vae.safetensors</code> в папку <code>stable-diffusion-webui/models/VAE</code>.</li>
 </ol>
+<p>Опционально:</p>
+<p>Установка <code>madebyollin/sdxl-vae-fp16-fix</code> - это SDXL VAE, но модифицированный для работы с точностью fp16 без генерации NaNs.</p>
+<ol>
+<li>Скачайте модель <strong>sdxl.vae.safetensors</strong> с <a href="https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl.vae.safetensors?download=true">Hugging Face</a>.</li>
+<li>Будет скачен файл <code>sdxl.vae.safetensors</code> необходимо переименовать в <code>sdxl_vae_fp16_fix.safetensors</code></li>
+<li>Переместите скачанный файл <code>sdxl_vae_fp16_fix.safetensors</code> в папку <code>stable-diffusion-webui/models/VAE</code>.</li>
+</ol>
+<p>В настройках webui выберите фиксированный VAE <code>sdxl_vae_fp16_fix.safetensors</code>, который вы только что добавили.
+Если вы использовали параметр командной строки --no-half-vae для SDXL (в файле webui-user.bat или где-либо еще), теперь вы можете удалить эту опцию.</p>
 <p><strong>Шаг 4: Запуск AUTOMATIC1111</strong></p>
 <ol>
-<li>Запустите веб-интерфейс:
-   <code>bash
-   run_sd.bat</code></li>
+<li>Запустите веб-интерфейс:</li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>run_sd.bat
+</code></pre></div></div>
+<ol>
 <li>Откройте веб-браузер и перейдите по адресу <code>http://127.0.0.1:7861/?__theme=dark</code>.</li>
 </ol>
 <p><strong>Шаг 5: Установка расширений</strong></p>
@@ -246,6 +257,45 @@ git pull
 <li>После установки ControlNet вам нужно будет скачать модели ControlNet. Инструкции по их загрузке можно найти на странице репозитория ControlNet.</li>
 </ul>
 </li>
+</ol>
+<p><strong>Шаг 6: Скачивание моделей ControlNet для Stable Diffusion XL</strong></p>
+<ol>
+<li>Скачайте модель <strong>controlnet-union-sdxl-1.0</strong> с <a href="https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors?download=true">Hugging Face</a>.</li>
+<li>Будет скачен файл <code>diffusion_pytorch_model.safetensors</code> необходимо переименовать в <code>controlnet_union_sdxl_1.0.safetensors</code></li>
+<li>Переместите скачанный файл <code>controlnet_union_sdxl_1.0.safetensors</code> в папку <code>stable-diffusion-webui/models/ControlNet</code>.</li>
+</ol>
+<p>Опционально:</p>
+<ol>
+<li>Скачайте модель <strong>controlnet-tile-sdxl-1.0</strong> с <a href="https://huggingface.co/xinsir/controlnet-tile-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors?download=true">Hugging Face</a>.</li>
+<li>Будет скачен файл <code>diffusion_pytorch_model.safetensors</code> необходимо переименовать в <code>controlnet_tile_sdxl_1.0.safetensors</code></li>
+<li>
+<p>Переместите скачанный файл <code>controlnet_tile_sdxl_1.0.safetensors</code> в папку <code>stable-diffusion-webui/models/ControlNet</code>.</p>
+</li>
+<li>
+<p>Скачайте модель <strong>controlnet-canny-sdxl-1.0</strong> с <a href="https://huggingface.co/xinsir/controlnet-canny-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors?download=true">Hugging Face</a>.</p>
+</li>
+<li>Будет скачен файл <code>diffusion_pytorch_model.safetensors</code> необходимо переименовать в <code>controlnet_canny_sdxl_1.0.safetensors</code></li>
+<li>
+<p>Переместите скачанный файл <code>controlnet_canny_sdxl_1.0.safetensors</code> в папку <code>stable-diffusion-webui/models/ControlNet</code>.</p>
+</li>
+<li>
+<p>Скачайте модель <strong>controlnet-openpose-sdxl-1.0</strong> с <a href="https://huggingface.co/xinsir/controlnet-openpose-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors?download=true">Hugging Face</a>.</p>
+</li>
+<li>Будет скачен файл <code>diffusion_pytorch_model.safetensors</code> необходимо переименовать в <code>controlnet_openpose_sdxl_1.0.safetensors</code></li>
+<li>
+<p>Переместите скачанный файл <code>controlnet_openpose_sdxl_1.0.safetensors</code> в папку <code>stable-diffusion-webui/models/ControlNet</code>.</p>
+</li>
+<li>
+<p>Скачайте модель <strong>controlnet-scribble-sdxl-1.0</strong> с <a href="https://huggingface.co/xinsir/controlnet-scribble-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors?download=true">Hugging Face</a>.</p>
+</li>
+<li>Будет скачен файл <code>diffusion_pytorch_model.safetensors</code> необходимо переименовать в <code>controlnet_scribble_sdxl_1.0.safetensors</code></li>
+<li>Переместите скачанный файл <code>controlnet_scribble_sdxl_1.0.safetensorss</code> в папку <code>stable-diffusion-webui/models/ControlNet</code>.</li>
+</ol>
+<p><strong>Шаг 7: Скачивание моделей Ultimate Upscale для Stable Diffusion XL</strong></p>
+<ol>
+<li>Скачайте модель <strong>4x-UltraSharp.pth</strong> с <a href="https://huggingface.co/lokCX/4x-Ultrasharp/resolve/main/4x-UltraSharp.pth?download=true">Hugging Face</a>.</li>
+<li>Если у вас нет папки <code>stable-diffusion-webui/models/ESRGAN</code>, создайте ее.</li>
+<li>Переместите скачанный файл <code>4x-UltraSharp.pth</code> в папку <code>stable-diffusion-webui/models/ESRGAN</code>.</li>
 </ol>
 <p><strong>Готово!</strong> Теперь у вас установлен Stable Diffusion XL в AUTOMATIC1111 с ADetailer, Ultimate Upscale и ControlNet.</p>
 <p><strong>Дополнительные ссылки:</strong></p>
