@@ -113,9 +113,9 @@
 <h3 class="subtitle">
 	<span class="tag">#96</span>
 	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;пятница, 19 июля 2024 г.</span>
-	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;5 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;438 слов</span>
+	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;четверг, 25 июля 2024 г.</span> 
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;6 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;501 слово</span>
 </h3><div class="buttons">
       <a class="button is-outlined" href="/posts/tags/cuda/">#CUDA</a><a class="button is-outlined" href="/posts/tags/python/">#Python</a><a class="button is-outlined" href="/posts/tags/cplusplus/">#C++</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
 </div><p>Для установки поддержки CUDA под Windows 10 для Python и C++, выполните следующие шаги:</p>
@@ -128,26 +128,29 @@
 <h3>Шаг 2: Установите CUDA Toolkit</h3>
 <ol>
 <li>Перейдите на страницу <a href="https://developer.nvidia.com/cuda-downloads">CUDA Toolkit Downloads</a>.</li>
-<li>Выберите вашу операционную систему (Windows), архитектуру, версию Windows (10), и тип установщика (exe (local)).</li>
+<li>Выберите вашу операционную систему (Windows), архитектуру x86_64, версию Windows (10), и тип установщика (exe (local)).</li>
 <li>Скачайте и запустите установочный файл.</li>
 <li>Следуйте инструкциям установщика. Рекомендуется оставить все параметры по умолчанию.</li>
+<li>Содержимое будет распакованно в директорию установки CUDA (например, <code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vX.X</code>), заменяя существующие файлы.</li>
 </ol>
 <h3>Шаг 3: Установите cuDNN (для глубинного обучения)</h3>
 <ol>
 <li>Перейдите на страницу <a href="https://developer.nvidia.com/rdp/cudnn-download">cuDNN Download</a>.</li>
-<li>Войдите в систему или создайте учетную запись NVIDIA.</li>
-<li>Выберите версию cuDNN, совместимую с установленной версией CUDA Toolkit.</li>
+<li>Выберите вашу операционную систему (Windows), архитектуру x86_64, версию Windows (10), и тип установщика (exe (local)).</li>
 <li>Скачайте файл и запустите его.</li>
-<li>Содержимое будет распакованно в директорию установки CUDA (например, <code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vX.X</code>), заменяя существующие файлы.</li>
+<li>Следуйте инструкциям установщика. Рекомендуется оставить все параметры по умолчанию.</li>
+<li>Содержимое будет распакованно в директорию установки CUDNN (например, <code>C:\Program Files\NVIDIA\CUDNN\vX.X</code>), заменяя существующие файлы.</li>
 </ol>
-<h3>Шаг 4: Настройте переменные окружения</h3>
+<h3>ВАЖНОЕ ЗАМЕЧАНИЕ!</h3>
+<p><strong>Выполнив шаги 1, 2, 3, вы установите все необходимые драйверы и программы для поддержки CUDA под Windows 10 для Python и C++.</strong>
+<strong>Следующие шаги предназначены только для программистов и не являются необходимыми для обычных пользователей ПК.</strong></p>
+<h3>Шаг 4: Настройте переменные окружения при необходимости</h3>
 <ol>
 <li>Откройте "Свойства системы" (System Properties) через меню "Пуск" или панели управления.</li>
 <li>Перейдите на вкладку "Дополнительно" (Advanced) и нажмите "Переменные среды" (Environment Variables).</li>
 <li>В разделе "Системные переменные" (System Variables) найдите переменную <code>CUDA_PATH</code> и нажмите "Изменить" (Edit).</li>
-<li>Добавьте следующие пути (замените <code>vX.X</code> на вашу версию CUDA):<ul>
-<li><code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vX.X\bin</code></li>
-<li><code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vX.X\libnvvp</code></li>
+<li>Добавьте следующие пути (замените <code>vX.X</code> на вашу версию CUDA): - <code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vX.X</code> <ul>
+<li><code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5</code></li>
 </ul>
 </li>
 <li>Нажмите "OK" для сохранения изменений.</li>
