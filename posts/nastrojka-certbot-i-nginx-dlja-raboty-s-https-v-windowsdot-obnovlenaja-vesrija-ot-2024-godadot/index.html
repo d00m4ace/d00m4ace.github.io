@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Настройка Certbot и Nginx для работы с HTTPS в Windows. Обновленая весрия от 2024 года.</title>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Настройка Certbot и Nginx для работы с HTTPS в Windows. Обновленая весрия от 2024 года.</h1>
+<h3 class="subtitle">
+	<span class="tag">#113</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;среда, 11 сентября 2024 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;14 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1290 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/certbot/">#Certbot</a><a class="button is-outlined" href="/posts/tags/ssl/">#SSL</a><a class="button is-outlined" href="/posts/tags/tls/">#TLS</a><a class="button is-outlined" href="/posts/tags/https/">#HTTPS</a>
+</div><h2>Установка Certbot на Windows</h2>
+<ul>
+<li>
+<p>Проверьте официальный сайт Certbot для получения полных инструкций <a href="https://certbot.eff.org/instructions">https://certbot.eff.org/instructions</a></p>
+</li>
+<li>
+<p>Загрузите последнюю версию программы установки Certbot для Windows по адресу <a href="https://github.com/certbot/certbot/releases/download/v2.9.0/certbot-beta-installer-win_amd64_signed.exe">https://github.com/certbot/certbot/releases/download/v2.9.0/certbot-beta-installer-win_amd64_signed.exe</a>.</p>
+</li>
+<li>
+<p>Запустите программу установки и следуйте указаниям мастера. Программа установки предложит каталог установки по умолчанию, <strong>C:\Program Files(x86)</strong>, замените его на <strong>C:\Certbot</strong>).</p>
+</li>
+<li>
+<p>Чтобы запустить оболочку для Certbot, выберите меню "Пуск", введите cmd (для запуска CMD.EXE) или powershell (для запуска PowerShell) и нажмите "Запуск от имени администратора" в появившемся контекстном меню.</p>
+</li>
+<li>
+<p>Перейдите в каталог Certbot</p>
+</li>
+</ul>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>cd C:\Certbot
+</code></pre></div></div>
+<p>Чтобы выполнить команду на Certbot, введите в оболочке имя certbot, затем команду и ее параметры. Например, чтобы отобразить встроенную справку, выполните:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\Certbot&gt;certbot --help
+</code></pre></div></div>
+<h3>Нужно, чтобы мой веб-сервер работал при обновление сертификата SSL.</h3>
+<p>Если у вас есть веб-сервер, который уже использует <strong>порт 80</strong> и вы не хотите останавливать его на время работы Certbot, запустите эту команду и следуйте инструкциям в терминале.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\Certbot&gt;certbot certonly --webroot
+</code></pre></div></div>
+<p>Этот вывод команды объясняет процесс получения SSL-сертификата с помощью Certbot с опцией <code>--webroot</code> на Windows.</p>
+<ol>
+<li><strong>Запуск команды</strong>:  </li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\Certbot&gt;certbot certonly --webroot
+</code></pre></div></div>
+<p>Команда <code>certbot certonly --webroot</code> запускает Certbot для получения сертификата, используя существующий веб-сервер. Опция <code>--webroot</code> указывает Certbot использовать папку веб-сервера, где хранятся веб-страницы.</p>
+<ol>
+<li><strong>Логи</strong>:  </li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>Saving debug log to C:\Certbot\log\letsencrypt.log
+</code></pre></div></div>
+<p>Certbot сохраняет логи процесса в файл <code>letsencrypt.log</code> в указанной папке.</p>
+<ol>
+<li><strong>Ввод домена</strong>:  </li>
+</ol>
+<p>Пример для одного доммена - <strong>my.domain.com</strong>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">Please</span> <span class="n">enter</span> <span class="n">the</span> <span class="n">domain</span> <span class="nb">name</span>(<span class="nb">s</span>) <span class="n">you</span> <span class="n">would</span> <span class="nb">like</span> <span class="n">on</span> <span class="n">your</span> <span class="n">certificate</span> (<span class="n">comma</span> <span class="o">and/or</span> <span class="n">space</span> <span class="n">separated</span>) (<span class="n">Enter</span> <span class="s">'c'</span> <span class="nb">to</span> <span class="nb">cancel</span>): <span class="k">my</span>.<span class="n">domain</span>.<span class="n">com</span>
+</code></pre></div></div>
+<p>Certbot запрашивает домен (или несколько доменов), для которых вы хотите выпустить сертификат. Здесь был введён домен <code>my.domain.com</code>.</p>
+<p>Пример для доммена и его поддоменов - <strong>domain.com, www.domain.com, api.domain.com</strong>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">Please</span> <span class="n">enter</span> <span class="n">the</span> <span class="n">domain</span> <span class="nb">name</span>(<span class="nb">s</span>) <span class="n">you</span> <span class="n">would</span> <span class="nb">like</span> <span class="n">on</span> <span class="n">your</span> <span class="n">certificate</span> (<span class="n">comma</span> <span class="o">and/or</span> <span class="n">space</span> <span class="n">separated</span>) (<span class="n">Enter</span> <span class="s">'c'</span> <span class="nb">to</span> <span class="nb">cancel</span>): <span class="n">domain</span>.<span class="n">com</span>, <span class="n">www</span>.<span class="n">domain</span>.<span class="n">com</span>, <span class="n">api</span>.<span class="n">domain</span>.<span class="n">com</span>
+</code></pre></div></div>
+<p>Certbot запрашивает список доменов, для которых вы хотите выпустить сертификат. В этом примере указаны основной домен domain.com и два поддомена: www.domain.com и api.domain.com. Все домены должны быть указаны через запятую или пробел.</p>
+<p><strong>domain.com</strong> — основной домен.</p>
+<p><strong>www.domain.com</strong> — поддомен, который обычно используется для основной версии сайта.</p>
+<p><strong>api.domain.com</strong> — поддомен, который может использоваться для API.</p>
+<p>Certbot выпустит один сертификат, действительный для всех этих доменов и поддоменов.</p>
+<ol>
+<li><strong>Запрос сертификата</strong>:  </li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nv">Requesting</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">certificate</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">my</span>.<span class="nv">domain</span>.<span class="nv">com</span>
+</code></pre></div></div>
+<p>Certbot начинает процесс запроса сертификата для введённого домена.</p>
+<ol>
+<li><strong>Ввод корневого каталога веб-сервера (webroot)</strong>:  </li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nv">Input</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">webroot</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">my</span>.<span class="nv">domain</span>.<span class="nv">com</span>:<span class="w"> </span><span class="ss">(</span><span class="nv">Enter</span><span class="w"> </span><span class="s1">'c'</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">cancel</span><span class="ss">)</span>:<span class="w"> </span><span class="nv">C</span>:\<span class="nv">WEBSERVER</span>\<span class="nv">html</span>\
+</code></pre></div></div>
+<p>Certbot просит указать путь к корневой папке веб-сервера для данного домена. Это папка, откуда сервер обслуживает файлы сайта. Здесь указан путь <code>C:\WEBSERVER\html\</code>. Certbot разместит в этой папке временные файлы для подтверждения владения доменом.</p>
+<p>В итоге Certbot проверит наличие временных файлов в каталоге <code>C:\WEBSERVER\html\</code> для домена <code>my.domain.com</code>, чтобы убедиться, что вы действительно владеете доменом, и затем выпустит SSL-сертификат.</p>
+<p><strong>Важное замечание:</strong>
+Чтобы использовать плагин <strong>webroot</strong>, ваш сервер должен быть настроен на обслуживание файлов из скрытых каталогов. Если <strong>/.well-known</strong> обрабатывается особым образом в конфигурации вашего веб-сервера, вам может потребоваться изменить конфигурацию, чтобы файлы внутри <strong>/.well-known/acme-challenge</strong> обслуживались веб-сервером</p>
+<h2>Проверка автоматического обновления</h2>
+<p>Установка Certbot в вашей системе поставляется с предустановленной запланированной задачей, которая будет автоматически обновлять ваши сертификаты до истечения срока их действия. Вам не нужно будет запускать Certbot снова, если вы не измените свою конфигурацию. Вы можете проверить автоматическое обновление ваших сертификатов, выполнив команду</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\Certbot&gt;certbot renew --dry-run
+</code></pre></div></div>
+<p>И ее результат:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="c">C:\Certbot</span><span class="nv">&gt;</span><span class="c">certbot renew </span><span class="nb">--</span><span class="c">dry</span><span class="nb">-</span><span class="c">run</span>
+<span class="c">Saving debug log to C:\Certbot\log\letsencrypt</span><span class="nt">.</span><span class="c">log</span>
+
+<span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span>
+<span class="c">Processing C:\Certbot\renewal\api</span><span class="nt">.</span><span class="c">domain</span><span class="nt">.</span><span class="c">com</span><span class="nt">.</span><span class="c">conf</span>
+<span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span>
+<span class="c">Account registered</span><span class="nt">.</span>
+<span class="c">Simulating renewal of an existing certificate for api</span><span class="nt">.</span><span class="c">domain</span><span class="nt">.</span><span class="c">com</span>
+
+<span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span>
+<span class="c">Congratulations</span><span class="nt">,</span><span class="c"> all simulated renewals succeeded:</span>
+<span class="c">  C:\Certbot\live\api</span><span class="nt">.</span><span class="c">domain</span><span class="nt">.</span><span class="c">com\fullchain</span><span class="nt">.</span><span class="c">pem (success)</span>
+<span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span><span class="c"> </span><span class="nb">-</span>
+</code></pre></div></div>
+<h2>Процесс настройки Nginx для использования SSL-сертификата Let's Encrypt:</h2>
+<ul>
+<li>
+<p>Получите сертификат, используя win-acme, Certify The Web или Certbot. Убедитесь, что вы знаете, где хранятся файлы сертификата и ключа.</p>
+</li>
+<li>
+<p>Откройте файл конфигурации Nginx для вашего сайта. Он обычно находится в каталоге <strong>C:\WEBSERVER\conf\nginx.conf</strong>.</p>
+</li>
+<li>
+<p>Добавьте следующие строки в блок server для вашего сайта, заменив <code>C:\Certbot\live\d00m4ace.com\fullchain.pem</code> и <code>C:\Certbot\live\d00m4ace.com\privkey.pem</code> на путь к вашему сертификату и ключу.</p>
+</li>
+</ul>
+<p>Пример для сайта <strong>d00m4ace.com</strong>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="k">http</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server_name</span><span class="w"> </span><span class="s">d00m4ace.com</span><span class="p">;</span><span class="w"> </span><span class="c1"># например d00m4ace.com</span>
+
+<span class="w">        </span><span class="c1"># Перенаправление всех HTTP-запросов на HTTPS</span>
+<span class="w">        </span><span class="kn">return</span><span class="w"> </span><span class="mi">301</span><span class="w"> </span><span class="s">https://</span><span class="nv">$host$request_uri</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server_name</span><span class="w"> </span><span class="s">d00m4ace.com</span><span class="p">;</span><span class="w"> </span><span class="c1"># например d00m4ace.com</span>
+
+<span class="w">        </span><span class="c1"># Настройки SSL сертификата</span>
+<span class="w">        </span><span class="kn">ssl_certificate</span><span class="w"> </span><span class="s">C:\Certbot\live\d00m4ace.com\fullchain.pem</span><span class="p">;</span><span class="w"> </span><span class="c1"># managed by Certbot</span>
+<span class="w">        </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">C:\Certbot\live\d00m4ace.com\privkey.pem</span><span class="p">;</span><span class="w"> </span><span class="c1"># managed by Certbot</span>
+
+<span class="w">        </span><span class="c1"># Другие настройки SSL, если необходимо</span>
+<span class="w">        </span><span class="kn">ssl_session_cache</span><span class="w"> </span><span class="s">shared:SSL:1m</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">ssl_session_timeout</span><span class="w"> </span><span class="mi">5m</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kn">ssl_ciphers</span><span class="w"> </span><span class="s">HIGH:!aNULL:!MD5</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">ssl_prefer_server_ciphers</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1"># Добавьте здесь ваши настройки для обработки HTTPS-соединений</span>
+<span class="w">        </span><span class="c1"># Например:</span>
+<span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kn">root</span><span class="w">   </span><span class="s">C:\WEBSERVER\html</span><span class="p">;</span><span class="w"> </span><span class="c1"># путь_к_вашему_корневому_каталогу;</span>
+<span class="w">            </span><span class="kn">index</span><span class="w"> </span><span class="s">index.html</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1"># Добавьте другие серверные блоки, если необходимо</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<ul>
+<li>Проверьте, что ваша конфигурация Nginx корректна, используя команду nginx -t.</li>
+</ul>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>nginx -t
+</code></pre></div></div>
+<ul>
+<li>Если все в порядке, перезапустите Nginx, чтобы применить новую конфигурацию. Это обычно делается с помощью команды <strong>nginx -s reload</strong>.</li>
+</ul>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">nginx</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">reload</span>
+</code></pre></div></div>
+<p>Пожалуйста, имейте в виду, что Let's Encrypt выдает сертификаты только на 90 дней, поэтому вам нужно будет настроить автоматическое обновление сертификатов. </p>
+<h3>Проверка и ручное обновление сертификатов через Certbot</h3>
+<p>Let's Encrypt выдает сертификаты, которые действуют 90 дней. Certbot может автоматически обновлять сертификаты, но иногда требуется проверить или обновить их вручную. Вот как это можно сделать:</p>
+<h3>1. <strong>Проверка оставшегося срока действия сертификатов:</strong></h3>
+<p>Для того чтобы проверить, сколько времени осталось до истечения сертификата, используйте следующую команду:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\Certbot&gt;certbot certificates
+</code></pre></div></div>
+<p>Эта команда покажет список всех установленных сертификатов и информацию о них, включая:
+- Домены, на которые выданы сертификаты
+- Местоположение файлов сертификатов
+- Дату истечения срока действия сертификата</p>
+<p>Пример вывода:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>Found the following certs:
+  Certificate Name: my.domain.com
+    Domains: my.domain.com, www.my.domain.com
+    Expiry Date: 2024-12-31 23:59:59+00:00 (VALID: 30 days)
+    Certificate Path: C:\Certbot\live\my.domain.com\fullchain.pem
+    Private Key Path: C:\Certbot\live\my.domain.com\privkey.pem
+</code></pre></div></div>
+<h3>2. <strong>Ручное обновление сертификатов:</strong></h3>
+<p>Чтобы вручную обновить сертификаты, используйте следующую команду:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\Certbot&gt;certbot renew
+</code></pre></div></div>
+<p>Эта команда проверит все сертификаты и попытается обновить те, срок действия которых подходит к концу (менее 30 дней). Certbot выполнит автоматические шаги, чтобы запросить новый сертификат для каждого домена, используя ту же конфигурацию, что и при первоначальном выпуске.</p>
+<h3>3. <strong>Настройка автоматического обновления (Windows Task Scheduler):</strong></h3>
+<p>Для автоматического обновления сертификатов на Windows можно использовать Планировщик задач. Вот как это сделать:</p>
+<ol>
+<li>Откройте <strong>Планировщик задач</strong> (Task Scheduler) через Панель управления или поиск в меню «Пуск».</li>
+<li>Выберите <strong>Создать задачу</strong> (Create Task).</li>
+<li>На вкладке <strong>Общие</strong> (General):</li>
+<li>Установите имя задачи, например, "Certbot Auto Renew".</li>
+<li>Перейдите на вкладку <strong>Триггеры</strong> (Triggers):</li>
+<li>Нажмите <strong>Создать</strong> (New), чтобы создать новый триггер.</li>
+<li>Установите расписание, например, «Ежедневно» (Daily).</li>
+<li>На вкладке <strong>Действия</strong> (Actions):</li>
+<li>Нажмите <strong>Создать</strong> (New), чтобы добавить действие.</li>
+<li>В поле <strong>Программа или сценарий</strong> (Program/script) введите путь к <code>certbot.exe</code>. Например:
+     <code>C:\Certbot\certbot.exe</code></li>
+<li>В поле <strong>Аргументы</strong> (Add arguments) добавьте команду для обновления:
+     <code>renew --quiet</code>
+     Опция <code>--quiet</code> заставляет Certbot работать без вывода информации, если всё прошло успешно.</li>
+<li>Сохраните задачу.</li>
+</ol>
+<p>Теперь Windows будет автоматически запускать эту задачу по расписанию и обновлять ваши сертификаты.</p>
+<h3>Заключение:</h3>
+<p>Регулярная проверка и настройка автоматического обновления сертификатов важна для того, чтобы избежать проблем с истекшими сертификатами.</p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/75-openai-hochet-2000-za-gpt-5-v-mesjats-anons-gpt-5-i-otsenka-100bdot-ilja-sutskever-vozvraschaetsjaexclamation/"> <strong>#75 OpenAI хочет $2000 за GPT-5 в месяц? Анонс GPT-5 и оценка $100B. Илья Суцкевер возвращается!</strong></a>
+<br/><br/>
+
+<!--next_url
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
+next_url-->
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>
