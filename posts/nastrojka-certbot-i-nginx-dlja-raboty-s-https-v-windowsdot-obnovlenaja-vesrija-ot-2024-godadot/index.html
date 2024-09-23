@@ -114,9 +114,9 @@
 <h3 class="subtitle">
 	<span class="tag">#113</span>
 	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;среда, 11 сентября 2024 г.</span>
-	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;14 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1290 слов</span>
+	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;понедельник, 23 сентября 2024 г.</span> 
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;15 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1391 слово</span>
 </h3><div class="buttons">
       <a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/certbot/">#Certbot</a><a class="button is-outlined" href="/posts/tags/ssl/">#SSL</a><a class="button is-outlined" href="/posts/tags/tls/">#TLS</a><a class="button is-outlined" href="/posts/tags/https/">#HTTPS</a>
 </div><h2>Установка Certbot на Windows</h2>
@@ -221,10 +221,47 @@
 </li>
 </ul>
 <p>Пример для сайта <strong>d00m4ace.com</strong>:</p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="k">http</span><span class="w"> </span><span class="p">{</span>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="k">worker_processes</span><span class="w">  </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="k">events</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">worker_connections</span><span class="w">  </span><span class="mi">1024</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">http</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">include</span><span class="w">       </span><span class="s">mime.types</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">default_type</span><span class="w">  </span><span class="s">application/octet-stream</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">#log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</span>
+<span class="w">    </span><span class="c1">#                  '$status $body_bytes_sent "$http_referer" '</span>
+<span class="w">    </span><span class="c1">#                  '"$http_user_agent" "$http_x_forwarded_for"';</span>
+
+<span class="w">    </span><span class="c1">#access_log  logs/access.log  main;</span>
+
+<span class="w">    </span><span class="kn">sendfile</span><span class="w">        </span><span class="no">on</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">#tcp_nopush     on;</span>
+
+<span class="w">    </span><span class="c1">#keepalive_timeout  0;</span>
+<span class="w">    </span><span class="kn">keepalive_timeout</span><span class="w">  </span><span class="mi">65</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">#gzip  on;</span>
+
 <span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
 <span class="w">        </span><span class="kn">server_name</span><span class="w"> </span><span class="s">d00m4ace.com</span><span class="p">;</span><span class="w"> </span><span class="c1"># например d00m4ace.com</span>
+
+<span class="w">        </span><span class="c1">#location / {</span>
+<span class="w">        </span><span class="c1">#    root   html;</span>
+<span class="w">        </span><span class="c1">#    index  index.html index.htm;</span>
+<span class="w">        </span><span class="c1">#}</span>
+
+<span class="w">        </span><span class="c1">#error_page  404              /404.html;</span>
+
+<span class="w">        </span><span class="c1"># redirect server error pages to the static page /50x.html</span>
+<span class="w">        </span><span class="c1">#</span>
+<span class="w">        </span><span class="c1">#error_page   500 502 503 504  /50x.html;</span>
+<span class="w">        </span><span class="c1">#location = /50x.html {</span>
+<span class="w">        </span><span class="c1">#    root   html;</span>
+<span class="w">        </span><span class="c1">#}      </span>
 
 <span class="w">        </span><span class="c1"># Перенаправление всех HTTP-запросов на HTTPS</span>
 <span class="w">        </span><span class="kn">return</span><span class="w"> </span><span class="mi">301</span><span class="w"> </span><span class="s">https://</span><span class="nv">$host$request_uri</span><span class="p">;</span>
@@ -250,6 +287,13 @@
 <span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="kn">root</span><span class="w">   </span><span class="s">C:\WEBSERVER\html</span><span class="p">;</span><span class="w"> </span><span class="c1"># путь_к_вашему_корневому_каталогу;</span>
 <span class="w">            </span><span class="kn">index</span><span class="w"> </span><span class="s">index.html</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">#proxy_pass http://localhost:8084;</span>
+<span class="w">        </span><span class="c1">#    proxy_set_header Host $host;</span>
+<span class="w">        </span><span class="c1">#    proxy_set_header X-Real-IP $remote_addr;            </span>
+<span class="w">        </span><span class="c1">#    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span>
+<span class="w">        </span><span class="c1">#    proxy_set_header X-Forwarded-Host $host:$server_port;</span>
+<span class="w">        </span><span class="c1">#    proxy_set_header X-Forwarded-Port $server_port;    </span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 
