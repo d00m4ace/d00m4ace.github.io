@@ -240,7 +240,7 @@ copy %target% "E:\BACKUP\"
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\PostgreSQL\16\pg_env.bat
 </code></pre></div></div>
 <p>Cоздаем резервную копию базы данных PostgreSQL с именем "mydb". </p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pg_dump -U postgres -W -F t -b -v mydb &gt; dbbackup.tar
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\PostgreSQL\16\bin\pg_dump -U postgres -W -F t -b -v mydb &gt; dbbackup.tar
 </code></pre></div></div>
 <ul>
 <li>"pg_dump": утилита, предоставляемая PostgreSQL для создания резервных копий баз данных.</li>
@@ -253,7 +253,7 @@ copy %target% "E:\BACKUP\"
 <li>"&gt; dbbackup.tar": перенаправляет вывод команды pg_dump (то есть резервную копию) в файл с именем "dbbackup.tar". Если файл с этим именем уже существует, он будет перезаписан.</li>
 </ul>
 <p>Команда восстанавливает базу данных PostgreSQL с именем "mydb" из резервной копии, находящейся в файле "dbbackup.tar". </p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pg_restore -U postgres -W -d mydb -1 --clean dbbackup.tar
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\PostgreSQL\16\bin\pg_restore -U postgres -W -d mydb -1 --clean dbbackup.tar
 </code></pre></div></div>
 <ul>
 <li>"pg_restore": утилита, предоставляемая PostgreSQL для восстановления баз данных из резервных копий.</li>
@@ -265,7 +265,7 @@ copy %target% "E:\BACKUP\"
 <li>"dbbackup.tar": имя файла резервной копии, которую вы хотите восстановить.</li>
 </ul>
 <p>Если вы сталкиваетесь с ошибкой, указывающей на отсутствие базы данных mydb, и хотите создать её, команда createdb является правильным способом её создания. </p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>createdb -U postgres mydb
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\PostgreSQL\16\bin\createdb -U postgres mydb
 </code></pre></div></div>
 <p>Файл pgpass.conf используется командной строкой PostgreSQL для хранения паролей для подключений к базам данных. Он обычно находится в папке %APPDATA%\postgresql\pgpass.conf для пользователя, запускающего PostgreSQL.</p>
 <p>Формат содержимого файла:</p>
@@ -274,17 +274,137 @@ copy %target% "E:\BACKUP\"
 <p>Это означает, что при использовании утилит pg_dump и pg_restore для базы данных mydb подключение будет происходить без запроса пароля для пользователя my_user_postgres, используя пароль my_user_postgres_password для подключения к базе данных на localhost через порт 5433.</p>
 <p>Рекомендуется хранить пароль в pgpass.conf с ограниченным доступом и указать его расположение в строке подключения с помощью passfile, чтобы обеспечить успешную аутентификацию.</p>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>set PGPASSFILE=C:\projects\pgpass.conf
-pg_dump -U postgres -F t mydb &gt; dbbackup.tar
+C:\PostgreSQL\16\bin\pg_dump -U postgres -F t mydb &gt; dbbackup.tar
 </code></pre></div></div>
 <p>Эта команда устанавливает переменную окружения PGPASSFILE путь к файлу pgpass.conf, а затем запускает команду pg_dump для создания резервной копии базы данных mydb в формате tar, сохраняя ее в файле dbbackup.tar.</p>
 <p>Вы можете временно установить переменную среды PGPASSWORD перед выполнением команды для избежания запроса пароля:</p>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>set PGPASSWORD=yourpassword
-createdb -U postgres mydb
+C:\PostgreSQL\16\bin\createdb -U postgres mydb
 </code></pre></div></div>
 <p>Учтите, что использование PGPASSWORD может представлять риски безопасности, особенно на машинах с несколькими пользователями или в скриптах.</p>
 <p>Проверка существующих баз данных: Чтобы проверить, какие базы данных уже существуют на вашем сервере PostgreSQL, вы можете использовать команду psql:</p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>psql -U postgres -l
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\PostgreSQL\16\bin\psql -U postgres -l
 </code></pre></div></div>
+<h3>Автоматизация процесса резервного копирования базы данных PostgreSQL</h3>
+<p>Скрипт <code>all_dump.bat</code> автоматизирует процесс создания резервной копии базы данных PostgreSQL с уникальным именем файла, включающим текущую дату и время:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">set</span><span class="w"> </span><span class="n">psql_path</span><span class="o">=</span><span class="n">C</span><span class="o">:</span><span class="err">\</span><span class="n">PostgreSQL</span><span class="err">\</span><span class="mi">16</span>
+<span class="n">set</span><span class="w"> </span><span class="n">PGPASSWORD</span><span class="o">=</span><span class="n">d00m4ace</span>
+<span class="n">call</span><span class="w"> </span><span class="nf">%psql_path</span><span class="o">%</span><span class="err">\</span><span class="n">pg_env</span><span class="p">.</span><span class="n">bat</span>
+
+<span class="k">for</span><span class="w"> </span><span class="o">/</span><span class="n">f</span><span class="w"> </span><span class="s">"tokens=2 delims=="</span><span class="w"> </span><span class="o">%%</span><span class="n">I</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="p">(</span><span class="err">'</span><span class="n">wmic</span><span class="w"> </span><span class="n">os</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">localdatetime</span><span class="w"> </span><span class="o">/</span><span class="n">format</span><span class="o">:</span><span class="n">list</span><span class="err">'</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">datetime</span><span class="o">=%%</span><span class="n">I</span>
+<span class="n">set</span><span class="w"> </span><span class="n">date</span><span class="o">=</span><span class="nf">%datetime</span><span class="o">:~</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="o">%</span><span class="p">.</span><span class="nf">%datetime</span><span class="o">:~</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="o">%</span><span class="p">.</span><span class="nf">%datetime</span><span class="o">:~</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="o">%</span>
+<span class="n">set</span><span class="w"> </span><span class="n">time</span><span class="o">=</span><span class="nf">%datetime</span><span class="o">:~</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="o">%</span><span class="p">.</span><span class="nf">%datetime</span><span class="o">:~</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="o">%</span><span class="p">.</span><span class="nf">%datetime</span><span class="o">:~</span><span class="mi">12</span><span class="p">,</span><span class="mi">2</span><span class="o">%</span>
+<span class="n">set</span><span class="w"> </span><span class="n">target</span><span class="o">=</span><span class="s">"%date%-%time%-dbbackup.tar"</span>
+
+<span class="nf">%psql_path</span><span class="o">%</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">pg_dump</span><span class="w"> </span><span class="o">-</span><span class="n">U</span><span class="w"> </span><span class="n">postgres</span><span class="w"> </span><span class="o">-</span><span class="n">F</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">d00m4ace</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">%target</span><span class="o">%</span>
+
+<span class="n">echo</span><span class="w"> </span><span class="n">Backup</span><span class="w"> </span><span class="n">completed</span><span class="o">:</span><span class="w"> </span><span class="nf">%target</span><span class="o">%</span>
+</code></pre></div></div>
+<p>Скрипт <code>all_dump.bat</code> выполняет следующие действия:</p>
+<ol>
+<li>Устанавливает путь к PostgreSQL и пароль.</li>
+<li>Загружает переменные окружения PostgreSQL.</li>
+<li>Получает текущую дату и время.</li>
+<li>Формирует имя файла резервной копии с текущей датой и временем.</li>
+<li>Выполняет резервное копирование базы данных "d00m4ace" с помощью pg_dump.</li>
+<li>Сохраняет резервную копию в файл формата .tar.</li>
+<li>Выводит сообщение о завершении резервного копирования.</li>
+</ol>
+<p>Скрипт <code>dump.bat</code> автоматизирует процесс создания резервной копии определенных таблиц из базы данных PostgreSQL.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">set</span><span class="w"> </span><span class="n">psql_path</span><span class="o">=</span><span class="n">C</span><span class="o">:</span><span class="err">\</span><span class="n">PostgreSQL</span><span class="err">\</span><span class="mi">16</span>
+<span class="n">set</span><span class="w"> </span><span class="n">PGPASSWORD</span><span class="o">=</span><span class="n">d00m4ace</span>
+<span class="n">call</span><span class="w"> </span><span class="nf">%psql_path</span><span class="o">%</span><span class="err">\</span><span class="n">pg_env</span><span class="p">.</span><span class="n">bat</span>
+
+<span class="k">for</span><span class="w"> </span><span class="o">/</span><span class="n">f</span><span class="w"> </span><span class="s">"tokens=2 delims=="</span><span class="w"> </span><span class="o">%%</span><span class="n">I</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="p">(</span><span class="err">'</span><span class="n">wmic</span><span class="w"> </span><span class="n">os</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">localdatetime</span><span class="w"> </span><span class="o">/</span><span class="n">format</span><span class="o">:</span><span class="n">list</span><span class="err">'</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">datetime</span><span class="o">=%%</span><span class="n">I</span>
+<span class="n">set</span><span class="w"> </span><span class="n">date</span><span class="o">=</span><span class="nf">%datetime</span><span class="o">:~</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="o">%</span><span class="p">.</span><span class="nf">%datetime</span><span class="o">:~</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="o">%</span><span class="p">.</span><span class="nf">%datetime</span><span class="o">:~</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="o">%</span>
+<span class="n">set</span><span class="w"> </span><span class="n">time</span><span class="o">=</span><span class="nf">%datetime</span><span class="o">:~</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="o">%</span><span class="p">.</span><span class="nf">%datetime</span><span class="o">:~</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="o">%</span><span class="p">.</span><span class="nf">%datetime</span><span class="o">:~</span><span class="mi">12</span><span class="p">,</span><span class="mi">2</span><span class="o">%</span>
+<span class="n">set</span><span class="w"> </span><span class="n">target</span><span class="o">=</span><span class="s">"%date%-%time%-dbbackup.sql"</span>
+
+<span class="o">::</span><span class="w"> </span><span class="n">Выберите</span><span class="w"> </span><span class="n">один</span><span class="w"> </span><span class="n">из</span><span class="w"> </span><span class="n">двух</span><span class="w"> </span><span class="n">вариантов</span><span class="w"> </span><span class="n">ниже</span><span class="o">:</span>
+<span class="o">::</span><span class="w"> </span><span class="n">Вариант</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="w"> </span><span class="n">Список</span><span class="w"> </span><span class="n">таблиц</span><span class="w"> </span><span class="n">прямо</span><span class="w"> </span><span class="n">в</span><span class="w"> </span><span class="n">скрипте</span>
+<span class="n">set</span><span class="w"> </span><span class="n">tables</span><span class="o">=</span><span class="n">currencies</span><span class="w"> </span><span class="n">licenses</span><span class="w"> </span><span class="n">subscriptions</span><span class="w"> </span><span class="n">transactions</span>
+<span class="o">::</span><span class="w"> </span><span class="n">Вариант</span><span class="w"> </span><span class="mi">2</span><span class="o">:</span><span class="w"> </span><span class="n">Чтение</span><span class="w"> </span><span class="n">таблиц</span><span class="w"> </span><span class="n">из</span><span class="w"> </span><span class="n">файла</span>
+<span class="o">::</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">/</span><span class="n">p</span><span class="w"> </span><span class="n">tables</span><span class="o">=&lt;</span><span class="n">tables</span><span class="p">.</span><span class="n">txt</span>
+
+<span class="o">::</span><span class="w"> </span><span class="n">Создание</span><span class="w"> </span><span class="n">SQL</span><span class="w"> </span><span class="n">dump</span><span class="w"> </span><span class="n">для</span><span class="w"> </span><span class="n">указанных</span><span class="w"> </span><span class="n">таблиц</span>
+<span class="p">(</span><span class="k">for</span><span class="w"> </span><span class="o">%</span><span class="nf">%t</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="p">(</span><span class="nf">%tables</span><span class="o">%</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">echo</span><span class="w"> </span><span class="n">DROP</span><span class="w"> </span><span class="n">TABLE</span><span class="w"> </span><span class="n">IF</span><span class="w"> </span><span class="n">EXISTS</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="o">%</span><span class="nf">%t</span><span class="p">;</span>
+<span class="w">    </span><span class="nf">%psql_path</span><span class="o">%</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">pg_dump</span><span class="w"> </span><span class="o">-</span><span class="n">U</span><span class="w"> </span><span class="n">postgres</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">%</span><span class="nf">%t</span><span class="w"> </span><span class="n">d00m4ace</span>
+<span class="w">    </span><span class="n">echo</span><span class="p">.</span>
+<span class="p">))</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">%target</span><span class="o">%</span>
+
+<span class="n">echo</span><span class="w"> </span><span class="n">Backup</span><span class="w"> </span><span class="n">completed</span><span class="o">:</span><span class="w"> </span><span class="nf">%target</span><span class="o">%</span>
+</code></pre></div></div>
+<p>Скрипт <code>dump.bat</code> выполняет следующие действия:</p>
+<ol>
+<li>Устанавливает путь к PostgreSQL и пароль.</li>
+<li>Получает текущую дату и время.</li>
+<li>Формирует имя файла для резервной копии с текущей датой и временем.</li>
+<li>Определяет список таблиц для резервного копирования (либо напрямую в скрипте, либо из файла).</li>
+<li>Создает SQL дамп для каждой указанной таблицы, включая команду DROP TABLE и данные таблицы.</li>
+<li>Сохраняет все дампы в один файл с именем, содержащим текущую дату и время.</li>
+<li>Выводит сообщение о завершении резервного копирования.</li>
+</ol>
+<p>Скрипт <code>run_dump.bat</code> периодически запускает <code>dump.bat</code> с заданным интервалом времени, пока его не остановят вручную.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nv">@echo</span><span class="w"> </span><span class="k">off</span>
+<span class="n">setlocal</span><span class="w"> </span><span class="n">enabledelayedexpansion</span>
+
+<span class="o">::</span><span class="w"> </span><span class="n">Задайте</span><span class="w"> </span><span class="n">интервал</span><span class="w"> </span><span class="n">в</span><span class="w"> </span><span class="n">часах</span>
+<span class="k">set</span><span class="w"> </span><span class="ss">"interval_hours=1"</span>
+<span class="o">::</span><span class="w"> </span><span class="n">Преобразование</span><span class="w"> </span><span class="n">часов</span><span class="w"> </span><span class="n">в</span><span class="w"> </span><span class="n">секунды</span>
+<span class="k">set</span><span class="w"> </span><span class="o">/</span><span class="n">a</span><span class="w"> </span><span class="ss">"delay_seconds=%interval_hours% * 3600"</span>
+
+<span class="err">:</span><span class="n">loop</span>
+<span class="n">echo</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="k">dump</span><span class="p">.</span><span class="n">bat</span><span class="p">...</span>
+<span class="k">call</span><span class="w"> </span><span class="k">dump</span><span class="p">.</span><span class="n">bat</span>
+
+<span class="n">echo</span><span class="w"> </span><span class="n">Waiting</span><span class="w"> </span><span class="o">%</span><span class="n">interval_hours</span><span class="o">%</span><span class="w"> </span><span class="n">hours</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">next</span><span class="w"> </span><span class="n">startup</span><span class="p">...</span>
+<span class="n">timeout</span><span class="w"> </span><span class="o">/</span><span class="n">t</span><span class="w"> </span><span class="o">%</span><span class="n">delay_seconds</span><span class="o">%</span><span class="w"> </span><span class="o">/</span><span class="n">nobreak</span>
+
+<span class="k">goto</span><span class="w"> </span><span class="nl">loop</span>
+</code></pre></div></div>
+<p>Скрипт <code>run_dump.bat</code> выполняет следующие действия:</p>
+<ol>
+<li>Отключает вывод команд на экран (@echo off).</li>
+<li>Устанавливает интервал в 1 час (можно изменить).</li>
+<li>Преобразует интервал из часов в секунды.</li>
+<li>Запускает бесконечный цикл, в котором:</li>
+<li>Выполняет другой файл dump.bat</li>
+<li>Ждет заданный интервал (по умолчанию 1 час)</li>
+<li>Повторяет процесс</li>
+</ol>
+<p>Команды для восстановления базы данных PostgreSQL из полученных выше файлов:   </p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\PostgreSQL\16\pg_env.bat
+C:\PostgreSQL\16\bin\pg_restore -U postgres -W -d d00m4ace -1 22.10.2024-12.08.49-dbbackup.tar 
+C:\PostgreSQL\16\bin\psql -U postgres -W -d d00m4ace -1 -f 22.10.2024-11.44.23-dbbackup.sql
+</code></pre></div></div>
+<ol>
+<li>
+<p><code>C:\PostgreSQL\16\pg_env.bat</code>:
+   Это файл пакетного сценария, который обычно устанавливает переменные среды для PostgreSQL. Он настраивает пути и другие параметры, необходимые для работы с PostgreSQL.</p>
+</li>
+<li>
+<p><code>C:\PostgreSQL\16\bin\pg_restore -U postgres -W -d d00m4ace -1 22.10.2024-12.08.49-dbbackup.tar</code>:
+   Эта команда восстанавливает базу данных из файла резервной копии '22.10.2024-12.08.49-dbbackup.tar':</p>
+<ul>
+<li><code>-U postgres</code>: использует пользователя 'postgres'</li>
+<li><code>-W</code>: запрашивает пароль</li>
+<li><code>-d d00m4ace</code>: восстанавливает в базу данных 'd00m4ace'</li>
+<li><code>-1</code>: выполняет восстановление в одной транзакции   </li>
+</ul>
+</li>
+<li>
+<p><code>C:\PostgreSQL\16\bin\psql -U postgres -W -d d00m4ace -1 -f 22.10.2024-11.44.23-dbbackup.sql</code>:
+   Эта команда выполняет SQL-скрипт для восстановления базы данных из файла резервной копии '22.10.2024-11.44.23-dbbackup.sql':</p>
+<ul>
+<li><code>-U postgres</code>: использует пользователя 'postgres'</li>
+<li><code>-W</code>: запрашивает пароль</li>
+<li><code>-d d00m4ace</code>: подключается к базе данных 'd00m4ace'</li>
+<li><code>-1</code>: выполняет скрипт в одной транзакции</li>
+<li><code>-f</code>: указывает на использование файла</li>
+</ul>
+</li>
+</ol>
 <h2>Мои домены</h2>
 <h3>d00m4ace.com</h3>
 <p><strong>d00m4ace.com</strong> - <a href="https://d00m4ace.com">https://d00m4ace.com</a></p>
