@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Обучите свою собственную модель FLUX LoRA с поддержкой LOW VRAM 12GB/16GB/20GB на Windows 10</title><meta name="description" content="Этот гайд поможет вам установить fluxgym на Windows, а также обучить свою собственную модель FLUX LoRA на Windows 10"/>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Обучите свою собственную модель FLUX LoRA с поддержкой LOW VRAM 12GB/16GB/20GB на Windows 10</h1>
+<h3 class="subtitle">
+	<span class="tag">#135</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;вторник, 26 ноября 2024 г.</span>
+	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;вторник, 26 ноября 2024 г.</span> 
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;15 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1413 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/flux/">#FLUX</a><a class="button is-outlined" href="/posts/tags/lora/">#LoRA</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
+</div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/Qj36Zn3XxeY"></iframe></div>
+<p>Этот гайд поможет вам установить fluxgym на Windows, а также обучить свою собственную модель FLUX LoRA с поддержкой LOW VRAM 12GB/16GB/20GB на Windows 10.</p>
+<p><strong>Важно:</strong> Этот гайд предполагает, что у вас уже установлен Git и Python 3.10.6(или новее, но не более 3.11). Если нет, установите их перед тем, как продолжить.</p>
+<p><a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a>
+<a href="https://github.com/git-for-windows/git/releases/download/v2.45.2.windows.1/Git-2.45.2-64-bit.exe">Git-2.45.2-64-bit.exe</a></p>
+<p><a href="https://www.python.org/ftp/python/3.10.6/">https://www.python.org/ftp/python/3.10.6/</a>
+<a href="https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe">python-3.10.6-amd64.exe</a></p>
+<p><strong>Примечание о версии Python:</strong> <em>В настоящее время PyTorch под Windows поддерживает только Python 3.8-3.11; Python 2.x не поддерживается.</em></p>
+<p><strong>Дополнительно:</strong> Если при обучении fluxgym будет выдавать ошибки CUDA, установите себе поддержку CUDA под Windows 10 для Python и C++:</p>
+<p><a href="http://d00m4ace.com/posts/ustanovka-podderzhki-cuda-pod-windows-10-dlja-python-i-cplusplus/">Полные инструкции по установке поддержки CUDA в Windows 10</a></p>
+<p><strong>Шаг 1: Установка fluxgym</strong></p>
+<p><strong>1.</strong> Откройте командную строку (cmd.exe).</p>
+<p><strong>2.</strong> Перейдите в корень диска <code>C:</code>, если вы, например, решили установить fluxgym в <code>c:\fluxgym</code>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>c:<span class="se">\</span>
+</code></pre></div></div>
+<p><strong>3.</strong> Клонируйте репозиторий fluxgym с помощью Git:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/cocktailpeanut/fluxgym.git
+</code></pre></div></div>
+<p><strong>4.</strong> Перейдите в каталог <code>C:\fluxgym</code> с помощью команды:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>fluxgym
+</code></pre></div></div>
+<p><strong>5.</strong> Затем установите KohyaSS с помощью команды, приведенной ниже:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>sd3<span class="w"> </span>https://github.com/kohya-ss/sd-scripts
+</code></pre></div></div>
+<p><strong>6.</strong> Теперь создайте и активируйте виртуальную среду из корневой папки fluxgym:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>env
+env<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</code></pre></div></div>
+<p><strong>7.</strong> Далее нужно перейти в папку «sd-scripts» и установить необходимые библиотеки:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>sd-scripts
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div></div>
+<p><strong>8.</strong> Теперь вернитесь в корневую папку и установите зависимости:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div></div>
+<p><strong>9.</strong> Наконец, установите библиотеку pytorch Nightly:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>--pre<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>torchaudio<span class="w"> </span>--index-url<span class="w"> </span>https://download.pytorch.org/whl/cu121
+</code></pre></div></div>
+<p><strong>10.</strong> Загрузка моделей:</p>
+<p><strong>Автоматическая загрузка:</strong></p>
+<p>Теперь возможна автоматическая загрузка весов моделей Flux, Clip Encoders, VAE. Этот процесс способен загружать веса любых моделей в фоновом режиме. Все модели Flux по умолчанию уже настроены. При начальном процессе обучения модели загружаются в бэкенд.</p>
+<p>Если вам нужна любая другая модель, достаточно указать соответствующие детали в файле 'fluxgym/models.yaml'. Просто следуйте формату по умолчанию, указанному в файле.</p>
+<p><strong>Ручная загрузка:</strong></p>
+<p>Выберите этот метод, если вы хотите настроить все вручную и не хотите ждать, пока модели загрузятся в фоновом режиме во время тренировки.</p>
+<ol>
+<li>Загрузить соответствующие текстовые кодировщики, которые помогут обучить вашу Flux LoRA, после загрузки просто поместите их в папку 'fluxgym/models/clip':</li>
+<li>Flux text encoder Clip_L: <a href="https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors?download=true">clip_l.safetensors</a></li>
+<li>Flux text encoder T5XXL_fp16: <a href="https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors?download=true">t5xxl_fp16.safetensors</a></li>
+<li>Скачайте VAE (Variational Auto Encoder) и сохраните его в папке 'fluxgym/models/vae': <a href="https://huggingface.co/cocktailpeanut/xulf-dev/resolve/main/ae.sft?download=true">ae.sft</a></li>
+<li>Скачайте модель Flux Dev из репозитория Cocktailpeanut Huggingface и поместите ее в папку 'fluxgym/models/unet': <a href="https://huggingface.co/cocktailpeanut/xulf-dev/resolve/main/flux1-dev.sft?download=true">flux1-dev.sft</a></li>
+</ol>
+<p><strong>Шаг 2: Запуск fluxgym</strong></p>
+<p><strong>1.</strong> Откройте командную строку (cmd.exe).</p>
+<p><strong>2.</strong> Перейдите в корневую папку 'fluxgym'.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>C:<span class="se">\f</span>luxgym
+</code></pre></div></div>
+<p><strong>3.</strong> Активируйте виртуальную среду </p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>env<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</code></pre></div></div>
+<p><strong>4.</strong> Запустите обучение LoRA, запустив файл приложения. Это приведет к запуску веб-интерфейса.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>python<span class="w"> </span>app.py
+</code></pre></div></div>
+<p>Альтернативный вариант - открыть с помощью локального хоста веб-интерфейс у себя в браузере:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>http://localhost:7860/
+</code></pre></div></div>
+<p><strong>5.</strong> Описание интерфейса fluxgym</p>
+<p><img alt="fluxgym setup screen 01" src="/imgs/posts/fluxgym_setup_01.png"/></p>
+<h2>Step 1. LoRA Info</h2>
+<p>✏️ Шаг 1. Информация о LoRA.
+Настройте параметры обучения для вашего LoRA.</p>
+<ul>
+<li>
+<p><strong>The name of your LoRA</strong><br/>
+ Название вашего LoRA, Это должно быть уникальное имя например : <code>d00m_comic_d16_20t</code></p>
+</li>
+<li>
+<p><strong>Trigger word/sentence</strong> <br/>
+  Ключевое слово или предложение, которое будет использоваться в prompt для активации данной LoRA, например: <code>dmcmc comic</code></p>
+</li>
+</ul>
+<p>Важно выбрать уникальное название, которое не встречается в Интернете, иначе можно получить модель, похожую на реальный объект, связанный с выбранным словом.</p>
+<p>Для обучения стилю вы можете использовать что-то вроде <code>BTL1 style</code>. Вы можете использовать что-то вроде <code>BTL1 person</code> и т.д., чтобы обучить модель фотографиям человека.</p>
+<ul>
+<li>
+<p><strong>Base model</strong> (отредактируйте файл models.yaml, чтобы добавить к этому списку другие): <code>flux-dev</code></p>
+</li>
+<li>
+<p><strong>VRAM</strong><br/>
+  Выберите объем видеопамяти, которым располагает ваша видеокарта.</p>
+</li>
+<li>[x] 20G</li>
+<li>[ ] 16G</li>
+<li>
+<p>[ ] 12G</p>
+</li>
+<li>
+<p><strong>Repeat trains per image</strong><br/>
+  Выберите от 10 до 20 повторений за тренировку для одного рисунка. Для фотографии или рисунка персонажа достаточно 10 повторений, для тренировки стиля лучше выбрать <code>20</code>.</p>
+</li>
+<li>
+<p><strong>Max Train Epochs</strong><br/>
+  Сколько эпох (полных тренировочных циклов для ваших картинок) вы планируете провести. Обычно от <code>10</code> до <code>16</code> достаточно.</p>
+</li>
+<li>
+<p><strong>Expected training steps</strong><br/>
+  Ожидаемые шаги обучения вычисляются автоматически из: [число ваших картинок] x [число повторений] x [число эпох]  </p>
+</li>
+<li>
+<p><strong>Sample Image Prompts</strong> (Отделить новыми строками)
+  Чтобы проверить качество обучения в процессе тренировки, вы можете установить тестовый запрос на генерацию тестовых изображений.</p>
+</li>
+<li>
+<p><strong>Sample Image Every N Steps</strong>
+  Через сколько шагов нужно выполнить тестовую генерацию изменений.</p>
+</li>
+<li>
+<p><strong>Resize dataset images</strong>
+  Выберите 1024, если вы хотите, чтобы ваши изображения автоматически масштабировались до 1024 (1024 Рекомендуется для flux-dev).</p>
+</li>
+</ul>
+<h2>Step 2. Dataset</h2>
+<p>Ваш дата сет картинок:
+  Вы можете загружать изображения, выбирая каждое из них, или использовать функцию перетаскивания для отправки предварительно отобранных фотографий.
+  Использовать лучше всего 10-20 для тренировки фото человека или предмета. Для тренировки стиля лучше использовать 30 или более изображений.</p>
+<ul>
+<li><strong>Upload your images</strong></li>
+<li><code>d00m_comic_000001.png</code> 498.0 kB</li>
+<li><code>d00m_comic_000001.txt</code> 535.0 B</li>
+<li><code>d00m_comic_000002.png</code> 527.9 kB
+ ...</li>
+</ul>
+<p><img alt="fluxgym setup screen 02" src="/imgs/posts/fluxgym_setup_02.png"/></p>
+<p>Загрузка файлов описаний изображений. Если у вас нет готовых описаний то вы можете их попробывать генерировать автоматически.</p>
+<p>Добавьте надписи, используя триггерные слова. Используя модель LLM Vision Florence, вы сможете генерировать автоматические подписи одним щелчком мыши (при этом модель Florence будет загруженна).</p>
+<p>После загрузки изображений отредактируйте описание для каждой картики. </p>
+<p>Убедитесь, что в подписях есть слово-триггер. 
+Важно, чтобы в каждом описании было ключевое слово или предложение, которое будет использоваться в подсказке для активации этой LoRA, например: <code>dmcmc comic</code>.</p>
+<p>Вместе с файлами изображений можно загружать и файлы с описанием изображений. Для этого необходимо соблюдать правила:</p>
+<p>Каждый файл подписи должен быть файлом <code>.txt</code>.
+  Каждый файл надписи должен иметь соответствующий файл изображения с таким же именем.
+  Например, если у вас есть файл изображения с именем <code>img0.png</code>, соответствующий файл подписи должен быть <code>img0.txt</code>.</p>
+<h2>Advanced</h2>
+<p><strong>Дополнительно</strong></p>
+<p>Вкладка Advanced автоматически создается путем разбора флагов запуска, доступных для последней версии sd-скриптов kohya. Это означает, что Fluxgym является полноценным пользовательским интерфейсом для использования скрипта Kohya.</p>
+<p>По умолчанию вкладка «Дополнительно» скрыта. Вы можете нажать на «Дополнительно», чтобы развернуть ее.</p>
+<p>Рекомендую ознакомиться:</p>
+<p><em>network_dim</em> - Этот параметр задает размерность сети. Он принимает целочисленное значение, по умолчанию - 4. Вы можете установить значение 16 или больше. Чем больше значение, тем больше будет файл LoRA, но и тем больше деталей будет сохранено.</p>
+<p><em>learning_rate</em> - Этот параметр определяет скорость изменения обучения LoRA по умолчанию 8e-4. Можно попробывть 2e-4 или 2e-3.</p>
+<p><em>save_every_n_epochs</em> - Этот параметр определяет сохранение LoRA каждые N эпох. Рекомендую поставить 1. Таким образом, вы сохраняете данные о каждой эпохе обучения и можете использовать их для быстрого старта.</p>
+<p><em>caption_prefix</em> - Этот параметр определяет префикс для текста описания изображений, полезный, если у вас есть автоматически генерируемые описания изображений и вы не хотите добавлять их вручную.</p>
+<p><em>network_alpha</em> - Этот параметр определяет альфа для масштабирования веса LoRA, по умолчанию 1 (то же, что и network_dim для того же поведения)</p>
+<p><em>lr_scheduler</em> - Этот параметр задает тип планировщика скорости обучения. Варианты: linear, cosine, cosine_with_restarts, polynomial, constant, constant_with_warmup, adafactor, по умолчанию cosine.
+И их опции, для тех, кто уже понимает.....</p>
+<p><em>save_state</em> - Этот параметр задает дополнительно сохранять состояние обучения (включая состояние оптимизатора и т.д.) при сохранении модели / оптимизатора.</p>
+<p><em>network_weights</em> - Этот параметр задает предварительно обученные веса для сети. Полезно если для использования вместе с <em>save_state</em>, позволяет возобновить прерванное обучение для Flux.  </p>
+<p><em>resume</em> - Этот параметр задает сохраненное состояние для возобновления обучения. Задайте аргумент <em>save_state</em> в начале обучения с нуля, и использовать этот аргумент для возобновления --resume="STATE_IN_OUTPUT_DIR". Эти опции используют сохранение и загрузку состояния и веса оптимизатора.</p>
+<h2>Step 3. Train</h2>
+<p>Нажмите «Старт», чтобы начать тренировку и получить надпись: <strong>Training...</strong></p>
+<h3>Train script</h3>
+<p>Здесь вы можете увидеть конфигурацию сгенерированного скрипта для обучения <code>train.bat</code>, который будет находиться в папке <code>C:\fluxgym\outputs\&lt;Название вашего LoRA&gt;\</code>.
+Вы можете ознакомиться с этим файлом, если понимаете, что означает <code>accelerate</code>.  </p>
+<p><img alt="fluxgym setup screen 02" src="/imgs/posts/fluxgym_complete_01.png"/></p>
+<p>Резульат обучения будет сохранение LoRA файлов .safetensors: <code>C:\fluxgym\outputs\&lt;Название вашего LoRA&gt;\</code>.</p>
+<p>Рекомендую обратить внимание на последние значения avr_loss, с 0.240 до 0.160 можно считать, что процесс обучения прошел успешно и сеть обучить лучше скорее всего уже не получится.</p>
+<p>Бонусный код на Python для программистов для вывода Flux LoRA:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="kn">from</span> <span class="nn">diffusers</span> <span class="kn">import</span> <span class="n">FluxPipeline</span>
+
+<span class="n">branch</span> <span class="o">=</span> <span class="s2">"dev"</span>
+
+<span class="n">model_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"./llms/black-forest-labs/FLUX.1-</span><span class="si">{</span><span class="n">branch</span><span class="si">}</span><span class="s2">/"</span> <span class="c1"># путь куда вы сохранили с Huggingface модель https://huggingface.co/black-forest-labs/FLUX.1-dev</span>
+
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">FluxPipeline</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span><span class="n">torch_dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bfloat16</span><span class="p">)</span>
+
+<span class="c1"># Load LoRA weights</span>
+<span class="n">lora_id</span> <span class="o">=</span> <span class="s2">"./models/d00m-comic-d16-20t.safetensors"</span> <span class="c1"># путь куда вы сохранили вашу Flux LoRA</span>
+<span class="n">pipe</span><span class="o">.</span><span class="n">load_lora_weights</span><span class="p">(</span><span class="n">lora_id</span><span class="p">,</span> <span class="n">adapter_name</span><span class="o">=</span><span class="s2">"lora"</span><span class="p">)</span>
+
+<span class="c1"># Если у вас 24Gb или меньше GPU</span>
+<span class="c1">#pipe.enable_model_cpu_offload() </span>
+<span class="n">pipe</span><span class="o">.</span><span class="n">enable_sequential_cpu_offload</span><span class="p">()</span>
+<span class="n">pipe</span><span class="o">.</span><span class="n">vae</span><span class="o">.</span><span class="n">enable_slicing</span><span class="p">()</span>
+<span class="n">pipe</span><span class="o">.</span><span class="n">vae</span><span class="o">.</span><span class="n">enable_tiling</span><span class="p">()</span>
+<span class="n">pipe</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bfloat16</span><span class="p">)</span>
+
+<span class="c1"># Если у вас больше 24Gb GPU </span>
+<span class="c1">#pipe.to(device="cuda", dtype=torch.bfloat16)</span>
+
+<span class="n">lora_scale</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Установите нужное значение N</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"i = </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="c1"># Тригерные слова для моей Flux LoRA "dmcmc comic"</span>
+    <span class="n">prompt</span><span class="o">=</span><span class="s2">"Humorous funny dmcmc comic about office. Consistent characters, perfect character faces, not ugly."</span>
+
+    <span class="c1"># Generate the image with LoRA scale</span>
+    <span class="n">prompt_embeds</span><span class="p">,</span> <span class="n">pooled_prompt_embeds</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">encode_prompt</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span> <span class="n">prompt_2</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span> <span class="n">lora_scale</span><span class="o">=</span><span class="n">lora_scale</span><span class="p">)</span>
+
+    <span class="n">image</span> <span class="o">=</span> <span class="n">pipe</span><span class="p">(</span>
+
+        <span class="n">prompt_embeds</span><span class="o">=</span><span class="n">prompt_embeds</span><span class="p">,</span>
+        <span class="n">pooled_prompt_embeds</span><span class="o">=</span><span class="n">pooled_prompt_embeds</span><span class="p">,</span>
+
+        <span class="n">num_inference_steps</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+        <span class="n">guidance_scale</span><span class="o">=</span><span class="mf">3.5</span><span class="p">,</span>
+        <span class="c1">#guidance_scale=7.0,</span>
+
+        <span class="c1">#output_type="pil",</span>
+
+        <span class="n">max_sequence_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+        <span class="c1">#max_sequence_length=512,</span>
+
+        <span class="c1">#generator=torch.Generator("cpu").manual_seed(0),</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa">f</span><span class="s2">"flux-1.0 </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.png"</span><span class="p">)</span>
+</code></pre></div></div>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/1-d00m4ace-ii-chill-strim/"> <strong>#1 d00m4ace ИИ chill стрим</strong></a>
+<br/><br/>
+
+<!--next_url
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
+next_url-->
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>
