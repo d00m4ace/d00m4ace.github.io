@@ -116,7 +116,7 @@
 	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;вторник, 26 ноября 2024 г.</span>
 	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;среда, 27 ноября 2024 г.</span> 
 	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;15 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1440 слов</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1446 слов</span>
 </h3><div class="buttons">
       <a class="button is-outlined" href="/posts/tags/flux/">#FLUX</a><a class="button is-outlined" href="/posts/tags/lora/">#LoRA</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
 </div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/Qj36Zn3XxeY"></iframe></div>
@@ -145,15 +145,18 @@
 </code></pre></div></div>
 <p><strong>6.</strong> Теперь создайте и активируйте виртуальную среду из корневой папки fluxgym:</p>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>env
-env<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</code></pre></div></div>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>env<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
 </code></pre></div></div>
 <p><strong>7.</strong> Далее нужно перейти в папку «sd-scripts» и установить необходимые библиотеки:</p>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>sd-scripts
-pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div></div>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div></div>
 <p><strong>8.</strong> Теперь вернитесь в корневую папку и установите зависимости:</p>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
-pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div></div>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div></div>
 <p><strong>9.</strong> Наконец, установите библиотеку pytorch Nightly:</p>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>--pre<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>torchaudio<span class="w"> </span>--index-url<span class="w"> </span>https://download.pytorch.org/whl/cu121
