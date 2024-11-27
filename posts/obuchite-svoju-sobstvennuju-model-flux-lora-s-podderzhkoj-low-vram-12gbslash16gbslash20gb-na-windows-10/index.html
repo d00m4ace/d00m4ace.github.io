@@ -114,9 +114,9 @@
 <h3 class="subtitle">
 	<span class="tag">#135</span>
 	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;вторник, 26 ноября 2024 г.</span>
-	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;вторник, 26 ноября 2024 г.</span> 
+	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;среда, 27 ноября 2024 г.</span> 
 	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;15 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1413 слов</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1440 слов</span>
 </h3><div class="buttons">
       <a class="button is-outlined" href="/posts/tags/flux/">#FLUX</a><a class="button is-outlined" href="/posts/tags/lora/">#LoRA</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
 </div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/Qj36Zn3XxeY"></iframe></div>
@@ -161,19 +161,21 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 <p><strong>10.</strong> Загрузка моделей:</p>
 <p><strong>Автоматическая загрузка:</strong></p>
 <p>Теперь возможна автоматическая загрузка весов моделей Flux, Clip Encoders, VAE. Этот процесс способен загружать веса любых моделей в фоновом режиме. Все модели Flux по умолчанию уже настроены. При начальном процессе обучения модели загружаются в бэкенд.</p>
-<p>Если вам нужна любая другая модель, достаточно указать соответствующие детали в файле 'fluxgym/models.yaml'. Просто следуйте формату по умолчанию, указанному в файле.</p>
+<p>Если вам нужна любая другая модель, достаточно указать соответствующие детали в файле <code>fluxgym/models.yaml</code>. Просто следуйте формату по умолчанию, указанному в файле.</p>
 <p><strong>Ручная загрузка:</strong></p>
 <p>Выберите этот метод, если вы хотите настроить все вручную и не хотите ждать, пока модели загрузятся в фоновом режиме во время тренировки.</p>
 <ol>
-<li>Загрузить соответствующие текстовые кодировщики, которые помогут обучить вашу Flux LoRA, после загрузки просто поместите их в папку 'fluxgym/models/clip':</li>
+<li>Загрузить соответствующие текстовые кодировщики, которые помогут обучить вашу Flux LoRA, после загрузки просто поместите их в папку <code>fluxgym/models/clip</code>:<ol>
 <li>Flux text encoder Clip_L: <a href="https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors?download=true">clip_l.safetensors</a></li>
 <li>Flux text encoder T5XXL_fp16: <a href="https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors?download=true">t5xxl_fp16.safetensors</a></li>
-<li>Скачайте VAE (Variational Auto Encoder) и сохраните его в папке 'fluxgym/models/vae': <a href="https://huggingface.co/cocktailpeanut/xulf-dev/resolve/main/ae.sft?download=true">ae.sft</a></li>
-<li>Скачайте модель Flux Dev из репозитория Cocktailpeanut Huggingface и поместите ее в папку 'fluxgym/models/unet': <a href="https://huggingface.co/cocktailpeanut/xulf-dev/resolve/main/flux1-dev.sft?download=true">flux1-dev.sft</a></li>
+</ol>
+</li>
+<li>Скачайте VAE (Variational Auto Encoder) и сохраните его в папке <code>fluxgym/models/vae</code>: <a href="https://huggingface.co/cocktailpeanut/xulf-dev/resolve/main/ae.sft?download=true">ae.sft</a></li>
+<li>Скачайте модель Flux Dev из репозитория Cocktailpeanut Huggingface и поместите ее в папку <code>fluxgym/models/unet</code>: <a href="https://huggingface.co/cocktailpeanut/xulf-dev/resolve/main/flux1-dev.sft?download=true">flux1-dev.sft</a></li>
 </ol>
 <p><strong>Шаг 2: Запуск fluxgym</strong></p>
 <p><strong>1.</strong> Откройте командную строку (cmd.exe).</p>
-<p><strong>2.</strong> Перейдите в корневую папку 'fluxgym'.</p>
+<p><strong>2.</strong> Перейдите в корневую папку <code>fluxgym</code>.</p>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>C:<span class="se">\f</span>luxgym
 </code></pre></div></div>
 <p><strong>3.</strong> Активируйте виртуальную среду </p>
@@ -189,39 +191,39 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 <p><img alt="fluxgym setup screen 01" src="/imgs/posts/fluxgym_setup_01.png"/></p>
 <h2>Step 1. LoRA Info</h2>
 <p>✏️ Шаг 1. Информация о LoRA.
-Настройте параметры обучения для вашего LoRA.</p>
+Настройте параметры обучения для вашей LoRA.</p>
 <ul>
 <li>
 <p><strong>The name of your LoRA</strong><br/>
- Название вашего LoRA, Это должно быть уникальное имя например : <code>d00m_comic_d16_20t</code></p>
+ Название вашей LoRA, это должно быть уникальное имя например : <code>d00m_comic_d16_20t</code></p>
 </li>
 <li>
 <p><strong>Trigger word/sentence</strong> <br/>
-  Ключевое слово или предложение, которое будет использоваться в prompt для активации данной LoRA, например: <code>dmcmc comic</code></p>
+  Ключевое слово (слово-триггер) или предложение(триггерные слова), которое будет использоваться в prompt для активации данной LoRA, например: <code>dmcmc comic</code></p>
 </li>
 </ul>
 <p>Важно выбрать уникальное название, которое не встречается в Интернете, иначе можно получить модель, похожую на реальный объект, связанный с выбранным словом.</p>
 <p>Для обучения стилю вы можете использовать что-то вроде <code>BTL1 style</code>. Вы можете использовать что-то вроде <code>BTL1 person</code> и т.д., чтобы обучить модель фотографиям человека.</p>
 <ul>
 <li>
-<p><strong>Base model</strong> (отредактируйте файл models.yaml, чтобы добавить к этому списку другие): <code>flux-dev</code></p>
+<p><strong>Base model</strong> (отредактируйте файл <code>models.yaml</code>, чтобы добавить к этому списку другие): <code>flux-dev</code></p>
 </li>
 <li>
 <p><strong>VRAM</strong><br/>
   Выберите объем видеопамяти, которым располагает ваша видеокарта.</p>
-</li>
+<ul>
 <li>[x] 20G</li>
 <li>[ ] 16G</li>
-<li>
-<p>[ ] 12G</p>
+<li>[ ] 12G</li>
+</ul>
 </li>
 <li>
 <p><strong>Repeat trains per image</strong><br/>
-  Выберите от 10 до 20 повторений за тренировку для одного рисунка. Для фотографии или рисунка персонажа достаточно 10 повторений, для тренировки стиля лучше выбрать <code>20</code>.</p>
+  Выберите от <code>10</code> до <code>20</code> повторений для тренировки одного изображения для одной эпохи тренировки. Для фотографии или изображения персонажа достаточно <code>10</code> повторений, для тренировки стиля лучше выбрать <code>20</code>.</p>
 </li>
 <li>
 <p><strong>Max Train Epochs</strong><br/>
-  Сколько эпох (полных тренировочных циклов для ваших картинок) вы планируете провести. Обычно от <code>10</code> до <code>16</code> достаточно.</p>
+  Сколько эпох (полных тренировочных циклов для всех ваших картинок, каждая эпоха будет сохранена в отдельном файле LoRA) вы планируете провести. Обычно от <code>10</code> до <code>16</code> достаточно.</p>
 </li>
 <li>
 <p><strong>Expected training steps</strong><br/>
@@ -237,13 +239,12 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 </li>
 <li>
 <p><strong>Resize dataset images</strong>
-  Выберите 1024, если вы хотите, чтобы ваши изображения автоматически масштабировались до 1024 (1024 Рекомендуется для flux-dev).</p>
+  Выберите <code>1024</code>, если вы хотите, чтобы ваши изображения автоматически масштабировались до <code>1024</code> (1024 - рекомендуется для flux-dev).</p>
 </li>
 </ul>
 <h2>Step 2. Dataset</h2>
-<p>Ваш дата сет картинок:
-  Вы можете загружать изображения, выбирая каждое из них, или использовать функцию перетаскивания для отправки предварительно отобранных фотографий.
-  Использовать лучше всего 10-20 для тренировки фото человека или предмета. Для тренировки стиля лучше использовать 30 или более изображений.</p>
+<p>Ваш дата сет картинок. Вы можете загружать изображения, выбирая каждое из них, или использовать функцию перетаскивания для отправки предварительно отобранных фотографий.
+  Использовать лучше всего <code>10</code> - <code>20</code> для тренировки фото человека или предмета. Для тренировки стиля лучше использовать <code>30</code> или более изображений.</p>
 <ul>
 <li><strong>Upload your images</strong></li>
 <li><code>d00m_comic_000001.png</code> 498.0 kB</li>
@@ -253,14 +254,14 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 </ul>
 <p><img alt="fluxgym setup screen 02" src="/imgs/posts/fluxgym_setup_02.png"/></p>
 <p>Загрузка файлов описаний изображений. Если у вас нет готовых описаний то вы можете их попробывать генерировать автоматически.</p>
-<p>Добавьте надписи, используя триггерные слова. Используя модель LLM Vision Florence, вы сможете генерировать автоматические подписи одним щелчком мыши (при этом модель Florence будет загруженна).</p>
+<p>Добавьте описания изображений, используя триггерные слова. Используя модель <code>LLM Vision Florence-2</code>, вы сможете генерировать автоматические описания изображений одним щелчком мыши (при этом модель <code>Florence-2</code> будет загруженна).</p>
 <p>После загрузки изображений отредактируйте описание для каждой картики. </p>
-<p>Убедитесь, что в подписях есть слово-триггер. 
-Важно, чтобы в каждом описании было ключевое слово или предложение, которое будет использоваться в подсказке для активации этой LoRA, например: <code>dmcmc comic</code>.</p>
+<p>Убедитесь, что в описаниях изображений есть слово-триггер. 
+Важно, чтобы в каждом описании изображения было ключевое слово(слово-триггер) или предложение(триггерные слова), которое будет использоваться в подсказке(prompt) для активации этой LoRA, например: <code>dmcmc comic</code>.</p>
 <p>Вместе с файлами изображений можно загружать и файлы с описанием изображений. Для этого необходимо соблюдать правила:</p>
-<p>Каждый файл подписи должен быть файлом <code>.txt</code>.
-  Каждый файл надписи должен иметь соответствующий файл изображения с таким же именем.
-  Например, если у вас есть файл изображения с именем <code>img0.png</code>, соответствующий файл подписи должен быть <code>img0.txt</code>.</p>
+<p>Каждый файл описания изображения должен быть файлом <code>.txt</code>.
+  Каждый файл описания изображения должен иметь соответствующий файл изображения с таким же именем.
+  Например, если у вас есть файл изображения с именем <code>img0.png</code>, соответствующий файл описания изображения должен быть с именем <code>img0.txt</code>.</p>
 <h2>Advanced</h2>
 <p><strong>Дополнительно</strong></p>
 <p>Вкладка Advanced автоматически создается путем разбора флагов запуска, доступных для последней версии sd-скриптов kohya. Это означает, что Fluxgym является полноценным пользовательским интерфейсом для использования скрипта Kohya.</p>
@@ -268,7 +269,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 <p>Рекомендую ознакомиться:</p>
 <p><em>network_dim</em> - Этот параметр задает размерность сети. Он принимает целочисленное значение, по умолчанию - 4. Вы можете установить значение 16 или больше. Чем больше значение, тем больше будет файл LoRA, но и тем больше деталей будет сохранено.</p>
 <p><em>learning_rate</em> - Этот параметр определяет скорость изменения обучения LoRA по умолчанию 8e-4. Можно попробывть 2e-4 или 2e-3.</p>
-<p><em>save_every_n_epochs</em> - Этот параметр определяет сохранение LoRA каждые N эпох. Рекомендую поставить 1. Таким образом, вы сохраняете данные о каждой эпохе обучения и можете использовать их для быстрого старта.</p>
+<p><em>save_every_n_epochs</em> - Этот параметр определяет сохранение LoRA каждые N эпох. Рекомендую поставить 1. Таким образом, вы сохраняете данные о каждой эпохе обучения и можете использовать их для отдельного тестирования.</p>
 <p><em>caption_prefix</em> - Этот параметр определяет префикс для текста описания изображений, полезный, если у вас есть автоматически генерируемые описания изображений и вы не хотите добавлять их вручную.</p>
 <p><em>network_alpha</em> - Этот параметр определяет альфа для масштабирования веса LoRA, по умолчанию 1 (то же, что и network_dim для того же поведения)</p>
 <p><em>lr_scheduler</em> - Этот параметр задает тип планировщика скорости обучения. Варианты: linear, cosine, cosine_with_restarts, polynomial, constant, constant_with_warmup, adafactor, по умолчанию cosine.
@@ -277,13 +278,13 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 <p><em>network_weights</em> - Этот параметр задает предварительно обученные веса для сети. Полезно если для использования вместе с <em>save_state</em>, позволяет возобновить прерванное обучение для Flux.  </p>
 <p><em>resume</em> - Этот параметр задает сохраненное состояние для возобновления обучения. Задайте аргумент <em>save_state</em> в начале обучения с нуля, и использовать этот аргумент для возобновления --resume="STATE_IN_OUTPUT_DIR". Эти опции используют сохранение и загрузку состояния и веса оптимизатора.</p>
 <h2>Step 3. Train</h2>
-<p>Нажмите «Старт», чтобы начать тренировку и получить надпись: <strong>Training...</strong></p>
+<p>Нажмите «Старт»(Start), чтобы начать тренировку и получить надпись: <strong>Training...</strong></p>
 <h3>Train script</h3>
-<p>Здесь вы можете увидеть конфигурацию сгенерированного скрипта для обучения <code>train.bat</code>, который будет находиться в папке <code>C:\fluxgym\outputs\&lt;Название вашего LoRA&gt;\</code>.
+<p>Здесь вы можете увидеть конфигурацию сгенерированного скрипта для обучения <code>train.bat</code>, который будет находиться в папке <code>C:\fluxgym\outputs\&lt;Название вашей LoRA&gt;\</code>.
 Вы можете ознакомиться с этим файлом, если понимаете, что означает <code>accelerate</code>.  </p>
 <p><img alt="fluxgym setup screen 02" src="/imgs/posts/fluxgym_complete_01.png"/></p>
-<p>Резульат обучения будет сохранение LoRA файлов .safetensors: <code>C:\fluxgym\outputs\&lt;Название вашего LoRA&gt;\</code>.</p>
-<p>Рекомендую обратить внимание на последние значения avr_loss, с 0.240 до 0.160 можно считать, что процесс обучения прошел успешно и сеть обучить лучше скорее всего уже не получится.</p>
+<p>Резульат обучения будет сохранение LoRA файлов .safetensors: <code>C:\fluxgym\outputs\&lt;Название вашей LoRA&gt;\</code>.</p>
+<p>Рекомендую обратить внимание на последние значения avr_loss, с <code>0.240</code> до <code>0.160</code> можно считать, что процесс обучения прошел успешно и сеть обучить лучше скорее всего уже не получится.</p>
 <p>Бонусный код на Python для программистов для вывода Flux LoRA:</p>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">torch</span>
