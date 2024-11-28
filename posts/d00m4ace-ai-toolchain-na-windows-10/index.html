@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>d00m4ace AI toolchain на Windows 10</title><meta name="description" content="Установка d00m4ace AI toolchain на Windows 10 в один клик."/>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">d00m4ace AI toolchain на Windows 10</h1>
+<h3 class="subtitle">
+	<span class="tag">#138</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;четверг, 28 ноября 2024 г.</span>
+	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;четверг, 28 ноября 2024 г.</span> 
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;11 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;992 слова</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/d00m4ace/">#d00m4ace</a><a class="button is-outlined" href="/posts/tags/ai/">#AI</a><a class="button is-outlined" href="/posts/tags/toolchain/">#toolchain</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
+</div><p><strong>Вся установка выполняется автоматически в один <code>клик</code> (точнее, запуск одного файла <code>setup.bat</code> сделает все автоматически)!</strong></p>
+<p><strong>Важно:</strong> Установка d00m4ace AI toolchain производится на диск C:. Базовая установка(по умолчанию без редактирования файлов установки) займет на диске C: ~44Gb. Установка всех моделей используемых в d00m4ace AI toolchain займет на диске C: ~692Gb. <strong><em>Установка на другой диск или в другую директорию в данный момент недоступна.</em></strong></p>
+<h3>Установка d00m4ace AI toolchain</h3>
+<ol>
+<li>Загрузить d00m4ace AI toolchain как архив <a href="https://t.me/d00m4ace_blog/576">d00m4ace_toolchain.zip</a></li>
+<li>Распакуйте содержимое архива в корень диска C:</li>
+<li>Откройте командную строку (cmd.exe).</li>
+<li>Перейдите в корневой каталог <strong>c:\d00m4ace_toolchain</strong>: <code>cd c:\d00m4ace_toolchain</code></li>
+<li>Запустите файл установки <strong>setup.bat</strong> d00m4ace AI toolchain:  <code>setup.bat</code></li>
+<li>Дождитесь завершения процесса установки.</li>
+</ol>
+<p>Cкрипт <code>setup.bat</code> создает портативную сборку размещая все файлы только в каталоге <code>c:\d00m4ace_toolchain</code> и настраивает окружение для работы с AI инструментами на Windows 10. Он создает необходимую структуру директорий, устанавливает портативную сборку Git, FFmpeg, Python 3.10.11 и создает четыре виртуальных окружения Python с различными наборами библиотек. В первом окружении устанавливаются базовые ML библиотеки (PyTorch, Transformers и др.), во втором добавляется поддержка TTS (Text-to-Speech), в третьем устанавливаются инструменты для работы с диффузионными моделями (Diffusers, Invisible Watermark и др.), а в четвертом - инструменты для распознавания речи (CTranslate2, Faster-Whisper). Скрипт также загружает необходимые модели нейросетей и настраивает переменные окружения. Все компоненты устанавливаются в директорию C:\d00m4ace_toolchain.</p>
+<p>Кроме того, проверяется наличие в системе Visual C++ Redistributable, и при необходимости он автоматически загружается и устанавливается в систему, поскольку эти компоненты необходимы для работы многих библиотек. </p>
+<p>Вся дальнейшая работа с инструментарием d00m4ace AI toolchain будет осуществляться только с использованием Python 3.10.11, установленным в директории <code>C:\d00m4ace_toolchain\python310\</code>, и не должна влиять на другие версии Python, уже установленные в системе.</p>
+<h3>Загрузка дополнительных моделей нейронных сетей</h3>
+<p>После установки вы также можете открыть файл <strong>download_llms.bat</strong> и удалить символы комментариев '::' у дополнительных моделей нейронных сетей, которые вы хотите загрузить и использовать вместе с инструментарием d00m4ace AI toolchain.</p>
+<p>Все модели нейронных сетей из <strong>download_llms.bat</strong> загружаются в каталог <code>C:\d00m4ace_toolchain\llms\</code> и создают дополнительные каталоги: <strong>[название компании]\ [название модели]</strong>.</p>
+<p>Например:</p>
+<p>Если вы используете Stable Audio Open 1.0 для создания небольших аудиофайлов в соответствии с вашими запросами, то найдите в <strong>download_llms.bat</strong> строчку:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="p">::</span><span class="n">huggingface</span><span class="o">-</span><span class="n">cli</span><span class="w"> </span><span class="n">download</span><span class="w"> </span><span class="n">stabilityai</span><span class="o">/</span><span class="n">stable</span><span class="o">-</span><span class="n">audio</span><span class="o">-</span><span class="n">open</span><span class="o">-</span><span class="mf">1.0</span><span class="w"> </span><span class="o">--</span><span class="n">local</span><span class="o">-</span><span class="n">dir</span><span class="w"> </span><span class="s2">"%LLMS_DIR%\stabilityai/stable-audio-open-1.0"</span><span class="w"> </span><span class="o">--</span><span class="n">local</span><span class="o">-</span><span class="n">dir</span><span class="o">-</span><span class="n">use</span><span class="o">-</span><span class="n">symlinks</span><span class="w"> </span><span class="n">False</span>
+</code></pre></div></div>
+<p>удалите символы комментария '::', оставив строку в таком виде:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">huggingface</span><span class="o">-</span><span class="n">cli</span><span class="w"> </span><span class="n">download</span><span class="w"> </span><span class="n">stabilityai</span><span class="o">/</span><span class="n">stable</span><span class="o">-</span><span class="n">audio</span><span class="o">-</span><span class="n">open</span><span class="o">-</span><span class="mf">1.0</span><span class="w"> </span><span class="o">--</span><span class="n">local</span><span class="o">-</span><span class="n">dir</span><span class="w"> </span><span class="s2">"%LLMS_DIR%\stabilityai/stable-audio-open-1.0"</span><span class="w"> </span><span class="o">--</span><span class="n">local</span><span class="o">-</span><span class="n">dir</span><span class="o">-</span><span class="n">use</span><span class="o">-</span><span class="n">symlinks</span><span class="w"> </span><span class="n">False</span>
+</code></pre></div></div>
+<p>сохраните файл <strong>download_llms.bat</strong> и запустите заново файл установки <code>setup.bat</code>. </p>
+<p><strong><em>Вы не должны использовать <strong>download_llms.bat</strong> напрямую, так как <code>setup.bat</code> определяет дополнительные переменные окружения и использует переносимую версию Python для загрузки всех моделей.</em></strong></p>
+<p>Более подробную информацию о моделях можно найти на их личных пространствах на сайте <a href="https://huggingface.co">https://huggingface.co</a>, например, адресс личного пространства любой сети из <strong>download_llms.bat</strong> начинается сразу после <code>huggingface-cli download</code>, и для Stable Audio Open 1.0 это будет <code>stabilityai/stable-audio-open-1.0</code>, которую можно открыть как <a href="https://huggingface.co/stabilityai/stable-audio-open-1.0">https://huggingface.co/stabilityai/stable-audio-open-1.0</a>.</p>
+<p>Размер всей модели можно уточнить на вкладке <code>Files and versions</code>, которая находится сразу после открывшейся по умолчанию <code>Model card</code>. К сожалению, полный размер сразу не указывается, и вам придется обратить внимание на размер всех файлов или узнать точный размер после загрузки модели на компьютер. 
+Для примера <a href="https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0">stabilityai/stable-diffusion-xl-base-1.0</a> в итоге будет занимать на вашем диске ~72Gb.</p>
+<h3>Установка и Использование Ollama</h3>
+<p>Вместе с инструментарием ИИ d00m4ace вы можете установить Ollama для локального запуска других моделей нейронных сетей.</p>
+<p><a href="https://d00m4ace.com/posts/ispolzovanie-ollama---zapusk-llm-modelej-i-nastrojka-lokalno-na-windows-10/">Полные инструкции по установке Ollama в Windows 10</a></p>
+<p>После установки Ollama вы также можете открыть файл <strong>download_ollama.bat</strong> и удалить символы комментариев '::' у дополнительных моделей нейронных сетей, которые вы хотите загрузить и использовать вместе с инструментарием d00m4ace AI toolchain.</p>
+<p>По умолчанию для работы с инструментарием d00m4ace AI toolchain в файле <strong>download_ollama.bat</strong> загружаются в Ollama:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>ollama pull llama3.2-vision:latest
+ollama pull llama3.1:8b-instruct-fp16
+ollama pull nomic-embed-text
+</code></pre></div></div>
+<p>Вы можете запустить <strong>download_ollama.bat</strong> напрямую, например, щелкнув на нем в File Explore Windows. Или вызвать его из командной строки (cmd.exe) в директории <code>c:\d00m4ace_toolchain</code>.</p>
+<p>Этот файл можно использовать для периодического обновления всех загруженных моделей нейронных сетей и не заниматься мониторингом и обновлением каждой модели по отдельности.</p>
+<h3>Установка CUDA под Windows 10 для Python</h3>
+<p>Чтобы использовать GPU при работе с моделями нейронных сетей, вам также потребуется установить поддержку CUDA в Windows 10 для Python и C++:</p>
+<p><a href="http://d00m4ace.com/posts/ustanovka-podderzhki-cuda-pod-windows-10-dlja-python-i-cplusplus/">Полные инструкции по установке поддержки CUDA в Windows 10</a></p>
+<h3>Запуск и использование d00m4ace AI toolchain</h3>
+<p>Вся работа с d00m4ace AI toolchain осуществляется путем запуска bat-файлов из директории <code>c:\d00m4ace_toolchain</code> с окончанием <code>_serv.bat</code>.</p>
+<ol>
+<li>Откройте командную строку (cmd.exe). Перейдите в директорию <code>c:\d00m4ace_toolchain</code>: <code>cd c:\d00m4ace_toolchain</code></li>
+<li>Выберите желаймы файл сервер из d00m4ace AI toolchain, например <code>whisper_serv.bat</code> и запустите данный файл: <code>whisper_serv.bat</code> </li>
+</ol>
+<p>В случае успеха вы увидите в консоли следующий текст:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">Microsoft</span><span class="w"> </span><span class="n">Windows</span><span class="w"> </span><span class="p">[</span><span class="n">Version</span><span class="w"> </span><span class="mf">10.0</span><span class="o">.</span><span class="mf">19045.5011</span><span class="p">]</span>
+<span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">Corporation</span><span class="o">.</span><span class="w"> </span><span class="n">All</span><span class="w"> </span><span class="n">rights</span><span class="w"> </span><span class="n">reserved</span><span class="o">.</span>
+
+<span class="n">C</span><span class="p">:</span>\<span class="n">d00m4ace_toolchain</span><span class="o">&gt;</span><span class="n">whisper_serv</span><span class="o">.</span><span class="n">bat</span>
+<span class="n">model</span><span class="p">:</span><span class="w"> </span><span class="o">./</span><span class="n">llms</span><span class="o">/</span><span class="n">Systran</span><span class="o">/</span><span class="n">faster</span><span class="o">-</span><span class="n">whisper</span><span class="o">-</span><span class="n">medium</span><span class="o">/</span>
+<span class="n">Running</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">on</span><span class="p">:</span><span class="w"> </span><span class="mf">192.168</span><span class="o">.</span><span class="mf">2.12</span><span class="p">:</span><span class="mi">8062</span>
+<span class="err">Сервер</span><span class="w"> </span><span class="n">whisper</span><span class="w"> </span><span class="err">запущен</span><span class="w"> </span><span class="err">на</span><span class="w"> </span><span class="err">порту</span><span class="w"> </span><span class="mi">8062</span>
+</code></pre></div></div>
+<p>Здесь вы можете увидеть, какая модель используется в этом whisper сервере: </p>
+<p><code>model: ./llms/Systran/faster-whisper-medium/</code></p>
+<p>А также узнать адрес серевера и его порт:</p>
+<p><code>Running server on: 192.168.2.12:8062</code></p>
+<p>Работа с этим сервером осуществляется, как и с любым другим AI-сервером из d00m4ace AI toolchain, с помощью HTTP json-запросов:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="c1"># полный код см.: c:\d00m4ace_toolchain\d00m4lib\dm_reqs.py</span>
+
+<span class="n">async</span><span class="w"> </span><span class="n">def</span><span class="w"> </span><span class="n">request_whisper</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">file_audio</span><span class="p">,</span><span class="w"> </span><span class="n">lang</span><span class="p">):</span><span class="w">   </span>
+<span class="w">    </span><span class="n">with</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="n">file_audio</span><span class="p">,</span><span class="w"> </span><span class="s1">'rb'</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">file</span><span class="p">:</span>
+<span class="w">        </span><span class="n">file_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s1">'audio'</span><span class="p">:</span><span class="w"> </span><span class="n">file_data</span><span class="p">,</span><span class="w"> </span><span class="s1">'lang'</span><span class="p">:</span><span class="w"> </span><span class="n">lang</span><span class="p">,</span><span class="w"> </span><span class="s1">'ext'</span><span class="p">:</span><span class="w"> </span><span class="n">get_file_extension</span><span class="p">(</span><span class="n">file_audio</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w">  </span>
+
+<span class="w">    </span><span class="c1"># Начало отсчета времени</span>
+<span class="w">    </span><span class="n">start_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w">    </span>
+
+<span class="w">    </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">await</span><span class="w"> </span><span class="n">send_request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1"># Окончание отсчета времени</span>
+<span class="w">    </span><span class="n">end_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1"># Подсчет времени</span>
+<span class="w">    </span><span class="n">elapsed_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end_time</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start_time</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">"elapsed: {elapsed_time:.2f} sec"</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">response</span><span class="p">[</span><span class="s1">'status'</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'success'</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="s1">'file'</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">response</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="p">[</span><span class="s1">'file'</span><span class="p">]</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">'***ERROR***'</span>
+</code></pre></div></div>
+<p>Список текущих серверов из d00m4ace AI toolchain:</p>
+<ol>
+<li>whisper_serv.bat - сервер whisper для распознавания речи из аудиофайлов</li>
+<li>stable_audio_serv.bat - сервер stable audio генерация небольших аудиофайлов</li>
+<li>sdxl_serv.bat - сервер для генерации изображений stable-diffusion-xl, включая другие модели на основе SDXL, и использования LoRA.</li>
+<li>sd35_serv.bat - сервер для генерации изображений stable-diffusion-3.5, и использования LoRA.</li>
+<li>phi3vision_serv.bat - сервер машинного зрения для работы с изображениями на основе модели microsoft/Phi-3-vision-128k-instruct </li>
+<li>musicgen_serv.bat - сервер генерация небольших музыкальных аудиофайлов</li>
+<li>flux_serv.bat - сервер для генерации изображений FLUX.1-dev/FLUX.1-schnell, и использования LoRA.</li>
+<li>florence2_serv.bat - сервер машинного зрения для работы с изображениями на основе модели microsoft/Florence-2-large</li>
+<li>coqui_serv.bat - сервер Text-to-Speech для генерации речи на основе модели coqui/XTTS-v2</li>
+</ol>
+<p>Позже будут и другие модели и ИИ сервера. Следите за обновлением!</p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/97-sekretnyj-proekt-pravitelstva-ssha-po-agidot-buduschee-tsifrovogo-suvereniteta-v-epohu-iidot/"> <strong>#97 Секретный проект правительства США по AGI. Будущее цифрового суверенитета в эпоху ИИ.</strong></a>
+<br/><br/>
+
+<!--next_url
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
+next_url-->
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2024</p>
+</footer>
+</body>
+</html>
