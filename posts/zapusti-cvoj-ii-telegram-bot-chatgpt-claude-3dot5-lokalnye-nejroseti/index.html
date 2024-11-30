@@ -114,25 +114,24 @@
 <h3 class="subtitle">
 	<span class="tag">#139</span>
 	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;пятница, 29 ноября 2024 г.</span>
-	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;пятница, 29 ноября 2024 г.</span> 
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;6 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;500 слов</span>
+	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;суббота, 30 ноября 2024 г.</span> 
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;12 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1065 слов</span>
 </h3><div class="buttons">
       <a class="button is-outlined" href="/posts/tags/d00m4ace/">#d00m4ace</a><a class="button is-outlined" href="/posts/tags/ai/">#AI</a><a class="button is-outlined" href="/posts/tags/telegram/">#Телеграм</a><a class="button is-outlined" href="/posts/tags/bot/">#Бот</a><a class="button is-outlined" href="/posts/tags/chatgpt/">#ChatGPT</a><a class="button is-outlined" href="/posts/tags/lokalnye-nejroseti/">#Локальные Нейросети</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
 </div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/bZWsK7aoUZ8"></iframe></div>
+<p>В видео показано, как установить и запустить этот ИИ Телеграм Бот на Windows 10, а также продемонстрирована работа этого бота с использованием локальных нейронных сетей.</p>
 <p>Пример работы этого ИИ Телеграм Бота - <a href="https://t.me/d00m4ace_a3f9b7_bot">ChatGPT_d00m4ace_bot</a></p>
-<p><em>Бот использует gpt-4o/gpt-4o-mini, для изображений dall-e-3 и flux-1.1-pro/flux-schnell.</em></p>
+<p><em>ИИ Телеграм Бот использует gpt-4o/gpt-4o-mini, для изображений dall-e-3 и flux-1.1-pro/flux-schnell.</em></p>
+<p>ИИ Телеграм Бот поддерживает различные команды для работы с текстом и изображениями. Основные команды включают: помощь (/help), очистку истории (/clear), работу с последними загруженными файлами (/lastimg, /lasttxt), анализ изображений (/scan, /scantxt, /scanmd), обработку текста (/text) и генерацию изображений (/image). Доступны три модели для генерации изображений: dall_e_3, flux_schnell (самая быстрая и экономичная) и flux_1_1_pro, переключаемые соответствующими командами. Бот может работать с загруженными текстовыми файлами и изображениями, сохраняет историю последних 10 сообщений для контекста, которую можно очистить командой /clear. При генерации изображений по умолчанию включена помощь AI для улучшения промптов (можно отключить через /toggle_ai_prompt). Также доступна опция использования mini_llm для снижения расходов (/toggle_mini_llm). Для команд анализа изображений и текста можно добавлять дополнительные уточняющие запросы.</p>
+<p>Команды администратора для управления ботом включают: установку пароля (/admin set password), создание ключа регистрации (/admin new_reg), управление доступом новых пользователей (/admin set new_users), настройку требования пароля (/admin set use_password), установку разрешенных языков (/admin set langs), ограничение максимального числа пользователей (/admin set max_users), просмотр статистики бота (/admin stats), управление списком пользователей (/admin users) с возможностью их бана/разбана (/admin user_ban), установку/снятие режима паузы бота (/admin pause) и вызов справки по командам (/admin help).</p>
 <h1>Создание нового Telegram бота</h1>
 <p><img alt="@BotFather /newbot" src="/imgs/posts/tg_botfather.png"/></p>
 <ol>
 <li>Перейдите в Telegram <a href="https://t.me/BotFather">@BotFather</a></li>
 <li>Отправьте команду <code>/newbot</code> боту <a href="https://t.me/BotFather">@BotFather</a></li>
 <li>Выберите имя для вашего бота (может быть любым). Например: <strong>MY AI BOT</strong></li>
-<li>Придумайте username для бота, который должен:<ul>
-<li>Заканчиваться на "bot"</li>
-<li>Например: <strong>my_ai_l4m94d_bot</strong></li>
-</ul>
-</li>
+<li>Придумайте username для бота, который должен заканчиваться на "bot". Например: <strong>my_ai_l4m94d_bot</strong></li>
 <li>После создания бота вы получите:<ul>
 <li>Ссылку на вашего бота (t.me/имя_вашего_бота)</li>
 <li>Возможность добавить описание и фото профиля</li>
@@ -154,7 +153,7 @@
 <li>Запустите файл запуска Telegram-бота <strong>_tgbot.bat</strong>: <code>_tgbot.bat</code></li>
 </ol>
 <h1>Установка и запуск локального сервера с ИИ-ботом</h1>
-<p><strong>Важно:</strong> <strong>Перед запуском локального сервера с ИИ-ботом вам нужно установить инструментарий d00m4ace AI toolchain, если вы решили использовать локальные нейросети.</strong></p>
+<p><strong>Важно:</strong> <strong>Перед запуском локального сервера с ИИ-ботом вам нужно установить инструментарий d00m4ace AI toolchain, если вы решили использовать локальные нейросети. Вся установка выполняется автоматически в один клик (точнее, запуск одного файла setup.bat сделает все автоматически).</strong></p>
 <p><a href="https://d00m4ace.com/posts/d00m4ace-ai-toolchain-na-windows-10/">Установка и запуск d00m4ace AI toolchain на Windows 10</a></p>
 <p><em>Если вы предпочитаете использовать только API-ключи от OpenAI, Anthropic или Google, то Вы можете не устанавливать и не запускать d00m4ace AI toolchain.</em></p>
 <p>Теперь вам нужно запустить локальный сервер с ИИ-ботом, к которому будет обращаться ваш Telegram-бот.</p>
@@ -162,39 +161,63 @@
 <ol>
 <li>Откройте файл <strong>config\_bot_ai_config.json</strong> в удобном для вас текстовом редакторе (например Notepad или Notepad++).</li>
 </ol>
-<h2>Конфигурация нейросетей и API ключей</h2>
 <h2>Основные модели LLM (Large Language Models):</h2>
 <ol>
 <li>
 <p><strong>OpenAI</strong></p>
 <ul>
-<li>GPT-4</li>
-<li>Требует: <code>OPENAI_API_KEY</code>
-<code>"chat_llm": { "url":"openai", "model":"gpt-4o" }</code></li>
+<li>GPT-4o</li>
+<li>Требует: <code>OPENAI_API_KEY</code></li>
 </ul>
+<p><code>"chat_llm": { "url":"openai", "model":"gpt-4o" },</code></p>
+<p><code>"mini_llm": { "url":"openai", "model":"gpt-4o-mini" },</code></p>
+<p><code>"vision_llm": { "url":"openai", "model":"gpt-4o" },</code></p>
 </li>
 <li>
 <p><strong>Claude (Anthropic)</strong></p>
 <ul>
-<li>Claude 3 Sonnet/Haiku</li>
-<li>Требует: <code>ANTHROPIC_API_KEY</code>
-<code>"chat_llm": { "url":"claude", "model":"claude-3-5-sonnet-20241022" }</code></li>
+<li>Claude 3.5 Sonnet/Haiku</li>
+<li>Требует: <code>ANTHROPIC_API_KEY</code></li>
 </ul>
+<p><code>"chat_llm": { "url":"claude", "model":"claude-3-5-sonnet-20241022" },</code></p>
+<p><code>"mini_llm": { "url":"claude", "model":"claude-3-5-haiku-20241022" },</code></p>
+<p><code>"vision_llm": { "url":"claude", "model":"claude-3-5-sonnet-20241022" },</code></p>
 </li>
 <li>
 <p><strong>Google Gemini</strong></p>
 <ul>
 <li>Gemini 1.5 Pro/Flash</li>
-<li>Требует: <code>GEMINI_API_KEY</code>
-<code>"chat_llm": { "url":"genai", "model":"gemini-1.5-pro" }</code></li>
+<li>Требует: <code>GEMINI_API_KEY</code></li>
 </ul>
+<p><code>"chat_llm": { "url":"genai", "model":"gemini-1.5-pro" },</code></p>
+<p><code>"mini_llm": { "url":"genai", "model":"gemini-1.5-flash-8b" },</code></p>
+<p><code>"vision_llm": { "url":"genai", "model":"gemini-1.5-flash" },</code></p>
 </li>
 <li>
 <p><strong>Локальные модели</strong></p>
+<p>Вместе с инструментарием d00m4ace AI toolchain вы можете установить Ollama для локального запуска других моделей нейронных сетей.</p>
+<p><a href="https://d00m4ace.com/posts/ispolzovanie-ollama---zapusk-llm-modelej-i-nastrojka-lokalno-na-windows-10/">Полные инструкции по установке Ollama в Windows 10</a></p>
 <ul>
-<li>Llama 3.2, Qwen 2.5, DeepSeek Coder</li>
+<li>Llama 3.2, Qwen 2.5, DeepSeek Coder и другие локальные модели доступные в Ollama </li>
+<li>Поиск локальных моделей для установки: <a href="https://ollama.com/search">https://ollama.com/search</a></li>
 </ul>
-<p><code>"chat_llm": { "url":"http://localhost:9117", "model":"llama3.2-vision:11b-instruct-q8_0" }</code></p>
+<p><code>"chat_llm": { "url":"http://localhost:9117", "model":"llama3.2-vision:11b-instruct-q8_0" },</code></p>
+<p><code>"mini_llm": { "url":"http://localhost:9117", "model":"llama3.2-vision:11b-instruct-q8_0" },</code></p>
+<p><code>"vision_llm": { "url":"http://localhost:9117", "model":"llama3.2-vision:11b-instruct-q8_0" },</code></p>
+<p><code>"chat_llm": { "url":"http://localhost:9117", "model":"llama3.1:8b" },</code></p>
+<p><code>"mini_llm": { "url":"http://localhost:9117", "model":"llama3.1:8b" },</code></p>
+<p><code>"chat_llm": { "url":"http://localhost:9117", "model":"qwen2.5-coder:14b-instruct-q8_0" },</code></p>
+<p><code>"mini_llm": { "url":"http://localhost:9117", "model":"qwen2.5-coder:14b-instruct-q8_0" },</code></p>
+<p><code>"chat_llm": { "url":"http://localhost:9117", "model":"qwen2.5-coder:32b" },</code></p>
+<p><code>"mini_llm": { "url":"http://localhost:9117", "model":"qwen2.5-coder:32b" },</code></p>
+<p><code>"chat_llm": { "url":"http://localhost:9117", "model":"llama3.2-vision:11b-instruct-fp16" },</code></p>
+<p><code>"mini_llm": { "url":"http://localhost:9117", "model":"llama3.2-vision:11b-instruct-fp16" },</code></p>
+<p><code>"chat_llm": { "url":"http://localhost:9117", "model":"deepseek-coder-v2:16b" },</code></p>
+<p><code>"mini_llm": { "url":"http://localhost:9117", "model":"deepseek-coder-v2:16b" },</code></p>
+<p><code>"chat_llm": { "url":"http://localhost:9117", "model":"deepseek-coder-v2:16b-lite-instruct-q8_0" },</code></p>
+<p><code>"mini_llm": { "url":"http://localhost:9117", "model":"deepseek-coder-v2:16b-lite-instruct-q8_0" },</code></p>
+<p><code>"chat_llm": { "url":"http://localhost:9117", "model":"mistral-small:22b" },</code></p>
+<p><code>"mini_llm": { "url":"http://localhost:9117", "model":"mistral-small:22b" },</code></p>
 </li>
 </ol>
 <h2>Модели генерации изображений:</h2>
@@ -202,16 +225,16 @@
 <li>
 <p><strong>Локальная модель</strong></p>
 <ul>
-<li>Модель из d00m4ace AI toolchain 
-<code>"local_model": { "url":"http://localhost:8066", "model":"" }</code></li>
+<li>Модель из d00m4ace AI toolchain </li>
 </ul>
+<p><code>"local_model": { "url":"http://localhost:8066", "model":"", "prompt_ai":"Write a prompt in English for generating AI images based on user input:\n" },</code></p>
 </li>
 <li>
 <p><strong>DALL-E 3</strong></p>
 <ul>
-<li>Требует OpenAI API
-<code>"dall_e_3": { "url":"openai", "model":"dall-e-3" }</code></li>
+<li>Требует OpenAI API</li>
 </ul>
+<p><code>"dall_e_3": { "url":"openai", "model":"dall-e-3", "prompt_ai":"Write a prompt in English for generating AI images based on user input:\n" },</code></p>
 </li>
 <li>
 <p><strong>Replicate модели</strong></p>
@@ -219,29 +242,38 @@
 <li>Требует: <code>REPLICATE_API_TOKEN</code></li>
 <li>Включает: Flux, SDXL, Ghibli стили</li>
 </ul>
+<p><code>"flux_schnell": { "url":"replicate", "model":"black-forest-labs/flux-schnell", "prompt_ai":"Write a prompt in English for generating AI images based on user input:\n" },</code></p>
+<p><code>"flux_1_1_pro": { "url":"replicate", "model":"black-forest-labs/flux-1.1-pro", "prompt_ai":"Write a prompt in English for generating AI images based on user input:\n" },</code></p>
+<p><code>"sdxl": { "url":"replicate", "model":"stability-ai/sdxl", "prompt_ai":"Write a prompt in English for generating Stable Diffusion XL images based on user input:\n" },</code></p>
+<p><code>"sdxl_lightning_4step": { "url":"replicate", "model":"bytedance/sdxl-lightning-4step", "prompt_ai":"Write a prompt in English for generating Stable Diffusion XL images based on user input:\n" },</code></p>
+<p><code>"flux_ghibli": { "url":"replicate", "model":"aleksa-codes/flux-ghibsky-illustration", "prompt_ai":"Write a prompt in English for generating Stable Diffusion XL images based on user input:\n" },</code></p>
 </li>
 </ol>
 <h2>Важные параметры:</h2>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="o">-</span><span class="w"> </span><span class="n n-Quoted">`MAX_FILE_SIZE`</span><span class="o">:</span><span class="w"> </span><span class="n">Максимальный</span><span class="w"> </span><span class="n">размер</span><span class="w"> </span><span class="n">файла</span>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="o">-</span><span class="w"> </span><span class="n n-Quoted">`MAX_FILE_SIZE`</span><span class="o">:</span><span class="w"> </span><span class="n">Максимальный</span><span class="w"> </span><span class="n">размер</span><span class="w"> </span><span class="n">файла</span><span class="w"> </span><span class="n">для</span><span class="w"> </span><span class="n">загрузки</span><span class="w"> </span><span class="n">в</span><span class="w"> </span><span class="n">бот</span>
+<span class="o">-</span><span class="w"> </span><span class="n n-Quoted">`MAX_FILE_CONTENT_LENGTH`</span><span class="o">:</span><span class="w"> </span><span class="n">Максимальный</span><span class="w"> </span><span class="n">размер</span><span class="w"> </span><span class="n">файла</span><span class="w"> </span><span class="n">для</span><span class="w"> </span><span class="n">команды</span><span class="w"> </span><span class="o">/</span><span class="kt">text</span>
 <span class="o">-</span><span class="w"> </span><span class="n n-Quoted">`daily_limit_*`</span><span class="o">:</span><span class="w"> </span><span class="n">Ограничения</span><span class="w"> </span><span class="n">на</span><span class="w"> </span><span class="n">запросы</span>
 <span class="o">-</span><span class="w"> </span><span class="n n-Quoted">`cmd_wait_time`</span><span class="o">:</span><span class="w"> </span><span class="n">Время</span><span class="w"> </span><span class="n">ожидания</span><span class="w"> </span><span class="n">между</span><span class="w"> </span><span class="n">командами</span>
 </code></pre></div></div>
 <h2>Настройка API ключей:</h2>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">"OPENAI_API_KEY"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sk-ваш-ключ"</span><span class="p">,</span><span class="w">    </span>
-<span class="w">    </span><span class="nt">"ANTHROPIC_API_KEY"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sk-ant-ваш-ключ"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"GEMINI_API_KEY"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ваш-ключ"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"REPLICATE_API_TOKEN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ваш-токен"</span>
-<span class="p">}</span>
+<p>Все API ключи должны быть получены на соответствующих платформах и добавлены в конфигурационный файл.</p>
+<p>OPENAI_API_KEY: <a href="https://platform.openai.com/settings/organization/api-keys">https://platform.openai.com/settings/organization/api-keys</a></p>
+<p>ANTHROPIC_API_KEY: <a href="https://console.anthropic.com/settings/keys">https://console.anthropic.com/settings/keys</a></p>
+<p>GEMINI_API_KEY: <a href="https://aistudio.google.com/apikey">https://aistudio.google.com/apikey</a></p>
+<p>REPLICATE_API_TOKEN: <a href="https://replicate.com/account/api-tokens">https://replicate.com/account/api-tokens</a></p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>    "OPENAI_API_KEY": "sk-ваш-ключ",    
+    "ANTHROPIC_API_KEY": "sk-ant-ваш-ключ",
+    "GEMINI_API_KEY": "ваш-ключ",
+    "REPLICATE_API_TOKEN": "ваш-токен",
 </code></pre></div></div>
+<h1>Запуск локального сервера с ИИ-ботом</h1>
 <ol>
 <li>Сохраните изменения в файле <strong>config\_bot_ai_config.json</strong></li>
 <li>Откройте командную строку (cmd.exe).</li>
 <li>Перейдите в каталог <strong>C:\telegram_ai_bot</strong>: <code>cd C:\telegram_ai_bot</code></li>
 <li>Запустите файл запуска Telegram-бота <strong>_bot_ai.bat</strong>: <code>_bot_ai.bat</code></li>
 </ol>
-<p>Все API ключи должны быть получены на соответствующих платформах и добавлены в конфигурационный файл.</p>
-<p>Позже будут и другие модели и ИИ сервера. Следите за обновлением!</p>
+<p>Позже будут и другие ИИ Телеграм Боты. Следите за обновлением!</p>
 <hr/><nav class="bd-docs-pagination bd-pagination-links">
 
 
