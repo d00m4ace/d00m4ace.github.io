@@ -111,6 +111,132 @@
 
 <article class="content">
 <h2 class="title">
+<a class="l-a-section" href="/posts/kak-ustanovit-vscode-na-ubuntu-i-ispolzovat-ego-s-pomoschju-python/">
+Как установить VSCode на Ubuntu и использовать его с помощью Python</a>
+</h2>
+<h3 class="subtitle">
+	<span class="tag">#25</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;вторник, 18 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;3 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;226 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/python/">#Python</a><a class="button is-outlined" href="/posts/tags/vscode/">#VSCode</a><a class="button is-outlined" href="/posts/tags/ubuntu/">#Ubuntu</a>
+</div><p>Загрузите последнюю версию Visual Studio Code с помощью команды wget:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">wget</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="k">go</span><span class="p">.</span><span class="n">microsoft</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">fwlink</span><span class="o">/</span><span class="vm">?</span><span class="n">LinkID</span><span class="o">=</span><span class="mi">760868</span><span class="w"> </span><span class="o">-</span><span class="n">O</span><span class="w"> </span><span class="n">vscode</span><span class="p">.</span><span class="n">deb</span>
+</code></pre></div></div>
+<p>Установите скачанный пакет, используя команду dpkg:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo dpkg -i vscode.deb
+</code></pre></div></div>
+<p>Если появятся проблемы с зависимостями, их можно исправить с помощью команды:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo apt-get install -f
+</code></pre></div></div>
+<p>Откройте Visual Studio Code. Установка расширения Python для VSCode.
+Перейдите в раздел "Extensions" или нажмите Ctrl+Shift+X.</p>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/kak-ustanovit-vscode-na-ubuntu-i-ispolzovat-ego-s-pomoschju-python/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
+<a class="l-a-section" href="/posts/nastroit-nginx-v-kachestve-https-proksi-dlja-vashego-rest-prilozhenija-python-na-flask-i-waitress-na-ubuntu/">
+Настроить Nginx в качестве HTTPS-прокси для вашего REST приложения Python на Flask и Waitress на Ubuntu</a>
+</h2>
+<h3 class="subtitle">
+	<span class="tag">#24</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;вторник, 18 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;12 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1084 слова</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/python/">#Python</a><a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/https/">#HTTPS</a><a class="button is-outlined" href="/posts/tags/flask/">#Flask</a><a class="button is-outlined" href="/posts/tags/ubuntu/">#Ubuntu</a>
+</div><h2>Настройка Nginx</h2>
+<p>Вам нужно настроить Nginx, чтобы использовать SSL и перенаправлять запросы на ваше приложение Flask. </p>
+<p>Если вы используете файл <strong>/etc/nginx/sites-available/default</strong>, добавьте следующий server для нужного поддомена например <strong>api.pixelrobot.ru</strong>:</p>
+<p>```
+server {
+    # Add index.php to the list if you are using PHP
+    index index.html index.htm index.nginx-debian.html;
+    server_name api.pixelrobot.ru; # managed by Certbot</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="nt">location</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">proxy_pass</span><span class="w"> </span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">:</span><span class="mi">5000</span><span class="p">;</span>
+</code></pre></div></div>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/nastroit-nginx-v-kachestve-https-proksi-dlja-vashego-rest-prilozhenija-python-na-flask-i-waitress-na-ubuntu/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
+<a class="l-a-section" href="/posts/ustanovka-python-na-ubuntu/">
+Установка Python на Ubuntu</a>
+</h2>
+<h3 class="subtitle">
+	<span class="tag">#23</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;вторник, 18 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;4 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;337 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/python/">#Python</a><a class="button is-outlined" href="/posts/tags/ubuntu/">#Ubuntu</a>
+</div><p>Проверить все версии Python установленные в системе:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>ls /usr/bin/python* | grep python
+</code></pre></div></div>
+<p>Обновите список доступных пакетов и их версий в репозиториях Ubuntu. Откройте терминал и введите следующую команду:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo apt-get update
+</code></pre></div></div>
+<p>Проверьте текущую установленную версию Python 3. В терминале введите следующую команду:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>python3 --version
+</code></pre></div></div>
+<p>Установите Python 3.11 через пакетный менеджер <code>apt-get</code>. В терминале введите следующую команду:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo apt-get install python3.11
+</code></pre></div></div>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/ustanovka-python-na-ubuntu/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
+<a class="l-a-section" href="/posts/ustanovka-certbot-dlja-nginx-na-ubuntu-dlja-raboty-s-https/">
+Установка Certbot для Nginx на Ubuntu для работы с HTTPS</a>
+</h2>
+<h3 class="subtitle">
+	<span class="tag">#22</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 17 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;5 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;413 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/certbot/">#Certbot</a><a class="button is-outlined" href="/posts/tags/ssl/">#SSL</a><a class="button is-outlined" href="/posts/tags/tls/">#TLS</a><a class="button is-outlined" href="/posts/tags/https/">#HTTPS</a><a class="button is-outlined" href="/posts/tags/ubuntu/">#Ubuntu</a>
+</div><p>Обновите пакетный менеджер:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo apt-get update
+</code></pre></div></div>
+<p>Установите Certbot и плагин Nginx:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo apt-get install certbot python3-certbot-nginx
+</code></pre></div></div>
+<p>Получите SSL-сертификат и настройте Nginx, заменив <code>yourdomain.com</code> на ваш домен:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo certbot --nginx -d yourdomain.com
+</code></pre></div></div>
+<p>Пример для домена и поддоменов:
+```
+sudo certbot --nginx -d pixelrobot.ru -d api.pixelrobot.ru -d test.pixelrobot.ru -d www.pixelrobot.ru</p>
+<p>Saving debug log to /var/log/letsencrypt/letsencrypt.log</p>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/ustanovka-certbot-dlja-nginx-na-ubuntu-dlja-raboty-s-https/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
+<a class="l-a-section" href="/posts/ustanovka-nginx-na-ubuntu/">
+Установка Nginx на Ubuntu</a>
+</h2>
+<h3 class="subtitle">
+	<span class="tag">#21</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 17 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;2 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;90 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/ubuntu/">#Ubuntu</a>
+</div><p>Обновите список пакетов:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo apt update
+</code></pre></div></div>
+<p>Установите Nginx:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo apt install nginx
+</code></pre></div></div>
+<p>Запустите Nginx:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo systemctl start nginx
+</code></pre></div></div>
+<p>Убедитесь, что Nginx запускается при загрузке:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo systemctl enable nginx
+</code></pre></div></div>
+<p>Добавьте правила для Nginx в ufw:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo ufw allow 'Nginx Full'
+</code></pre></div></div>
+<p>Эта команда позволит входящие соединения на портах 80 и 443, которые используются Nginx для HTTP и HTTPS соответственно.
+Проверить статус ufw:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo ufw status
+</code></pre></div></div>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/ustanovka-nginx-na-ubuntu/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
 <a class="l-a-section" href="/posts/nastrojka-remote-desktop-connection-rdc-dlja-podkljuchenija-k-ubuntu-s-drugoj-mashiny/">
 Настройка Remote Desktop Connection (RDC) для подключения к Ubuntu с другой машины</a>
 </h2>
@@ -213,93 +339,7 @@ sudo apt install openssh-server
 <p>Загрузите последнюю версию программы установки Certbot для Windows по адресу <a href="https://github.com/certbot/certbot/releases/download/v2.9.0/certbot-beta-installer-win_amd64_signed.exe">https://github.com/certbot/certbot/releases/download/v2.9.0/certbot-beta-installer-win_amd64_signed.exe</a>.</p>
 </li>
 </ul>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/nastrojka-certbot-i-nginx-dlja-raboty-s-https-v-windows/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
-<a class="l-a-section" href="/posts/nastrojka-nginx-dlja-obrabotki-http-https-soedinenij-v-windows/">
-Настройка Nginx для обработки HTTP, HTTPS соединений в Windows</a>
-</h2>
-<h3 class="subtitle">
-	<span class="tag">#14</span>
-	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 3 июля 2023 г.</span>
-	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;5 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;374 слова</span>
-</h3><div class="buttons">
-      <a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/http/">#HTTP</a><a class="button is-outlined" href="/posts/tags/https/">#HTTPS</a>
-</div><p>Чтобы настроить Nginx для обработки как <strong>HTTP</strong>, так и <strong>HTTPS</strong> соединений, вам потребуется определить два отдельных серверных блока в конфигурации Nginx. Один будет обрабатывать <strong>HTTP</strong>-соединения (<strong>порт 80</strong>), а другой - <strong>HTTPS</strong>-соединения (<strong>порт 443</strong>).</p>
-<p>Вот пример конфигурации для обработки и перенаправления <strong>HTTP</strong>-запросов на <strong>HTTPS</strong>, а также для обработки <strong>HTTPS</strong>-соединений:</p>
-<p>```nginx
-http {
-    server {
-        listen 80;
-        server_name ваш_домен; # например d00m4ace.com</p>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/nastrojka-nginx-dlja-obrabotki-http-https-soedinenij-v-windows/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
-<a class="l-a-section" href="/posts/ustanovka-nginx-na-windows-10-windows-11-windows-server-2019/">
-Установка Nginx на Windows 10, Windows 11, Windows Server 2019</a>
-</h2>
-<h3 class="subtitle">
-	<span class="tag">#13</span>
-	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 3 июля 2023 г.</span>
-	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;9 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;756 слов</span>
-</h3><div class="buttons">
-      <a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/windows-service/">#Windows service</a>
-</div><h2>Установка Nginx на Windows</h2>
-<ul>
-<li>
-<p>Перейдите на официальный сайт Nginx <a href="https://nginx.org/">https://nginx.org/</a>  и перейдите на страницу загрузки <a href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a>. Загрузите последнюю стабильную версию Nginx для Windows в формате zip.</p>
-</li>
-<li>
-<p>Распакуйте загруженный архив Nginx в каталог на вашем компьютере, например, <strong>C:\nginx</strong>.</p>
-</li>
-</ul>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/ustanovka-nginx-na-windows-10-windows-11-windows-server-2019/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
-<a class="l-a-section" href="/posts/otkrytie-portov-i-perenapravlenie-ih-na-opredelennyj-kompjuter-v-vashej-domashnej-seti/">
-Открытие портов и перенаправление их на определенный компьютер в вашей домашней сети</a>
-</h2>
-<h3 class="subtitle">
-	<span class="tag">#12</span>
-	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;воскресенье, 2 июля 2023 г.</span>
-	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;6 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;515 слов</span>
-</h3><div class="buttons">
-      <a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/nat/">#NAT</a><a class="button is-outlined" href="/posts/tags/port-forwarding/">#Port Forwarding</a>
-</div><p>Открытие портов и перенаправление их на определенный компьютер в вашей домашней сети, обычно называемое "пробросом портов", это процесс, который обычно выполняется через веб-интерфейс вашего маршрутизатора. Важно отметить, что процедура может немного отличаться в зависимости от бренда и модели вашего маршрутизатора. Ниже приведены общие шаги:</p>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/otkrytie-portov-i-perenapravlenie-ih-na-opredelennyj-kompjuter-v-vashej-domashnej-seti/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
-<a class="l-a-section" href="/posts/git-i-windows-symbolic-links-simvolicheskie-ssylki-takzhe-izvestnye-kak-symlinks/">
-Git и Windows symbolic links (символические ссылки), также известные как symlinks</a>
-</h2>
-<h3 class="subtitle">
-	<span class="tag">#11</span>
-	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;суббота, 1 июля 2023 г.</span>
-	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;10 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;877 слов</span>
-</h3><div class="buttons">
-      <a class="button is-outlined" href="/posts/tags/git/">#Git</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/symbolic-links/">#symbolic links</a><a class="button is-outlined" href="/posts/tags/symlinks/">#symlinks</a>
-</div><p>Symbolic links (символические ссылки), также известные как symlinks, - это особый тип файла, который служит ссылкой на другой файл или директорию в файловой системе.</p>
-<p>В Windows для работы с символическими ссылками используется утилита mklink. Она позволяет создавать символические ссылки и жесткие ссылки. Но для работы с этой утилитой вам потребуются права администратора.</p>
-<p>Символические ссылки (или symlinks) могут быть очень полезны в различных сценариях при работе с проектами. Вот несколько примеров:</p>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/git-i-windows-symbolic-links-simvolicheskie-ssylki-takzhe-izvestnye-kak-symlinks/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
-<a class="l-a-section" href="/posts/udalenie-direktorii-iz-git/">
-Удаление директории из Git</a>
-</h2>
-<h3 class="subtitle">
-	<span class="tag">#10</span>
-	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;суббота, 1 июля 2023 г.</span>
-	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;5 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;382 слова</span>
-</h3><div class="buttons">
-      <a class="button is-outlined" href="/posts/tags/git/">#Git</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/dotgitignore/">#.gitignore</a>
-</div><p>Для удаления директории из Git, вы можете использовать команду <strong>git rm</strong>, затем зафиксировать эти изменения и отправить их в удалённый репозиторий.</p>
-<p>Вот последовательность действий:</p>
-<p>Удалите директорию и файлы внутри неё:</p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git rm -r name_of_the_directory
-</code></pre></div></div>
-<p>Здесь <strong>-r</strong> означает рекурсивное удаление, то есть удаление директории и всего содержимого внутри неё.</p>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/udalenie-direktorii-iz-git/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/nastrojka-certbot-i-nginx-dlja-raboty-s-https-v-windows/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span>
 </article>
 <nav class="pagination" role="navigation" aria-label="pagination">
 <ul class="pagination-list">
@@ -331,6 +371,8 @@ Git и Windows symbolic links (символические ссылки), так�
 <a class="pagination-link is-current " href="/posts/page13">13</a>
 </li><li>
 <a class="pagination-link is-white" href="/posts/page14">14</a>
+</li><li>
+<a class="pagination-link is-white" href="/posts/page15">15</a>
 </li>
 </ul>
 </nav>

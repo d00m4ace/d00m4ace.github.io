@@ -114,9 +114,9 @@
 <h3 class="subtitle">
 	<span class="tag">#139</span>
 	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;пятница, 29 ноября 2024 г.</span>
-	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;суббота, 30 ноября 2024 г.</span> 
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;12 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1065 слов</span>
+	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;среда, 11 декабря 2024 г.</span> 
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;17 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1561 слово</span>
 </h3><div class="buttons">
       <a class="button is-outlined" href="/posts/tags/d00m4ace/">#d00m4ace</a><a class="button is-outlined" href="/posts/tags/ai/">#AI</a><a class="button is-outlined" href="/posts/tags/telegram/">#Телеграм</a><a class="button is-outlined" href="/posts/tags/bot/">#Бот</a><a class="button is-outlined" href="/posts/tags/chatgpt/">#ChatGPT</a><a class="button is-outlined" href="/posts/tags/lokalnye-nejroseti/">#Локальные Нейросети</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
 </div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/bZWsK7aoUZ8"></iframe></div>
@@ -141,6 +141,33 @@
 </li>
 </ol>
 <p>⚠️ <strong>Важно</strong>: Храните токен в безопасном месте! Он дает полный доступ к управлению ботом.</p>
+<h2>Задайте список команд через BotFather</h2>
+<ol>
+<li>Отправьте следующую команду <a href="https://t.me/BotFather">@BotFather</a>: <code>/setcommands</code>.</li>
+<li>Выберите вашего бота из списка.</li>
+<li>Введите команды в формате:</li>
+</ol>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>команда1 - описание первой команды
+команда2 - описание второй команды
+</code></pre></div></div>
+<p>Пример набора команд для данного ИИ Телеграм Бота:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>help - Показать доступные команды
+balance - Проверить текущий баланс
+clear - Очистить историю диалога
+lastimg - Показать последнее загруженное изображение
+lasttxt - Показать последний загруженный текстовый файл
+scan - [запрос] Описать содержимое последнего загруженного изображения
+scantxt - [запрос] Распознать текст на последнем загруженном изображении
+scanmd - [запрос] Преобразовать последнее загруженное изображение в markdown
+text - [запрос] Обработать последний загруженный текстовый файл с дополнительным запросом
+image - [описание] Сгенерировать изображение по описанию
+toggle_ai_prompt - Включить/выключить помощь AI для промптов при генерации изображений
+toggle_mini_llm - Включить/выключить использование всегда mini_llm (значительно снижает расходы)
+use_img_dall_e_3 - Переключиться на модель dall_e_3 генерации изображений
+use_img_flux_schnell - Переключиться на модель flux_schnell генерации изображений
+use_img_flux_1_1_pro - Переключиться на модель flux_1_1_pro генерации изображений
+limits - Показать лимиты на текущий день
+</code></pre></div></div>
 <h1>Установка и запуск Telegram-бота</h1>
 <ol>
 <li>Загрузить собственный Telegram-бот как архив <a href="https://t.me/d00m4ace_blog/582">telegram_ai_bot.zip</a></li>
@@ -158,9 +185,7 @@
 <p><em>Если вы предпочитаете использовать только API-ключи от OpenAI, Anthropic или Google, то Вы можете не устанавливать и не запускать d00m4ace AI toolchain.</em></p>
 <p>Теперь вам нужно запустить локальный сервер с ИИ-ботом, к которому будет обращаться ваш Telegram-бот.</p>
 <h1>Конфигурация нейросетей и API ключей</h1>
-<ol>
-<li>Откройте файл <strong>config\_bot_ai_config.json</strong> в удобном для вас текстовом редакторе (например Notepad или Notepad++).</li>
-</ol>
+<p>Откройте файл конфигурации ИИ-бота <strong>config\_bot_ai_config.json</strong> в удобном для вас текстовом редакторе (например Notepad или Notepad++).</p>
 <h2>Основные модели LLM (Large Language Models):</h2>
 <ol>
 <li>
@@ -220,6 +245,34 @@
 <p><code>"mini_llm": { "url":"http://localhost:9117", "model":"mistral-small:22b" },</code></p>
 </li>
 </ol>
+<h2>Установка num_ctx для локальных моделей Ollama:</h2>
+<p>Параметр <code>num_ctx</code> в контексте моделей машинного обучения, таких как те, которые используются в библиотеке Ollama, обычно относится к количеству токенов контекста, которые модель может обрабатывать одновременно. Установка <code>num_ctx</code> определяет, сколько предыдущих токенов (слов или символов) модель может учитывать при генерации следующего токена или ответе. Это важно для поддержания согласованности и связности в более длинных текстах.</p>
+<p>Контекстные токены — это те части входного текста, которые модель рассматривает, чтобы предсказать или объяснить следующий токен. Увеличение значения <code>num_ctx</code> позволяет модели видеть больше предыдущего текста, что может улучшить качество ее предсказаний в задачах, где контекст имеет значение. Однако это также может увеличить использование памяти и времени обработки.</p>
+<p>При настройке <code>num_ctx</code> вам нужно найти баланс между качеством результатов и производительностью модели. Зачастую, если ваш текст большой и требует понимания глобальных связей, может потребоваться большее значение <code>num_ctx</code>, а если текст короткий или контекст менее важен, меньшего значения может быть вполне достаточно.</p>
+<p><strong>Значение по умолчанию:</strong> По умолчанию <code>num_ctx</code> в библиотеке Ollama установлено на 2048 токенов, что может быть достаточно для коротких взаимодействий, но может ограничить производительность в более сложных сценариях. Однако в нашей конфигурации есть опция «по умолчанию» (см. "default"), которая имеет другое значение, а именно 8192, что вполне достаточно для большего количества вариантов работы, а также учитывает рост контекстного окна в более новых моделях.</p>
+<p>Пользователи могут установить <code>num_ctx</code> на более высокие значения, такие как 8192 или даже 16384, в зависимости от возможностей модели и доступного оборудования.</p>
+<p><strong>Компромисс:</strong> Однако установка большего <code>num_ctx</code> может привести к увеличению времени отклика, поскольку обрабатывается больше данных. Поэтому необходимо балансировать между размером контекста и производительностью в зависимости от конкретных случаев использования</p>
+<p>Примеры моделей и их значений <code>num_ctx</code> в файле конфигурации ИИ-бота:   </p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>    "ollama_num_ctx": {
+        "llama3.2-vision":16384,
+        "llama3.2":16384,
+        "llama3.1":16384,
+        "qwen2.5-coder":16384,
+        "deepseek-coder-v2":16384,
+        "mistral-small":131072,
+        "phi3:mini":4096,
+        "phi3:medium":4096,
+        "phi3":8192,
+        "default":8192
+    },  
+</code></pre></div></div>
+<p>Если вы хотите изменить значение <code>num_ctx</code> для какой-либо модели, просто замените соответствующее значение. Например, если вы хотите уменьшить <code>num_ctx</code> для модели <code>llama3.2</code>, вы можете изменить его следующим образом:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>    "ollama_num_ctx": {
+        ...
+        "llama3.2": 65536
+        ...
+    },
+</code></pre></div></div>
 <h2>Модели генерации изображений:</h2>
 <ol>
 <li>
@@ -281,10 +334,10 @@
 <br/><a href="/posts/d00m4ace-ai-toolchain-na-windows-10/"> <strong>d00m4ace AI toolchain на Windows 10</strong></a>
 <br/><br/>
 
-<!--next_url
+
     <em><i>→</i> Следующая статья:</em>
-<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
-next_url-->
+<br/>   <a href="/posts/98-kak-sdelat-indi-igru-v-2025-godu/"> <strong>#98 Как сделать инди-игру в 2025 году?</strong></a>
+
 
 </nav>
 </article>
