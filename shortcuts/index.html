@@ -13,7 +13,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>D00M4ACE блог ИИ и геймдев - Заметки</title><meta name="description" content="Заметки по Git, Nginx, PostgreSQL и созданию служб в Windows."/>
+<title>D00M4ACE блог ИИ и геймдев - Заметки</title><meta name="description" content="Заметки для разработчиков по ИИ, Git, Nginx, Curl, PostgreSQL, DOCKER/SearXNG, Certbot и созданию служб в Windows."/>
 <link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
 <link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
 <link rel="stylesheet" type="text/css" href="/css/modding.css"/>
@@ -111,6 +111,22 @@
 
 <article class="content">
 <h1>Заметки</h1>
+<h2>d00m4ace FAQ</h2>
+<ol>
+<li><a href="https://d00m4ace.com/posts/d00m4ace-ai-toolchain-na-windows-10/">d00m4ace AI toolchain на Windows 10.</a> (*)</li>
+<li><a href="https://d00m4ace.com/posts/ispolzovanie-ollama---zapusk-llm-modelej-i-nastrojka-lokalno-na-windows-10/">Использование Ollama - запуск LLM моделей и настройка локально на Windows 10.</a> (*)</li>
+<li><a href="https://d00m4ace.com/posts/ustanovka-podderzhki-cuda-pod-windows-10-dlja-python-i-cplusplus/">Установка поддержки CUDA под Windows 10 для Python и C++.</a> (*)</li>
+<li><a href="https://d00m4ace.com/posts/obuchite-svoju-sobstvennuju-model-flux-lora-s-podderzhkoj-low-vram-12gbslash16gbslash20gb-na-windows-10/">Обучите свою собственную модель FLUX LoRA с поддержкой LOW VRAM 12GB/16GB/20GB на Windows 10.</a></li>
+<li><a href="https://d00m4ace.com/posts/ustanovka-stable-diffusion-xl-v-automatic1111-windows-s-adetailer-ultimate-upscale-i-controlnetdot/">Установка Stable Diffusion XL в AUTOMATIC1111 (Windows) с ADetailer, Ultimate Upscale и ControlNet.</a></li>
+<li><a href="https://d00m4ace.com/posts/besplatnoe-lokalnoe-klonirovanie-ljubyh-golosov-ii-s-rvc-projectdot/">Бесплатное локальное клонирование любых голосов ИИ с RVC-Project.</a></li>
+<li><a href="https://d00m4ace.com/posts/docker-i-searxng-lokalno-nastrojka-na-windows-10-perestaem-ispolzovat-googleslashyandexdot/">DOCKER и SearXNG локально настройка на Windows 10, перестаем использовать GOOGLE/YANDEX.</a></li>
+<li><a href="https://d00m4ace.com/posts/nastrojka-visual-studio-2022-dlja-raboty-s-python/">Настройка Visual Studio 2022 для работы с Python.</a></li>
+<li><a href="https://d00m4ace.com/posts/ustanovka-nginx-na-windows-10-windows-11-windows-server-2019/">Установка Nginx на Windows 10, Windows 11, Windows Server 2019.</a></li>
+<li><a href="https://d00m4ace.com/posts/nastrojka-nginx-dlja-obrabotki-http-https-soedinenij-v-windows/">Настройка Nginx для обработки HTTP, HTTPS соединений в Windows.</a></li>
+<li><a href="https://d00m4ace.com/posts/nastroit-nginx-v-kachestve-https-proksi-dlja-vashego-rest-prilozhenija-python-na-flask-i-waitress-na-windows-server-2019/">Настроить Nginx в качестве HTTPS-прокси для вашего REST приложения Python на Flask и Waitress на Windows Server 2019.</a></li>
+<li><a href="https://d00m4ace.com/posts/nastrojka-certbot-i-nginx-dlja-raboty-s-https-v-windowsdot-obnovlenaja-vesrija-ot-2024-godadot/">Настройка Certbot и Nginx для работы с HTTPS в Windows. Обновленая весрия от 2024 года.</a></li>
+</ol>
+<p>(*) Используется для d00m4ace ИИ Телеграм Ботов.</p>
 <h2>Git</h2>
 <p>Для начала определим пользователья глобально и перенос новых строк отключим авто замену CRLF обратно на LF.
 И также <strong>core.symlinks true</strong> позволяет Git создавать и обрабатывать символические ссылки. Для работы с символическими ссылками необходимо запускать Git из командной строки Windows (CMD) с правами администратора.</p>
@@ -377,6 +393,7 @@ C:\PostgreSQL\16\bin\createdb -U postgres mydb
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>C:\PostgreSQL\16\pg_env.bat
 C:\PostgreSQL\16\bin\pg_restore -U postgres -W -d d00m4ace -1 22.10.2024-12.08.49-dbbackup.tar 
 C:\PostgreSQL\16\bin\psql -U postgres -W -d d00m4ace -1 -f 22.10.2024-11.44.23-dbbackup.sql
+C:\PostgreSQL\16\bin\pg_restore -U postgres -W -d d00m4ace -1 --clean 13.12.2024-19.20.41-dbbackup.tar
 </code></pre></div></div>
 <ol>
 <li>
@@ -385,7 +402,7 @@ C:\PostgreSQL\16\bin\psql -U postgres -W -d d00m4ace -1 -f 22.10.2024-11.44.23-d
 </li>
 <li>
 <p><code>C:\PostgreSQL\16\bin\pg_restore -U postgres -W -d d00m4ace -1 22.10.2024-12.08.49-dbbackup.tar</code>:
-   Эта команда восстанавливает базу данных из файла резервной копии '22.10.2024-12.08.49-dbbackup.tar':</p>
+   Эта команда восстанавливает базу данных из файла резервной копии <code>22.10.2024-12.08.49-dbbackup.tar</code>:</p>
 <ul>
 <li><code>-U postgres</code>: использует пользователя 'postgres'</li>
 <li><code>-W</code>: запрашивает пароль</li>
@@ -395,13 +412,21 @@ C:\PostgreSQL\16\bin\psql -U postgres -W -d d00m4ace -1 -f 22.10.2024-11.44.23-d
 </li>
 <li>
 <p><code>C:\PostgreSQL\16\bin\psql -U postgres -W -d d00m4ace -1 -f 22.10.2024-11.44.23-dbbackup.sql</code>:
-   Эта команда выполняет SQL-скрипт для восстановления базы данных из файла резервной копии '22.10.2024-11.44.23-dbbackup.sql':</p>
+   Эта команда выполняет SQL-скрипт для восстановления базы данных из файла резервной копии <code>22.10.2024-11.44.23-dbbackup.sql</code>:</p>
 <ul>
 <li><code>-U postgres</code>: использует пользователя 'postgres'</li>
 <li><code>-W</code>: запрашивает пароль</li>
 <li><code>-d d00m4ace</code>: подключается к базе данных 'd00m4ace'</li>
 <li><code>-1</code>: выполняет скрипт в одной транзакции</li>
 <li><code>-f</code>: указывает на использование файла</li>
+</ul>
+</li>
+<li>
+<p><code>C:\PostgreSQL\16\bin\pg_restore -U postgres -W -d d00m4ace -1 --clean 13.12.2024-19.20.41-dbbackup.tar</code>:
+    Эта команда аналогично предыдущей (2.) восстанавливает базу данных <code>d00m4ace</code> из архива <code>13.12.2024-19.20.41-dbbackup.tar</code>, но с дополнительной опцией <code>--clean</code>:</p>
+<ul>
+<li><code>-U postgres</code>, <code>-W</code>, <code>-d d00m4ace</code>, <code>-1</code>: имеют то же значение, что и в предыдущей команде pg_restore.</li>
+<li><code>--clean</code>: <strong>перед восстановлением удаляет (drop) объекты базы данных</strong>, что позволяет избежать конфликтов и гарантирует "чистое" восстановление. Это полезно, когда вы хотите полностью переписать базу данных из резервной копии, а не просто добавить данные.</li>
 </ul>
 </li>
 </ol>
