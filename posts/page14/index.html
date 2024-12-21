@@ -111,6 +111,50 @@
 
 <article class="content">
 <h2 class="title">
+<a class="l-a-section" href="/posts/ustanovka-openssh-na-ubuntu-22dot04/">
+Установка OpenSSH на Ubuntu 22.04</a>
+</h2>
+<h3 class="subtitle">
+	<span class="tag">#19</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;воскресенье, 16 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;2 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;136 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/openssh/">#OpenSSH</a><a class="button is-outlined" href="/posts/tags/ubuntu/">#Ubuntu</a>
+</div><p>Откройте терминал и введите:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo apt update
+sudo apt install openssh-server
+</code></pre></div></div>
+<p>Проверьте статус службы SSH:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo systemctl status ssh
+</code></pre></div></div>
+<p>Если он запущен, вы должны увидеть active (running) в выводе.</p>
+<p>Разрешите соединения SSH через Firewall, UFW (Uncomplicated Firewall):</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo ufw allow ssh
+</code></pre></div></div>
+<p>После этого мы можем активировать брандмауэр UFW с помощью следующей команды:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo ufw enable
+</code></pre></div></div>
+<p>Чтобы увидеть, что подключения SSH разрешены, введите следующее:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>sudo ufw status
+</code></pre></div></div>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/ustanovka-openssh-na-ubuntu-22dot04/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
+<a class="l-a-section" href="/posts/nastroit-nginx-v-kachestve-https-proksi-dlja-vashego-rest-prilozhenija-python-na-flask-i-waitress-na-windows-server-2019/">
+Настроить Nginx в качестве HTTPS-прокси для вашего REST приложения Python на Flask и Waitress на Windows Server 2019</a>
+</h2>
+<h3 class="subtitle">
+	<span class="tag">#17</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 3 июля 2023 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;13 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1165 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/windows-server/">#Windows Server</a><a class="button is-outlined" href="/posts/tags/nginx/">#Nginx</a><a class="button is-outlined" href="/posts/tags/rest/">#REST</a><a class="button is-outlined" href="/posts/tags/python/">#Python</a><a class="button is-outlined" href="/posts/tags/flask/">#Flask</a><a class="button is-outlined" href="/posts/tags/waitress/">#Waitress</a>
+</div><p>Настройка Nginx в качестве HTTPS прокси на Windows Server включает в себя установку и конфигурацию Nginx, настройку SSL для HTTPS и настройку обратного прокси. Это очень похоже на процесс для Linux, но есть некоторые различия в установке и настройке.</p>
+<h2>Установка Nginx</h2>
+<p>Загрузите Nginx для Windows с официального сайта. Затем извлеките архив в нужное место, например C:\nginx.</p>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/nastroit-nginx-v-kachestve-https-proksi-dlja-vashego-rest-prilozhenija-python-na-flask-i-waitress-na-windows-server-2019/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
 <a class="l-a-section" href="/posts/komanda-sc-create-dlja-sozdanija-novyh-sluzhb-v-windows/">
 Команда sc create для создания новых служб в Windows</a>
 </h2>
@@ -257,39 +301,7 @@ Git игнорирование определенных файлов и дире
 #<span class="w"> </span><span class="nv">But</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nv">not</span><span class="w"> </span><span class="nv">ignore</span><span class="w"> </span><span class="nv">log</span>.<span class="nv">txt</span>,<span class="w"> </span><span class="nv">even</span><span class="w"> </span><span class="nv">though</span><span class="w"> </span><span class="nv">you</span><span class="w"> </span><span class="nv">are</span><span class="w"> </span><span class="nv">ignoring</span><span class="w"> </span>.<span class="nv">txt</span><span class="w"> </span><span class="nv">files</span><span class="w"> </span><span class="nv">above</span>
 <span class="o">!/</span><span class="nv">log</span>.<span class="nv">txt</span>
 </code></pre></div></div>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/git-ignorirovanie-opredelennyh-fajlov-i-direktorij/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
-<a class="l-a-section" href="/posts/kak-perekljuchitsja-na-druguju-vetku-v-git/">
-Как переключиться на другую ветку в Git</a>
-</h2>
-<h3 class="subtitle">
-	<span class="tag">#8</span>
-	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;суббота, 1 июля 2023 г.</span>
-	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;2 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;145 слов</span>
-</h3><div class="buttons">
-      <a class="button is-outlined" href="/posts/tags/git/">#Git</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
-</div><p>Чтобы переключиться на другую ветку в Git, вы можете использовать команду <strong>git checkout</strong>, за которой следует имя ветки, на которую вы хотите переключиться. Например, если у вас есть ветка с именем <strong>feature</strong>, вы можете переключиться на нее следующим образом:</p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git checkout feature
-</code></pre></div></div>
-<p>Если вы хотите создать новую ветку и сразу переключиться на нее, вы можете использовать команду <strong>git checkout</strong> с флагом <strong>-b</strong>:</p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>git checkout -b new_feature
-</code></pre></div></div>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/kak-perekljuchitsja-na-druguju-vetku-v-git/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span><h2 class="title">
-<a class="l-a-section" href="/posts/git-kak-ustranit-konflikt-v-git-push-i-git-pull/">
-Git как устранить конфликт в git push и git pull</a>
-</h2>
-<h3 class="subtitle">
-	<span class="tag">#7</span>
-	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;суббота, 1 июля 2023 г.</span>
-	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;7 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;628 слов</span>
-</h3><div class="buttons">
-      <a class="button is-outlined" href="/posts/tags/git/">#Git</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
-</div><p>Когда вы выполняете <strong>git push</strong> или <strong>git pull</strong>, может возникнуть конфликт, если ваши локальные изменения не совпадают с изменениями в удаленном репозитории. Это часто происходит, когда два человека работают над одним и тем же файлом и затем пытаются объединить свои изменения. Вот как вы можете решить такие конфликты:</p>
-<p>Выполните <strong>git pull</strong> (или <strong>git fetch</strong> и <strong>git merge</strong>), чтобы получить последние изменения из удаленного репозитория.</p>
-<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/git-kak-ustranit-konflikt-v-git-push-i-git-pull/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span>
+<p><strong>...</strong></p><span><a class="has-text-info" href="/posts/git-ignorirovanie-opredelennyh-fajlov-i-direktorij/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span>
 </article>
 <nav class="pagination" role="navigation" aria-label="pagination">
 <ul class="pagination-list">
