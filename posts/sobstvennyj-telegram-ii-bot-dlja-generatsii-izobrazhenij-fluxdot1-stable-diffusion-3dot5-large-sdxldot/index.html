@@ -115,19 +115,19 @@
 	<span class="tag">#152</span>
 	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;четверг, 16 января 2025 г.</span>
 	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;четверг, 16 января 2025 г.</span> 
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;12 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1052 слова</span>
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;11 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1048 слов</span>
 </h3><div class="buttons">
       <a class="button is-outlined" href="/posts/tags/d00m4ace/">#d00m4ace</a><a class="button is-outlined" href="/posts/tags/ai/">#AI</a><a class="button is-outlined" href="/posts/tags/telegram/">#Телеграм</a><a class="button is-outlined" href="/posts/tags/bot/">#Бот</a><a class="button is-outlined" href="/posts/tags/fluxdot1/">#Flux.1</a><a class="button is-outlined" href="/posts/tags/stable-diffusion-3dot5/">#Stable Diffusion 3.5</a><a class="button is-outlined" href="/posts/tags/sdxl/">#SDXL</a><a class="button is-outlined" href="/posts/tags/lokalnye-nejroseti/">#Локальные Нейросети</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
 </div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/v1zFAUP0JmI"></iframe></div>
 <p>В видео показано, как установить и запустить этот ИИ Телеграм Бот на Windows 10, а также продемонстрирована работа этого бота с использованием локальных нейронных сетей.</p>
-<p><em>ИИ Телеграм Бот использует для генерации изображений flux-1.1-pro/flux-schnell, Stable Diffusion 3.5 large, SDXL.</em></p>
+<p><em>ИИ Телеграм Бот использует для генерации изображений Flux.1-dev/Flux.1-schnell, Stable Diffusion 3.5 large, SDXL.</em></p>
 <p><strong>Назначение:</strong></p>
 <p>Этот Телеграм-бот позволяет пользователям генерировать изображения с помощью различных моделей искусственного интеллекта. Он предлагает гибкие настройки для управления процессом генерации, позволяя пользователям настраивать различные параметры для получения желаемого результата.</p>
 <p><strong>Основные возможности:</strong></p>
 <ol>
 <li><strong>Генерация изображений:</strong><ul>
-<li>Бот использует три модели ИИ для генерации изображений: <code>flux-1.1-pro/flux-schnell</code>, <code>Stable Diffusion 3.5 large</code> и <code>SDXL</code>. Пользователь может выбрать, какую из них использовать.</li>
+<li>Бот использует три модели ИИ для генерации изображений: <code>Flux.1-dev/Flux.1-schnell</code>, <code>Stable Diffusion 3.5 large</code> и <code>SDXL</code>. </li>
 <li>Пользователь отправляет текстовый запрос боту, описывающий желаемое изображение. На основе этого запроса бот генерирует изображение.</li>
 </ul>
 </li>
@@ -152,7 +152,7 @@
 </ul>
 </li>
 <li><strong><code>set_downscaling &lt;downscaling&gt;</code>:</strong> Устанавливает коэффициент уменьшения размера изображения после генерации.<ul>
-<li>Это может но может снизить детализацию, полезно для Pixel Art изменений.</li>
+<li>Это может но может снизить детализацию, полезно для Pixel Art изображений.</li>
 <li>Значение по умолчанию: 1.</li>
 </ul>
 </li>
@@ -188,7 +188,7 @@
 <li><strong>Взаимодействие с пользователем:</strong><ul>
 <li>Пользователь отправляет команды боту в виде текстовых сообщений.</li>
 <li>Бот обрабатывает команды и либо меняет параметры, либо генерирует изображения.</li>
-<li>Бот отправляет пользователю сгенерированное изображение в виде файла .PNG .</li>
+<li>Бот отправляет пользователю сгенерированное изображение в виде .PNG файла.</li>
 </ul>
 </li>
 </ol>
@@ -255,13 +255,17 @@ reset - Сбросить параметры
 <h1>Установка и запуск локального сервера с ИИ-ботом</h1>
 <p><strong>Важно:</strong> <strong>Перед запуском локального сервера с ИИ-ботом вам нужно установить инструментарий d00m4ace AI toolchain, если вы решили использовать локальные нейросети. Вся установка выполняется автоматически в один клик (точнее, запуск одного файла setup.bat сделает все автоматически).</strong></p>
 <p><a href="https://d00m4ace.com/posts/d00m4ace-ai-toolchain-na-windows-10/">Установка и запуск d00m4ace AI toolchain на Windows 10</a></p>
-<p><em>Если вы предпочитаете использовать только API-ключи от OpenAI, Anthropic или Google, то Вы можете не устанавливать и не запускать d00m4ace AI toolchain.</em></p>
-<p>Теперь вам нужно запустить локальный сервер с ИИ-ботом, к которому будет обращаться ваш Telegram-бот.</p>
 <h1>Конфигурация нейросетей</h1>
 <p>Откройте файл конфигурации ИИ-бота <strong>config\_bot_super_config.json</strong> в удобном для вас текстовом редакторе (например Notepad или Notepad++).</p>
 <p>Строка для указания IP адреса машины и порта где запускается ваш локальный сервер с Flux.1, Stable Diffusion 3.5 large, SDXL:</p>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>"local_image_gen": { "url":"http://localhost:8066" },   
 </code></pre></div></div>
+<p>Для запуска модели генерации изображений используйте один из d00m4ace AI toolchain <code>.bat</code> файлов:</p>
+<ol>
+<li><code>C:\d00m4ace_toolchain\flux_serv.bat</code> - ваш локальный сервер с Flux.1</li>
+<li><code>C:\d00m4ace_toolchain\sd35_serv.bat</code> - ваш локальный сервер с Stable Diffusion 3.5 large</li>
+<li><code>C:\d00m4ace_toolchain\sdxl_serv.bat</code> - ваш локальный сервер с SDXL</li>
+</ol>
 <h1>Запуск локального сервера с ИИ-ботом</h1>
 <ol>
 <li>Сохраните изменения в файле <strong>config\_bot_super_config.json</strong></li>
