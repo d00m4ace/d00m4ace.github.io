@@ -289,10 +289,10 @@
 <p>Резульат обучения будет сохранение LoRA файлов .safetensors: <code>C:\fluxgym\outputs\&lt;Название вашей LoRA&gt;\</code>.</p>
 <p>Рекомендую обратить внимание на последние значения avr_loss, с <code>0.240</code> до <code>0.160</code> можно считать, что процесс обучения прошел успешно и сеть обучить лучше скорее всего уже не получится.</p>
 <p>Бонусный код на Python для программистов для вывода Flux LoRA:</p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">torch</span>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 
-<span class="kn">from</span> <span class="nn">diffusers</span> <span class="kn">import</span> <span class="n">FluxPipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">diffusers</span><span class="w"> </span><span class="kn">import</span> <span class="n">FluxPipeline</span>
 
 <span class="n">branch</span> <span class="o">=</span> <span class="s2">"dev"</span>
 

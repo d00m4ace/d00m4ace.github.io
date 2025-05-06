@@ -220,17 +220,17 @@ start nginx
 </code></pre></div></div>
 <p>Далее, создадим простое Flask приложение с одним маршрутом:</p>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="c1"># app.py</span>
-<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/api'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">])</span>
-<span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">hello_world</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">'Hello, World!'</span><span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">waitress</span> <span class="kn">import</span> <span class="n">serve</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">waitress</span><span class="w"> </span><span class="kn">import</span> <span class="n">serve</span>
     <span class="n">serve</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"0.0.0.0"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span>
 </code></pre></div></div>
 <p>Это пример приложения слушает на порту <strong>8080</strong> и возвращает приветственное сообщение при обращении к маршруту '<strong>/api</strong>'.</p>
@@ -242,12 +242,12 @@ start nginx
 <h2>REST приложение на Python, Flask и Waitress</h2>
 <p>Мы определим несколько базовых REST маршрутов, которые будут возвращать некоторые данные в формате JSON.</p>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="c1"># app.py</span>
-<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/api/tasks'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">])</span>
-<span class="k">def</span> <span class="nf">get_tasks</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_tasks</span><span class="p">():</span>
     <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Buy groceries"</span><span class="p">,</span> <span class="s2">"completed"</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
         <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Study for test"</span><span class="p">,</span> <span class="s2">"completed"</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
@@ -255,7 +255,7 @@ start nginx
     <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/api/tasks/&lt;int:task_id&gt;'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">])</span>
-<span class="k">def</span> <span class="nf">get_task</span><span class="p">(</span><span class="n">task_id</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_task</span><span class="p">(</span><span class="n">task_id</span><span class="p">):</span>
     <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Buy groceries"</span><span class="p">,</span> <span class="s2">"completed"</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
         <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Study for test"</span><span class="p">,</span> <span class="s2">"completed"</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
@@ -267,7 +267,7 @@ start nginx
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">waitress</span> <span class="kn">import</span> <span class="n">serve</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">waitress</span><span class="w"> </span><span class="kn">import</span> <span class="n">serve</span>
     <span class="n">serve</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"0.0.0.0"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span>
 </code></pre></div></div>
 <p>В этом примере мы имеем два маршрута. Один для получения всех задач (GET /api/tasks), и один для получения конкретной задачи по её id (GET /api/tasks/<task_id>).</task_id></p>
@@ -282,15 +282,15 @@ start nginx
 </code></pre></div></div>
 <p>Flask приложение на Python обрабатывает разные типы входящих данных:</p>
 <div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="c1"># app.py</span>
-<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
-<span class="kn">from</span> <span class="nn">waitress</span> <span class="kn">import</span> <span class="n">serve</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">waitress</span><span class="w"> </span><span class="kn">import</span> <span class="n">serve</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <span class="c1">#app.config['SECRET_KEY'] = 'df0331cefc6c2b9a5d0208a726a5d1c0fd37324feba25506'</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/post'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'POST'</span><span class="p">])</span>
-<span class="k">def</span> <span class="nf">post</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">post</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">is_json</span><span class="p">:</span>
         <span class="c1"># For JSON data, use request.get_json()</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>

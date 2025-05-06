@@ -180,7 +180,7 @@
 <p>Также есть третий вариант <strong>core.autocrlf input</strong>, который при записи в репозиторий заменяет CRLF на LF, но при извлечении не делает обратной замены.</p>
 <p>Опция <strong>--global</strong> означает, что эта настройка будет применена глобально, то есть для всех репозиториев на вашем компьютере. Если вы хотите применить эту настройку только для одного конкретного репозитория, вы можете использовать опцию <strong>--local</strong> вместо <strong>--global</strong>.</p>
 <p>Команды <strong>git config --global user.name</strong> и <strong>git config --global user.email</strong> используются для установки глобальных настроек имени пользователя и адреса электронной почты для Git. Это имя пользователя и адрес электронной почты будут использоваться в качестве информации о вас при каждом коммите.</p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="k">global</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="ss">"d00m4ace"</span>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="c1">--global user.name "d00m4ace"</span>
 <span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="c1">--global user.email "d00m4ace79@gmail.com"</span>
 </code></pre></div></div>
 <p>Эти команды устанавливают глобальные настройки Git для вашего имени пользователя как <strong>"d00m4ace"</strong> и для вашего адреса электронной почты как <strong>"d00m4ace79@gmail.com"</strong>. Это значит, что при каждом коммите, Git будет использовать эти данные в качестве информации о коммитере.</p>
@@ -193,9 +193,9 @@
 <p>Для работы с Git необходимо запустить командную строку (cmd) от имени администратора в Windows.
 Для начала определим пользователья глобально и перенос новых строк отключим авто замену CRLF обратно на LF.
 И также <strong>core.symlinks true</strong> позволяет Git создавать и обрабатывать символические ссылки.</p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="k">global</span><span class="w"> </span><span class="n">core</span><span class="p">.</span><span class="n">autocrlf</span><span class="w"> </span><span class="k">false</span>
-<span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="k">global</span><span class="w"> </span><span class="n">core</span><span class="p">.</span><span class="n">symlinks</span><span class="w"> </span><span class="k">true</span>
-<span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="k">global</span><span class="w"> </span><span class="k">user</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="ss">"d00m4ace"</span>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="c1">--global core.autocrlf false</span>
+<span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="c1">--global core.symlinks true</span>
+<span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="c1">--global user.name "d00m4ace"</span>
 <span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="c1">--global user.email "d00m4ace79@gmail.com"</span>
 </code></pre></div></div>
 <p>Для создания нового репозитория и отправки всего его содержимого в новый уже созданый репозиторий на github:</p>

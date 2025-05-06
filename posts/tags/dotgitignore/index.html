@@ -147,14 +147,14 @@ Git игнорирование определенных файлов и дире
       <a class="button is-outlined" href="/posts/tags/git/">#Git</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a><a class="button is-outlined" href="/posts/tags/dotgitignore/">#.gitignore</a>
 </div><p><strong>.gitignore</strong> это специальный файл, который используется Git'ом для игнорирования определенных файлов и директорий, которые не должны быть включены в репозиторий. В <strong>.gitignore</strong> файле вы указываете шаблоны для файлов и директорий, которые должны быть проигнорированы.</p>
 <p>Вот пример простого <strong>.gitignore</strong> файла:</p>
-<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>#<span class="w"> </span><span class="nv">Ignore</span><span class="w"> </span><span class="nv">all</span><span class="w"> </span>.<span class="nv">txt</span><span class="w"> </span><span class="nv">files</span>
-<span class="o">*</span>.<span class="nv">txt</span>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="gh">#</span> Ignore all .txt files
+*.txt
 
-#<span class="w"> </span><span class="nv">Ignore</span><span class="w"> </span><span class="nv">all</span><span class="w"> </span><span class="nv">files</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">log</span><span class="w"> </span><span class="nv">directory</span>
-<span class="o">/</span><span class="nv">log</span><span class="o">/</span>
+<span class="gh">#</span> Ignore all files in the log directory
+/log/
 
-#<span class="w"> </span><span class="nv">But</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nv">not</span><span class="w"> </span><span class="nv">ignore</span><span class="w"> </span><span class="nv">log</span>.<span class="nv">txt</span>,<span class="w"> </span><span class="nv">even</span><span class="w"> </span><span class="nv">though</span><span class="w"> </span><span class="nv">you</span><span class="w"> </span><span class="nv">are</span><span class="w"> </span><span class="nv">ignoring</span><span class="w"> </span>.<span class="nv">txt</span><span class="w"> </span><span class="nv">files</span><span class="w"> </span><span class="nv">above</span>
-<span class="o">!/</span><span class="nv">log</span>.<span class="nv">txt</span>
+<span class="gh">#</span> But do not ignore log.txt, even though you are ignoring .txt files above
+!/log.txt
 </code></pre></div></div>
 <p><strong>...</strong></p><span><a class="has-text-info" href="/posts/git-ignorirovanie-opredelennyh-fajlov-i-direktorij/">Читать далее&nbsp;<i class="fas fa-book"></i></a></span>
 </article>
