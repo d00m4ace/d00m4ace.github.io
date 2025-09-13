@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /css/
+Disallow: /imgs/
+Disallow: /js/
+Disallow: /posts/page*
+Disallow: /posts/tags/
+Disallow: /search_index.json
+Sitemap: https://www.d00m4ace.com/sitemap.xml
