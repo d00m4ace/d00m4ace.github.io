@@ -1,16 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://d00m4ace.com/shortcuts</loc>
-    <lastmod>2025-05-07</lastmod>
+    <loc>https://d00m4ace.com/</loc>
+    <lastmod>2025-10-05</lastmod>
   </url>
   <url>
+    <loc>https://d00m4ace.com/games/battle_tanks</loc>
+    <lastmod>2025-10-05</lastmod>
+  </url>    
+  <url>
+    <loc>https://d00m4ace.com/files/ai_sputnik_telegram_bot.pdf</loc>
+    <lastmod>2025-10-05</lastmod>
+  </url>  
+<url>
     <loc>https://d00m4ace.com/projects</loc>
     <lastmod>2025-10-01</lastmod>
-  </url>
-  <url>
-    <loc>https://d00m4ace.com/</loc>
-    <lastmod>2025-10-02</lastmod>
   </url>
   <url>
     <loc>https://d00m4ace.com/posts/ai-sputnik-telegram-bot-s-iskusstvennym-intellektom</loc>
@@ -27,6 +31,10 @@
   <url>
     <loc>https://d00m4ace.com/posts/117-novosti-gpt-5---vse-chto-my-znaem-na-dannyj-momentdot-openai-pokupaet-windsurfdot-vibe-codingdot</loc>
     <lastmod>2025-05-10</lastmod>
+  </url>
+  <url>
+    <loc>https://d00m4ace.com/shortcuts</loc>
+    <lastmod>2025-05-07</lastmod>
   </url>
   <url>
     <loc>https://d00m4ace.com/posts/instruktsii-po-rabote-s-d00m4ace-ii-telegram-botom</loc>
@@ -81,12 +89,24 @@
     <lastmod>2025-01-18</lastmod>
   </url>
   <url>
-    <loc>https://d00m4ace.com/posts/109-ii-na-puti-k-superintellektu-samoobuchenie-i-prognozy-agi-dlja-buduschego-obschestvadot</loc>
-    <lastmod>2025-01-11</lastmod>
-  </url>
-  <url>
     <loc>https://d00m4ace.com/posts/sobstvennyj-telegram-ii-bot-dlja-generatsii-izobrazhenij-fluxdot1-stable-diffusion-3dot5-large-sdxldot</loc>
     <lastmod>2025-01-16</lastmod>
+  </url>
+  <url>
+    <loc>https://d00m4ace.com/posts/zapusti-cvoj-ii-telegram-bot-ai-text-adventures-ii-tekstovye-prikljuchenija</loc>
+    <lastmod>2025-01-16</lastmod>
+  </url>
+  <url>
+    <loc>https://d00m4ace.com/posts/zapusti-cvoj-ii-telegram-bot-chatgpt-claude-3dot5-lokalnye-nejroseti</loc>
+    <lastmod>2025-01-16</lastmod>
+  </url>
+  <url>
+    <loc>https://d00m4ace.com/posts/d00m4ace-ai-toolchain-na-windows-10</loc>
+    <lastmod>2025-01-16</lastmod>
+  </url>
+  <url>
+    <loc>https://d00m4ace.com/posts/109-ii-na-puti-k-superintellektu-samoobuchenie-i-prognozy-agi-dlja-buduschego-obschestvadot</loc>
+    <lastmod>2025-01-11</lastmod>
   </url>
   <url>
     <loc>https://d00m4ace.com/posts/108-kitaj-raskryl-sekrety-openaiexclamation-prognozy-nvidia-na-2025-bogopodobnye-tehnologii-i-roboty-ljudidot</loc>
@@ -113,10 +133,6 @@
     <lastmod>2024-12-14</lastmod>
   </url>
   <url>
-    <loc>https://d00m4ace.com/posts/zapusti-cvoj-ii-telegram-bot-ai-text-adventures-ii-tekstovye-prikljuchenija</loc>
-    <lastmod>2025-01-16</lastmod>
-  </url>
-  <url>
     <loc>https://d00m4ace.com/posts/102-novosti-ii-openai-reliz-sora-ii-sozdaet-igry-kvantovyj-chip-google-realnost-slomana</loc>
     <lastmod>2024-12-11</lastmod>
   </url>
@@ -137,12 +153,8 @@
     <lastmod>2024-11-27</lastmod>
   </url>
   <url>
-    <loc>https://d00m4ace.com/posts/zapusti-cvoj-ii-telegram-bot-chatgpt-claude-3dot5-lokalnye-nejroseti</loc>
-    <lastmod>2025-01-16</lastmod>
-  </url>
-  <url>
-    <loc>https://d00m4ace.com/posts/d00m4ace-ai-toolchain-na-windows-10</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://d00m4ace.com/posts/obuchite-svoju-sobstvennuju-model-flux-lora-s-podderzhkoj-low-vram-12gbslash16gbslash20gb-na-windows-10</loc>
+    <lastmod>2024-11-27</lastmod>
   </url>
   <url>
     <loc>https://d00m4ace.com/posts/97-sekretnyj-proekt-pravitelstva-ssha-po-agidot-buduschee-tsifrovogo-suvereniteta-v-epohu-iidot</loc>
@@ -151,10 +163,6 @@
   <url>
     <loc>https://d00m4ace.com/posts/96-kiberpank-ne-projdetexclamation-ot-antiutopii-k-svobode-cherez-tokenomiku-i-buduschee-bez-trudadot</loc>
     <lastmod>2024-11-20</lastmod>
-  </url>
-  <url>
-    <loc>https://d00m4ace.com/posts/obuchite-svoju-sobstvennuju-model-flux-lora-s-podderzhkoj-low-vram-12gbslash16gbslash20gb-na-windows-10</loc>
-    <lastmod>2024-11-27</lastmod>
   </url>
   <url>
     <loc>https://d00m4ace.com/posts/1-d00m4ace-ii-chill-strim</loc>
@@ -225,6 +233,10 @@
     <lastmod>2024-09-25</lastmod>
   </url>
   <url>
+    <loc>https://d00m4ace.com/posts/nastrojka-certbot-i-nginx-dlja-raboty-s-https-v-windowsdot-obnovlenaja-vesrija-ot-2024-godadot</loc>
+    <lastmod>2024-09-23</lastmod>
+  </url>
+  <url>
     <loc>https://d00m4ace.com/posts/79-poslednie-novosti-i-trendy-ii-runwayml-openai-google-alibaba-plus-buduschee-ii-ot-fei-fei-lidot</loc>
     <lastmod>2024-09-21</lastmod>
   </url>
@@ -239,10 +251,6 @@
   <url>
     <loc>https://d00m4ace.com/posts/76-openai-strawberry-uzhe-v-etom-mesjatse-andrej-karpati-o-buduschem-iidot-pochemu-linux-ne-tak-populjaren</loc>
     <lastmod>2024-09-11</lastmod>
-  </url>
-  <url>
-    <loc>https://d00m4ace.com/posts/nastrojka-certbot-i-nginx-dlja-raboty-s-https-v-windowsdot-obnovlenaja-vesrija-ot-2024-godadot</loc>
-    <lastmod>2024-09-23</lastmod>
   </url>
   <url>
     <loc>https://d00m4ace.com/posts/75-openai-hochet-2000-za-gpt-5-v-mesjats-anons-gpt-5-i-otsenka-100bdot-ilja-sutskever-vozvraschaetsjaexclamation</loc>
@@ -297,28 +305,24 @@
     <lastmod>2024-07-27</lastmod>
   </url>
   <url>
-    <loc>https://d00m4ace.com/posts/62--tsukerberg-idet-va-bank-llama-3dot1-menjaet-industriju-utechki-suda-valve-i-trevozhnye-novosti-wowdot</loc>
-    <lastmod>2024-07-24</lastmod>
+    <loc>https://d00m4ace.com/posts/ustanovka-podderzhki-cuda-pod-windows-10-dlja-python-i-cplusplus</loc>
+    <lastmod>2024-07-25</lastmod>
   </url>
   <url>
-    <loc>https://d00m4ace.com/posts/61--krazha-dannyh-u-jutuberovexclamation-apple-v-dele-razryv-v-it-navykah-gen-zdot-konets-ery-igr-servisovdot-</loc>
-    <lastmod>2024-07-20</lastmod>
+    <loc>https://d00m4ace.com/posts/62--tsukerberg-idet-va-bank-llama-3dot1-menjaet-industriju-utechki-suda-valve-i-trevozhnye-novosti-wowdot</loc>
+    <lastmod>2024-07-24</lastmod>
   </url>
   <url>
     <loc>https://d00m4ace.com/posts/ustanovka-stable-diffusion-xl-v-automatic1111-windows-s-adetailer-ultimate-upscale-i-controlnetdot</loc>
     <lastmod>2024-07-21</lastmod>
   </url>
   <url>
-    <loc>https://d00m4ace.com/posts/ustanovka-podderzhki-cuda-pod-windows-10-dlja-python-i-cplusplus</loc>
-    <lastmod>2024-07-25</lastmod>
+    <loc>https://d00m4ace.com/posts/61--krazha-dannyh-u-jutuberovexclamation-apple-v-dele-razryv-v-it-navykah-gen-zdot-konets-ery-igr-servisovdot-</loc>
+    <lastmod>2024-07-20</lastmod>
   </url>
   <url>
     <loc>https://d00m4ace.com/posts/besplatnoe-lokalnoe-klonirovanie-ljubyh-golosov-ii-s-rvc-projectdot</loc>
     <lastmod>2024-07-19</lastmod>
-  </url>
-  <url>
-    <loc>https://d00m4ace.com/posts/60-insajdy-openai-q-star--klubnika-i-gpt-5dot-zolotaja-era-prostyh-igr--uspeh-igrovyh-klonovdot</loc>
-    <lastmod>2024-07-17</lastmod>
   </url>
   <url>
     <loc>https://d00m4ace.com/posts/docker-i-searxng-lokalno-nastrojka-na-windows-10-perestaem-ispolzovat-googleslashyandexdot</loc>
@@ -327,6 +331,10 @@
   <url>
     <loc>https://d00m4ace.com/posts/ispolzovanie-ollama---zapusk-llm-modelej-i-nastrojka-lokalno-na-windows-10</loc>
     <lastmod>2024-07-18</lastmod>
+  </url>
+  <url>
+    <loc>https://d00m4ace.com/posts/60-insajdy-openai-q-star--klubnika-i-gpt-5dot-zolotaja-era-prostyh-igr--uspeh-igrovyh-klonovdot</loc>
+    <lastmod>2024-07-17</lastmod>
   </url>
   <url>
     <loc>https://d00m4ace.com/posts/59-kriptovaljuta-okazalas-somnitelnoj-irs-dokazyvaetdot-apple-i-microsoft-pokidajut-openaidot-novosti-aidot</loc>
@@ -367,6 +375,10 @@
   <url>
     <loc>https://d00m4ace.com/posts/51-es-protiv-kitaja-i-ih-elektromobilej-general-ssha-v-openai-apple-tupit-mask-obeschaet-robotovdot</loc>
     <lastmod>2024-06-15</lastmod>
+  </url>
+  <url>
+    <loc>https://d00m4ace.com/posts/nastrojka-visual-studio-2022-dlja-raboty-s-python</loc>
+    <lastmod>2024-06-14</lastmod>
   </url>
   <url>
     <loc>https://d00m4ace.com/posts/50-razrabotchik-odinochka-millioner---realno-li-generativnyj-ii-na-pike-gibel-aaa-gejminga</loc>
@@ -517,6 +529,10 @@
     <lastmod>2024-02-07</lastmod>
   </url>
   <url>
+    <loc>https://d00m4ace.com/posts/kak-sdelat-svoj-gpt-v-chatgpt</loc>
+    <lastmod>2024-02-07</lastmod>
+  </url>
+  <url>
     <loc>https://d00m4ace.com/posts/13-ii-novosti---agi-apple-open-source-gpt-4-izobrazhenija-neuralinkdot-vlijanie-ii-na-rabotu-po-otchetu-microsoft-2023dot</loc>
     <lastmod>2024-02-03</lastmod>
   </url>
@@ -555,10 +571,6 @@
   <url>
     <loc>https://d00m4ace.com/posts/5-horoshaja-grafika-ne-imeet-znachenija-v-videoigrah</loc>
     <lastmod>2024-01-06</lastmod>
-  </url>
-  <url>
-    <loc>https://d00m4ace.com/posts/kak-sdelat-svoj-gpt-v-chatgpt</loc>
-    <lastmod>2024-02-07</lastmod>
   </url>
   <url>
     <loc>https://d00m4ace.com/posts/4-pochemu-vse-nenavidjat-youtube-shorts</loc>
@@ -619,10 +631,6 @@
   <url>
     <loc>https://d00m4ace.com/posts/ustanovka-openssh-na-ubuntu-22dot04</loc>
     <lastmod>2023-07-16</lastmod>
-  </url>
-  <url>
-    <loc>https://d00m4ace.com/posts/nastrojka-visual-studio-2022-dlja-raboty-s-python</loc>
-    <lastmod>2024-06-14</lastmod>
   </url>
   <url>
     <loc>https://d00m4ace.com/posts/nastroit-nginx-v-kachestve-https-proksi-dlja-vashego-rest-prilozhenija-python-na-flask-i-waitress-na-windows-server-2019</loc>
