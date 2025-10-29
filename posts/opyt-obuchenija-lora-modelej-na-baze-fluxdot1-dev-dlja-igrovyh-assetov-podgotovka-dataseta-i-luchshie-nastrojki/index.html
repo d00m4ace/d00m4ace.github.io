@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Опыт обучения LoRA моделей на базе FLUX.1-dev для игровых ассетов: подготовка датасета и лучшие настройки</title><meta name="description" content="В этом видео рассказывается личный опыт обучения LoRA моделей на базе FLUX.1-dev для генерации игровых ассетов. Подробно разбирается подготовка датасета с изображениями 1024x1024, использование описаний через GPT-4 Vision, настройки обучения модели (эпохи, повторения, размер сети), а также показаны примеры футуристических и фэнтезийных персонажей и комикс с котиками."/>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Опыт обучения LoRA моделей на базе FLUX.1-dev для игровых ассетов: подготовка датасета и лучшие настройки</h1>
+<h3 class="subtitle">
+	<span class="tag">#171</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;среда, 29 октября 2025 г.</span>
+	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;3 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;250 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/flux/">#FLUX</a><a class="button is-outlined" href="/posts/tags/lora/">#LoRA</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
+</div><hr/>
+<h2>🎥 Видеоинструкции по обучению LoRA моделей на базе <strong>FLUX.1-dev</strong> для игровых ассетов</h2>
+<p>📺 <a href="https://www.youtube.com/watch?v=mqHr95i04Z0">YouTube видео</a></p>
+<p>📺 <a href="https://vkvideo.ru/video-233018674_456239027">VK видео</a></p>
+<hr/>
+<h3>🧠 Описание видео</h3>
+<p>Видео посвящено личному опыту обучения моделей на базе <strong>FLUX.1-dev</strong> для генерации изображений — в частности, <strong>LoRA моделей</strong>, применяемых при создании игровых ассетов.</p>
+<p>Рассказано, как правильно <strong>подготовить датасет</strong>:</p>
+<ul>
+<li>Использовать изображения размером <strong>1024×1024</strong>.</li>
+<li>Собирать наборы с разными <strong>позами персонажей</strong> или <strong>вариациями экипировки</strong> на одной картинке — это упрощает использование ассетов в играх.</li>
+</ul>
+<hr/>
+<h3>⚙️ Основные рекомендации по обучению</h3>
+<ul>
+<li>Использовать <strong>триггерное слово</strong>, уникальное для каждого датасета.</li>
+<li>Повторять обучение каждой картинки <strong>20 раз каждые 9 эпох</strong>, чтобы избежать переобучения.</li>
+<li>Оптимальный <strong>размер сети — 128</strong>: хороший баланс между детализацией и размером файла.</li>
+<li>Сохранять модель <strong>после каждой эпохи</strong> и применять <strong>лору средней эпохи (5–6)</strong> для баланса точности и вариативности.</li>
+</ul>
+<hr/>
+<h3>🧩 Практические примеры</h3>
+<p>Показаны разные типы датасетов:</p>
+<ul>
+<li>фэнтезийные персонажи;</li>
+<li>образы с бронёй и экипировкой;</li>
+<li>комикс с котиками 🐱.</li>
+</ul>
+<p>Обучение датасета из <strong>25 изображений на 9 эпох</strong> занимает примерно <strong>5 часов на RTX 4090</strong>.
+Используется скрипт для <strong>автоматической генерации описаний изображений с помощью GPT-4 Vision</strong>, что улучшает качество промптов и итоговой модели.</p>
+<hr/>
+<h3>🎮 Кому будет полезно</h3>
+<p>Видео будет особенно интересно <strong>разработчикам игр</strong> и всем, кто хочет обучать собственные <strong>LoRA-модели</strong> под разные задачи: от игровых ассетов до стилизованных генераций.</p>
+<hr/>
+<h2>⚡ Дополнительно: установка fluxgym на Windows</h2>
+<p>📘 <a href="https://d00m4ace.com/posts/obuchite-svoju-sobstvennuju-model-flux-lora-s-podderzhkoj-low-vram-12gbslash16gbslash20gb-na-windows-10/">Обучите свою собственную модель FLUX LoRA с поддержкой LOW VRAM 12 GB / 16 GB / 20 GB на Windows 10</a></p>
+<hr/>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/ai-sputnik-telegram-bot-s-iskusstvennym-intellektom/"> <strong>AI Sputnik Телеграм-бот с искусственным интеллектом</strong></a>
+<br/><br/>
+
+<!--next_url
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
+next_url-->
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2025</p>
+</footer>
+</body>
+</html>
