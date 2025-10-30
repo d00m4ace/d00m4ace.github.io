@@ -114,9 +114,9 @@
 <h3 class="subtitle">
 	<span class="tag">#171</span>
 	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;среда, 29 октября 2025 г.</span>
-	<!--post_update <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;{{post_update}}</span> post_update-->
-	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;4 минут(ы)</span>
-	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;251 слово</span>
+	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;четверг, 30 октября 2025 г.</span> 
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;17 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;1603 слова</span>
 </h3><div class="buttons">
       <a class="button is-outlined" href="/posts/tags/flux/">#FLUX</a><a class="button is-outlined" href="/posts/tags/lora/">#LoRA</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
 </div><hr/>
@@ -154,8 +154,211 @@
 <h3>🎮 Кому будет полезно</h3>
 <p>Видео будет особенно интересно <strong>разработчикам игр</strong> и всем, кто хочет обучать собственные <strong>LoRA-модели</strong> под разные задачи: от игровых ассетов до стилизованных генераций.</p>
 <hr/>
+<h2>🧩 Объяснение параметров на скриншоте FLUX.1-dev LoRA Training UI</h2>
+<p><img alt="fluxgym flux train game_assets 01" src="/imgs/posts/flux_train_game_assets_01.png"/></p>
+<hr/>
+<h3>1️⃣ <strong>Model name (<code>d4k1s01_charsheet</code>)</strong></h3>
+<p>Уникальное имя для обучаемой LoRA модели.
+Используется для сохранения результата и различия между разными наборами данных.
+💡 <em>Важно:</em> имя модели не должно повторяться, иначе может перезаписаться предыдущий результат.</p>
+<hr/>
+<h3>2️⃣ <strong>Trigger word / sentence (<code>d4k1s01 charsheet</code>)</strong></h3>
+<p>Триггерное слово или фраза, которая будет использоваться при генерации изображений с обученной LoRA.
+Это ключ, по которому модель "узнаёт" нужный стиль или персонажа.
+💬 <em>Пример:</em> если LoRA обучена на рыцарях, триггер может быть <code>"knight fluxstyle"</code>.</p>
+<hr/>
+<h3>3️⃣ <strong>Base model (<code>flux-dev</code>)</strong></h3>
+<p>Выбор базовой модели, на которой будет происходить обучение.
+В данном случае используется <strong>FLUX.1-dev</strong>, — универсальная dev-версия модели для дообучения (fine-tuning).
+🧠 LoRA фактически "прикрепляется" к этой основе.</p>
+<hr/>
+<h3>4️⃣ <strong>VRAM (12G / 16G / 20G)</strong></h3>
+<p>Выбор режима в зависимости от объёма видеопамяти (VRAM).</p>
+<ul>
+<li><strong>12G</strong> — оптимизированный low VRAM режим (для RTX 3060 / 4070 и т.п.).</li>
+<li><strong>16G / 20G</strong> — стандартные режимы с большей точностью и скоростью.
+  ⚙️ Этот параметр регулирует объём батча и размер кэша во время обучения.</li>
+</ul>
+<hr/>
+<h3>5️⃣ <strong>Repeat trains per image (<code>20</code>)</strong></h3>
+<p>Количество повторений обучения для каждой картинки.
+Каждое изображение из датасета используется <strong>20 раз за эпоху</strong>, чтобы модель лучше "запомнила" его особенности.
+⚠️ Слишком большое значение может привести к <strong>переобучению</strong>, слишком малое — к недообучению.</p>
+<hr/>
+<h3>6️⃣ <strong>Max Train Epochs (<code>9</code>)</strong></h3>
+<p>Количество эпох обучения — сколько раз модель полностью пройдёт весь датасет.
+Рекомендуемое значение <strong>5–9 эпох</strong>.
+💡 Обычно лучшая LoRA получается на <strong>5–6 эпохе</strong>, где баланс между вариативностью и точностью оптимален.</p>
+<hr/>
+<h3>7️⃣ <strong>Dataset files (<code>combined_001.png</code>, <code>.txt</code>, и т.д.)</strong></h3>
+<p>Список файлов, участвующих в обучении.</p>
+<ul>
+<li><code>.png</code> — изображения (ресурсы для обучения).</li>
+<li><code>.txt</code> — подписи (caption-файлы), описывающие содержание картинок для корректного обучения.</li>
+<li>📁 Все пары <code>.png</code> + <code>.txt</code> формируют <strong>датасет</strong> для LoRA.</li>
+<li>💡 Вы можете просто перетащить ваши файлы из подготовленного датасета прямо в это окно для загрузки.</li>
+</ul>
+<hr/>
+<p><img alt="fluxgym flux train game_assets 02" src="/imgs/posts/flux_train_game_assets_02.png"/></p>
+<hr/>
+<h2>⚙️ Пояснение к параметрам <strong>Advanced Options</strong> в интерфейсе FLUX.1-dev LoRA Training</h2>
+<p><img alt="fluxgym flux train game_assets 03" src="/imgs/posts/flux_train_game_assets_03.png"/></p>
+<hr/>
+<h3>1️⃣ <strong><code>--save_every_n_epochs</code> = 1</strong></h3>
+<p>Сохраняет модель после каждой эпохи обучения.
+Это значит, что после завершения каждой эпохи создаётся отдельный <code>.safetensors</code> файл LoRA.
+💡 Полезно для выбора <strong>лучшей версии LoRA</strong> — например, часто оптимальный результат получается на 5–6 эпохе, не обязательно на последней.</p>
+<hr/>
+<h3>2️⃣ <strong><code>--network_dim</code> = 128</strong></h3>
+<p>Параметр, определяющий размер внутренней сети LoRA (<strong>LoRA Rank</strong>).
+Он влияет на <strong>глубину и детализацию обучения</strong>, а также на <strong>размер итогового файла</strong>.</p>
+<p>📊 <strong>Рекомендуемые значения:</strong></p>
+<ul>
+<li><code>32–64</code> — лёгкая LoRA с хорошим качеством и небольшим размером (оптимальный диапазон).</li>
+<li><code>64–96</code> — высокая детализация, подходит для сложных или стилизованных наборов данных.</li>
+<li><code>128</code> — <strong>максимально допустимое значение</strong> для FLUX.1-dev; выше не даёт ощутимых улучшений и сильно увеличивает вес модели.</li>
+</ul>
+<p>⚠️ <em>Важно:</em> слишком высокий <code>network_dim</code> может привести к переобучению и сделать LoRA тяжёлой без заметного прироста качества.</p>
+<hr/>
+<h3>3️⃣ <strong><code>--caption_prefix</code> = "d4k1s01 charsheet"</strong></h3>
+<p>Добавляет указанный текст перед каждой подписью (caption) при обучении.
+Это помогает усилить ассоциацию между изображениями и триггерным словом,
+чтобы при генерации по запросу <code>d4k1s01 charsheet</code> модель точно вызывала нужный стиль или персонажа.
+💬 <em>Пример:</em> если картинка описана как <code>"cyberpunk armor"</code>, модель обучается видеть её как <code>"d4k1s01 charsheet cyberpunk armor"</code>.</p>
+<hr/>
+<h2>🧠 Скрипт автоматического описания изображений для датасета LoRA (FLUX)</h2>
+<p><code>art_to_text.py</code> Python-скрипт автоматически <strong>анализирует PNG-изображения</strong> в указанной папке и создаёт к каждому файл <code>.txt</code> с кратким <strong>описанием содержимого</strong> на английском языке.
+Описания генерируются с помощью <strong>мультимодели OpenAI (например, GPT-4o)</strong> и подходят для использования при обучении <strong>LoRA-моделей FLUX</strong>.</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">openai</span><span class="w"> </span><span class="kn">import</span> <span class="n">OpenAI</span>
+
+<span class="c1"># =============== НАСТРОЙКИ ===============</span>
+<span class="n">DIRECTORY</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"art"</span>  <span class="c1"># Путь к папке с PNG</span>
+<span class="n">RECURSIVE</span> <span class="o">=</span> <span class="kc">False</span>             <span class="c1"># True — искать во вложенных папках</span>
+<span class="n">MODEL</span> <span class="o">=</span> <span class="s2">"gpt-4o"</span>         <span class="c1"># Модель OpenAI</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">"s...A"</span>
+<span class="c1"># ==========================================</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">API_KEY</span><span class="p">)</span>
+
+<span class="c1">#text_analyze = "Analyze the provided image containing character equipment or armor sprite parts. Identify and describe all items in the grid from left to right, top to bottom, but present the result as one continuous descriptive block. In your description, specify the item types (helmet, shoulder pad, chest armor, torso armor (lower part of armor), skirt armor, belt, skirt), colors, materials, decorative elements, and view angles (front, side, etc.). Mention mirrored or symmetrical variations where applicable. The final output must be written as a single paragraph without numbered or bulleted lists, suitable for embedding in a sprite asset database." </span>
+
+<span class="c1">#text_analyze = "Describe what is shown in this image briefly. Analyze the provided image containing character equipment or armor sprite parts. Identify and describe all items in the grid from left to right, top to bottom, but present the result as one continuous descriptive block. In your description, specify the item types (helmet, shoulder pad, chest armor, torso armor (lower part of armor), skirt armor, belt, skirt), colors, materials, decorative elements, and view angles (front, side, etc.). Mention mirrored or symmetrical variations where applicable. The final output must be written as a single paragraph without numbered or bulleted lists, suitable for embedding in a sprite asset database."</span>
+
+<span class="c1">#item_type = "skirt armor" # helmet, shoulder pad, chest armor, torso armor (lower part of armor), skirt armor, belt, skirt, etc.</span>
+<span class="c1">#text_analyze = f"Analyze the provided image containing character equipment {item_type}. The image shows a {item_type} designed, represented in two tiles to display both the back and front views. Describe the item in a single continuous paragraph, specifying its type {item_type}, primary colors, materials, decorative details, and the perspective of each tile (e.g., front view, back view). Highlight any symmetrical or mirrored aspects, and emphasize how both views together represent the full design of the item. The final output must be a single paragraph without numbered or bulleted lists, written in a descriptive style suitable for embedding in a sprite asset database."</span>
+
+<span class="c1">#text_analyze = "Describe what is shown in this image briefly. Write all in English."</span>
+
+<span class="n">text_analyze</span> <span class="o">=</span> <span class="s2">"Describe the 3D character model shown in this 2x2 grid layout. Analyze each view in order: top-left (front view), top-right (right side view), bottom-left (back view), bottom-right (three-quarter view). Describe the character's appearance including hair, facial features, clothing, armor, accessories, crown/headwear, cape, and color scheme. Present all information as one continuous paragraph without lists."</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">text_analyze</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">describe_image</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="c1"># Кодируем картинку в base64</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">img_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
+
+    <span class="c1"># Делаем мультимодальный запрос</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">MODEL</span><span class="p">,</span>
+        <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"system"</span><span class="p">,</span>
+                <span class="s2">"content"</span><span class="p">:</span> <span class="p">(</span>
+                    <span class="s2">"You are an assistant that describes images in short, concise English text. "</span>
+                    <span class="s2">"One block of text, no line breaks. Suitable for training FLUX LoRA."</span>
+                <span class="p">)</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
+                <span class="s2">"content"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">,</span> <span class="s2">"text"</span><span class="p">:</span> <span class="n">text_analyze</span><span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"image_url"</span><span class="p">,</span>
+                        <span class="s2">"image_url"</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">"url"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"data:image/png;base64,</span><span class="si">{</span><span class="n">img_b64</span><span class="si">}</span><span class="s2">"</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="c1">#max_tokens=100</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process_png</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">desc</span> <span class="o">=</span> <span class="n">describe_image</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">file_title</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">stem</span>
+        <span class="n">text_out</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">file_title</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">desc</span><span class="si">}</span><span class="s2">"</span>
+        <span class="n">txt_path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".txt"</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">txt_path</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text_out</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"OK  </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">txt_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ERR </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">():</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">DIRECTORY</span><span class="p">)</span><span class="o">.</span><span class="n">expanduser</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Не директория: </span><span class="si">{</span><span class="n">root</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">iterator</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">"*.png"</span><span class="p">)</span> <span class="k">if</span> <span class="n">RECURSIVE</span> <span class="k">else</span> <span class="n">root</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"*.png"</span><span class="p">)</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">files</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"PNG-файлы не найдены."</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
+        <span class="n">process_png</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">run</span><span class="p">()</span>
+</code></pre></div></div>
+<hr/>
+<h3>⚙️ Что делает скрипт</h3>
+<ol>
+<li><strong>Сканирует папку</strong> <code>DIRECTORY</code> (по умолчанию <code>art</code>) и находит все <code>.png</code> файлы.</li>
+<li>
+<p>Для каждого изображения:</p>
+</li>
+<li>
+<p>кодирует его в <strong>base64</strong>;</p>
+</li>
+<li>отправляет запрос в <strong>OpenAI API</strong> с заданным промптом (<code>text_analyze</code>);</li>
+<li>получает <strong>описание изображения</strong>;</li>
+<li>сохраняет результат в <code>.txt</code> файл рядом с изображением.</li>
+<li>Выводит прогресс в консоль (<code>OK</code> / <code>ERR</code>).</li>
+</ol>
+<hr/>
+<h3>📦 Пример результата</h3>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>art/armor_001.png  →  art/armor_001.txt
+</code></pre></div></div>
+<p>Файл <code>armor_001.txt</code> будет содержать короткое описание изображения в одну строку, пригодное для обучения FLUX-LoRA.</p>
+<hr/>
+<h3>🔧 Основные параметры</h3>
+<ul>
+<li><code>DIRECTORY</code> — путь к папке с PNG-файлами.</li>
+<li><code>RECURSIVE</code> — искать ли файлы во вложенных папках.</li>
+<li><code>MODEL</code> — используемая модель OpenAI (например, <code>gpt-4o</code>).</li>
+<li><code>text_analyze</code> — текст запроса, определяющий стиль описания.</li>
+</ul>
+<hr/>
+<h2>Примеры дата сета + результат работы FLUX-LoRA</h2>
+<p><img alt="fluxgym flux train game_assets 04" src="/imgs/posts/flux_train_game_assets_04.png"/></p>
+<p><img alt="fluxgym flux train game_assets 05" src="/imgs/posts/flux_train_game_assets_05.png"/></p>
+<p><img alt="fluxgym flux train game_assets 06" src="/imgs/posts/flux_train_game_assets_06.png"/></p>
+<h2>ComfyUI Workflow FLUX-LoRA</h2>
+<p><strong>ComfyUI_00024_workflow.png</strong>:</p>
+<p><img alt="ComfyUI workflow FLUX-LoRA" src="/imgs/posts/ComfyUI_00024_workflow.png"/></p>
+<p>Загрузите <strong>ComfyUI_00024_workflow.png</strong> и перетащите в окно <strong>ComfyUI</strong> чтобы открыть <strong>ComfyUI Workflow</strong>:</p>
+<p><img alt="ComfyUI FLUX-LoRA screenshot" src="/imgs/posts/flux_train_game_assets_07.png"/></p>
 <h2>⚡ Дополнительно: установка fluxgym на Windows</h2>
-<p>📘 <a href="https://d00m4ace.com/posts/obuchite-svoju-sobstvennuju-model-flux-lora-s-podderzhkoj-low-vram-12gbslash16gbslash20gb-na-windows-10/">Обучите свою собственную модель FLUX LoRA с поддержкой LOW VRAM 12 GB / 16 GB / 20 GB на Windows 10</a></p>
+<p>📘 <a href="https://d00m4ace.com/posts/obuchite-svoju-sobstvennuju-model-flux-lora-s-podderzhkoj-low-vram-12gbslash16gbslash20gb-na-windows-10/">Установка Fluxgym FLUX LoRA с поддержкой LOW VRAM 12 GB / 16 GB / 20 GB на Windows 10</a></p>
 <hr/>
 <hr/><nav class="bd-docs-pagination bd-pagination-links">
 
