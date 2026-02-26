@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Разработка MINI HEROES. DevLog 2.</title><meta name="description" content="Девлог разработки MINI HEROES пошаговая тактика на C11 и WebAssembly. Олдскульный дух стратегий 90-х в браузере."/>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Разработка MINI HEROES. DevLog 2.</h1>
+<h3 class="subtitle">
+	<span class="tag">#173</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;четверг, 26 февраля 2026 г.</span>
+	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;четверг, 26 февраля 2026 г.</span> 
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;2 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;132 слова</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/mini-heroes/">#MINI HEROES</a><a class="button is-outlined" href="/posts/tags/devlog/">#DevLog</a><a class="button is-outlined" href="/posts/tags/hexplay/">#Hexplay</a><a class="button is-outlined" href="/posts/tags/c11/">#C11</a>
+</div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/Z8LT82D7FPI"></iframe></div>
+<p>📺 <a href="https://www.youtube.com/watch?v=Z8LT82D7FPI">YouTube видео</a></p>
+<p>📺 <a href="https://vkvideo.ru/video-236272708_456239017">VK видео</a></p>
+<p>Разработка MINI HEROES. DevLog 2 — второй девлог о создании мини-игры «MINI HEROES». Отличия версии v.0.2, от выпущенной месяц назад v.0.1: от базовой карты с кликами, перемещением и атакой игра перешла к более сложным механикам. Появились транспорт и корабли с возможностью перевозки отрядов, разделение ходов игроков с уведомлениями, сохранение и экспорт состояния игры. Реализован бой с логированием, характеристиками и стеками юнитов, добавлены монстры, очки действия и зона контроля. Введены механики объединения и разделения отрядов, захвата замков, шахт и башен, а также система реплеев. Герой стал центральной фигурой, закупающей армию, а остальные юниты — его подопечными. Игра поддерживает асинхронную сетевую игру через файлы без серверов, планируются режимы PvP и против ИИ. Проект доступен на <a href="https://hexplay.com/ru/">https://hexplay.com/ru/</a> без регистрации, следующий девлог — через месяц.</p>
+<p><strong><a href="https://hexplay.com/ru/">Играть в MINI HEROES</a></strong></p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/razrabotka-mini-heroesdot-devlog-1dot-filosofija-old-school-i-c11/"> <strong>Разработка MINI HEROES. DevLog 1. Философия Old School и C11</strong></a>
+<br/><br/>
+
+<!--next_url
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
+next_url-->
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2026</p>
+</footer>
+</body>
+</html>
