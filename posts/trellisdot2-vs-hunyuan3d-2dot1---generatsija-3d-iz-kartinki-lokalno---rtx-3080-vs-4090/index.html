@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TRELLIS.2 vs Hunyuan3D 2.1 - генерация 3D из картинки локально - RTX 3080 vs 4090</title><meta name="description" content="Пошаговая инструкция установки AI Local 3D: ComfyUI TRELLIS 2 и Hunyuan3D 2.1. Портативные сборки, все модели внутри. Настройка CUDA 12.8 и VS 2022 для локальной генерации 3D."/>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">TRELLIS.2 vs Hunyuan3D 2.1 - генерация 3D из картинки локально - RTX 3080 vs 4090</h1>
+<h3 class="subtitle">
+	<span class="tag">#174</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;среда, 11 марта 2026 г.</span>
+	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;среда, 11 марта 2026 г.</span> 
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;7 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;594 слова</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/3d/">#3D</a><a class="button is-outlined" href="/posts/tags/ai/">#AI</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
+</div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/Ovb8bMNbcXE"></iframe></div>
+<p>📺 <a href="https://www.youtube.com/watch?v=Ovb8bMNbcXE">YouTube видео</a></p>
+<p>📺 <a href="https://vkvideo.ru/video-233018674_456239028">VK видео</a></p>
+<hr/>
+<h1>📥 Все файлы доступны для скачивания:</h1>
+<p>🔗 <a href="https://drive.google.com/drive/folders/1igGltHqv0rA5QaONj6xtupdYShGOK8S4?usp=sharing">Google Drive</a></p>
+<hr/>
+<h1>📦 Установка портативных сборок AI Local 3D</h1>
+<p>В папке находятся:</p>
+<ul>
+<li><strong>ComfyUI TRELLIS 2</strong></li>
+<li><strong>Hunyuan3D 2.1</strong></li>
+<li><strong>CUDA 12.8</strong></li>
+<li><strong>Visual Studio 2022 Installer</strong></li>
+</ul>
+<p>Обе AI-сборки <strong>портативные</strong> — Python, зависимости и <strong>все модели уже внутри</strong>.</p>
+<hr/>
+<h1>1️⃣ Сначала установить системные компоненты</h1>
+<h2>🛠️ Установка Visual Studio 2022</h2>
+<p>Запусти:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>vs_Community.exe
+</code></pre></div></div>
+<p><img alt="Установка Visual Studio 2022" src="/imgs/posts/VS_Community_Visual_Studio_2022_install_options.png"/></p>
+<p>После запуска установщика:</p>
+<ol>
+<li>Выбери <strong>Desktop development with C++</strong> ✅</li>
+<li>Справа в <strong>Installation details</strong> убедись, что отмечены:</li>
+<li>✅ <strong>Visual Studio core editor</strong></li>
+<li>✅ <strong>Python development</strong></li>
+<li>✅ <strong>Desktop development with C++</strong></li>
+<li>✅ <strong>Windows 10 SDK (10.0.19041.0)</strong></li>
+<li>
+<p>✅ <strong>MSVC v143 - VS 2022 C++ x64/x86 build tools</strong></p>
+</li>
+<li>
+<p>Нажми <strong>Install</strong></p>
+</li>
+</ol>
+<p>Это необходимо для компиляции CUDA-модулей.</p>
+<hr/>
+<h2>🚀 Установка CUDA 12.8</h2>
+<p>Запусти файл:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>cuda_12.8.0_571.96_windows.exe
+</code></pre></div></div>
+<p><img alt="Установка CUDA 12.8" src="/imgs/posts/cuda128.png"/></p>
+<p>Выбери <strong>Custom installation</strong> и отметь <strong>ТОЛЬКО</strong> следующие компоненты:</p>
+<ul>
+<li>✅ <strong>CUDA</strong></li>
+<li>✅ <strong>Development</strong></li>
+<li>✅ <strong>Runtime</strong></li>
+<li>✅ <strong>Visual Studio Integration</strong></li>
+</ul>
+<p>❌ <strong>НЕ устанавливай:</strong>
+- Nsight Compute
+- Nsight Systems<br/>
+- Documentation
+- Driver components (если уже установлен драйвер)</p>
+<p>Нажми <strong>NEXT</strong> и заверши установку.</p>
+<hr/>
+<h1>2️⃣ Установка ComfyUI TRELLIS 2</h1>
+<h3>Скачать архив</h3>
+<p>Файлы:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>ComfyUI_Trellis2.zip.001
+ComfyUI_Trellis2.zip.002
+</code></pre></div></div>
+<p>Положить <strong>в одну папку</strong>.</p>
+<hr/>
+<h3>Распаковать</h3>
+<p>Используй <strong>7-Zip или WinRAR</strong>.</p>
+<p>Распаковывать нужно <strong>только первый файл</strong>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>ComfyUI_Trellis2.zip.001
+</code></pre></div></div>
+<p>После распаковки появится папка:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>ComfyUI_Trellis2
+</code></pre></div></div>
+<hr/>
+<h3>Запуск</h3>
+<p>Открой папку и запусти:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>run_nvidia_gpu.bat
+</code></pre></div></div>
+<p>Интерфейс откроется в браузере:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>http://127.0.0.1:8188
+</code></pre></div></div>
+<hr/>
+<h3>⚠️ Если ComfyUI ругается на недостающие ноды:</h3>
+<p>Если при загрузке воркфлоу появляются ошибки о missing nodes:</p>
+<ol>
+<li>Открой <strong>ComfyUI Manager</strong> (кнопка в меню)</li>
+<li>Нажми <strong>Install Missing Custom Nodes</strong></li>
+<li>Установи все недостающие ноды</li>
+<li>Перезапусти ComfyUI</li>
+</ol>
+<hr/>
+<h3>Рабочие воркфлоу</h3>
+<p>В папке с ComfyUI TRELLIS 2 уже есть готовые рабочие воркфлоу:</p>
+<ul>
+<li><strong>remove_background.json</strong> — удаление фона</li>
+<li><strong>geometry_texture.json</strong> — генерация геометрии + текстуры</li>
+<li><strong>geometry_only.json</strong> — только генерация геометрии</li>
+<li><strong>workflow_01.png</strong> — пример воркфлоу (перетащи в окно ComfyUI)</li>
+</ul>
+<p><strong>Как использовать:</strong> Перетащи JSON или PNG файл прямо в окно ComfyUI для загрузки воркфлоу.</p>
+<hr/>
+<h1>3️⃣ Установка Hunyuan3D 2.1</h1>
+<h3>Скачать архив</h3>
+<p>Файлы:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>Hunyuan3D2_WinPortable.zip.001
+Hunyuan3D2_WinPortable.zip.002
+Hunyuan3D2_WinPortable.zip.003
+Hunyuan3D2_WinPortable.zip.004
+Hunyuan3D2_WinPortable.zip.005
+Hunyuan3D2_WinPortable.zip.006
+Hunyuan3D2_WinPortable.zip.007
+Hunyuan3D2_WinPortable.zip.008
+</code></pre></div></div>
+<p>Все файлы должны лежать <strong>в одной папке</strong>.</p>
+<hr/>
+<h3>Распаковать</h3>
+<p>Распаковать <strong>только первый файл</strong>:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>Hunyuan3D2_WinPortable.zip.001
+</code></pre></div></div>
+<p>После распаковки появится папка:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>Hunyuan3D2_WinPortable
+</code></pre></div></div>
+<hr/>
+<h3>Первый запуск</h3>
+<p>Открой папку:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>Hunyuan3D2_WinPortable
+</code></pre></div></div>
+<p>Запусти:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>RUN.bat
+</code></pre></div></div>
+<p><img alt="Запуск Hunyuan3D2.1 RUN.bat" src="/imgs/posts/Hunyuan3D2.1_RUN.png"/></p>
+<p>Вот описание опций <strong>RUN.bat</strong> (Hunyuan 3D 2 Series Launcher):</p>
+<h2>⚙️ Доступные настройки:</h2>
+<h3><strong>Select Program</strong> (Выбор программы):</h3>
+<ul>
+<li><strong>Hunyuan 3D 2.1 | Better Quality, Slower, No MV</strong> — лучшее качество, медленнее, без MV</li>
+</ul>
+<hr/>
+<h3><strong>Enable Texture Generation</strong> (Включить генерацию текстур):</h3>
+<ul>
+<li>✅ <strong>Требует:</strong> CUDA и MSVC</li>
+<li>💾 <strong>VRAM требования:</strong></li>
+<li>Генерация mesh: <strong>3GB VRAM</strong></li>
+<li>Генерация текстур: <strong>10GB VRAM</strong></li>
+</ul>
+<hr/>
+<h3><strong>Low VRAM Mode</strong> (Режим низкой VRAM):</h3>
+<ul>
+<li>☑️ <strong>Включено по умолчанию</strong></li>
+<li>Не конфликтует с mmgp оптимизацией</li>
+<li>⚠️ <strong>Отключение</strong> значительно увеличит использование VRAM</li>
+</ul>
+<hr/>
+<h3><strong>VRAM Optimization Level</strong> (Уровень оптимизации VRAM):</h3>
+<ul>
+<li><strong>Уровень 4</strong> — Low Memory, Low VRAM (выбран по умолчанию)</li>
+<li><strong>Уровень 5</strong> — максимальная оптимизация (медленнее)</li>
+<li><strong>Уровень 4</strong> — значительно быстрее, но требует <strong>40GB+ RAM</strong></li>
+</ul>
+<hr/>
+<h3>💾 Кнопка <strong>"Save and Start"</strong> — сохранить настройки и запустить</h3>
+<p>Эти настройки позволяют оптимизировать работу под вашу видеокарту и доступную память!</p>
+<p>Интерфейс откроется:</p>
+<div class="codehilite"><div class="code-block"><button class="copy-code-button">Copy Code</button><pre><span></span><code>http://127.0.0.1:8080
+</code></pre></div></div>
+<hr/>
+<h1>💻 Требования</h1>
+<p>Минимум:</p>
+<ul>
+<li>NVIDIA GPU</li>
+<li><strong>12 GB VRAM</strong></li>
+</ul>
+<p>Рекомендуется:</p>
+<ul>
+<li><strong>12–24 GB VRAM</strong></li>
+<li><strong>32 GB RAM</strong></li>
+</ul>
+<hr/>
+<p>✔ <strong>Все модели уже загружены</strong> — можно сразу начинать работу после установки!</p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/razrabotka-mini-heroesdot-devlog-2dot/"> <strong>Разработка MINI HEROES. DevLog 2.</strong></a>
+<br/><br/>
+
+<!--next_url
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
+next_url-->
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2026</p>
+</footer>
+</body>
+</html>
