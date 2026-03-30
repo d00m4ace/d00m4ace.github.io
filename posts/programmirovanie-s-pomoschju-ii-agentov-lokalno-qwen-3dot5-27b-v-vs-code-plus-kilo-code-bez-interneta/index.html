@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Программирование с помощью ИИ агентов локально: Qwen 3.5 27B в VS Code + Kilo Code без интернета</title><meta name="description" content="Подробный разбор локального программирования с ИИ: запуск Qwen 3.5 27B через Ollama, работа в VS Code с Kilo Code без интернета, настройка RTX 4090, отключение автодополнений и полная приватность без затрат на API."/>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Программирование с помощью ИИ агентов локально: Qwen 3.5 27B в VS Code + Kilo Code без интернета</h1>
+<h3 class="subtitle">
+	<span class="tag">#175</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 30 марта 2026 г.</span>
+	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;понедельник, 30 марта 2026 г.</span> 
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;10 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;861 слово</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/ollama/">#OLLAMA</a><a class="button is-outlined" href="/posts/tags/code/">#CODE</a><a class="button is-outlined" href="/posts/tags/ai/">#AI</a><a class="button is-outlined" href="/posts/tags/faq/">#FAQ</a><a class="button is-outlined" href="/posts/tags/windows/">#Windows</a>
+</div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/F4xaLLPOrQo"></iframe></div>
+<p>📺 <a href="https://www.youtube.com/watch?v=F4xaLLPOrQo">YouTube видео</a></p>
+<p>📺 <a href="https://vkvideo.ru/video-224167280_456239025">VK видео</a></p>
+<p>Использование локальных ИИ-агентов для написания кода — это новый стандарт для разработчиков, которым важна абсолютная приватность, независимость от платных API и безопасность данных. Модель <strong>Qwen 3.5 27B</strong>, запущенная на домашнем ПК (например, с видеокартой RTX 4090 24 ГБ), отлично справляется с ролью автономного ИИ-программиста.</p>
+<p>Ниже приведен подробный разбор того, как работает эта связка в закрытом контуре.</p>
+<h3>1. Как работает связка VS Code + Kilo Code + Ollama</h3>
+<p>Для работы ИИ-агента без интернета используется следующая архитектура:</p>
+<ul>
+<li><strong>Ollama:</strong> Выступает в роли локального сервера, который загружает и выполняет веса модели Qwen 3.5 27B.</li>
+<li><strong>VS Code:</strong> Основная среда разработки.</li>
+<li><strong>Kilo Code:</strong> Продвинутое расширение (ИИ-агент) для VS Code. В его настройках в качестве провайдера указывается локальный адрес машины (например, <code>0.0.0.0:9117</code>), что замыкает систему — код никуда не отправляется и остается строго на вашем ПК.</li>
+</ul>
+<p><strong>Агентский подход Kilo Code:</strong>
+В отличие от простых автодополнений, агент способен анализировать объемные проекты (например, игру на языке C объемом около 650 КБ). Получив задачу, агент самостоятельно читает нужные файлы, составляет подробный план модификации (ToDo-лист) и даже рисует текстовые диаграммы логики перед тем, как писать код. После генерации кода Kilo Code показывает удобное окно сравнения (Diff), где добавленные строки подсвечены зеленым, а удаленные — красным, позволяя разработчику вручную перенести нужные изменения в проект, чтобы ничего не сломать. Кроме того, агент умеет «сжимать» контекстное окно, удаляя старые логи, чтобы избегать переполнения памяти.</p>
+<h3>2. Мультимодальность: ИИ, который видит баги</h3>
+<p>Одной из самых сильных сторон локальной Qwen 3.5 является ее способность распознавать изображения. Если в процессе тестирования программы выявляется визуальная ошибка (например, некорректный вывод текста и процентов в UI), достаточно отправить агенту скриншот. Модель проанализирует картинку, найдет проблему и предложит исправление в коде.</p>
+<h3>3. Оптимизация под 24 ГБ видеопамяти (RTX 4090)</h3>
+<p>Чтобы «тяжелая» модель на 27 миллиардов параметров работала быстро, тихо (с температурой видеокарты не выше 50°C) и не выдавала ошибок нехватки памяти, необходимо правильно настроить системные переменные Ollama.</p>
+<p><strong>Оптимальные системные переменные (Environment Variables):</strong></p>
+<p><img alt="Установка OLLAMA SET" src="/imgs/posts/ollama_env_01.png"/></p>
+<ul>
+<li><strong><code>OLLAMA_KV_CACHE_TYPE = q4_0</code></strong> — <strong>Ключевой параметр.</strong> Это 4-битное квантование (сжатие) кэша модели. Изначально использование 8-битного квантования (<code>q8_0</code>) замедляет работу, а стандартное (<code>F16</code>) вызывает перерасход памяти. Переход на <code>q4_0</code> радикально ускоряет генерацию ответов при практически незаметном падении качества кода.</li>
+<li><strong><code>OLLAMA_FLASH_ATTENTION = 1</code></strong> — Включение этой опции значительно снижает расход видеопамяти.</li>
+<li><strong><code>OLLAMA_CONTEXT_LENGTH = 128000</code></strong> — Устанавливает лимит контекста в 128 000 токенов. Попытки увеличить его (например, до 256k или 1 млн) приведут к сильным тормозам на 24 ГБ видеопамяти. <em>(С включенным Q4 квантованием потенциально можно пробовать расширять до 200 000)</em>.</li>
+<li><strong><code>OLLAMA_NUM_PARALLEL = 1</code></strong> — Ограничивает сервер обработкой только одного запроса за раз, исключая резкие скачки потребления памяти.</li>
+<li><strong><code>OLLAMA_MAX_LOADED_MODELS = 1</code></strong> — Запрещает загрузку нескольких моделей одновременно.</li>
+<li><strong><code>OLLAMA_KEEP_ALIVE = 60m</code></strong> — Удерживает модель в видеопамяти 60 минут при бездействии, избавляя от долгой загрузки при новых запросах.</li>
+</ul>
+<h3>4. Отключение автодополнений в Kilo Code</h3>
+<p>Отключение автодополнений в Kilo Code — это важный шаг для экономии токенов и обеспечения бесплатной работы Kilo Code. </p>
+<p><img alt="Отключение Kilo Code автодополнений" src="/imgs/posts/kilo_code_01.png"/></p>
+<p>Дело в том, что даже если вы настроили основного ИИ-агента на локальную модель (Ollama), система автодополнений Kilo Code по умолчанию может использовать внешнего провайдера. На скриншоте видно, что в разделе <strong>Model</strong> для автодополнений указан провайдер <em>Kilo Gateway</em> и облачная модель <em>mistralai/codestral-2508</em>. Фоновые запросы к ней при наборе текста расходовали бы платные токены.</p>
+<p>Чтобы полностью отключить эти функции и работать бесплатно, необходимо выполнить следующие настройки в интерфейсе расширения:</p>
+<p><strong>Шаги по отключению автодополнений:</strong></p>
+<ol>
+<li>Откройте настройки Kilo Code и перейдите в раздел <strong>Autocomplete</strong> в левом боковом меню.</li>
+<li>В блоке <strong>Code Editor Suggestions</strong> (Подсказки в редакторе кода) снимите галочку с пункта <strong>Auto-trigger Suggestions</strong>. Это запретит расширению автоматически генерировать и показывать варианты кода каждый раз, когда вы делаете паузу при печати.</li>
+<li>В этом же блоке вы можете снять галочку с <strong>Trigger on Keybinding (Ctrl+L)</strong>, чтобы отключить даже ручной запрос подсказок по нажатию горячих клавиш.</li>
+<li>В блоке <strong>Chat Suggestions</strong> (Подсказки в чате) снимите галочку с пункта <strong>Enable Chat Autocomplete</strong>. Это отключит генерацию вариантов продолжения текста, пока вы пишете промпт в окне чата агента.</li>
+</ol>
+<p><strong>Итог:</strong>
+Сняв эти три галочки (как это показано на скриншоте), вы полностью отключите фоновую отправку фрагментов вашего кода на внешние серверы Kilo Gateway. В связке с локально запущенной моделью Qwen 3.5 через Ollama, это позволит вам программировать абсолютно бесплатно, сохраняя полную приватность и не сжигая бюджет на токены.</p>
+<h3>5. Почему за этим будущее (Безопасность и экономия)</h3>
+<p>Разработка в полностью закрытом контуре (без доступа в интернет) решает две главные проблемы современного программирования:</p>
+<ol>
+<li><strong>Защита приватных данных:</strong> Ваши ключи, архитектура и секретные данные организации никуда не утекают.</li>
+<li><strong>Экономия бюджета:</strong> Использование облачных API обходится дорого. Запуск локальной ИИ-модели позволяет не платить за токены. По словам автора, лучше
+ инвестировать эти деньги в мощное железо, получив полностью независимую и бесплатную в использовании среду разработки.</li>
+</ol>
+<p><strong>Где скачать все инструменты из видео (Ссылки):</strong></p>
+<ul>
+<li><strong>Ollama (Локальный сервер для моделей):</strong> <a href="https://ollama.com/">https://ollama.com/</a></li>
+<li><strong>Среда разработки Visual Studio Code (VS Code):</strong> <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+<li><strong>ИИ-агент Kilo Code:</strong> Устанавливается прямо внутри редактора VS Code. Перейдите во вкладку <em>Extensions</em> (Расширения) и введите в поиск <strong>Kilo Code</strong>.</li>
+<li><strong>Модель Qwen 3.5 27B:</strong> Скачивается автоматически через терминал после установки Ollama. Найти доступные версии и команды для скачивания (например, <code>ollama run qwen3.5:27b</code> или специфичные теги) можно в официальной библиотеке: <a href="https://ollama.com/library/qwen3.5">https://ollama.com/library/qwen3.5</a></li>
+</ul>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/trellisdot2-vs-hunyuan3d-2dot1---generatsija-3d-iz-kartinki-lokalno---rtx-3080-vs-4090/"> <strong>TRELLIS.2 vs Hunyuan3D 2.1 - генерация 3D из картинки локально - RTX 3080 vs 4090</strong></a>
+<br/><br/>
+
+<!--next_url
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
+next_url-->
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2026</p>
+</footer>
+</body>
+</html>
