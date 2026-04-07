@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Разработка MINI HEROES. DevLog 3.</title><meta name="description" content="DevLog #3 — обновление Mini Heroes 0.3: магия, прокачка, тактика, новые враги и улучшенный геймплей. Игра доступна на hexplay.com"/>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Разработка MINI HEROES. DevLog 3.</h1>
+<h3 class="subtitle">
+	<span class="tag">#176</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;вторник, 7 апреля 2026 г.</span>
+	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;вторник, 7 апреля 2026 г.</span> 
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;3 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;201 слово</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/mini-heroes/">#MINI HEROES</a><a class="button is-outlined" href="/posts/tags/devlog/">#DevLog</a><a class="button is-outlined" href="/posts/tags/hexplay/">#Hexplay</a><a class="button is-outlined" href="/posts/tags/c11/">#C11</a>
+</div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/6MmpqEuSG_Y"></iframe></div>
+<p>📺 <a href="https://www.youtube.com/watch?v=6MmpqEuSG_Y">YouTube видео</a></p>
+<p>📺 <a href="https://vkvideo.ru/video-236272708_456239018">VK видео</a></p>
+<p>🎮 <strong>DevLog #3 — большое обновление Mini Heroes (версия 0.3)!</strong></p>
+<p>Продолжаю развивать проект — игра становится глубже и интереснее. Делюсь, что уже добавил 👇</p>
+<h2>🕹 Уже можно поиграть</h2>
+<p><strong><a href="https://hexplay.com/ru/">Играть в MINI HEROES</a></strong></p>
+<hr/>
+<h2>✨ Магия</h2>
+<p>Теперь у героев есть заклинания (уже 3 тира).<br/>
+В начале даю 2 случайных, остальные можно найти в башнях и хижинах ведьм.</p>
+<p>Добавил ману: старт — 10, восстанавливается в колодцах или сама (+2 за ход).<br/>
+Уже есть: магическая стрела, щит, ускорение, замедление и другие.</p>
+<hr/>
+<h2>📈 Прокачка</h2>
+<p>Добавил опыт (XP) за бои и обелиски.<br/>
+При уровне можно выбрать развитие:</p>
+<ul>
+<li>Урон (бафф всей армии)  </li>
+<li>Защита (бафф всей армии)  </li>
+<li>Магия (усиливает заклинания)</li>
+</ul>
+<hr/>
+<h2>⚔️ Тактика и карта</h2>
+<p>Теперь важен ландшафт:<br/>
+например, болото режет атаку и защиту.</p>
+<p>Появились скрытые враги — призраки, вампиры, пауки.<br/>
+Их не видно, пока не наткнёшься 👀</p>
+<p>Экономику упростил — теперь только золото.<br/>
+Юнитов можно нанимать в замках, башнях, деревнях, шатрах и других строениях.</p>
+<hr/>
+<h2>📱 Технически</h2>
+<p>На телефоне работает в полный экран + можно установить как PWA (прямо на рабочий стол).</p>
+<hr/>
+<p>Проект всё ещё в разработке, баги возможны<br/>
+(например, иногда XP за магию не засчитывается),<br/>
+но уже вполне играбельно.</p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/programmirovanie-s-pomoschju-ii-agentov-lokalno-qwen-3dot5-27b-v-vs-code-plus-kilo-code-bez-interneta/"> <strong>Программирование с помощью ИИ агентов локально: Qwen 3.5 27B в VS Code + Kilo Code без интернета</strong></a>
+<br/><br/>
+
+<!--next_url
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
+next_url-->
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2026</p>
+</footer>
+</body>
+</html>
