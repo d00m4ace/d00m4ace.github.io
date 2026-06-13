@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Краш-тест ЛИС: Что сможет локальный ИИ на слабом ПК (Gemma 4B, RTX 3050)</title><meta name="description" content="🦊 ЛИС — Локальные Интеллектуальные Системы без API и интернета. Ноутбук RTX 3050 4GB + ПК RTX 4070 12GB через LM Studio. Голосовые команды, персонажи, vision, игры, мемы, захват экрана и камеры — всё локально и бесплатно. ⚠️ Персонажи матерятся. Умеет: локальный LLM, распознавание речи, озвучку, голосовые команды, захват экрана/камеры, vision, игры. Подписывайтесь на D00M4ACE!"/>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Краш-тест ЛИС: Что сможет локальный ИИ на слабом ПК (Gemma 4B, RTX 3050)</h1>
+<h3 class="subtitle">
+	<span class="tag">#179</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;суббота, 13 июня 2026 г.</span>
+	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;суббота, 13 июня 2026 г.</span> 
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;4 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;325 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/lis/">#LIS</a><a class="button is-outlined" href="/posts/tags/llm/">#LLM</a><a class="button is-outlined" href="/posts/tags/local-ai/">#Local AI</a>
+</div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/rlUTDjXjpX4"></iframe></div>
+<p>📺 <a href="https://www.youtube.com/watch?v=rlUTDjXjpX4">YouTube видео</a></p>
+<p>📺 <a href="https://vkvideo.ru/video-224167280_456239032">VK видео</a></p>
+<p>🦊 ЛИС — Локальные Интеллектуальные Системы, собранные с нуля. Никакого OpenAI, никакого API, никакого интернета. Всё крутится на двух машинах: дохлый ноутбук (RTX 3050 4GB) + ПК (RTX 4070 12GB) через LM Studio. Голосовые команды, персонажи, vision, игры, мемы, захват экрана и камеры — и всё это локально и бесплатно. Но есть нюанс: персонажи иногда матерятся. Цензура отключена — модель выдаёт что думает.</p>
+<p>⏱ <strong>Таймкоды:</strong></p>
+<ul>
+<li>0:00 – Что такое ЛИС и почему он без API  </li>
+<li>0:47 – Железо: ноутбук с RTX 3050 4GB + ПК с 4070  </li>
+<li>1:20 – Запуск чата с агентом-помощником  </li>
+<li>1:48 – Добавляем персонажа «Дюк»  </li>
+<li>2:10 – Дюк шутит про айтишников (жёстко)  </li>
+<li>3:12 – Добавляем «Катя» — она слишком милая  </li>
+<li>4:22 – Удаляем Катю, чистим историю  </li>
+<li>5:30 – Чат с Дюком и Ольгой одновременно  </li>
+<li>6:30 – Крестики-нолики между персонажами (без изображения — случайно)  </li>
+<li>9:00 – Включаем захват экрана по-нормальному  </li>
+<li>10:45 – Разбор мемов про ИИ: страх, хайп, замена людей  </li>
+<li>14:00 – DeepSeek vs ChatGPT vs другие — мем про конкуренцию  </li>
+<li>17:00 – Игра «Угадай рисунок» (человечек, гриб, микрофон, бомба)  </li>
+<li>22:30 – Захват камеры: что за прибор?  </li>
+<li>23:30 – Еда из Telegram: сколько калорий?  </li>
+<li>25:30 – Почему ЛИС впечатляет даже на 4GB  </li>
+<li>26:30 – Планы, челлендж на локальные нейросети, прощание  </li>
+</ul>
+<p>🧠 <strong>Что умеет ЛИС уже сейчас:</strong><br/>
+✅ Полностью локальный LLM (Gemma 4B, Qwen и др.)<br/>
+✅ Распознавание речи + озвучка<br/>
+✅ Голосовые команды (Ctrl / Shift)<br/>
+✅ Несколько персонажей в одном чате<br/>
+✅ Захват экрана и камеры<br/>
+✅ Vision-анализ картинок и мемов<br/>
+✅ Игры (крестики-нолики, «угадай рисунок»)  </p>
+<p>💬 <strong>Обсудим в комментариях:</strong><br/>
+→ Пробовали запускать LLM локально? На каком железе?<br/>
+→ Какой персонаж получился самым живым?<br/>
+→ Что хотите видеть в следующих выпусках про ЛИС?</p>
+<p>🔔 <strong>Подписывайтесь на канал D00M4ACE</strong> — здесь я делюсь размышлениями о гейминге, ретро-консолях, разработке игр и использовании ИИ в творчестве. Вместе соберём тусовку единомышленников!</p>
+<p><a href="https://www.youtube.com/c/d00m4ace">https://www.youtube.com/c/d00m4ace</a></p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/novaja-era-retro-igr-v-2026-zachem-aaa-esli-portativka-daet-tysjachi-retro-hitov/"> <strong>Новая эра ретро-игр в 2026: Зачем ААА, если портативка даёт тысячи ретро-хитов?</strong></a>
+<br/><br/>
+
+<!--next_url
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
+next_url-->
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2026</p>
+</footer>
+</body>
+</html>
