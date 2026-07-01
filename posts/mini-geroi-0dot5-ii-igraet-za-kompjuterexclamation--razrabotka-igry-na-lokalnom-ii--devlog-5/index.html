@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мини-Герои 0.5: ИИ играет за компьютер! 🤖 Разработка игры на локальном ИИ | Devlog #5</title><meta name="description" content="Devlog #5: Мини-Герои 0.5. Внедряю локальный ИИ (Qwen 27B) для соперников в браузерной стратегии на C. Разбираю стек LM Studio + Cline. Канал D00M4ACE."/>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">Мини-Герои 0.5: ИИ играет за компьютер! 🤖 Разработка игры на локальном ИИ | Devlog #5</h1>
+<h3 class="subtitle">
+	<span class="tag">#182</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;среда, 1 июля 2026 г.</span>
+	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;среда, 1 июля 2026 г.</span> 
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;4 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;256 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/mini-heroes/">#MINI HEROES</a><a class="button is-outlined" href="/posts/tags/devlog/">#DevLog</a><a class="button is-outlined" href="/posts/tags/hexplay/">#Hexplay</a><a class="button is-outlined" href="/posts/tags/c11/">#C11</a>
+</div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/CMA5jV8pjFc"></iframe></div>
+<p>📺 <a href="https://www.youtube.com/watch?v=CMA5jV8pjFc">YouTube видео</a></p>
+<p>📺 <a href="https://vkvideo.ru/video-224167280_456239036">VK видео</a></p>
+<p>В этом девлоге я показываю версию 0.5 игры «Мини-Герои» и рассказываю, как разрабатываю проект с помощью локальных нейросетей. Компьютерные игроки теперь могут ходить сами! Разбираю стек: Plain C, LM Studio, модель Qwen 27B и расширение Cline для VS Code.</p>
+<p>🎮 <strong>MINI HEROES v.0.5 — стратегия в духе классических «Героев Меча и Магии»</strong><br/>
+MINI HEROES — пошаговая стратегия на гексагональной сетке, вдохновлённая легендарной серией Heroes of Might and Magic. Управляйте героями, набирайте армии и сражайтесь за контроль над картой.</p>
+<p>🔗 <strong>Играть можно прямо в браузере (бесплатно, без регистрации):</strong><br/>
+<strong><a href="https://hexplay.com/ru/">Играть в MINI HEROES</a></strong></p>
+<p>⏳ <strong>Таймкоды:</strong></p>
+<ul>
+<li>0:00 — Вступление: Мини-Герои 0.5</li>
+<li>0:58 — Внедрение ИИ: компьютерные игроки ходят</li>
+<li>2:36 — Как работает ИИ (режим отладки)</li>
+<li>8:07 — Механики игры: монстры, недели, перманентная смерть героя</li>
+<li>9:45 — Разработка с помощью локального ИИ</li>
+<li>12:04 — Инструменты: VS Code, Cline Client, LM Studio</li>
+<li>14:48 — Железо: 2x RTX 4060 Ti (32 ГБ VRAM) для Qwen 27B</li>
+<li>17:08 — Задача для ИИ: оценка рисков перед атакой</li>
+<li>20:16 — Сравнение моделей: Qwen vs Gemini</li>
+<li>27:00 — Почему нет Steam? Философия инди-разработчика</li>
+<li>30:48 — Итоги и планы на будущее</li>
+</ul>
+<p>🛠 <strong>Технический стек в видео:</strong>
+- <strong>Язык:</strong> Plain C
+- <strong>Модель:</strong> Qwen 27B (Q6_K_M), запущенная локально
+- <strong>Сервер:</strong> LM Studio
+- <strong>IDE:</strong> VS Code + расширение Cline
+- <strong>Арт:</strong> Flux + LoRA</p>
+<p>🔔 <strong>Подписывайтесь на канал D00M4ACE</strong> — здесь я делюсь размышлениями о гейминге, ретро-консолях, разработке игр и использовании ИИ в творчестве. Вместе соберём тусовку единомышленников!</p>
+<p>👉 <a href="https://www.youtube.com/c/d00m4ace">https://www.youtube.com/c/d00m4ace</a></p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/oflajn-ii-lis-test-qwen-3dot6-bez-tsenzury-na-rtx-4090-bez-oblachnyh-api/"> <strong>Офлайн ИИ ЛИС: тест Qwen 3.6 без цензуры на RTX 4090 без облачных API</strong></a>
+<br/><br/>
+
+<!--next_url
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
+next_url-->
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2026</p>
+</footer>
+</body>
+</html>
