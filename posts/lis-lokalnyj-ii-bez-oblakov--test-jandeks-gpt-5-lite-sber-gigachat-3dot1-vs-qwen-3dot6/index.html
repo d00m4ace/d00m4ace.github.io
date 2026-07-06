@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJSGV90123"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MJSGV90123');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ЛИС: Локальный ИИ без облаков 🦊 Тест Яндекс GPT 5 Lite, Сбер GigaChat 3.1 vs Qwen 3.6</title><meta name="description" content="Тестируем ЛИС — локальный мультиагентный ИИ без облаков и цензуры. Запускаем Яндекс GPT 5 Lite, Сбер GigaChat 3.1 и Qwen 3.6 на NVIDIA RTX 3050 (4 GB) + RTX 4090 (24 GB) + 2x RTX 5060 (16 GB). Офлайн-чат, сравнение моделей и автономная работа прямо на ПК."/>
+<link rel="stylesheet" type="text/css" href="/css/mystyles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/codehilite.css"/>
+<link rel="stylesheet" type="text/css" href="/css/modding.css"/>
+<script async defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/main.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(96437642, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/96437642" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav id="navbar" class="bd-navbar navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://d00m4ace.com">
+      <img src="/imgs/d00m4ace-c-box.png" alt="D00M4ACE блог ИИ и геймдев">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+	
+      <a class="navbar-item  is-info" href="/posts/">
+        <strong>Блог</strong>
+      </a> &nbsp;	 
+
+      <a class="navbar-item  is-info" href="/projects/">
+        <strong>Проекты</strong>
+      </a> &nbsp;	 
+	
+	  <a class="navbar-item  is-info" href="/posts/tags/">
+        <strong>Тэги</strong>
+      </a> &nbsp;
+	  
+	   <a class="navbar-item  is-info" href="/shortcuts/">
+        <strong>Заметки</strong>
+      </a> &nbsp;
+	  
+    </div>
+	
+	
+	<div class="navbar-end">
+      <div class="navbar-item">
+	  
+	<a class="navbar-item" href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+    </a>
+
+	<a class="navbar-item" href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+    </a>
+	
+	<a class="navbar-item" href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+    </a>
+	&nbsp;	
+	 
+	<button id="color-switcher" class="button">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+  &nbsp;
+	 
+	<input type="text" class="input" id="searchBox" placeholder="Enter your search terms here">&nbsp;
+    <button id="searchButton" class="button">Search</button>
+
+      </div>
+    </div>
+	
+  </div>
+</nav>
+
+<section class="section" style="padding-top: 10px; padding-bottom: 10px;">
+<main class="container mb-6">
+
+<div id="searchResults"></div>
+
+
+<article class="content">
+<h1 class="title">ЛИС: Локальный ИИ без облаков 🦊 Тест Яндекс GPT 5 Lite, Сбер GigaChat 3.1 vs Qwen 3.6</h1>
+<h3 class="subtitle">
+	<span class="tag">#183</span>
+	<span class="tag is-info"><i class="far fa-calendar"></i>&nbsp;понедельник, 6 июля 2026 г.</span>
+	 <span class="tag is-success"><i class="fas fa-edit"></i>&nbsp;понедельник, 6 июля 2026 г.</span> 
+	<span class="tag is-link"><i class="far fa-clock"></i>&nbsp;5 минут(ы)</span>
+	<span class="tag is-warning"><i class="fas fa-book"></i>&nbsp;366 слов</span>
+</h3><div class="buttons">
+      <a class="button is-outlined" href="/posts/tags/lis/">#LIS</a><a class="button is-outlined" href="/posts/tags/llm/">#LLM</a><a class="button is-outlined" href="/posts/tags/local-ai/">#Local AI</a>
+</div><div class="video-container"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/xlDoso4hUrA"></iframe></div>
+<p>📺 <a href="https://www.youtube.com/watch?v=xlDoso4hUrA">YouTube видео</a></p>
+<p>📺 <a href="https://vkvideo.ru/video-224167280_456239038">VK видео</a></p>
+<p>В этом видео продолжаю разработку и тестирование проекта ЛИС — Локальные Интеллектуальные Системы 🦊. Это локальная мультиагентная ИИ-система, которая работает полностью офлайн без облачных API. Всё крутится на домашнем железе (RTX 4090), а в роли основной модели выступает Qwen 3.6 35B (uncensored). Проверяю, как система ведет себя без цензурных фильтров, как агенты взаимодействуют друг с другом, и сравниваю возможности российских моделей (Яндекс GPT, Сбер GigaChat) с китайскими аналогами.</p>
+<p>🦊 <strong>ЛИС — Локальные Интеллектуальные Системы</strong><br/>
+Локальная мультиагентная ИИ-система, которая работает полностью офлайн без облачных API.</p>
+<p>🔍 <strong>Что внутри:</strong></p>
+<p>🔹 Запуск мультиагентного чата (Дюк, Катя, Ольга) в рамках ЛИС
+🔹 Тест на «острые» темы: геополитика, США, санкции, Илон Маск
+🔹 Проверка понимания контекста: дефицит бензина в Калининграде
+🔹 Юмор, код и реальное состояние российского ИИ-развития
+🔹 Разбор технических нюансов: контекстные окна, отсутствие Vision у РФ-моделей, работа без tool_use</p>
+<p>⏱ <strong>Таймкоды:</strong></p>
+<ul>
+<li>0:00 — Вступление: проект ЛИС и тест локальных ИИ</li>
+<li>0:37 — Обзор моделей: Яндекс GPT 5 Lite, GigaChat 3.1 vs Qwen 3.6</li>
+<li>1:42 — Ограничения: контекст, отсутствие Vision и tool_use у РФ-моделей</li>
+<li>5:05 — Запуск мультиагентного чата: Дюк, Катя, Ольга</li>
+<li>8:49 — Тест 1: Жест Илона Маска и реакция нейросетей</li>
+<li>13:13 — Тест 2: США — «страна-изгой»? Геополитика и цензура</li>
+<li>17:14 — Тест 3: Россия, санкции и технологический суверенитет</li>
+<li>22:26 — Тест 4: Дефицит бензина в Калининграде и логистика</li>
+<li>26:32 — Тест 5: Юмор и анекдоты про программистов</li>
+<li>30:35 — Тест 6: Будущее ИИ в России vs реальность разработки</li>
+<li>38:03 — Вердикт: кто лучше для кода, чата и локального использования?</li>
+<li>41:48 — Итоги, планы и выводы по ЛИС </li>
+</ul>
+<p>🛠 <strong>Технический стек:</strong></p>
+<ul>
+<li>🖥️ Железо: NVIDIA RTX 3050 (4 GB) + NVIDIA RTX 4090 (24 GB) + 2x NVIDIA RTX 5060 (16 GB)</li>
+<li>🤖 Основная модель: Qwen 3.6 35B A3B (uncensored, MTP)</li>
+<li>🇷🇺 РФ-модели: YandexGPT 5 Lite 8B, Sber GigaChat 3.1 10B</li>
+<li>⚙️ Оркестратор: LM Studio, OpenAI-compatible API, полностью локальный запуск</li>
+<li>📦 Фреймворк: ЛИС (Локальные Интеллектуальные Системы) — кастомная мультиагентная среда</li>
+</ul>
+<p>🔔 <strong>Подписывайтесь на канал D00M4ACE</strong> — здесь я делюсь размышлениями о гейминге, ретро-консолях, разработке игр и использовании ИИ в творчестве. Вместе соберём тусовку единомышленников!</p>
+<p><a href="https://www.youtube.com/c/d00m4ace">https://www.youtube.com/c/d00m4ace</a></p>
+<hr/><nav class="bd-docs-pagination bd-pagination-links">
+
+
+    <em><i>←</i> Предыдущая статья:</em>
+<br/><a href="/posts/mini-geroi-0dot5-ii-igraet-za-kompjuterexclamation--razrabotka-igry-na-lokalnom-ii--devlog-5/"> <strong>Мини-Герои 0.5: ИИ играет за компьютер! 🤖 Разработка игры на локальном ИИ | Devlog #5</strong></a>
+<br/><br/>
+
+<!--next_url
+    <em><i>→</i> Следующая статья:</em>
+<br/>   <a href="{{next_url}}"> <strong>{{title_next_url}}</strong></a>
+next_url-->
+
+</nav>
+</article>
+
+</main>
+</section>
+
+<footer class="footer has-text-centered" id="footer" style="padding-top: 10px; padding-bottom: 10px;">
+
+    <p>
+      <a href="https://github.com/d00m4ace" target="_blank">
+      <img src="/imgs/github-mark.png" alt="D00M4ACE GitHub">
+      </a> &nbsp;
+	  <a href="https://t.me/d00m4ace_blog" target="_blank">
+      <img src="/imgs/telega-mark.png" alt="D00M4ACE Telegram">
+      </a> &nbsp;
+	  <a href="https://www.youtube.com/@d00m4ace" target="_blank">
+      <img src="/imgs/youtube-mark.png" alt="D00M4ACE YouTube">
+      </a>
+    </p>
+
+<p>Copyright <strong>d00m4ace</strong> © 2026</p>
+</footer>
+</body>
+</html>
